@@ -52,13 +52,13 @@ public class AzioniAziendaGraphicController {
     @FXML
     private void describeToFollowers() throws IOException{
         //todo holy shit this shit has to be done
-        //System.out.println("Holy shit tihs shit has to be done");
+        System.out.println("Holy shit tihs shit has to be done");
     }
 
     @FXML
     private void viewEventInsights() throws IOException{
         //todo holy shit this shit has to be pt 2
-        //System.out.println("Holy shit tihs shit has to be done pt 2");
+        System.out.println("Holy shit tihs shit has to be done pt 2");
     }
 
 }
