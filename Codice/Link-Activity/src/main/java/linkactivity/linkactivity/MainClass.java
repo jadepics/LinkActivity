@@ -25,3 +25,7 @@ public class MainClass extends Application {
         launch();
     }
 }
+
+//TODO tutte le funzioni che tornano ad una stessa pagina fxml sono codice ripetuto, per risolvere forse si potrebbe
+// usare il singleton, fare una classe normale che gestisce la creazione magari protected che viene estesa
+// non dovrebbe andare bene

@@ -7,18 +7,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class WhoAreUGraphicController {
 
     @FXML
-    private Button CompanyButton;
+    private Button companyButton;
 
     @FXML
-    private Button UserButton;
+    private Button userButton;
 
     @FXML
-    private void RegEnti() throws Exception{
+    private void regEnti() throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegEnti.fxml")));
         Scene scene = new Scene(root, 690, 518);
         /*Stage stage = (Stage) UniversityButton.getScene().getWindow();
@@ -28,7 +29,7 @@ public class WhoAreUGraphicController {
         stage.setResizable(false);
         stage.show();*/
 
-        Stage stage2= (Stage) CompanyButton.getScene().getWindow();
+        Stage stage2= (Stage) companyButton.getScene().getWindow();
 
         stage2.setTitle("Link-Activity");
         stage2.setScene(scene);
@@ -37,10 +38,10 @@ public class WhoAreUGraphicController {
     }
 
     @FXML
-    private void RegUser() throws Exception {
+    private void regUser() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Registration.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) UserButton.getScene().getWindow();
+        Stage stage = (Stage) userButton.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);

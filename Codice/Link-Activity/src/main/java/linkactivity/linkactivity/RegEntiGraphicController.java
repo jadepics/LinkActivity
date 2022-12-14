@@ -13,26 +13,26 @@ import java.util.Objects;
 public class RegEntiGraphicController {
 
     @FXML
-    private Button BackButton2;
+    private Button backButton2;
 
     @FXML
-    private Button EntiRegisterButton; //todo parte di registrazione vera e propria senza la quale torna errore minore al passaggio di schermata
+    private Button entiRegisterButton; //todo parte di registrazione vera e propria senza la quale torna errore minore al passaggio di schermata
 
     @FXML
-    private Button LoginButton1;
+    private Button loginButton1;
 
     @FXML
-    private Button SignUpGoogleButton1; //todo forse va levato il button in quanto funzione dummy, potrebbe portare problemi su sonarcloud
+    private Button signUpGoogleButton1; //todo forse va levato il button in quanto funzione dummy, potrebbe portare problemi su sonarcloud
 
     @FXML
-    private Button UpdateLogoButton; //todo parte di updatelogo vera e propria senza la quale torna errore minore al passaggio di schermata
+    private Button updateLogoButton; //todo parte di updatelogo vera e propria senza la quale torna errore minore al passaggio di schermata
 
 
     @FXML
-    private void BackToWhoAreU() throws IOException {
+    private void backToWhoAreU() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WhoAreU.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) BackButton2.getScene().getWindow();
+        Stage stage = (Stage) backButton2.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
@@ -42,10 +42,10 @@ public class RegEntiGraphicController {
     }
 
     @FXML
-    private void EntiRegister() throws IOException{
+    private void entiRegister() throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) EntiRegisterButton.getScene().getWindow();
+        Stage stage = (Stage) entiRegisterButton.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
@@ -54,10 +54,10 @@ public class RegEntiGraphicController {
     }
 
     @FXML
-    private void Login() throws IOException{
+    private void login() throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) LoginButton1.getScene().getWindow();
+        Stage stage = (Stage) loginButton1.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
@@ -66,13 +66,13 @@ public class RegEntiGraphicController {
     }
 
     @FXML
-    private void SignUpGoogle() /*throws IOException*/{
+    private void signUpGoogle() /*throws IOException*/{
         //todo holy shit this shit has to be done SIGNUPGOOGLE
         System.out.println("Holy shit this shit has to be done SIGNUPGOOGLE");
     }
 
     @FXML
-    private void UpdateLogo() /*throws IOException*/{
+    private void updateLogo() /*throws IOException*/{
         //todo holy shit this shit has to be done UPDATELOGO
         System.out.println("Holy shit this shit has to be done UPDATELOGO");
     }

@@ -13,22 +13,22 @@ import java.util.Objects;
 public class LoginGraphicController {
 
     @FXML
-    private Button BackButton3;
+    private Button backButton3;
 
     @FXML
-    private Button LoginButton3;
+    private Button loginButton3;
 
     @FXML
-    private Button LoginWithGoogleButton;
+    private Button loginWithGoogleButton;
 
     @FXML
-    private Button RegisterButton;
+    private Button registerButton;
 
     @FXML
-    private void BackToWhoAreU() throws IOException { //todo levare shortcut register su login
+    private void backToWhoAreU() throws IOException { //todo levare shortcut register su login
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WhoAreU.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) BackButton3.getScene().getWindow();
+        Stage stage = (Stage) backButton3.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
@@ -37,12 +37,12 @@ public class LoginGraphicController {
     }
 
     @FXML
-    private void Login() throws IOException{
+    private void login() throws IOException{
 
     }
 
     @FXML
-    private void LoginGoogle() {
+    private void loginGoogle() {
     }
 
 }

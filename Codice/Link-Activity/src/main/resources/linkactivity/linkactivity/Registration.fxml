@@ -39,7 +39,7 @@
                   <Image url="@Images/GoogleIcon.png" />
                </image>
             </ImageView>
-            <Button fx:id="SignUpGoogleButton2" ellipsisString="" layoutX="217.0" layoutY="367.0" mnemonicParsing="false" onAction="#SignUpGoogle" opacity="0.0" prefHeight="28.0" prefWidth="193.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
+            <Button fx:id="signUpGoogleButton2" ellipsisString="" layoutX="217.0" layoutY="367.0" mnemonicParsing="false" onAction="#signUpGoogle" opacity="0.0" prefHeight="28.0" prefWidth="193.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -61,7 +61,7 @@
                   <Font name="Georgia" size="17.0" />
                </font>
             </Text>
-            <Button fx:id="LoginButton2" ellipsisString="" layoutX="423.0" layoutY="369.0" mnemonicParsing="false" onAction="#Login" opacity="0.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: ffffff;" text="Login" textFill="#2f00ff">
+            <Button fx:id="loginButton2" ellipsisString="" layoutX="423.0" layoutY="369.0" mnemonicParsing="false" onAction="#login" opacity="0.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: ffffff;" text="Login" textFill="#2f00ff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -82,7 +82,7 @@
                   <Font name="Georgia" size="35.0" />
                </font>
             </Text>
-            <Button fx:id="UserRegisterButton" ellipsisString="" layoutX="268.0" layoutY="303.0" mnemonicParsing="false" onAction="#UserRegister" opacity="0.0" prefHeight="40.0" prefWidth="156.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
+            <Button fx:id="userRegisterButton" ellipsisString="" layoutX="268.0" layoutY="303.0" mnemonicParsing="false" onAction="#userRegister" opacity="0.0" prefHeight="40.0" prefWidth="156.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -92,7 +92,7 @@
                   <Image url="@Images/icons8-back-arrow-50.png" />
                </image>
             </ImageView>
-            <Button fx:id="BackButton1" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#BackToWhoAreU" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
+            <Button fx:id="backButton1" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#backToWhoAreU" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

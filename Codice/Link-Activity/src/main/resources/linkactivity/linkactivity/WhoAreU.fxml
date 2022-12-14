@@ -37,7 +37,7 @@
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="UserButton" layoutX="276.0" layoutY="209.0" mnemonicParsing="false" onAction="#RegUser" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button">
+            <Button fx:id="userButton" layoutX="276.0" layoutY="209.0" mnemonicParsing="false" onAction="#regUser" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -48,7 +48,7 @@
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="CompanyButton" layoutX="124.0" layoutY="281.0" mnemonicParsing="false" onAction="#RegEnti" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button">
+            <Button fx:id="companyButton" layoutX="124.0" layoutY="281.0" mnemonicParsing="false" onAction="#regEnti" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -59,7 +59,7 @@
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="UniversityButton" layoutX="440.0" layoutY="281.0" mnemonicParsing="false" onAction="#RegEnti" opacity="0.0" prefHeight="30.0" prefWidth="128.0" text="Button">
+            <Button fx:id="universityButton" layoutX="440.0" layoutY="281.0" mnemonicParsing="false" onAction="#regEnti" opacity="0.0" prefHeight="30.0" prefWidth="128.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
