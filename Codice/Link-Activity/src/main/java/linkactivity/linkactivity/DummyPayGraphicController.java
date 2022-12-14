@@ -13,16 +13,16 @@ import java.util.Objects;
 public class DummyPayGraphicController {
 
     @FXML
-    private Button BackButton7;
+    private Button backButton7;
 
     @FXML
-    private Button PaymentButton;
+    private Button paymentButton;
 
     @FXML
-    private void BackToEventCreate() throws IOException {
+    private void backToEventCreate() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) BackButton7.getScene().getWindow();
+        Stage stage = (Stage) backButton7.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);

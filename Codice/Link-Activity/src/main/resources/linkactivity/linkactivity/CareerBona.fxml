@@ -37,7 +37,7 @@
                   <Image url="@Images/icons8-back-arrow-50.png" />
                </image>
             </ImageView>
-            <Button fx:id="BackButton6" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#BackToLogin" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
+            <Button fx:id="backButton6" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#backToLogin2" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -47,7 +47,7 @@
                   <Image url="@Images/icons8-gear-64.png" />
                </image>
             </ImageView>
-            <Button fx:id="GearButton" layoutX="86.0" layoutY="2.0" mnemonicParsing="false" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
+            <Button fx:id="gearButton" layoutX="86.0" layoutY="2.0" mnemonicParsing="false" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

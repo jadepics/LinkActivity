@@ -14,16 +14,16 @@ import java.util.Objects;
 public class EventCreateGraphicController {
 
     @FXML
-    private Button BackButton5;
+    private Button backButton5;
 
     @FXML
-    private Button CreateItButton;
+    private Button createItButton;
 
     @FXML
-    private void BackToAzioniAzienda() throws IOException {
+    private void backToAzioniAzienda() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) BackButton5.getScene().getWindow();
+        Stage stage = (Stage) backButton5.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
@@ -33,10 +33,10 @@ public class EventCreateGraphicController {
     }
 
     @FXML
-    private void CreateItGotoPay() throws IOException{
+    private void createItGotoPay() throws IOException{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) CreateItButton.getScene().getWindow();
+        Stage stage = (Stage) createItButton.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);

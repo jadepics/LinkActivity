@@ -13,16 +13,16 @@ import java.util.Objects;
 public class CareerBonaGraphicController {
 
     @FXML
-    private Button BackButton6;
+    private Button backButton6;
 
     @FXML
-    private Button GearButton;
+    private Button gearButton;
 
     @FXML
-    private void BackToLogin() throws IOException {
+    private void backToLogin2() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) BackButton6.getScene().getWindow();
+        Stage stage = (Stage) backButton6.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);

@@ -89,7 +89,7 @@
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="CreateItButton" layoutX="277.0" layoutY="427.0" mnemonicParsing="false" onAction="#CreateItGotoPay" opacity="0.0" prefHeight="30.0" prefWidth="141.0" text="Button">
+            <Button fx:id="createItButton" layoutX="277.0" layoutY="427.0" mnemonicParsing="false" onAction="#createItGotoPay" opacity="0.0" prefHeight="30.0" prefWidth="141.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -99,7 +99,7 @@
                   <Image url="@Images/icons8-back-arrow-50.png" />
                </image>
             </ImageView>
-            <Button fx:id="BackButton5" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#BackToAzioniAzienda" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
+            <Button fx:id="backButton5" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#backToAzioniAzienda" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
