@@ -36,7 +36,7 @@
                   <Image url="@Images/icons8-back-arrow-50.png" />
                </image>
             </ImageView>
-            <Button fx:id="BackButton4" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#BackToLogin" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
+            <Button fx:id="backButton4" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#backToLogin" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -46,7 +46,7 @@
                   <Font name="Georgia" size="26.0" />
                </font>
             </TextField>
-            <Button fx:id="CreateNewEvent" layoutX="213.0" layoutY="135.0" mnemonicParsing="false" onAction="#EventCreate" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
+            <Button fx:id="createNewEvent" layoutX="213.0" layoutY="135.0" mnemonicParsing="false" onAction="#eventCreate" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -55,7 +55,7 @@
                   <Font name="Georgia" size="21.0" />
                </font>
             </TextField>
-            <Button fx:id="ViewEventInsights" layoutX="213.0" layoutY="328.0" mnemonicParsing="false" onAction="#ViewEventInsights" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
+            <Button fx:id="viewEventInsights" layoutX="213.0" layoutY="328.0" mnemonicParsing="false" onAction="#viewEventInsights" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -64,7 +64,7 @@
                   <Font name="Georgia" size="21.0" />
                </font>
             </TextField>
-            <Button fx:id="DescribeToFollowers" layoutX="213.0" layoutY="226.0" mnemonicParsing="false" onAction="#DescribeToFollowers" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
+            <Button fx:id="describeToFollowers" layoutX="213.0" layoutY="226.0" mnemonicParsing="false" onAction="#describeToFollowers" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

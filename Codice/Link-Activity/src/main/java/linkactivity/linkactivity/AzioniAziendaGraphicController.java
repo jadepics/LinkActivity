@@ -14,22 +14,22 @@ import java.util.Objects;
 public class AzioniAziendaGraphicController {
 
     @FXML
-    private Button BackButton4;
+    private Button backButton4;
 
     @FXML
-    private Button CreateNewEvent;
+    private Button createNewEvent;
 
     @FXML
-    private Button DescribeToFollowers; //todo boh, ma deve esse dummy? no ve?
+    private Button describeToFollowers; //todo boh, ma deve esse dummy? no ve?
 
     @FXML
-    private Button ViewEventInsights; //todo eh va fatto, stamo sempre la
+    private Button viewEventInsights; //todo eh va fatto, stamo sempre la
 
     @FXML
-    private void BackToLogin() throws IOException {
+    private void backToLogin() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) BackButton4.getScene().getWindow();
+        Stage stage = (Stage) backButton4.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
@@ -38,10 +38,10 @@ public class AzioniAziendaGraphicController {
     }
 
     @FXML
-    private void EventCreate() throws IOException {
+    private void eventCreate() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) CreateNewEvent.getScene().getWindow();
+        Stage stage = (Stage) createNewEvent.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
@@ -50,15 +50,15 @@ public class AzioniAziendaGraphicController {
     }
 
     @FXML
-    private void DescribeToFollowers() throws IOException{
+    private void describeToFollowers() throws IOException{
         //todo holy shit this shit has to be done
-        System.out.println("Holy shit tihs shit has to be done");
+        //System.out.println("Holy shit tihs shit has to be done");
     }
 
     @FXML
-    private void ViewEventInsights() throws IOException{
+    private void viewEventInsights() throws IOException{
         //todo holy shit this shit has to be pt 2
-        System.out.println("Holy shit tihs shit has to be done pt 2");
+        //System.out.println("Holy shit tihs shit has to be done pt 2");
     }
 
 }
