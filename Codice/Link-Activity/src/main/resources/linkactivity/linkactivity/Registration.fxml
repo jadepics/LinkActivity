@@ -50,7 +50,7 @@
                   <Font size="13.0" />
                </font>
             </TextField>
-            <PasswordField layoutX="228.0" layoutY="207.0" prefHeight="28.0" prefWidth="235.0" promptText="Password">
+            <PasswordField fx:id="regPassUser" layoutX="228.0" layoutY="207.0" onAction="#regPassUser" prefHeight="28.0" prefWidth="235.0" promptText="Password">
                <font>
                   <Font size="13.0" />
                </font>
@@ -66,12 +66,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <PasswordField layoutX="228.0" layoutY="249.0" prefHeight="28.0" prefWidth="235.0" promptText="Repeat Password">
+            <PasswordField fx:id="regRepPassUser" layoutX="228.0" layoutY="249.0" onAction="#regRepPassUser" prefHeight="28.0" prefWidth="235.0" promptText="Repeat Password">
                <font>
                   <Font size="13.0" />
                </font>
             </PasswordField>
-            <TextField layoutX="228.0" layoutY="151.0" prefHeight="28.0" prefWidth="235.0" promptText="Username">
+            <TextField fx:id="regUsernameUser" layoutX="228.0" layoutY="151.0" onAction="#regUsernameUser" prefHeight="28.0" prefWidth="235.0" promptText="Username">
                <font>
                   <Font size="13.0" />
                </font>
