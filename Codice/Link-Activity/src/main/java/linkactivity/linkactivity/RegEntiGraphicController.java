@@ -59,7 +59,11 @@ public class RegEntiGraphicController {
     @FXML
     private void entiRegister() throws IOException{
         String str;
-        int a=0,b=0,c=0,d=0,e=0;
+        int a=0;
+        int b=0;
+        int c=0;
+        int d=0;
+        int e=0;
         String[] pars = new String[10];
         str= regEmailEnti.getText();
         pars[1]=str;
