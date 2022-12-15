@@ -45,7 +45,7 @@
                </cursor>
             </Button>
             <Line endX="-15.0" endY="4.0" layoutX="432.0" layoutY="363.0" startX="-15.0" startY="32.0" stroke="WHITE" />
-            <TextField layoutX="228.0" layoutY="114.0" prefHeight="28.0" prefWidth="235.0" promptText="Email">
+            <TextField fx:id="regEmailUser" layoutX="228.0" layoutY="114.0" onAction="#regEmailUser" prefHeight="28.0" prefWidth="235.0" promptText="Email">
                <font>
                   <Font size="13.0" />
                </font>
