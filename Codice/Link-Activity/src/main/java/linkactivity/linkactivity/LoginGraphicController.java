@@ -53,6 +53,8 @@ public class LoginGraphicController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Immettere Email/Username validi");
             alert.showAndWait();
+        } else {
+            a=1;
         }
 
         //TODO da qui partirebbe controllo al database per esistenza e correttezza credenziali
@@ -61,11 +63,15 @@ public class LoginGraphicController {
             Alert alert= new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Immettere Password");
             alert.showAndWait();
+        } else {
+            b=1;
         }
-        //TODO da qui partirebbe controllo al datbase per esistenza e correttezza credenziali
-        // e se tutto è andato a buon fine viene caricata la schermata di destinazione in base a se credenziali utente
-        // o credenziali azienda
 
+        if(a==1 && b==1) {
+            //TODO da qui partirebbe controllo al datbase per esistenza e correttezza credenziali
+            // e se tutto è andato a buon fine viene caricata la schermata di destinazione in base a se credenziali utente
+            // o credenziali azienda
+        }
     }
 
     @FXML
