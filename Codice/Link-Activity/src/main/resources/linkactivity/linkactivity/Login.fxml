@@ -60,12 +60,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField layoutX="231.0" layoutY="159.0" prefHeight="28.0" prefWidth="235.0" promptText="Email/Username ">
+      <TextField fx:id="emailUsernameLogin" layoutX="231.0" layoutY="159.0" onAction="#emailUsernameLogin" prefHeight="28.0" prefWidth="235.0" promptText="Email/Username ">
          <font>
             <Font size="13.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="231.0" layoutY="212.0" prefHeight="28.0" prefWidth="235.0" promptText="Password">
+      <PasswordField fx:id="passLogin" layoutX="231.0" layoutY="212.0" onAction="#passLogin" prefHeight="28.0" prefWidth="235.0" promptText="Password">
          <font>
             <Font size="13.0" />
          </font>

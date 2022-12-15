@@ -50,12 +50,12 @@
                </cursor>
             </Button>
             <Line endX="-15.0" endY="4.0" layoutX="432.0" layoutY="430.0" startX="-15.0" startY="32.0" stroke="WHITE" />
-            <TextField layoutX="228.0" layoutY="114.0" prefHeight="28.0" prefWidth="235.0" promptText="Email">
+            <TextField fx:id="regEmailEnti" layoutX="228.0" layoutY="114.0" onAction="#regEmailEnti" prefHeight="28.0" prefWidth="235.0" promptText="Email">
                <font>
                   <Font size="13.0" />
                </font>
             </TextField>
-            <PasswordField layoutX="228.0" layoutY="207.0" prefHeight="28.0" prefWidth="235.0" promptText="Password">
+            <PasswordField fx:id="regPassEnti" layoutX="228.0" layoutY="207.0" onAction="#regPassEnti" prefHeight="28.0" prefWidth="235.0" promptText="Password">
                <font>
                   <Font size="13.0" />
                </font>
@@ -71,12 +71,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <PasswordField layoutX="228.0" layoutY="249.0" prefHeight="28.0" prefWidth="235.0" promptText="Repeat Password">
+            <PasswordField fx:id="regRepPassEnti" layoutX="228.0" layoutY="249.0" onAction="#regRepPassEnti" prefHeight="28.0" prefWidth="235.0" promptText="Repeat Password">
                <font>
                   <Font size="13.0" />
                </font>
             </PasswordField>
-            <TextField layoutX="228.0" layoutY="151.0" prefHeight="28.0" prefWidth="235.0" promptText="Nome Ente">
+            <TextField fx:id="nomeEnte" layoutX="228.0" layoutY="151.0" onAction="#nomeEnte" prefHeight="28.0" prefWidth="235.0" promptText="Nome Ente">
                <font>
                   <Font size="13.0" />
                </font>
