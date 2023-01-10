@@ -1,19 +1,29 @@
 package linkactivity.linkactivity;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Objects;
 
 public class LoginGraphicController {
+
+    @FXML
+    public PasswordField passLogin;
+    @FXML
+    private TextField emailUsernameLogin;
 
     @FXML
     private Button backButton3;
@@ -28,10 +38,15 @@ public class LoginGraphicController {
     private Button registerButton;
 
     @FXML
-    private TextField emailUsernameLogin;
+    public TextField Username;
 
     @FXML
-    private PasswordField passLogin;
+    public PasswordField Password;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
 
     @FXML
     private void backToWhoAreU() throws IOException { //todo levare shortcut register su login
@@ -45,47 +60,55 @@ public class LoginGraphicController {
         stage.show();
     }
 
-    @FXML
-    private void login() throws IOException{
-        int a=0,b=0;
 
-        if(emailUsernameLogin.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Immettere Email/Username validi");
-            alert.showAndWait();
-        } else {
-            a=1;
+    public void switchToUserProfile(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CareerBona.fxml")));
+        scene = new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void switchToAziendaProfile(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+        scene = new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void validateLogin(ActionEvent event) {
+
+
+        Connection myConnection = DBConnection.getDBConnection();
+        //Connection connectDB = (Connection) myConnection.getInstance();
+
+        String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
+
+        try {
+            Statement statement = myConnection.createStatement();
+            ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
+
+            while (queryLoginResult.next()) {
+
+                if (queryLoginResult.getInt(1) == 1) {
+                    System.out.println("Benvenuto USER");
+                    switchToUserProfile(event);
+                }
+                else { System.out.println("Errore nel login");}
+            }
         }
-
-        //TODO da qui partirebbe controllo al database per esistenza e correttezza credenziali
-
-        if(passLogin.getText().isEmpty()){
-            Alert alert= new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Immettere Password");
-            alert.showAndWait();
-        } else {
-            b=1;
-        }
-
-        if(a==1 && b==1) {
-            //TODO da qui partirebbe controllo al datbase per esistenza e correttezza credenziali
-            // e se tutto è andato a buon fine viene caricata la schermata di destinazione in base a se credenziali utente
-            // o credenziali azienda
+        catch(Exception e){
+            e.printStackTrace();
         }
     }
 
-    @FXML
-    private void loginGoogle() {
-    }
 
-    @FXML
-    void emailUsernameLogin() {
 
-    }
-
-    @FXML
-    void passLogin() {
-
-    }
-}
-
+                @FXML
+                private void loginGoogle () {
+                    //dummy
+                }
+            }
