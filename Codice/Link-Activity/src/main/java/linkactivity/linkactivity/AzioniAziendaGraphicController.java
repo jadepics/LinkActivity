@@ -27,7 +27,7 @@ public class AzioniAziendaGraphicController {
 
     @FXML
     private void backToLogin() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginEnti.fxml")));
         Scene scene = new Scene(root, 690, 518);
         Stage stage = (Stage) backButton4.getScene().getWindow();
 

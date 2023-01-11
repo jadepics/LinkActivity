@@ -1,7 +1,9 @@
 package linkactivity.linkactivity;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -11,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Objects;
 
 public class RegEntiGraphicController {
@@ -55,8 +59,43 @@ public class RegEntiGraphicController {
         stage.show();
 
     }
+    public void switchToAzioniAzienda(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
+    }
     @FXML
+    private void entiRegister(ActionEvent event) throws IOException {
+        //tutto ok quindi push sul db
+        Connection myConnection = DBConnection.getDBConnection();
+
+        String emailText = regEmailEnti.getText();
+        String usernameText = nomeEnte.getText();
+        String checkpass = regPassEnti.getText();
+
+
+        String insertFields = "INSERT INTO azienda_u(Email, NomeAzienda, Password) VALUES ('";
+        String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
+        String insertToRegister = insertFields + insertValues;
+
+        try {
+
+            Statement statement = myConnection.createStatement();
+            statement.executeUpdate(insertToRegister);
+            switchToAzioniAzienda(event);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+    }
+
+
+    /*@FXML
     private void entiRegister() throws IOException{
         String str;
         int a=0;
@@ -127,11 +166,11 @@ public class RegEntiGraphicController {
             stage.setResizable(false);
             stage.show();
         }
-    }
+    }*/
 
     @FXML
     private void login() throws IOException{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginEnti.fxml")));
         Scene scene = new Scene(root, 690, 518);
         Stage stage = (Stage) loginButton1.getScene().getWindow();
 

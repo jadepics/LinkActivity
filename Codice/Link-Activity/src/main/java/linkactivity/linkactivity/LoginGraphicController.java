@@ -70,15 +70,6 @@ public class LoginGraphicController {
 
     }
 
-    public void switchToAziendaProfile(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
-        scene = new Scene(root);
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
     public void validateLogin(ActionEvent event) {
 
 
