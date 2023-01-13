@@ -14,36 +14,25 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
-public class LoginGraphicController {
-
-    @FXML
-    public PasswordField passLogin;
-    @FXML
-    private TextField emailUsernameLogin;
+public class LogEntiGraphicController {
 
     @FXML
     private Button backButton3;
 
     @FXML
-    private Button loginButton3;
+    private TextField emailCompanyLog;
 
     @FXML
     private Button loginWithGoogleButton;
 
     @FXML
-    private Button registerButton;
+    private PasswordField passCompanyLog;
 
     @FXML
-    public TextField Username;
-
-    @FXML
-    public PasswordField Password;
-
-
+    private Button registerCompanyButton;
     @FXML
     private void backToWhoAreU() throws IOException { //todo levare shortcut register su login
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WhoAreU.fxml")));
@@ -57,8 +46,8 @@ public class LoginGraphicController {
     }
 
 
-    public void switchToUserProfile(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CareerBona.fxml")));
+    public void switchToAziendaProfile(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -72,7 +61,7 @@ public class LoginGraphicController {
         Connection myConnection = DBConnection.getDBConnection();
         //Connection connectDB = (Connection) myConnection.getInstance();
 
-        String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
+        String verifyLoginQuery = "SELECT count(1)  FROM azienda_u WHERE Email = '" + emailCompanyLog.getText() + "' AND password = '" + passCompanyLog.getText() + "'";
 
         try {
             Statement statement = myConnection.createStatement();
@@ -81,8 +70,8 @@ public class LoginGraphicController {
             while (queryLoginResult.next()) {
 
                 if (queryLoginResult.getInt(1) == 1) {
-                    System.out.println("Benvenuto USER");
-                    switchToUserProfile(event);
+                    System.out.println("Benvenuto Azienda");
+                    switchToAziendaProfile(event);
                 }
                 else { System.out.println("Errore nel login");}
             }
@@ -94,8 +83,7 @@ public class LoginGraphicController {
 
 
 
-                @FXML
-                private void loginGoogle () {
-                    //dummy
-                }
-            }
+    @FXML
+    private void loginGoogle () {
+    }
+}

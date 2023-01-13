@@ -51,14 +51,14 @@ public class AzioniAziendaGraphicController {
 
     @FXML
     private void describeToFollowers() throws IOException{
-        //todo holy shit this shit has to be done
-        System.out.println("Holy shit tihs shit has to be done");
+        //not todo or yes
+        System.out.println("NOT TODO or yes");
     }
 
     @FXML
     private void viewEventInsights() throws IOException{
-        //todo holy shit this shit has to be pt 2
-        System.out.println("Holy shit tihs shit has to be done pt 2");
+        //todo or not?
+        System.out.println("TODO or not");
     }
 
 }

@@ -23,7 +23,7 @@ public class RegEntiGraphicController {
     private Button backButton2;
 
     @FXML
-    private Button entiRegisterButton; //todo parte di registrazione vera e propria senza la quale torna errore minore al passaggio di schermata
+    private Button entiRegisterButton;
 
     @FXML
     private Button loginButton1;
@@ -59,6 +59,7 @@ public class RegEntiGraphicController {
         stage.show();
 
     }
+
     public void switchToAzioniAzienda(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene = new Scene(root);
@@ -67,31 +68,36 @@ public class RegEntiGraphicController {
         stage.show();
 
     }
+
     @FXML
     private void entiRegister(ActionEvent event) throws IOException {
         //tutto ok quindi push sul db
-        Connection myConnection = DBConnection.getDBConnection();
+        if (regEmailEnti() && regPassEnti()) {
+            Connection myConnection = DBConnection.getDBConnection();
 
-        String emailText = regEmailEnti.getText();
-        String usernameText = nomeEnte.getText();
-        String checkpass = regPassEnti.getText();
+            String emailText = regEmailEnti.getText();
+            String usernameText = nomeEnte.getText();
+            String checkpass = regPassEnti.getText();
 
 
-        String insertFields = "INSERT INTO azienda_u(Email, NomeAzienda, Password) VALUES ('";
-        String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
-        String insertToRegister = insertFields + insertValues;
+            String insertFields = "INSERT INTO azienda_u(Email, NomeAzienda, Password) VALUES ('";
+            String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
+            String insertToRegister = insertFields + insertValues;
 
-        try {
+            try {
 
-            Statement statement = myConnection.createStatement();
-            statement.executeUpdate(insertToRegister);
-            switchToAzioniAzienda(event);
+                Statement statement = myConnection.createStatement();
+                statement.executeUpdate(insertToRegister);
+                switchToAzioniAzienda(event);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
+            } catch (Exception e) {
+                e.printStackTrace();
+                e.getCause();
+            }
         }
-
+        else {
+            System.out.println("Email o password non corretti");
+        }
     }
 
 
@@ -169,7 +175,7 @@ public class RegEntiGraphicController {
     }*/
 
     @FXML
-    private void login() throws IOException{
+    private void login() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginEnti.fxml")));
         Scene scene = new Scene(root, 690, 518);
         Stage stage = (Stage) loginButton1.getScene().getWindow();
@@ -181,35 +187,63 @@ public class RegEntiGraphicController {
     }
 
     @FXML
-    private void signUpGoogle() /*throws IOException*/{
-        //todo holy shit this shit has to be done SIGNUPGOOGLE
-        System.out.println("Holy shit this shit has to be done SIGNUPGOOGLE");
+    private void signUpGoogle() /*throws IOException*/ {
+        //todo SIGNUPGOOGLE
+        System.out.println("Signup google todo");
     }
 
     @FXML
-    private void updateLogo() /*throws IOException*/{
-        //todo holy shit this shit has to be done UPDATELOGO
-        System.out.println("Holy shit this shit has to be done UPDATELOGO");
+    private void updateLogo() /*throws IOException*/ {
+        //todo UPDATELOGO
+        System.out.println("has to be done UPDATELOGO");
+    }
+
+
+    @FXML
+    private boolean regEmailEnti() {
+        String str;
+        int a = 0, b = 0;
+        String[] pars = new String[10];
+        str = regEmailEnti.getText();
+        pars[1] = str;
+
+        String[] result = str.split("\\a");
+        for (int i = 0; i < result[0].length(); i++) {
+            pars[0] = String.valueOf(result[0].charAt(i)); //parsa la parola in lettere per controllare se c'è la @
+
+            if (pars[0].equals("@")) {
+                a = 1;
+            }
+            if (a == 1) {
+                if (pars[0].equals(".")) {
+                    b = 1;
+                }
+            }
+        }
+        if (a == 0 || b == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Immettere una mail valida");
+            alert.showAndWait();
+            return false;
+        }
+        return true;
     }
 
     @FXML
-    void nomeEnte() {
-
+    private void regUsernameUser() {
     }
 
     @FXML
-    void regEmailEnti() {
+    private boolean regPassEnti() {
+        if (regPassEnti.getText().isEmpty()) {
+            System.out.println("PassVuota");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Password Vuota");
+            alert.showAndWait();
+            return false;
 
-    }
-
-    @FXML
-    void regPassEnti() {
-
-    }
-
-    @FXML
-    void regRepPassEnti() {
-
+        }
+        return Objects.equals(regPassEnti.getText(), regRepPassEnti.getText());
     }
 
 }
