@@ -1,6 +1,7 @@
 package linkactivity.linkactivity;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,8 +11,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Statement;
@@ -46,6 +49,9 @@ public class RegEntiGraphicController {
     @FXML
     private PasswordField regRepPassEnti;
 
+    @FXML
+    private Button chooseFileBtn;
+
 
     @FXML
     private void backToWhoAreU() throws IOException {
@@ -72,7 +78,7 @@ public class RegEntiGraphicController {
     @FXML
     private void entiRegister(ActionEvent event) throws IOException {
         //tutto ok quindi push sul db
-        if (regEmailEnti() && regPassEnti()) {
+        if (regEmailEnti() && regPassEnti() && regRepPassEnti() && nomeEnte()) {
             Connection myConnection = DBConnection.getDBConnection();
 
             String emailText = regEmailEnti.getText();
@@ -194,9 +200,36 @@ public class RegEntiGraphicController {
 
     @FXML
     private void updateLogo() /*throws IOException*/ {
-        //todo UPDATELOGO
-        System.out.println("has to be done UPDATELOGO");
+        //todo capire dove va il tutto che scrive sul filesystem il path del logo e il nome dell'azienda inerente
+
+        //Button chooseFileBtn = new Button();
+        //TextField filePathField;
+
+        //public ImageFileChooser(Button chooseFileBtn/*, TextField filePathField*/) {
+            //this.updateLogoButton = chooseFileBtn;
+            //this.filePathField = filePathField;
+            //chooseFileBtn.setOnAction(new EventHandler<ActionEvent>() {
+            //@Override
+            //public void handle(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Image File");
+        FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+        fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
+        File file = fileChooser.showOpenDialog(null);
+        if (file != null) {
+            System.out.println(file.getPath());
+
+
+            //filePathField.setText(file.getPath());
+        }
     }
+       // });
+    //}
+
+
+
+
 
 
     @FXML
@@ -230,10 +263,6 @@ public class RegEntiGraphicController {
     }
 
     @FXML
-    private void regUsernameUser() {
-    }
-
-    @FXML
     private boolean regPassEnti() {
         if (regPassEnti.getText().isEmpty()) {
             System.out.println("PassVuota");
@@ -245,5 +274,32 @@ public class RegEntiGraphicController {
         }
         return Objects.equals(regPassEnti.getText(), regRepPassEnti.getText());
     }
+
+    @FXML
+    private boolean regRepPassEnti(){
+        if (regRepPassEnti.getText().isEmpty()) {
+            System.out.println("Conferma Password vuota");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Conferma Password");
+            alert.showAndWait();
+            return false;
+
+        }
+        return true;
+    }
+
+    @FXML
+    private boolean nomeEnte(){
+        if (nomeEnte.getText().isEmpty()) {
+            System.out.println("Nome Ente Vuoto");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Nome Ente");
+            alert.showAndWait();
+            return false;
+
+        }
+        return true;
+    }
+
 
 }
