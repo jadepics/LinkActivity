@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -80,32 +79,12 @@
                   <Image url="@Images/icons8-expand-arrow-24.png" />
                </image>
             </ImageView>
-            <ScrollPane depthTest="DISABLE" focusTraversable="false" layoutX="18.0" layoutY="90.0" prefHeight="415.0" prefWidth="651.0" style="-fx-background-color: transparent;" vmax="10000.0" vmin="1.0" vvalue="1.0">
-               <content>
-                  <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="15000.0" prefWidth="651.0">
-                     <children>
-                        <ImageView fitHeight="95.0" fitWidth="95.0">
-                           <image>
-                              <Image url="@Images/IBM.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="95.0" fitWidth="95.0" layoutX="68.0" layoutY="429.0">
-                           <image>
-                              <Image url="@Images/IBM.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="95.0" fitWidth="95.0" layoutY="14900.0">
-                           <image>
-                              <Image url="@Images/IBM.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
-               </content>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </ScrollPane>
+            <ListView fx:id="dashboard" layoutX="18.0" layoutY="90.0" prefHeight="415.0" prefWidth="651.0" />
+            <Button fx:id="demoButton" layoutX="35.0" layoutY="51.0" mnemonicParsing="false" onAction="#fakeListViewInsert" prefHeight="37.0" prefWidth="70.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
    </children>

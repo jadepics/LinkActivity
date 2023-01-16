@@ -82,6 +82,7 @@ public class LoginGraphicController {
 
                 if (queryLoginResult.getInt(1) == 1) {
                     System.out.println("Benvenuto USER");
+                    System.out.println(queryLoginResult);
                     switchToUserProfile(event);
                 }
                 else { System.out.println("Errore nel login");}
