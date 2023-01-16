@@ -14,8 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.Objects;
@@ -199,29 +198,34 @@ public class RegEntiGraphicController {
     }
 
     @FXML
-    private void updateLogo() /*throws IOException*/ {
+    private void updateLogo() throws IOException /*throws IOException*/ {
         //todo capire dove va il tutto che scrive sul filesystem il path del logo e il nome dell'azienda inerente
 
         //Button chooseFileBtn = new Button();
         //TextField filePathField;
 
         //public ImageFileChooser(Button chooseFileBtn/*, TextField filePathField*/) {
-            //this.updateLogoButton = chooseFileBtn;
-            //this.filePathField = filePathField;
-            //chooseFileBtn.setOnAction(new EventHandler<ActionEvent>() {
-            //@Override
-            //public void handle(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Image File");
-        FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
-        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
-        fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
-        File file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            System.out.println(file.getPath());
+        //this.updateLogoButton = chooseFileBtn;
+        //this.filePathField = filePathField;
+        //chooseFileBtn.setOnAction(new EventHandler<ActionEvent>() {
+        //@Override
+        //public void handle(ActionEvent event) {
+        if(nomeEnte()) {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Open Image File");
+            FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
+            File file = fileChooser.showOpenDialog(null);
+            if (file != null) {
+                System.out.println(file.getPath());
+                Writer output;
+                output = new BufferedWriter(new FileWriter("src/main/CompanyLogo-Filesysteem.txt", true));
 
+                output.append(nomeEnte.getText()).append(" ").append(file.getPath()).append("\n");
+                output.close();
+            }
 
-            //filePathField.setText(file.getPath());
         }
     }
        // });
