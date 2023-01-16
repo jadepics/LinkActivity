@@ -220,8 +220,7 @@ public class RegEntiGraphicController {
             if (file != null) {
                 System.out.println(file.getPath());
                 Writer output;
-                output = new BufferedWriter(new FileWriter("src/main/CompanyLogo-Filesysteem.txt", true));
-
+                output = new BufferedWriter(new FileWriter("src/main/CompanyLogo-Filesystem.txt", true));
                 output.append(nomeEnte.getText()).append(" ").append(file.getPath()).append("\n");
                 output.close();
             }
