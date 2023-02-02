@@ -73,6 +73,7 @@ public class LoginGraphicController {
         //Connection connectDB = (Connection) myConnection.getInstance();
 
         String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
+        //String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username AND Password";
 
         try {
             Statement statement = myConnection.createStatement();
@@ -82,7 +83,7 @@ public class LoginGraphicController {
 
                 if (queryLoginResult.getInt(1) == 1) {
                     System.out.println("Benvenuto USER");
-                    System.out.println(queryLoginResult);
+                    System.out.println(verifyLoginQuery);
                     switchToUserProfile(event);
                 }
                 else { System.out.println("Errore nel login");}

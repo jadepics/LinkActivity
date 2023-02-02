@@ -49,10 +49,6 @@ public class RegEntiGraphicController {
     private PasswordField regRepPassEnti;
 
     @FXML
-    private Button chooseFileBtn;
-
-
-    @FXML
     private void backToWhoAreU() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WhoAreU.fxml")));
         Scene scene = new Scene(root, 690, 518);
