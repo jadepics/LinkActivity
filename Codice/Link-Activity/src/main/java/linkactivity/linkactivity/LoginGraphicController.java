@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -43,7 +44,10 @@ public class LoginGraphicController {
     @FXML
     public PasswordField Password;
 
-
+    @FXML
+    private RadioButton companyRB;
+    @FXML
+    private RadioButton userRB;
     @FXML
     private void backToWhoAreU() throws IOException { //todo levare shortcut register su login
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WhoAreU.fxml")));
@@ -65,16 +69,30 @@ public class LoginGraphicController {
         stage.show();
 
     }
+    public void switchToAziendaProfile(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
     public void validateLogin(ActionEvent event) {
 
 
         Connection myConnection = DBConnection.getDBConnection();
         //Connection connectDB = (Connection) myConnection.getInstance();
-
-        String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
-        //String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username AND Password";
-
+        String verifyLoginQuery=null;
+        int i=0;
+        if (userRB.isSelected()) {
+            verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
+            //String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username AND Password";
+        }
+        else if(companyRB.isSelected()) {
+            verifyLoginQuery= "SELECT count(1)  FROM azienda_u WHERE NomeAzienda = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
+            i=1;
+        }
         try {
             Statement statement = myConnection.createStatement();
             ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
@@ -82,9 +100,10 @@ public class LoginGraphicController {
             while (queryLoginResult.next()) {
 
                 if (queryLoginResult.getInt(1) == 1) {
-                    System.out.println("Benvenuto USER");
+                    System.out.println("Benvenuto");
                     System.out.println(verifyLoginQuery);
-                    switchToUserProfile(event);
+                    if(i == 0) switchToUserProfile(event);
+                        else switchToAziendaProfile(event);
                 }
                 else { System.out.println("Errore nel login");}
             }

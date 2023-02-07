@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,6 +45,10 @@ public class RegistrationGraphicController {
 
     @FXML
     private Button BackButton3;
+    @FXML
+    private RadioButton companyRB;
+    @FXML
+    private RadioButton userRB;
 
     @FXML
     private void backToWhoAreU() throws IOException {
@@ -67,8 +68,16 @@ public class RegistrationGraphicController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+    public void switchToAziendaProfile(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
 
     }
+
     @FXML
     private void userRegister(ActionEvent event) throws IOException {
          //tutto ok quindi push sul db
@@ -77,18 +86,27 @@ public class RegistrationGraphicController {
             String emailText = regEmailUser.getText();
             String usernameText = regUsernameUser.getText();
             String checkpass = regPassUser.getText();
-
-
-            String insertFields = "INSERT INTO user(Email, Username, Password) VALUES ('";
-            String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
-            String insertToRegister = insertFields + insertValues;
-
-            try {
+            String insertToRegister=null;
+           int i=0;
+            if(userRB.isSelected()) {
+                String insertFields = "INSERT INTO user(Email, Username, Password) VALUES ('";
+                String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
+                insertToRegister = insertFields + insertValues;
+            } else if (companyRB.isSelected()) {
+                String insertFields = "INSERT INTO azienda_u(Email, NomeAzienda, Password) VALUES ('";
+                String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
+                insertToRegister = insertFields + insertValues;
+                i=1;
+            }
+        try {
 
                 Statement statement = myConnection.createStatement();
                 statement.executeUpdate(insertToRegister);
+                if(i==0)
                 switchToDashboard(event);
-
+                else {
+                    switchToAziendaProfile(event);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 e.getCause();

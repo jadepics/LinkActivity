@@ -32,11 +32,11 @@ public class AddThingsListCellFactory extends ListCell<infoView> {
                 productPriceLabel.setText(String.format("%s",item.getBeanNum()));
 
                 if(item.getBeanName().equals("ciao")) {
-                    String x = "C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Grafica\\Images\\IBM.png";
+                    String x = "C:\\Users\\micci\\Desktop\\LinkActivity\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png";
                     Image imm = new Image(x);
                     immToChange.setImage(imm);
                 } else {
-                    String y= "C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Grafica\\Images\\Microsoft.png";
+                    String y= "C:\\Users\\micci\\Desktop\\LinkActivity\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png";
                     Image imm= new Image(y);
                     immToChange.setImage(imm);
                 }

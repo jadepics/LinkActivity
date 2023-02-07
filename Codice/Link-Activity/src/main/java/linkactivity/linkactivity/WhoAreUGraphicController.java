@@ -1,5 +1,6 @@
 package linkactivity.linkactivity;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,33 +14,27 @@ import java.util.Objects;
 public class WhoAreUGraphicController {
 
     @FXML
-    private Button companyButton;
+    private Button loginButton;
 
     @FXML
-    private Button userButton;
+    private Button registerbutton;
 
     @FXML
-    private void regEnti() throws IOException{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegEnti.fxml")));
+    private void login() throws IOException{
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage2= (Stage) companyButton.getScene().getWindow();
+        Stage stage2= (Stage) loginButton.getScene().getWindow();
         stage2.setTitle("Link-Activity");
         stage2.setScene(scene);
         stage2.setResizable(false);
         stage2.show();
-    /*Stage stage = (Stage) UniversityButton.getScene().getWindow();
-
-        stage.setTitle("Link-Activity");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();*/
-    }
+        }
 
     @FXML
     private void regUser() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Registration.fxml")));
         Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) userButton.getScene().getWindow();
+        Stage stage = (Stage) registerbutton.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
