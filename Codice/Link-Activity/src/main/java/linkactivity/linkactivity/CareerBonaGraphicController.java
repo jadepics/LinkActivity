@@ -12,10 +12,12 @@ import javafx.stage.Stage;
 
 import linkactivity.linkactivity.infoView;
 import linkactivity.linkactivity.AddThingsListCellFactory;
+import org.w3c.dom.events.Event;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -35,6 +37,13 @@ public class CareerBonaGraphicController implements Initializable {
 
     private final ArrayList<infoView> elements= new ArrayList<>();
 
+    /*
+    @FXML
+    private ListView<EventBean> dashboard;
+
+    private final ArrayList<EventBean> elements= new ArrayList<>();
+    */
+
     private int y=0;
 
     @FXML
@@ -53,7 +62,8 @@ public class CareerBonaGraphicController implements Initializable {
     private void fakeListViewInsert(){ //parallelo di addName
         y++;
         infoView x= new infoView("qui ci va il testo preso dal DB",y);
-
+        //List<String> z= (List<String>) new EventDAO();
+        //EventBean x= new EventBean();
         elements.add(x);
         dashboard.setItems(FXCollections.observableList(elements));
         System.out.println("eccomi2");

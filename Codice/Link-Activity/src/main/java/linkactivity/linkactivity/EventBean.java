@@ -14,7 +14,9 @@ public class EventBean {
 
     public EventBean(){}    //costruttore vuoto
 
-    public EventBean(String eventName,Date dataEvento,Date expirationDate,String Description,int partecipantNumber,String nomeAzienda, String tag ){}
+    public EventBean(String eventName,Date dataEvento,Date expirationDate,String Description,int partecipantNumber,String nomeAzienda, String tag ){
+
+    }
 
 
     public String getEventName() {

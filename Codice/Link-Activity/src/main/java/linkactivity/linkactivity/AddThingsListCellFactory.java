@@ -10,11 +10,11 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.Objects;
 
-public class AddThingsListCellFactory extends ListCell<infoView> {
+public class AddThingsListCellFactory extends ListCell<infoView> /*ListCell<EventBean>*/ {
     private Parent parentNode = null;
 
     @Override
-    protected void updateItem(infoView item, boolean empty) {
+    protected void updateItem(infoView/*EventBean*/ item, boolean empty) {
         super.updateItem(item, empty);
 
         if (item != null) {
