@@ -8,10 +8,38 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class AddThingsListCellFactory extends ListCell<infoView> /*ListCell<EventBean>*/ {
     private Parent parentNode = null;
+
+    public /*List<String>*/ void item(){
+        List<String> z= new EventDAO().getEvent();
+        System.out.println(z+"  zzzzzzzzz");
+        EventBean x= new EventBean();
+        while(z.size()>1) {
+            x.setEventName(z.get(0));
+            z.remove(0);
+            x.setTag(z.get(0));
+            z.remove(0);
+            //System.out.println(z.size());
+            //System.out.println(z);
+            System.out.println(x.getEventName()+ "   ooooooooo");
+            System.out.println(x.getTag());
+        }
+        /*int i=0;
+        while(i!=2){
+            x.setEventName(Collections.singletonList(z.get(0)));
+            z.remove(0);
+            x.setTag(z.get(0));
+            System.out.println(x.getEventName()+ "aaaaaaaaaaa");
+            i++;
+        }*/
+
+        //return z;
+    }
+
 
     @Override
     protected void updateItem(infoView/*EventBean*/ item, boolean empty) {

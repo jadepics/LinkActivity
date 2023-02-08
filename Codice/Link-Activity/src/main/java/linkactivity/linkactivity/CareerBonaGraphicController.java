@@ -62,7 +62,7 @@ public class CareerBonaGraphicController implements Initializable {
     private void fakeListViewInsert(){ //parallelo di addName
         y++;
         infoView x= new infoView("qui ci va il testo preso dal DB",y);
-        //List<String> z= (List<String>) new EventDAO();
+        /*List<String> z= (List<String>)*/ new EventDAO();
         //EventBean x= new EventBean();
         elements.add(x);
         dashboard.setItems(FXCollections.observableList(elements));
@@ -72,6 +72,10 @@ public class CareerBonaGraphicController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("eccomi");
+
+        /*List<String> z=*/ new AddThingsListCellFactory().item();
+        //System.out.println(z);
+
         dashboard.setCellFactory(param -> new AddThingsListCellFactory());
         dashboard.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             //qui ci sarà quello che avviene quando clicchi su una cella della listview

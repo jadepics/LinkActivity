@@ -1,15 +1,25 @@
 package linkactivity.linkactivity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class EventBean {
+
     String eventName;
+    List<String> eventName2= new ArrayList<>();
     Date dataEvento;
+    List<Date> dataEvento2;
     Date expirationDate;
-    String Description;
+    List<Date> expirationDate2;
+    String description;
+    List<String> description2;
     int partecipantNumber;
+    List<Integer> partecipantNumber2;
     String nomeAzienda;
+    List<String> nomeAzienda2;
     String tag;
+    List<String> tag2= new ArrayList<>();
 
 
     public EventBean(){}    //costruttore vuoto
@@ -19,59 +29,64 @@ public class EventBean {
     }
 
 
-    public String getEventName() {
-        return eventName;
+    public List<String> getEventName() {
+        return eventName2;
     }
 
-    public void setEventName(String eventName) {
+    public void setEventName(String eventName){
+        eventName2.add(eventName);
+        //System.out.println(eventName2);
+    }
+
+    /*public void setEventName(String eventName) {
         this.eventName = eventName;
-    }
+    }*/
 
-    public Date getDataEvento() {
-        return dataEvento;
+    public List<Date> getDataEvento() {
+        return dataEvento2;
     }
 
     public void setDataEvento(Date dataEvento) {
-        this.dataEvento = dataEvento;
+        dataEvento2.add(dataEvento);
     }
 
-    public Date getExpirationDate() {
-        return expirationDate;
+    public List<Date> getExpirationDate() {
+        return expirationDate2;
     }
 
     public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
+        expirationDate2.add(expirationDate);
     }
 
-    public String getDescription() {
-        return Description;
+    public List<String> getDescription() {
+        return description2;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        description2.add(description);
     }
 
-    public int getPartecipantNumber() {
-        return partecipantNumber;
+    public List<Integer> getPartecipantNumber() {
+        return partecipantNumber2;
     }
 
     public void setPartecipantNumber(int partecipantNumber) {
-        this.partecipantNumber = partecipantNumber;
+        partecipantNumber2.add(partecipantNumber);
     }
 
-    public String getNomeAzienda() {
-        return nomeAzienda;
+    public List<String> getNomeAzienda() {
+        return nomeAzienda2;
     }
 
     public void setNomeAzienda(String nomeAzienda) {
-        this.nomeAzienda = nomeAzienda;
+        nomeAzienda2.add(nomeAzienda);
     }
 
-    public String getTag() {
-        return tag;
+    public List<String> getTag() {
+        return tag2;
     }
 
     public void setTag(String tag) {
-        this.tag = tag;
+        tag2.add(tag);
     }
 }

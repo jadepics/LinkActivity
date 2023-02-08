@@ -8,29 +8,33 @@ import java.util.List;
 
 public class EventDAO {
 
-    public EventDAO(){
+    public List<String> getEvent() {
 
         Connection myConnection = DBConnection.getDBConnection();
 
         String verifyLoginQuery = "SELECT * FROM evento";
 
+        List<String> ResultList = null;
         try {
             Statement statement = myConnection.createStatement();
             ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
-            System.out.println(queryLoginResult);
-            List<String> ResultList= new ArrayList<>();
+            //System.out.println(queryLoginResult);
+            ResultList = new ArrayList<>();
+            int i=0;
             while (queryLoginResult.next()) {
-                EventBean lista= new EventBean();
-                lista.setEventName(queryLoginResult.getString("nomeEvento"));
-                ResultList.add(lista.getEventName());
-                System.out.println(ResultList);
+                //EventBean lista= new EventBean();
+                //lista.setEventName(queryLoginResult.getString("nomeEvento"));
+                //ResultList.add(lista.getEventName());
+                ResultList.add(queryLoginResult.getString("nomeEvento"));
+                ResultList.add(queryLoginResult.getString("tag"));
+                System.out.println(ResultList.get(i)+"   rrrrrrrr");
+                i++;
             }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("erroreee");
             e.printStackTrace();
         }
-
+        return ResultList;
     }
 }
 
