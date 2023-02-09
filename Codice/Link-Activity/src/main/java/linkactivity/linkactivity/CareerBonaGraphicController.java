@@ -32,17 +32,18 @@ public class CareerBonaGraphicController implements Initializable {
     @FXML
     private Button demoButton;
 
+    /*
     @FXML
     private ListView<infoView> dashboard;
 
     private final ArrayList<infoView> elements= new ArrayList<>();
+    */
 
-    /*
     @FXML
     private ListView<EventBean> dashboard;
 
     private final ArrayList<EventBean> elements= new ArrayList<>();
-    */
+
 
     private int y=0;
 
@@ -59,22 +60,29 @@ public class CareerBonaGraphicController implements Initializable {
     }
 
     @FXML
-    private void fakeListViewInsert(){ //parallelo di addName
+    private void fakeListViewInsert() { //parallelo di addName
+        /*
         y++;
         infoView x= new infoView("qui ci va il testo preso dal DB",y);
-        /*List<String> z= (List<String>)*/ new EventDAO();
-        //EventBean x= new EventBean();
         elements.add(x);
         dashboard.setItems(FXCollections.observableList(elements));
         System.out.println("eccomi2");
+        */
+        EventBean x = new AddThingsListCellFactory().item();
+        int i = x.getEventName().size();
+        while(i>0) {
+            elements.add(x);
+            dashboard.setItems(FXCollections.observableList(elements));
+            i--;
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("eccomi");
 
-        /*List<String> z=*/ new AddThingsListCellFactory().item();
-        //System.out.println(z);
+
+        //System.out.println(x);
 
         dashboard.setCellFactory(param -> new AddThingsListCellFactory());
         dashboard.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {

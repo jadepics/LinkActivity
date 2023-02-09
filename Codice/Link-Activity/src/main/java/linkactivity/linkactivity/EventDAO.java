@@ -25,8 +25,17 @@ public class EventDAO {
                 //EventBean lista= new EventBean();
                 //lista.setEventName(queryLoginResult.getString("nomeEvento"));
                 //ResultList.add(lista.getEventName());
+
                 ResultList.add(queryLoginResult.getString("nomeEvento"));
+                ResultList.add(queryLoginResult.getString("descrizioneEvento"));
+                ResultList.add(String.valueOf(queryLoginResult.getDate("data")));
+                System.out.println(ResultList.get(2));
+                ResultList.add(String.valueOf(queryLoginResult.getDate("expirationDate")));
+                System.out.println(ResultList.get(3));
+                ResultList.add(queryLoginResult.getString("numeroPartecipanti"));
+                ResultList.add(queryLoginResult.getString("nomeAzienda"));
                 ResultList.add(queryLoginResult.getString("tag"));
+
                 System.out.println(ResultList.get(i)+"   rrrrrrrr");
                 i++;
             }

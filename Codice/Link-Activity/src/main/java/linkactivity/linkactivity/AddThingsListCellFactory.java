@@ -8,24 +8,49 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Objects;
+import java.text.DateFormat;
+import java.util.*;
 
-public class AddThingsListCellFactory extends ListCell<infoView> /*ListCell<EventBean>*/ {
+public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<EventBean> {
     private Parent parentNode = null;
 
-    public /*List<String>*/ void item(){
+    public /*List<String>*/ EventBean item(){
+        /*Date c= new Date();
+        DateFormat d= DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
+        Calendar v= d.getCalendar();
+        v.setTime(c);
+        c.toString();
+        System.out.println(c);
+        */
+
         List<String> z= new EventDAO().getEvent();
         System.out.println(z+"  zzzzzzzzz");
         EventBean x= new EventBean();
-        while(z.size()>1) {
+        System.out.println(z.get(0));
+        while(z.size()>0) {
             x.setEventName(z.get(0));
+            z.remove(0);
+            x.setDescription(z.get(0));
+            z.remove(0);
+            x.setDataEvento(z.get(0));
+            z.remove(0);
+            x.setExpirationDate(z.get(0));
+            z.remove(0);
+            x.setPartecipantNumber(Integer.parseInt(z.get(0)));
+            z.remove(0);
+            x.setNomeAzienda(z.get(0));
             z.remove(0);
             x.setTag(z.get(0));
             z.remove(0);
             //System.out.println(z.size());
             //System.out.println(z);
-            System.out.println(x.getEventName()+ "   ooooooooo");
+
+            System.out.println(x.getEventName());
+            System.out.println(x.getDescription());
+            System.out.println(x.getDataEvento());
+            System.out.println(x.getExpirationDate());
+            System.out.println(x.getPartecipantNumber());
+            System.out.println(x.getNomeAzienda());
             System.out.println(x.getTag());
         }
         /*int i=0;
@@ -37,12 +62,12 @@ public class AddThingsListCellFactory extends ListCell<infoView> /*ListCell<Even
             i++;
         }*/
 
-        //return z;
+        return x;
     }
 
 
     @Override
-    protected void updateItem(infoView/*EventBean*/ item, boolean empty) {
+    protected void updateItem(/*infoView*/EventBean item, boolean empty) {
         super.updateItem(item, empty);
 
         if (item != null) {
@@ -54,12 +79,14 @@ public class AddThingsListCellFactory extends ListCell<infoView> /*ListCell<Even
                 }
                 Text productNameLabel = (Text) parentNode.lookup("#" + "testo1") ;
                 Text productPriceLabel = (Text) parentNode.lookup("#" + "testo2") ;
+                Text tagText= (Text) parentNode.lookup("#"+"testo3");
                 ImageView immToChange= (ImageView) parentNode.lookup("#"+"immToChange");
 
-                productNameLabel.setText(item.getBeanName());
-                productPriceLabel.setText(String.format("%s",item.getBeanNum()));
+                productNameLabel.setText(item.getEventName().get(0));
+                productPriceLabel.setText(String.format("%s",item.getDescription().get(0)));
+                tagText.setText(String.format("%s",item.getTag().get(0)));
 
-                if(item.getBeanName().equals("ciao")) {
+                if(item.getEventName().equals("ciao")) {
                     String x = "C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png";
                     Image imm = new Image(x);
                     immToChange.setImage(imm);

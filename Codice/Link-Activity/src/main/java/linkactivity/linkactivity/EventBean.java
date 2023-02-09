@@ -9,17 +9,18 @@ public class EventBean {
     String eventName;
     List<String> eventName2= new ArrayList<>();
     Date dataEvento;
-    List<Date> dataEvento2;
+    List<String> dataEvento2= new ArrayList<>();
     Date expirationDate;
-    List<Date> expirationDate2;
+    List<String> expirationDate2= new ArrayList<>();
     String description;
-    List<String> description2;
+    List<String> description2= new ArrayList<>();
     int partecipantNumber;
-    List<Integer> partecipantNumber2;
+    List<Integer> partecipantNumber2= new ArrayList<>();
     String nomeAzienda;
-    List<String> nomeAzienda2;
+    List<String> nomeAzienda2= new ArrayList<>();
     String tag;
     List<String> tag2= new ArrayList<>();
+
 
 
     public EventBean(){}    //costruttore vuoto
@@ -27,7 +28,6 @@ public class EventBean {
     public EventBean(String eventName,Date dataEvento,Date expirationDate,String Description,int partecipantNumber,String nomeAzienda, String tag ){
 
     }
-
 
     public List<String> getEventName() {
         return eventName2;
@@ -42,19 +42,19 @@ public class EventBean {
         this.eventName = eventName;
     }*/
 
-    public List<Date> getDataEvento() {
+    public List<String> getDataEvento() {
         return dataEvento2;
     }
 
-    public void setDataEvento(Date dataEvento) {
+    public void setDataEvento(String dataEvento) {
         dataEvento2.add(dataEvento);
     }
 
-    public List<Date> getExpirationDate() {
+    public List<String> getExpirationDate() {
         return expirationDate2;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         expirationDate2.add(expirationDate);
     }
 
