@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -51,40 +53,33 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="149.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="102.0" />
-            <Text layoutX="158.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filter By: " textAlignment="CENTER" wrappingWidth="88.04296875">
+            <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="161.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+            <RadioButton fx:id="cppRButton" layoutX="171.0" layoutY="60.0" mnemonicParsing="false" onAction="#cppFunction" text="C++">
                <font>
-                  <Font name="Georgia" size="20.0" />
+                  <Font size="14.0" />
                </font>
-            </Text>
-            <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="262.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="123.0" />
-            <Text layoutX="269.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Language" textAlignment="CENTER" wrappingWidth="88.04296875">
-               <font>
-                  <Font name="Georgia" size="20.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="23.0" fitWidth="21.0" layoutX="357.0" layoutY="58.0">
-               <image>
-                  <Image url="@Images/icons8-expand-arrow-24.png" />
-               </image>
-            </ImageView>
-            <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="396.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="123.0" />
-            <Text layoutX="398.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Difficulty" textAlignment="CENTER" wrappingWidth="95.0">
-               <font>
-                  <Font name="Georgia" size="20.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="23.0" fitWidth="21.0" layoutX="491.0" layoutY="59.0">
-               <image>
-                  <Image url="@Images/icons8-expand-arrow-24.png" />
-               </image>
-            </ImageView>
+               <toggleGroup>
+                  <ToggleGroup fx:id="Tags" />
+               </toggleGroup>
+            </RadioButton>
             <ListView fx:id="dashboard" layoutX="18.0" layoutY="90.0" prefHeight="415.0" prefWidth="651.0" />
             <Button fx:id="demoButton" layoutX="35.0" layoutY="51.0" mnemonicParsing="false" onAction="#fakeListViewInsert" prefHeight="37.0" prefWidth="70.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="241.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
+            <RadioButton fx:id="javaRButton" layoutX="251.0" layoutY="60.0" mnemonicParsing="false" onAction="#javaFunction" text="Java" toggleGroup="$Tags">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </RadioButton>
+            <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="322.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="88.0" />
+            <RadioButton fx:id="pythonRButton" layoutX="332.0" layoutY="60.0" mnemonicParsing="false" onAction="#pythonFunction" text="Python" toggleGroup="$Tags">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </RadioButton>
          </children>
       </Pane>
    </children>

@@ -9,34 +9,64 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.*;
 
 public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<EventBean> {
     private Parent parentNode = null;
+    private int i=0;
 
-    public /*List<String>*/ EventBean item(){
-        /*Date c= new Date();
+
+
+    public /*List<String>*/ List<EventBean> item(String tag) throws ParseException {
+        Date c= new Date();
         DateFormat d= DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
         Calendar v= d.getCalendar();
         v.setTime(c);
         c.toString();
         System.out.println(c);
-        */
 
-        List<String> z= new EventDAO().getEvent();
+
+        List<String> z;
+        if(tag.equals("java")){
+            z= new EventDAO().getEvent("java");
+        } else if(tag.equals("cpp")){
+            z= new EventDAO().getEvent("cpp");
+        } else if(tag.equals("python")){
+            z=new EventDAO().getEvent("python");
+        } else {
+            z=new EventDAO().getEvent("");
+        }
+        //ArrayList list = new ArrayList<>();
+        List<EventBean> list = new ArrayList<>();
+        //List<String> z= new EventDAO().getEvent();
         System.out.println(z+"  zzzzzzzzz");
-        EventBean x= new EventBean();
-        System.out.println(z.get(0));
+
+        //System.out.println(z.get(0));
+
         while(z.size()>0) {
+            EventBean x= new EventBean();
+
             x.setEventName(z.get(0));
             z.remove(0);
             x.setDescription(z.get(0));
             z.remove(0);
-            x.setDataEvento(z.get(0));
+
+            String u= z.get(0);
+            SimpleDateFormat format= new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+            Date date= format.parse(u);
+            x.setDataEvento(date);
             z.remove(0);
-            x.setExpirationDate(z.get(0));
+
+            String u2= z.get(0);
+            //SimpleDateFormat format2= new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+            Date date2= format.parse(u2);
+            x.setExpirationDate(date2);
             z.remove(0);
-            x.setPartecipantNumber(Integer.parseInt(z.get(0)));
+
+            x.setPartecipantNumber(Integer.parseInt(String.valueOf(z.get(0))));
             z.remove(0);
             x.setNomeAzienda(z.get(0));
             z.remove(0);
@@ -45,31 +75,31 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
             //System.out.println(z.size());
             //System.out.println(z);
 
-            System.out.println(x.getEventName());
-            System.out.println(x.getDescription());
-            System.out.println(x.getDataEvento());
-            System.out.println(x.getExpirationDate());
-            System.out.println(x.getPartecipantNumber());
-            System.out.println(x.getNomeAzienda());
-            System.out.println(x.getTag());
+
+
+            System.out.println(x.getEventName() + " di xxxxxxxxxx");
+            System.out.println(x.getDescription() + " di xxxxxxxxxx");
+            System.out.println(x.getDataEvento() + " di xxxxxxxxxx");
+            System.out.println(x.getExpirationDate() + " di xxxxxxxxxx");
+            System.out.println(x.getPartecipantNumber() + " di xxxxxxxxxx");
+            System.out.println(x.getPartecipantNumber() + " di xxxxxxxxxx");
+            System.out.println(x.getNomeAzienda() + " di xxxxxxxxxx");
+            System.out.println(x.getTag() + " di xxxxxxxxxx");
+
+            list.add(x);
+            System.out.println(list);
+            EventBean ccc= list.get(0);
+            System.out.println(ccc.getNomeAzienda()+" NOOOOOOOO");
         }
-        /*int i=0;
-        while(i!=2){
-            x.setEventName(Collections.singletonList(z.get(0)));
-            z.remove(0);
-            x.setTag(z.get(0));
-            System.out.println(x.getEventName()+ "aaaaaaaaaaa");
-            i++;
-        }*/
-
-        return x;
+        return list;
     }
-
+    private int foo(int i){
+        return i;
+    }
 
     @Override
     protected void updateItem(/*infoView*/EventBean item, boolean empty) {
         super.updateItem(item, empty);
-
         if (item != null) {
             try {
                 System.out.println("eccomi3");
@@ -77,14 +107,33 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
                     parentNode = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Singolo.fxml")));
                     System.out.println("eccomi5");
                 }
-                Text productNameLabel = (Text) parentNode.lookup("#" + "testo1") ;
-                Text productPriceLabel = (Text) parentNode.lookup("#" + "testo2") ;
-                Text tagText= (Text) parentNode.lookup("#"+"testo3");
+                Text titleText = (Text) parentNode.lookup("#" + "titleText") ;
+                Text descriptionText = (Text) parentNode.lookup("#" + "descriptionText") ;
+                Text eventDateText = (Text) parentNode.lookup("#" + "eventDateText");
+                Text expirationDateText= (Text) parentNode.lookup("#"+"expirationDateText");
+                Text participantNumberText= (Text) parentNode.lookup("#"+"participantNumberText");
+                Text tagText= (Text) parentNode.lookup("#"+"tagText");
                 ImageView immToChange= (ImageView) parentNode.lookup("#"+"immToChange");
 
-                productNameLabel.setText(item.getEventName().get(0));
-                productPriceLabel.setText(String.format("%s",item.getDescription().get(0)));
-                tagText.setText(String.format("%s",item.getTag().get(0)));
+                titleText.setText(item.getEventName());
+                descriptionText.setText(item.getDescription());
+
+                /*String u= String.valueOf(item.getDataEvento());
+                u= u.substring(0,10);
+                eventDateText.setText(u);
+
+                 */
+                eventDateText.setText(String.valueOf(item.getDataEvento()));
+
+
+                /*u=String.valueOf(item.getExpirationDate());
+                u=u.substring(0,10);
+                expirationDateText.setText(u);
+
+                 */
+                expirationDateText.setText(String.valueOf(item.getExpirationDate()));
+                participantNumberText.setText(String.valueOf(item.getPartecipantNumber()));
+                tagText.setText(item.getTag());
 
                 if(item.getEventName().equals("ciao")) {
                     String x = "C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png";
@@ -96,12 +145,15 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
                     immToChange.setImage(imm);
                 }
 
+                i++;
+
                 //System.out.println(productPriceLabel);
 
                 /*if (Objects.equals(caller, SECOND_VIEW)) {
                     Label productIndexLabel = (Label) parentNode.lookup("#" + INDEX_LABEL_ID) ;
                     productIndexLabel.setText("Index " + this.getIndex());
                 }*/
+                System.out.println("ciaoneeeeSSSS");
                 setGraphic(parentNode);
 
             } catch (IOException e) {
@@ -111,6 +163,5 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
         else {
             setGraphic(null);
         }
-
     }
 }
