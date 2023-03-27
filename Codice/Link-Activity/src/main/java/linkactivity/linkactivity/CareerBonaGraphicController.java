@@ -195,11 +195,11 @@ public class CareerBonaGraphicController implements Initializable {
             Stage stage = new Stage();
             Parent root = null;
             try {
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CareerBona.fxml")));
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("JoinEvent.fxml")));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            Scene scene = new Scene(root, 690, 518);
+            Scene scene = new Scene(root, 417, 359);
             assert false;
             stage.setTitle("Hello!");
             stage.setScene(scene);
@@ -209,7 +209,8 @@ public class CareerBonaGraphicController implements Initializable {
             //System.out.println(textWiller.getText());
         });
         //i--;
-
+        //}
+        //dashboard.setItems(FXCollections.observableList(elements));
 
     }
 }
@@ -217,6 +218,6 @@ public class CareerBonaGraphicController implements Initializable {
 
 
 
-//TODO Upload logo di ogni evento su ListView da Filesystem perché codice sparito (bouch rifare gg) MANNAIA LA MAGNOLIA
-// fare schermata di join dell'evento fxml e relativi metodi per la join che incrementano/diminuiscono nel DB i posti
-// disponibili
+//TODO 1 --Upload logo di ogni evento su ListView da Filesystem perché codice sparito (bouch rifare gg) MANNAIA LA MAGNOLIA
+// 2 --fare schermata di join dell'evento fxml e 3 ---relativi metodi per la join che incrementano/diminuiscono nel DB
+// i posti disponibili

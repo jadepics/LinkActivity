@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,59 +10,39 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.JoinEventGraphicController">
    <children>
-      <Pane prefHeight="497.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="359.0" prefWidth="417.0">
          <children>
-            <ImageView fitHeight="518.0" fitWidth="690.0">
+            <ImageView fitHeight="359.0" fitWidth="417.0">
                <image>
                   <Image url="@Images/R2.jpg" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="40.0" layoutX="207.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" width="277.0" />
-            <Text layoutX="211.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EVENT DESCRIPTION" textAlignment="CENTER" wrappingWidth="269.0">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="40.0" layoutX="114.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="190.0" />
+            <Text layoutX="120.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPTION" textAlignment="CENTER" wrappingWidth="178.0">
                <font>
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Rectangle fill="WHITE" height="43.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
-            <Text layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LINK-ACTIVITY" textAlignment="CENTER" wrappingWidth="339.04296875">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="169.0" layoutX="12.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="394.0" />
+            <Text fx:id="descriptionText" layoutX="12.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="394.0">
                <font>
-                  <Font name="Georgia" size="35.0" />
+                  <Font name="Georgia" size="18.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="255.0" layoutX="121.0" layoutY="134.0" stroke="BLACK" strokeType="INSIDE" width="449.0" />
-            <Text layoutX="122.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Testo" textAlignment="CENTER" wrappingWidth="449.0">
-               <font>
-                  <Font name="Georgia" size="25.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="30.0" layoutX="276.0" layoutY="427.0" stroke="BLACK" strokeType="INSIDE" width="141.0" />
-            <Text layoutX="287.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Join!" textAlignment="CENTER" wrappingWidth="120.0">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="30.0" layoutX="146.0" layoutY="288.0" stroke="BLACK" strokeType="INSIDE" width="125.0" />
+            <Text layoutX="146.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Join Event" textAlignment="CENTER" wrappingWidth="125.0">
                <font>
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="JoinChallange" layoutX="277.0" layoutY="427.0" mnemonicParsing="false" opacity="0.0" prefHeight="30.0" prefWidth="141.0" text="Button">
+            <Button fx:id="joinEventButton" layoutX="146.0" layoutY="288.0" mnemonicParsing="false" onAction="#joinEventButton" opacity="0.0" prefHeight="30.0" prefWidth="125.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="3.0" layoutY="2.0">
-               <image>
-                  <Image url="@Images/icons8-back-arrow-50.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="BackButton" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#BackToDashboard" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <TextArea layoutX="121.0" layoutY="134.0" prefHeight="255.0" prefWidth="449.0" text="Testo descrizione">
-               <font>
-                  <Font size="38.0" />
-               </font>
-            </TextArea>
          </children>
       </Pane>
    </children>
