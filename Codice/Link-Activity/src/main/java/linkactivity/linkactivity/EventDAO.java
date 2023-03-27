@@ -1,14 +1,18 @@
 package linkactivity.linkactivity;
 
+import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class EventDAO {
 
-    public List<String> getEvent(String tag) {
+    public List<EventModel> getEvent(String tag) {
 
         Connection myConnection = DBConnection.getDBConnection();
 
@@ -25,7 +29,8 @@ public class EventDAO {
         //nomeEvento,descrizioneEvento,data, expirationDate, nomeAzienda
         //String verifyLoginQuery = "SELECT * FROM evento";
 
-        List<String> ResultList = null;
+        List<EventModel> ResultList = null;
+
         try {
             Statement statement = myConnection.createStatement();
             ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
@@ -33,10 +38,15 @@ public class EventDAO {
             ResultList = new ArrayList<>();
             int i=0;
             while (queryLoginResult.next()) {
-                //EventBean lista= new EventBean();
-                //lista.setEventName(queryLoginResult.getString("nomeEvento"));
-                //ResultList.add(lista.getEventName());
 
+
+
+                EventModel x= new EventModel(queryLoginResult.getString("nomeEvento"),
+                        queryLoginResult.getDate("data"), queryLoginResult.getDate("expirationDate"),
+                        queryLoginResult.getString("descrizioneEvento"), Integer.parseInt(queryLoginResult.getString("numeroPartecipanti")),
+                        queryLoginResult.getString("nomeAzienda"), queryLoginResult.getString("tag"));
+                ResultList.add(x);
+                /*
                 ResultList.add(queryLoginResult.getString("nomeEvento"));
                 ResultList.add(queryLoginResult.getString("descrizioneEvento"));
                 ResultList.add(String.valueOf(queryLoginResult.getDate("data")));
@@ -46,14 +56,18 @@ public class EventDAO {
                 ResultList.add(queryLoginResult.getString("numeroPartecipanti"));
                 ResultList.add(queryLoginResult.getString("nomeAzienda"));
                 ResultList.add(queryLoginResult.getString("tag"));
-
                 System.out.println(ResultList.get(i)+"   rrrrrrrr");
                 i++;
+                */
+
+
+
             }
         } catch (Exception e) {
             System.out.println("erroreee");
             e.printStackTrace();
         }
+
         return ResultList;
     }
 }

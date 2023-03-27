@@ -19,8 +19,8 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
     private int i=0;
 
 
-
-    public /*List<String>*/ List<EventBean> item(String tag) throws ParseException {
+    /*
+    public List<EventBean> item(String tag) throws ParseException {
         Date c= new Date();
         DateFormat d= DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
         Calendar v= d.getCalendar();
@@ -93,6 +93,7 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
         }
         return list;
     }
+    */
     private int foo(int i){
         return i;
     }
@@ -117,20 +118,7 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
 
                 titleText.setText(item.getEventName());
                 descriptionText.setText(item.getDescription());
-
-                /*String u= String.valueOf(item.getDataEvento());
-                u= u.substring(0,10);
-                eventDateText.setText(u);
-
-                 */
                 eventDateText.setText(String.valueOf(item.getDataEvento()));
-
-
-                /*u=String.valueOf(item.getExpirationDate());
-                u=u.substring(0,10);
-                expirationDateText.setText(u);
-
-                 */
                 expirationDateText.setText(String.valueOf(item.getExpirationDate()));
                 participantNumberText.setText(String.valueOf(item.getPartecipantNumber()));
                 tagText.setText(item.getTag());
@@ -147,12 +135,6 @@ public class AddThingsListCellFactory extends /*ListCell<infoView>*/ ListCell<Ev
 
                 i++;
 
-                //System.out.println(productPriceLabel);
-
-                /*if (Objects.equals(caller, SECOND_VIEW)) {
-                    Label productIndexLabel = (Label) parentNode.lookup("#" + INDEX_LABEL_ID) ;
-                    productIndexLabel.setText("Index " + this.getIndex());
-                }*/
                 System.out.println("ciaoneeeeSSSS");
                 setGraphic(parentNode);
 

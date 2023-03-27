@@ -78,7 +78,7 @@ public class CareerBonaGraphicController implements Initializable {
 
     @FXML
     void cppFunction() throws ParseException {
-        List<EventBean> y = new AddThingsListCellFactory().item("cpp");
+        List<EventBean> y = new ItemController().item("cpp");
         elements.clear();
         dashboard.refresh();
         while(y.size()>0){
@@ -91,7 +91,7 @@ public class CareerBonaGraphicController implements Initializable {
 
     @FXML
     void javaFunction() throws ParseException {
-        List<EventBean> y = new AddThingsListCellFactory().item("java");
+        List<EventBean> y = new ItemController().item("java");
         elements.clear();
         dashboard.refresh();
         while(y.size()>0){
@@ -104,7 +104,7 @@ public class CareerBonaGraphicController implements Initializable {
 
     @FXML
     void pythonFunction() throws ParseException {
-        List<EventBean> y = new AddThingsListCellFactory().item("python");
+        List<EventBean> y = new ItemController().item("python");
         elements.clear();
         dashboard.refresh();
         while(y.size()>0){
@@ -172,7 +172,7 @@ public class CareerBonaGraphicController implements Initializable {
         dashboard.refresh();
         List<EventBean> y = null;
         try {
-            y = new AddThingsListCellFactory().item("");
+            y = new ItemController().item("");
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -210,7 +210,7 @@ public class CareerBonaGraphicController implements Initializable {
         });
         //i--;
         //}
-        dashboard.setItems(FXCollections.observableList(elements));
+        //dashboard.setItems(FXCollections.observableList(elements));
 
     }
 }
@@ -218,6 +218,6 @@ public class CareerBonaGraphicController implements Initializable {
 
 
 
-//TODO sistemare controller applicativo listCellFatory item
-// controller grafico parla conc ontroller applicativo che chiede a dao, dao prende da db e crea un model (di event
-// ad esempio) e la ritorna a controller applciativo, controller applciativo crea una bean e la passa al controller grafico
+//TODO Upload logo di ogni evento su ListView da Filesystem perché codice sparito (bouch rifare gg) MANNAIA LA MAGNOLIA
+// fare schermata di join dell'evento fxml e relativi metodi per la join che incrementano/diminuiscono nel DB i posti
+// disponibili

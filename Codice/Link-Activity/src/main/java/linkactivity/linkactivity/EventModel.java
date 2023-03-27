@@ -2,7 +2,7 @@ package linkactivity.linkactivity;
 
 import java.util.Date;
 
-public class EventBean {
+public class EventModel {
 
     String eventName;
     //List<String> eventName2= new ArrayList<>();
@@ -21,13 +21,19 @@ public class EventBean {
 
 
 
-    public EventBean(){}    //costruttore vuoto
+    public EventModel(){}    //costruttore vuoto
 
-    public EventBean(String eventName,Date dataEvento,Date expirationDate,String description,int partecipantNumber,String nomeAzienda, String tag ){
-
+    public EventModel(String eventName,Date dataEvento,Date expirationDate,String description,int partecipantNumber,String nomeAzienda, String tag ){
+        setEventModelName(eventName);
+        setEventModelDescription(description);
+        setEventModelData(dataEvento);
+        setEventModelExpirationDate(expirationDate);
+        setEventModelPartecipantNumber(partecipantNumber);
+        setEventModelNomeAzienda(nomeAzienda);
+        setEventModelTag(tag);
     }
 
-    public String getEventName() {
+    public String getEventModelName() {
         return eventName;
     }
 
@@ -36,7 +42,7 @@ public class EventBean {
         //System.out.println(eventName2);
     }*/
 
-    public void setEventName(String eventName) {
+    public void setEventModelName(String eventName) {
         this.eventName = eventName;
     }
 
@@ -44,7 +50,7 @@ public class EventBean {
         return dataEvento2;
     }*/
 
-    public Date getDataEvento() {
+    public Date getEventModelData() {
         return dataEvento;
     }
 
@@ -52,7 +58,7 @@ public class EventBean {
         dataEvento2.add(dataEvento);
     }*/
 
-    public void setDataEvento(Date dataEvento) {
+    public void setEventModelData(Date dataEvento) {
         this.dataEvento=dataEvento;
     }
 
@@ -60,7 +66,7 @@ public class EventBean {
         return expirationDate2;
     }*/
 
-    public Date getExpirationDate() {
+    public Date getEventModelExpirationDate() {
         return expirationDate;
     }
 
@@ -68,7 +74,7 @@ public class EventBean {
         expirationDate2.add(expirationDate);
     }*/
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setEventModelExpirationDate(Date expirationDate) {
         this.expirationDate=expirationDate;
     }
 
@@ -76,7 +82,7 @@ public class EventBean {
         return description2;
     }*/
 
-    public String getDescription() {
+    public String getEventModelDescription() {
         return description;
     }
 
@@ -84,7 +90,7 @@ public class EventBean {
         description2.add(description);
     }*/
 
-    public void setDescription(String description) {
+    public void setEventModelDescription(String description) {
         this.description=description;
     }
 
@@ -92,7 +98,7 @@ public class EventBean {
         return partecipantNumber2;
     }*/
 
-    public Integer getPartecipantNumber() {
+    public Integer getEventModelPartecipantNumber() {
         return partecipantNumber;
     }
 
@@ -100,7 +106,7 @@ public class EventBean {
         partecipantNumber2.add(partecipantNumber);
     }*/
 
-    public void setPartecipantNumber(int partecipantNumber) {
+    public void setEventModelPartecipantNumber(int partecipantNumber) {
         this.partecipantNumber=partecipantNumber;
     }
 
@@ -108,7 +114,7 @@ public class EventBean {
         return nomeAzienda2;
     }*/
 
-    public String getNomeAzienda() {
+    public String getEventModelNomeAzienda() {
         return nomeAzienda;
     }
 
@@ -116,7 +122,7 @@ public class EventBean {
         nomeAzienda2.add(nomeAzienda);
     }*/
 
-    public void setNomeAzienda(String nomeAzienda) {
+    public void setEventModelNomeAzienda(String nomeAzienda) {
         this.nomeAzienda=nomeAzienda;
     }
 
@@ -124,7 +130,7 @@ public class EventBean {
         return tag2;
     }*/
 
-    public String getTag() {
+    public String getEventModelTag() {
         return tag;
     }
 
@@ -132,7 +138,7 @@ public class EventBean {
         tag2.add(tag);
     }*/
 
-    public void setTag(String tag) {
+    public void setEventModelTag(String tag) {
         this.tag=tag;
     }
 }
