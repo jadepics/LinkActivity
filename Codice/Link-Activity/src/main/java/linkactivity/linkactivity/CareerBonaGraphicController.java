@@ -209,8 +209,7 @@ public class CareerBonaGraphicController implements Initializable {
             //System.out.println(textWiller.getText());
         });
         //i--;
-        //}
-        //dashboard.setItems(FXCollections.observableList(elements));
+
 
     }
 }
