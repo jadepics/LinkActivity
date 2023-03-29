@@ -17,4 +17,9 @@ public class JoinEventGraphicController {
         System.out.println("joinevent");
     }
 
+    @FXML
+    void setDescriptionText(String x){
+        descriptionText.setText(x);
+    }
+
 }

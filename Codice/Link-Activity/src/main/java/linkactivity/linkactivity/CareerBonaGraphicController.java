@@ -9,10 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import linkactivity.linkactivity.infoView;
-import linkactivity.linkactivity.AddThingsListCellFactory;
-import org.w3c.dom.events.Event;
-
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -45,24 +41,11 @@ public class CareerBonaGraphicController implements Initializable {
     @FXML
     private RadioButton javaRButton;
 
-
-    /*
-    @FXML
-    private ListView<infoView> dashboard;
-
-    private final ArrayList<infoView> elements= new ArrayList<>();
-    */
-
     @FXML
     private ListView<EventBean> dashboard;
 
     private final ArrayList<EventBean> elements= new ArrayList<>();
 
-    //private final EventBean x = new AddThingsListCellFactory().item("");
-    int i = 0;
-
-
-    private int y=0;
 
     @FXML
     private void backToLogin2() throws IOException {
@@ -116,61 +99,17 @@ public class CareerBonaGraphicController implements Initializable {
     }
 
     @FXML
-    void fakeListViewInsert() { //parallelo di addName
-        /*
-        y++;
-        infoView x= new infoView("qui ci va il testo preso dal DB",y);
-        elements.add(x);
-        dashboard.setItems(FXCollections.observableList(elements));
-        System.out.println("eccomi2");
-        */
+    void fakeListViewInsert() {
 
-        // CHIEDERE A NICOSANTI COME SI AUTOMATIZZA CORRETTAMENTE IL PRINTING DEGLI EVENTI CON NOMI DIVERSI
-        // SENZA L'USO DEL BOTTONE MA DALL'ACCESSO ALLA DASHBOARD DOPO LOGIN
-
-        //elements.add(x);
-        //dashboard.refresh();
-        //EventBean z= new AddThingsListCellFactory().item("");
-        /*if(javaRButton.isSelected()){
-            z = new AddThingsListCellFactory().item("java");
-        } else if(cppRButton.isSelected()){
-            z= new AddThingsListCellFactory().item("cpp");
-        } else if(pythonRButton.isSelected()) {
-            z= new AddThingsListCellFactory().item("python");
-        }*/
-
-        /*List<EventBean> y = new AddThingsListCellFactory().item("");
-        elements.clear();
-        dashboard.refresh();
-        while(y.size()>0){
-            EventBean z= y.get(0);
-            //System.out.println(z.getNomeAzienda()+"eoeoeoeoeoeo");
-            elements.add(z);
-            System.out.println(elements.get(0));
-            y.remove(0);
-        }
-        dashboard.setItems(FXCollections.observableList(elements));*/
-
-    }
-    void foo(){
-        demoButton.fire();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("eccomi");
-        //System.out.println(x);
-        //while(i>0){
-        //    foo();
 
-        //while (i > 0) {
-        //EventBean z= new AddThingsListCellFactory().item("");
-        //    elements.add(z);
-
-        //    dashboard.setItems(FXCollections.observableList(elements));
         elements.clear();
         dashboard.refresh();
-        List<EventBean> y = null;
+        List<EventBean> y;
         try {
             y = new ItemController().item("");
         } catch (ParseException e) {
@@ -191,26 +130,31 @@ public class CareerBonaGraphicController implements Initializable {
 
         dashboard.setCellFactory(param -> new AddThingsListCellFactory());
         dashboard.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            //qui ci sarà quello che avviene quando clicchi su una cella della listview
+
             Stage stage = new Stage();
-            Parent root = null;
+            FXMLLoader root;
+            root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("JoinEvent.fxml")));
+            String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
+
+            //TODO chiedere a nicosanti
+
+
+
+
+            Scene scene;
             try {
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("JoinEvent.fxml")));
+                scene = new Scene(root.load(), 417, 359);
+                stage.setTitle("Hello!");
+                stage.setScene(scene);
+                stage.show();
+                JoinEventGraphicController o = root.getController();
+                o.setDescriptionText(x);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            Scene scene = new Scene(root, 417, 359);
             assert false;
-            stage.setTitle("Hello!");
-            stage.setScene(scene);
-            stage.show();
-            System.out.println("AOOOOOOO");
-            //textWiller.setText((newValue == null) ? "" : newValue.getBeanName());
-            //System.out.println(textWiller.getText());
+
         });
-        //i--;
-        //}
-        //dashboard.setItems(FXCollections.observableList(elements));
 
     }
 }

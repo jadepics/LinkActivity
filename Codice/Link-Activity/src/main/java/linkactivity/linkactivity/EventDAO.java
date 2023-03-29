@@ -1,14 +1,14 @@
 package linkactivity.linkactivity;
 
-import javax.xml.transform.Result;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Date;
+
 import java.util.List;
-import java.util.Locale;
+
 
 public class EventDAO {
 
@@ -26,8 +26,6 @@ public class EventDAO {
         } else {
             verifyLoginQuery="SELECT * FROM evento";
         }
-        //nomeEvento,descrizioneEvento,data, expirationDate, nomeAzienda
-        //String verifyLoginQuery = "SELECT * FROM evento";
 
         List<EventModel> ResultList = null;
 
@@ -46,22 +44,6 @@ public class EventDAO {
                         queryLoginResult.getString("descrizioneEvento"), Integer.parseInt(queryLoginResult.getString("numeroPartecipanti")),
                         queryLoginResult.getString("nomeAzienda"), queryLoginResult.getString("tag"));
                 ResultList.add(x);
-                /*
-                ResultList.add(queryLoginResult.getString("nomeEvento"));
-                ResultList.add(queryLoginResult.getString("descrizioneEvento"));
-                ResultList.add(String.valueOf(queryLoginResult.getDate("data")));
-                //System.out.println(ResultList.get(2));
-                ResultList.add(String.valueOf(queryLoginResult.getDate("expirationDate")));
-                //System.out.println(ResultList.get(3));
-                ResultList.add(queryLoginResult.getString("numeroPartecipanti"));
-                ResultList.add(queryLoginResult.getString("nomeAzienda"));
-                ResultList.add(queryLoginResult.getString("tag"));
-                System.out.println(ResultList.get(i)+"   rrrrrrrr");
-                i++;
-                */
-
-
-
             }
         } catch (Exception e) {
             System.out.println("erroreee");
