@@ -117,22 +117,25 @@ public class CareerBonaGraphicController implements Initializable {
         }
         System.out.println(y);
 
-        while(y.size()>0) {
-            EventBean z = y.get(0);
-            System.out.println(z.getNomeAzienda() + "eoeoeoeoeoeo");
+        while(y.size()>0){
+            EventBean z= y.get(0);
+            System.out.println(z.getNomeAzienda()+"eoeoeoeoeoeo");
             elements.add(z);
             System.out.println(elements.get(0));
             y.remove(0);
         }
 
+
         dashboard.setItems(FXCollections.observableList(elements));
+
         dashboard.setCellFactory(param -> new AddThingsListCellFactory());
         dashboard.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 
             Stage stage = new Stage();
             FXMLLoader root;
             root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("JoinEvent.fxml")));
-            String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
+            //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
+            EventBean x= elements.get(dashboard.getSelectionModel().getSelectedIndex());
 
             Scene scene;
             try {
@@ -146,7 +149,9 @@ public class CareerBonaGraphicController implements Initializable {
                 throw new RuntimeException(e);
             }
             assert false;
+
         });
+
     }
 }
 
