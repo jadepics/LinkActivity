@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ItemController {
-    public /*List<String>*/ List<EventBean> item(String tag) throws ParseException {
+    public List<EventBean> item(String tag) throws ParseException {
         Date c= new Date();
         DateFormat d= DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
         Calendar v= d.getCalendar();
@@ -46,36 +46,6 @@ public class ItemController {
             x.setTag(y.getEventModelTag());
             z.remove(0);
 
-            /*
-            x.setEventName(z.get(0));
-            z.remove(0);
-            x.setDescription(z.get(0));
-            z.remove(0);
-
-            String u= z.get(0);
-            SimpleDateFormat format= new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-            Date date= format.parse(u);
-            x.setDataEvento(date);
-            z.remove(0);
-
-            String u2= z.get(0);
-            //SimpleDateFormat format2= new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-            Date date2= format.parse(u2);
-            x.setExpirationDate(date2);
-            z.remove(0);
-
-            x.setPartecipantNumber(Integer.parseInt(String.valueOf(z.get(0))));
-            z.remove(0);
-            x.setNomeAzienda(z.get(0));
-            z.remove(0);
-            x.setTag(z.get(0));
-            z.remove(0);
-            //System.out.println(z.size());
-            //System.out.println(z);
-
-            */
-
-
             System.out.println(x.getEventName() + " di xxxxxxxxxx");
             System.out.println(x.getDescription() + " di xxxxxxxxxx");
             System.out.println(x.getDataEvento() + " di xxxxxxxxxx");
@@ -91,5 +61,11 @@ public class ItemController {
             System.out.println(ccc.getNomeAzienda()+" NOOOOOOOO");
         }
         return list;
+    }
+
+    public int joinEvent(EventBean x){
+        int c= new EventDAO().modifyParticipantNumber(x);
+        System.out.println("eopopopopopopopopo");
+        return 0;
     }
 }

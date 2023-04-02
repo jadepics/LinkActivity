@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
-public class JoinEventGraphicController {
+public class JoinEventGraphicController{
 
     @FXML
     private Text descriptionText;
@@ -12,14 +12,20 @@ public class JoinEventGraphicController {
     @FXML
     private Button joinEventButton;
 
+    EventBean y= new EventBean();
+
     @FXML
     void joinEventButton() {
-        System.out.println("joinevent");
+        EventBean k= y;
+        int x= new ItemController().joinEvent(k);
+
     }
 
     @FXML
-    void setDescriptionText(String x){
-        descriptionText.setText(x);
+    void setDescriptionText(EventBean x){
+        //descriptionText.setText(x);
+        y= x;
+        descriptionText.setText(x.getDescription());
     }
 
 }
