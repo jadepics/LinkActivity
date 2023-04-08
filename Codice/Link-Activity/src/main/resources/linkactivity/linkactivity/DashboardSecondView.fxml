@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="which.language.which_language.CareerControllerG">
+   <children>
+      <Pane prefHeight="518.0" prefWidth="690.0">
+         <children>
+            <ImageView fitHeight="518.0" fitWidth="690.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../../../../../Grafica/Images/R2.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle fill="WHITE" height="43.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
+            <Text layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LINK-ACTIVITY" textAlignment="CENTER" wrappingWidth="339.04296875">
+               <font>
+                  <Font name="Georgia" size="35.0" />
+               </font>
+            </Text>
+            <Button layoutX="220.0" layoutY="8.0" mnemonicParsing="false" opacity="0.0" prefHeight="25.0" prefWidth="265.0" />
+            <TextField layoutX="21.0" layoutY="455.0" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
+            <ListView fx:id="dashboard" layoutX="17.0" layoutY="153.0" prefHeight="281.0" prefWidth="657.0" />
+            <Rectangle fill="WHITE" height="83.0" layoutX="17.0" layoutY="55.0" stroke="BLACK" strokeType="INSIDE" width="347.0" />
+            <Text layoutX="21.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- goto &lt;challange index&gt;&#10;- back&#10;- filterBy &lt;Java&gt; or &lt;C++&gt; or &lt;Python&gt;&#10;" wrappingWidth="339.04296875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
