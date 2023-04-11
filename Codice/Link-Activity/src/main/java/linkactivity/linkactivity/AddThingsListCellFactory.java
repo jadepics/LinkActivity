@@ -42,7 +42,6 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
                 tagText.setText(item.getTag());
 
                 String nomeaz= item.getNomeAzienda();
-                //System.out.println(c+"1212212212121212121323412133214");
 
                 BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Codice\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
 
@@ -74,70 +73,12 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
                 reader.close();
 
 
-                /*String company = "";
-
-                try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Codice\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"))) {
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        int index = line.indexOf(c);
-                        if (index != -1) {
-                            company = line.substring(index + 4);
-                            int spaceIndex = company.indexOf(' ');
-                            int newlineIndex = company.indexOf('\n');
-                            int endIndex = spaceIndex == -1 ? newlineIndex : Math.min(spaceIndex, newlineIndex);
-                            if (endIndex != -1) {
-                                company = company.substring(0, endIndex);
-                            }
-                            break;
-                        }
-                    }
-                }
-
-                System.out.println(company);
-
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < company.length(); i++) {
-                    char h = company.charAt(i);
-                    if (h == '\\') {
-                        sb.append(h);
-                    }
-                    sb.append(h);
-                }
-                System.out.println(sb +" qwqwqwqwqwqqwqwqwqwqqwqw");
-                */
-
                 String ttt= String.valueOf(sb);
                 System.out.println(ttt);
                 System.out.println(ibmString);
                 //Image imm= new Image("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\\\Codice\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png");
                 Image imm= new Image("file:"+ ttt);
                 immToChange.setImage(imm);
-
-                /*try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Codice\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"))) {
-                    String line;
-                    boolean found = false;
-                    while ((line = br.readLine()) != null) {
-                        if (found) {
-                            String[] words = line.split("\\s+");
-                            System.out.println(words[0]+"rrrrrarrrrrrrrrrraraaaaaaaaaa");
-                            break;
-                        } else if (line.startsWith("IBM")) {
-                            found = true;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
-
-                /*if(item.getEventName().equals("ciao")) {
-                    String x = "C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Codice\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png";
-                    Image imm = new Image(x);
-                    immToChange.setImage(imm);
-                } else {
-                    String y= "C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Codice\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png";
-                    Image imm= new Image(y);
-                    immToChange.setImage(imm);
-                }*/
 
                 i++;
 
