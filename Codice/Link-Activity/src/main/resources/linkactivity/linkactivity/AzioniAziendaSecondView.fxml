@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="518.0" prefWidth="690.0">
+         <children>
+            <ImageView fitHeight="518.0" fitWidth="690.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../../../../../../../Grafica/Images/R2.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle fill="WHITE" height="43.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
+            <Text layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LINK-ACTIVITY" textAlignment="CENTER" wrappingWidth="339.04296875">
+               <font>
+                  <Font name="Georgia" size="35.0" />
+               </font>
+            </Text>
+            <TextField layoutX="26.0" layoutY="357.0" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
+            <Rectangle fill="WHITE" height="108.0" layoutX="172.0" layoutY="201.0" stroke="BLACK" strokeType="INSIDE" width="347.0" />
+            <Text layoutX="176.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- goto create new event&#10;- goto describe yourself to followers&#10;- goto view event insights&#10;- back" wrappingWidth="339.04296875">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="359.0" prefWidth="417.0">
+         <children>
+            <ImageView fitHeight="359.0" fitWidth="417.0">
+               <image>
+                  <Image url="@Images/R2.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="40.0" layoutX="114.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="190.0" />
+            <Text layoutX="120.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPTION" textAlignment="CENTER" wrappingWidth="178.0">
+               <font>
+                  <Font name="Georgia" size="25.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="169.0" layoutX="12.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" width="394.0" />
+            <Text fx:id="descriptionText" layoutX="12.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="394.0">
+               <font>
+                  <Font name="Georgia" size="18.0" />
+               </font>
+            </Text>
+            <TextField layoutX="46.0" layoutY="320.0" prefHeight="25.0" prefWidth="327.0" promptText="write here commands" />
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="46.0" layoutX="12.0" layoutY="243.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
+            <Text layoutX="19.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- joinEvent&#10;- back&#10;" wrappingWidth="190.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -23,7 +23,6 @@ public class JoinEventGraphicController{
 
     @FXML
     void setDescriptionText(EventBean x){
-        //descriptionText.setText(x);
         y= x;
         descriptionText.setText(x.getDescription());
     }
