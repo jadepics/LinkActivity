@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="518.0" fitWidth="690.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../../../../../../Grafica/Images/R2.jpg" />
+                  <Image url="@Images/R2.jpg" />
                </image>
             </ImageView>
             <Rectangle fill="WHITE" height="43.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />

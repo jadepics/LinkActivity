@@ -12,7 +12,7 @@ import java.util.Objects;
 public class MainClass extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WhoAreU.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("ChooseInterface.fxml")));
         Scene scene = new Scene(root, 690, 518);
 
         stage.setTitle("Link-Activity");
