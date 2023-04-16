@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.JoinEventSecondViewGraphicController">
    <children>
       <Pane prefHeight="359.0" prefWidth="417.0">
          <children>
@@ -30,7 +30,7 @@
                   <Font name="Georgia" size="18.0" />
                </font>
             </Text>
-            <TextField layoutX="46.0" layoutY="320.0" prefHeight="25.0" prefWidth="327.0" promptText="write here commands" />
+            <TextField fx:id="joinEventCommandLine" layoutX="46.0" layoutY="320.0" onAction="#executeCommand" prefHeight="25.0" prefWidth="327.0" promptText="write here commands" />
             <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="46.0" layoutX="12.0" layoutY="243.0" stroke="BLACK" strokeType="INSIDE" width="221.0" />
             <Text layoutX="19.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- joinEvent&#10;- back&#10;" wrappingWidth="190.0">
                <font>

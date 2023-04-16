@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.AzioniAziendaSecondViewGraphicController">
    <children>
       <Pane prefHeight="518.0" prefWidth="690.0">
          <children>
@@ -24,7 +24,7 @@
                   <Font name="Georgia" size="35.0" />
                </font>
             </Text>
-            <TextField layoutX="26.0" layoutY="357.0" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
+            <TextField fx:id="azioniAziendaCommandLine" layoutX="26.0" layoutY="357.0" onAction="#executeCommand" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
             <Rectangle fill="WHITE" height="108.0" layoutX="172.0" layoutY="201.0" stroke="BLACK" strokeType="INSIDE" width="347.0" />
             <Text layoutX="176.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- goto create new event&#10;- goto describe yourself to followers&#10;- goto view event insights&#10;- back" wrappingWidth="339.04296875">
                <font>

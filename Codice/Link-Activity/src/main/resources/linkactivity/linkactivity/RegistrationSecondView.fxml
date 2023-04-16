@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.RegistrationSecondViewGraphicController">
    <children>
       <Pane prefHeight="518.0" prefWidth="690.0">
          <children>
@@ -30,7 +30,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField layoutX="21.0" layoutY="413.0" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
+            <TextField fx:id="registrationCommandLine" layoutX="21.0" layoutY="413.0" onAction="#executeCommand" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
             <Rectangle fill="WHITE" height="25.0" layoutX="363.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="89.0" />
             <Text layoutX="374.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" textAlignment="CENTER" wrappingWidth="66.04296875">
                <font>
@@ -50,17 +50,17 @@
                </font>
             </Text>
             <Rectangle fill="WHITE" height="130.0" layoutX="477.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
-            <Text layoutX="484.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="registrationEmailText" layoutX="484.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="484.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="registrationPasswordText" layoutX="484.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="484.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="registrationRepeatPasswordText" layoutX="484.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
@@ -71,7 +71,7 @@
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="484.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="registrationProfileTypeText" layoutX="484.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>

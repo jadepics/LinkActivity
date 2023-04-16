@@ -17,7 +17,7 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
     private int i=0;
 
     @Override
-    protected void updateItem(/*infoView*/EventBean item, boolean empty) {
+    protected void updateItem(EventBean item, boolean empty) {
         super.updateItem(item, empty);
         if (item != null) {
             try {
@@ -43,7 +43,7 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
 
                 String nomeaz= item.getNomeAzienda();
 
-                BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
+                BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\Codice\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
 
                 String line;
                 boolean foundIBM = false;

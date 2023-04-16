@@ -63,7 +63,18 @@ public class LoginSecondViewGraphicController {
             String type= loginProfileTypeText.getText();
 
             //TODO query per richiesta login
+            // controllo su email @ e .com/it ecc
+
+            //PER ORA PASSA DIRETTAMENTE IN DASHBOARD o spawp per azienda
+
+            //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) loginCommandLine.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+
+
         }
     }
-
 }
