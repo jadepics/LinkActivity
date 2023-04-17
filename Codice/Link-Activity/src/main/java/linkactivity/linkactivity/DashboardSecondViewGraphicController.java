@@ -52,7 +52,6 @@ public class DashboardSecondViewGraphicController implements Initializable {
             String ind = s.replace("select ", "");
             int index = Integer.parseInt(ind);
             EventBean x= elements.get(index);
-            System.out.println(x.getEventName()+ " ooooooooooooooo");
 
             Stage stage = new Stage();
             FXMLLoader root;
@@ -92,8 +91,6 @@ public class DashboardSecondViewGraphicController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("eccomi");
-
         elements.clear();
         dashboardSecondView.refresh();
         List<EventBean> y;
@@ -102,13 +99,10 @@ public class DashboardSecondViewGraphicController implements Initializable {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(y);
 
         while(y.size()>0){
             EventBean z= y.get(0);
-            System.out.println(z.getNomeAzienda()+"eoeoeoeoeoeo");
             elements.add(z);
-            System.out.println(elements.get(0));
             y.remove(0);
         }
 
@@ -116,28 +110,8 @@ public class DashboardSecondViewGraphicController implements Initializable {
         dashboardSecondView.setItems(FXCollections.observableList(elements));
 
         dashboardSecondView.setCellFactory(param -> new AddThingsListCellFactory());
-        dashboardSecondView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            /*
-            Stage stage = new Stage();
-            FXMLLoader root;
-            root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("JoinEvent.fxml")));
-            //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
-            EventBean x= elements.get(dashboardSecondView.getSelectionModel().getSelectedIndex());
-
-            Scene scene;
-            try {
-                scene = new Scene(root.load(), 417, 359);
-                stage.setTitle("Hello!");
-                stage.setScene(scene);
-                stage.show();
-                JoinEventGraphicController o = root.getController();
-                o.setDescriptionText(x);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            assert false;
-            */
-        });
+        /*dashboardSecondView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        });*/
 
     }
 }

@@ -7,12 +7,12 @@ import java.util.*;
 
 public class ItemController {
     public List<EventBean> item(String tag) throws ParseException {
-        Date c= new Date();
+        /*Date c= new Date();
         DateFormat d= DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
         Calendar v= d.getCalendar();
         v.setTime(c);
         c.toString();
-        System.out.println(c);
+        System.out.println(c);*/
 
 
         List<EventModel> z;
@@ -25,12 +25,8 @@ public class ItemController {
         } else {
             z=new EventDAO().getEvent("");
         }
-        //ArrayList list = new ArrayList<>();
-        List<EventBean> list = new ArrayList<>();
-        //List<String> z= new EventDAO().getEvent();
-        System.out.println(z+"  zzzzzzzzz");
 
-        //System.out.println(z.get(0));
+        List<EventBean> list = new ArrayList<>();
 
         while(z.size()>0) {
 
@@ -46,26 +42,13 @@ public class ItemController {
             x.setTag(y.getEventModelTag());
             z.remove(0);
 
-            System.out.println(x.getEventName() + " di xxxxxxxxxx");
-            System.out.println(x.getDescription() + " di xxxxxxxxxx");
-            System.out.println(x.getDataEvento() + " di xxxxxxxxxx");
-            System.out.println(x.getExpirationDate() + " di xxxxxxxxxx");
-            System.out.println(x.getPartecipantNumber() + " di xxxxxxxxxx");
-            System.out.println(x.getPartecipantNumber() + " di xxxxxxxxxx");
-            System.out.println(x.getNomeAzienda() + " di xxxxxxxxxx");
-            System.out.println(x.getTag() + " di xxxxxxxxxx");
-
             list.add(x);
-            System.out.println(list);
-            EventBean ccc= list.get(0);
-            System.out.println(ccc.getNomeAzienda()+" NOOOOOOOO");
         }
         return list;
     }
 
     public int joinEvent(EventBean x){
-        int c= new EventDAO().modifyParticipantNumber(x);
-        System.out.println("eopopopopopopopopo");
+        new EventDAO().modifyParticipantNumber(x);
         return 0;
     }
 }

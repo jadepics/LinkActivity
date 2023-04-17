@@ -21,10 +21,8 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
         super.updateItem(item, empty);
         if (item != null) {
             try {
-                System.out.println("eccomi3");
                 if (parentNode == null) {
                     parentNode = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Singolo.fxml")));
-                    System.out.println("eccomi5");
                 }
                 Text titleText = (Text) parentNode.lookup("#" + "titleText") ;
                 Text descriptionText = (Text) parentNode.lookup("#" + "descriptionText") ;
@@ -47,26 +45,26 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
 
                 String line;
                 boolean foundIBM = false;
-                String ibmString = "";
+                String companyString = "";
                 StringBuilder sb = new StringBuilder();
 
                 // Lettura del file riga per riga
                 while ((line = reader.readLine()) != null) {
                     // Se la riga contiene "IBM", copia la stringa successiva
                     if (!foundIBM && line.contains(nomeaz)) {
-                        ibmString = line.substring(line.indexOf(nomeaz) + nomeaz.length()+1).trim();
+                        companyString = line.substring(line.indexOf(nomeaz) + nomeaz.length()+1).trim();
                         foundIBM = true;
                     } else if (foundIBM) {
                         // Scandisce la stringa per cercare il carattere "\" e aggiunge un secondo "\"
 
-                        for (char h : ibmString.toCharArray()) {
+                        for (char h : companyString.toCharArray()) {
                             sb.append(h);
                             if (h == '\\') {
                                 sb.append('\\');
                             }
                         }
-                        System.out.println("Stringa con caratteri \\ raddoppiati: " + sb.toString());
-                        break; // Esce dal ciclo while
+
+                        break;
                     }
                 }
 
@@ -74,15 +72,12 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
 
 
                 String ttt= String.valueOf(sb);
-                System.out.println(ttt);
-                System.out.println(ibmString);
                 //Image imm= new Image("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\\\Codice\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png");
                 Image imm= new Image("file:"+ ttt);
                 immToChange.setImage(imm);
 
                 i++;
 
-                System.out.println("ciaoneeeeSSSS");
                 setGraphic(parentNode);
 
             } catch (IOException e) {

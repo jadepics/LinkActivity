@@ -52,13 +52,11 @@ public class AzioniAziendaGraphicController {
     @FXML
     private void describeToFollowers() throws IOException{
         //not todo or yes
-        System.out.println("NOT TODO or yes");
     }
 
     @FXML
     private void viewEventInsights() throws IOException{
         //todo or not?
-        System.out.println("TODO or not");
     }
 
 }

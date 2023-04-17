@@ -33,7 +33,6 @@ public class EventDAO {
         try {
             Statement statement = myConnection.createStatement();
             ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
-            //System.out.println(queryLoginResult);
             ResultList = new ArrayList<>();
             int i = 0;
             while (queryLoginResult.next()) {
@@ -46,7 +45,6 @@ public class EventDAO {
                 ResultList.add(x);
             }
         } catch (Exception e) {
-            System.out.println("erroreee");
             e.printStackTrace();
         }
 

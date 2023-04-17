@@ -132,7 +132,9 @@ public class RegistrationGraphicController {
     @FXML
     private void signUpGoogle() /*throws IOException*/ {
         //todo  SIGNUPGOOGLE
-        System.out.println("to be done SIGNUPGOOGLE");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("SignUpGoogle is a dummy function");
+        alert.showAndWait();
     }
 
 
@@ -158,12 +160,9 @@ public class RegistrationGraphicController {
             }
         }
         if(a==0 || b==0){
-            System.out.println("Direi quello che direbbe Germano Mosconi");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Immettere una mail valida");
             alert.showAndWait();
-        } else {
-            System.out.println("ye");
         }
     }
 
@@ -174,20 +173,16 @@ public class RegistrationGraphicController {
     @FXML
     private void regPassUser() {
        if(regPassUser.getText().isEmpty()){
-            System.out.println("PassVuota");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Password Vuota");
             alert.showAndWait();
 
-        } else {
-            System.out.println("Pass presa");
         }
     }
 
     @FXML
     private void regRepPassUser() {
         if(regRepPassUser.getText().isEmpty()){
-            System.out.println("Repeat Password");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Il campo non può essere vuoto");
             alert.showAndWait();
@@ -198,10 +193,7 @@ public class RegistrationGraphicController {
             alert.setHeaderText("Le password non coincidono");
             alert.showAndWait();
 
-        } else {
-            System.out.println("Pass okk");
         }
     }
-
 }
 

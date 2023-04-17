@@ -7,7 +7,6 @@ public class infoView {
     private Integer i;
 
     public infoView(String descr, Integer num){
-        System.out.println("eccomi4");
         setBeanName(descr);
         setBeanNum(num);
     }

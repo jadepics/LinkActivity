@@ -20,7 +20,6 @@ public class DBConnection {
         try{
             if(connection==null){
                 connection = DriverManager.getConnection(url, databaseUser, databasePassword);
-
             }
 
         }catch (Exception e){

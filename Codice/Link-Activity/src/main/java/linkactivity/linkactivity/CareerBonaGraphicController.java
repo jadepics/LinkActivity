@@ -105,7 +105,6 @@ public class CareerBonaGraphicController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("eccomi");
 
         elements.clear();
         dashboard.refresh();
@@ -115,13 +114,10 @@ public class CareerBonaGraphicController implements Initializable {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(y);
 
         while(y.size()>0){
             EventBean z= y.get(0);
-            System.out.println(z.getNomeAzienda()+"eoeoeoeoeoeo");
             elements.add(z);
-            System.out.println(elements.get(0));
             y.remove(0);
         }
 
@@ -154,10 +150,3 @@ public class CareerBonaGraphicController implements Initializable {
 
     }
 }
-
-
-
-
-//TODO 1 --Upload logo di ogni evento su ListView da Filesystem perché codice sparito (bouch rifare gg) MANNAIA LA MAGNOLIA
-// 2 --fare schermata di join dell'evento fxml e 3 ---relativi metodi per la join che incrementano/diminuiscono nel DB
-// i posti disponibili

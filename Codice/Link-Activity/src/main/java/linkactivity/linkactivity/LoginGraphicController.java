@@ -100,12 +100,9 @@ public class LoginGraphicController {
             while (queryLoginResult.next()) {
 
                 if (queryLoginResult.getInt(1) == 1) {
-                    System.out.println("Benvenuto");
-                    System.out.println(verifyLoginQuery);
                     if(i == 0) switchToUserProfile(event);
                         else switchToAziendaProfile(event);
                 }
-                else { System.out.println("Errore nel login");}
             }
         }
         catch(Exception e){
@@ -115,8 +112,8 @@ public class LoginGraphicController {
 
 
 
-                @FXML
-                private void loginGoogle () {
-                    //dummy
-                }
-            }
+    @FXML
+    private void loginGoogle () {
+        //dummy
+    }
+}
