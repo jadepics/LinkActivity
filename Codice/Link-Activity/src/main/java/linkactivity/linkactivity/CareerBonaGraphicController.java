@@ -64,7 +64,7 @@ public class CareerBonaGraphicController implements Initializable {
         List<EventBean> y = new ItemController().item("cpp");
         elements.clear();
         dashboard.refresh();
-        while(y.isEmpty()){
+        while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
@@ -77,7 +77,7 @@ public class CareerBonaGraphicController implements Initializable {
         List<EventBean> y = new ItemController().item("java");
         elements.clear();
         dashboard.refresh();
-        while(y.isEmpty()){
+        while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
@@ -90,7 +90,7 @@ public class CareerBonaGraphicController implements Initializable {
         List<EventBean> y = new ItemController().item("python");
         elements.clear();
         dashboard.refresh();
-        while(y.isEmpty()){
+        while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
@@ -111,7 +111,7 @@ public class CareerBonaGraphicController implements Initializable {
         List<EventBean> y;
         y = new ItemController().item("");
 
-        while(y.isEmpty()){
+        while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);

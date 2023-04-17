@@ -28,7 +28,7 @@ public class ItemController {
 
         List<EventBean> list = new ArrayList<>();
 
-        while(z.isEmpty()) {
+        while(!(z.isEmpty())) {
 
             EventBean x= new EventBean();
 

@@ -80,7 +80,7 @@ public class DashboardSecondViewGraphicController implements Initializable {
             List<EventBean> y = new ItemController().item(filter);
             elements.clear();
             dashboardSecondView.refresh();
-            while(y.isEmpty()){
+            while(!(y.isEmpty())){
                 EventBean z= y.get(0);
                 elements.add(z);
                 y.remove(0);
@@ -96,7 +96,7 @@ public class DashboardSecondViewGraphicController implements Initializable {
         List<EventBean> y;
         y = new ItemController().item("");
 
-        while(y.isEmpty()){
+        while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
