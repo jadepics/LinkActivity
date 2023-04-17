@@ -16,6 +16,9 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
     private Parent parentNode = null;
     private int i=0;
 
+
+    //TODO FARE DAO PER ACCEDERE AL FILESYSTEM:
+    // cg chiama ca chiama dao ritorna ca parsa stringa ritorna a cg che al mercato mio padre comprò
     public StringBuilder parseSlash(String nomeaz) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
 
