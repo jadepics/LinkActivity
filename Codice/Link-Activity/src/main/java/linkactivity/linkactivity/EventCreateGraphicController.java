@@ -37,11 +37,6 @@ public class EventCreateGraphicController {
         @FXML
         private MenuButton tagInsert;
 
-        @FXML
-        void backToAzioniAzienda(ActionEvent event) {
-
-        }
-
 
         @FXML
         private void backToAzioniAzienda() throws IOException {

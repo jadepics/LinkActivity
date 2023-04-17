@@ -30,7 +30,7 @@ public class CareerBonaGraphicController implements Initializable {
 
 
     @FXML
-    private ToggleGroup Tags;
+    private ToggleGroup tags;
 
     @FXML
     private RadioButton cppRButton;
@@ -64,7 +64,7 @@ public class CareerBonaGraphicController implements Initializable {
         List<EventBean> y = new ItemController().item("cpp");
         elements.clear();
         dashboard.refresh();
-        while(y.size()>0){
+        while(y.isEmpty()){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
@@ -77,7 +77,7 @@ public class CareerBonaGraphicController implements Initializable {
         List<EventBean> y = new ItemController().item("java");
         elements.clear();
         dashboard.refresh();
-        while(y.size()>0){
+        while(y.isEmpty()){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
@@ -90,7 +90,7 @@ public class CareerBonaGraphicController implements Initializable {
         List<EventBean> y = new ItemController().item("python");
         elements.clear();
         dashboard.refresh();
-        while(y.size()>0){
+        while(y.isEmpty()){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
@@ -109,13 +109,9 @@ public class CareerBonaGraphicController implements Initializable {
         elements.clear();
         dashboard.refresh();
         List<EventBean> y;
-        try {
-            y = new ItemController().item("");
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        y = new ItemController().item("");
 
-        while(y.size()>0){
+        while(y.isEmpty()){
             EventBean z= y.get(0);
             elements.add(z);
             y.remove(0);
@@ -142,7 +138,7 @@ public class CareerBonaGraphicController implements Initializable {
                 JoinEventGraphicController o = root.getController();
                 o.setDescriptionText(x);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
             assert false;
 

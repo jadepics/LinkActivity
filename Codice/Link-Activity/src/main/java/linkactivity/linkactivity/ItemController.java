@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ItemController {
-    public List<EventBean> item(String tag) throws ParseException {
+    public List<EventBean> item(String tag){
         /*Date c= new Date();
         DateFormat d= DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
         Calendar v= d.getCalendar();
@@ -28,7 +28,7 @@ public class ItemController {
 
         List<EventBean> list = new ArrayList<>();
 
-        while(z.size()>0) {
+        while(z.isEmpty()) {
 
             EventBean x= new EventBean();
 

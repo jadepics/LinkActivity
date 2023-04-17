@@ -39,12 +39,6 @@ public class LoginGraphicController {
     private Button registerButton;
 
     @FXML
-    public TextField Username;
-
-    @FXML
-    public PasswordField Password;
-
-    @FXML
     private RadioButton companyRB;
     @FXML
     private RadioButton userRB;

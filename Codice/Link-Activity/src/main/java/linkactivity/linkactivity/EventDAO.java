@@ -28,13 +28,12 @@ public class EventDAO {
             verifyLoginQuery = "SELECT * FROM evento";
         }
 
-        List<EventModel> ResultList = null;
+        List<EventModel> resultList = null;
 
         try {
             Statement statement = myConnection.createStatement();
             ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
-            ResultList = new ArrayList<>();
-            int i = 0;
+            resultList = new ArrayList<>();
             while (queryLoginResult.next()) {
 
 
@@ -42,13 +41,13 @@ public class EventDAO {
                         queryLoginResult.getDate("data"), queryLoginResult.getDate("expirationDate"),
                         queryLoginResult.getString("descrizioneEvento"), Integer.parseInt(queryLoginResult.getString("numeroPartecipanti")),
                         queryLoginResult.getString("nomeAzienda"), queryLoginResult.getString("tag"));
-                ResultList.add(x);
+                resultList.add(x);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return ResultList;
+        return resultList;
     }
 
     public int modifyParticipantNumber(EventBean x) {

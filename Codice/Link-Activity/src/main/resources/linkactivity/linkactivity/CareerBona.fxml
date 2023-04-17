@@ -59,7 +59,7 @@
                   <Font size="14.0" />
                </font>
                <toggleGroup>
-                  <ToggleGroup fx:id="Tags" />
+                  <ToggleGroup fx:id="tags" />
                </toggleGroup>
             </RadioButton>
             <ListView fx:id="dashboard" layoutX="18.0" layoutY="90.0" prefHeight="415.0" prefWidth="651.0" />
@@ -69,13 +69,13 @@
                </cursor>
             </Button>
             <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="241.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="70.0" />
-            <RadioButton fx:id="javaRButton" layoutX="251.0" layoutY="60.0" mnemonicParsing="false" onAction="#javaFunction" text="Java" toggleGroup="$Tags">
+            <RadioButton fx:id="javaRButton" layoutX="251.0" layoutY="60.0" mnemonicParsing="false" onAction="#javaFunction" text="Java" toggleGroup="$tags">
                <font>
                   <Font size="14.0" />
                </font>
             </RadioButton>
             <Rectangle arcHeight="23.0" arcWidth="23.0" fill="WHITE" height="34.0" layoutX="322.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" width="88.0" />
-            <RadioButton fx:id="pythonRButton" layoutX="332.0" layoutY="60.0" mnemonicParsing="false" onAction="#pythonFunction" text="Python" toggleGroup="$Tags">
+            <RadioButton fx:id="pythonRButton" layoutX="332.0" layoutY="60.0" mnemonicParsing="false" onAction="#pythonFunction" text="Python" toggleGroup="$tags">
                <font>
                   <Font size="14.0" />
                </font>

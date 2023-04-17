@@ -44,7 +44,7 @@ public class RegistrationGraphicController {
     private PasswordField regRepPassUser;
 
     @FXML
-    private Button BackButton3;
+    private Button backButton3;
     @FXML
     private RadioButton companyRB;
     @FXML
@@ -102,9 +102,9 @@ public class RegistrationGraphicController {
 
                 Statement statement = myConnection.createStatement();
                 statement.executeUpdate(insertToRegister);
-                if(i==0)
-                switchToDashboard(event);
-                else {
+                if(i==0) {
+                    switchToDashboard(event);
+                }else {
                     switchToAziendaProfile(event);
                 }
             } catch (Exception e) {
@@ -141,7 +141,8 @@ public class RegistrationGraphicController {
    @FXML
     private void regEmailUser() {
         String str;
-        int a=0,b=0;
+        int a=0;
+        int b=0;
         String[] pars = new String[10];
         str= regEmailUser.getText();
         pars[1]=str;
@@ -153,10 +154,8 @@ public class RegistrationGraphicController {
             if(pars[0].equals("@")){
                 a=1;
             }
-            if(a==1) {
-                if (pars[0].equals(".")) {
+            if(a==1 && pars[0].equals(".")) {
                     b = 1;
-                }
             }
         }
         if(a==0 || b==0){
@@ -188,7 +187,6 @@ public class RegistrationGraphicController {
             alert.showAndWait();
 
         } else if (!Objects.equals(regRepPassUser.getText(), regPassUser.getText())) {
-            System.out.println("Pass di conf non coincide");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Le password non coincidono");
             alert.showAndWait();

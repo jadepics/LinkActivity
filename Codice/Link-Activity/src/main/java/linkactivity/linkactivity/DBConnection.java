@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    private static final String databaseName = "mydb";
-    private static final String databaseUser = "root";
-    private static final String databasePassword = "toor";
-    private static final String url = "jdbc:mysql://127.0.0.1/"+ databaseName;
+    private static final String databasename = "mydb";
+    private static final String databaseuser = "root";
+    private static final String databasepassword = "toor";
+    private static final String url = "jdbc:mysql://127.0.0.1/"+ databasename;
     private static Connection connection;
 
     private DBConnection(){
@@ -19,7 +19,7 @@ public class DBConnection {
 
         try{
             if(connection==null){
-                connection = DriverManager.getConnection(url, databaseUser, databasePassword);
+                connection = DriverManager.getConnection(url, databaseuser, databasepassword);
             }
 
         }catch (Exception e){
