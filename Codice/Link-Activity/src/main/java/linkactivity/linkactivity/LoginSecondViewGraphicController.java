@@ -67,8 +67,8 @@ public class LoginSecondViewGraphicController {
 
             //PER ORA PASSA DIRETTAMENTE IN DASHBOARD o spawp per azienda
 
-            //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
+            //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
             Scene scene = new Scene(root);
             Stage stage = (Stage) loginCommandLine.getScene().getWindow();
             stage.setScene(scene);

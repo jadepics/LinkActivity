@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.EventCreateSecondViewGraphicController">
    <children>
       <Pane prefHeight="518.0" prefWidth="690.0">
          <children>
@@ -24,13 +24,13 @@
                   <Font name="Georgia" size="35.0" />
                </font>
             </Text>
-            <Rectangle fill="WHITE" height="189.0" layoutX="14.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="435.0" />
-            <Text layoutX="21.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set event name &lt;name&gt;&#10;- set event date &lt;YYYY-MM-DD&gt;&#10;- set expiration date &lt;YYYY-MM-DD&gt;&#10;- set tag &lt;Java&gt; or &lt;C++&gt; or &lt;Python&gt;&#10;- set partecipant number &lt;number&gt;&#10;- back&#10;- submit" wrappingWidth="371.0">
+            <Rectangle fill="WHITE" height="176.0" layoutX="14.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="435.0" />
+            <Text layoutX="21.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set event name &lt;name&gt;&#10;- set event date &lt;YYYY-MM-DD&gt;&#10;- set expiration date &lt;YYYY-MM-DD&gt;&#10;- set tag &lt;java&gt; or &lt;cpp&gt; or &lt;python&gt;&#10;- set partecipant number &lt;number&gt;&#10;- back&#10;- submit" wrappingWidth="371.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextField layoutX="21.0" layoutY="452.0" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
+            <TextField fx:id="eventCreateCommandLine" layoutX="21.0" layoutY="452.0" onAction="#executeCommand" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
             <Rectangle fill="WHITE" height="25.0" layoutX="290.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
             <Rectangle fill="WHITE" height="25.0" layoutX="290.0" layoutY="307.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
             <Rectangle fill="WHITE" height="25.0" layoutX="290.0" layoutY="339.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
@@ -40,17 +40,17 @@
                </font>
             </Text>
             <Rectangle fill="WHITE" height="158.0" layoutX="478.0" layoutY="273.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
-            <Text layoutX="485.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="eventCreateEventNameText" layoutX="485.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="485.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="eventCreateEventDateText" layoutX="485.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="485.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="eventCreateExpirationDateText" layoutX="485.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
@@ -82,12 +82,12 @@
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="485.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="eventCreateTagText" layoutX="485.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Text layoutX="485.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
+            <Text fx:id="eventCreatePartecipantNumberText" layoutX="485.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>

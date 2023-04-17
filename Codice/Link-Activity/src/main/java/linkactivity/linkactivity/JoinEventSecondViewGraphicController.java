@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class JoinEventSecondViewGraphicController {
 
@@ -26,7 +27,8 @@ public class JoinEventSecondViewGraphicController {
         if(s.compareTo("joinEvent")==0){
             new ItemController().joinEvent(k);
         } else if(s.compareTo("back")==0){
-            //TODO kill window
+            Stage stage= (Stage) joinEventCommandLine.getScene().getWindow();
+            stage.close();
         }
     }
 
