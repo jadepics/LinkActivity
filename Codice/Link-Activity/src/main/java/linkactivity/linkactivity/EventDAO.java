@@ -1,10 +1,7 @@
 package linkactivity.linkactivity;
 
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import java.util.ArrayList;
 
@@ -78,5 +75,30 @@ public class EventDAO {
         }*/
         return 1;
     }
+
+    public int insertEvent(EventModel event){
+        int newKeys=-1;
+        Connection myConnection = DBConnection.getDBConnection();
+        try(PreparedStatement statement =myConnection.prepareStatement("INSERT evento(nomeEvento, descrizioneEvento, data, expirationDate,numeroPartecipanti,nomeAzienda,tag) VALUES (?,?,?,?,?,?,?);")) {
+            statement.setString(1, event.getEventModelNomeAzienda());
+            statement.setString(2, event.getEventModelDescription());
+            statement.setDate(3, (Date) event.getEventModelData());
+            statement.setDate(4, (Date) event.getEventModelExpirationDate());
+            statement.setInt(5, event.getEventModelPartecipantNumber());
+            statement.setString(6, event.getEventModelNomeAzienda());
+            statement.setString(7, event.getEventModelTag());
+
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
+
+            if(resultSet.next()) {
+                newKeys = resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return newKeys;
+    }
 }
+
 

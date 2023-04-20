@@ -1,5 +1,6 @@
 package linkactivity.linkactivity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class EventBean {
@@ -20,8 +21,10 @@ public class EventBean {
 
     public EventBean(){}    //costruttore vuoto
 
-    public EventBean(String eventName,Date dataEvento,Date expirationDate,String description,int partecipantNumber,String nomeAzienda, String tag ){
+    public EventBean(String eventName, Date dataEvento, Date expirationDate, String description, int partecipantNumber, String nomeAzienda, String tag ){
 
+
+        System.out.println(eventName+" aaaaaaaaaaaaaaaa");
     }
 
     public String getEventName() {

@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
 
@@ -61,20 +60,28 @@ public class LoginGraphicController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-
     }
+
     public void switchToAziendaProfile(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
-        Scene scene = new Scene(root);
+        //Stage stage= new Stage();
+        String companyName=(emailUsernameLogin.getText());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
+        FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+        Scene scene ;
+        try {
+            scene = new Scene(root.load(), 690, 518);
+            stage.setScene(scene);
+            stage.show();
+            AzioniAziendaGraphicController a = root.getController();
+            a.spostare(companyName); ///modifica nome metodo
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
+
 
     public void validateLogin(ActionEvent event) {
-
-
         Connection myConnection = DBConnection.getDBConnection();
         //Connection connectDB = (Connection) myConnection.getInstance();
         String verifyLoginQuery=null;
@@ -95,7 +102,11 @@ public class LoginGraphicController {
 
                 if (queryLoginResult.getInt(1) == 1) {
                     if(i == 0) switchToUserProfile(event);
-                        else switchToAziendaProfile(event);
+
+                        else {
+                            switchToAziendaProfile(event);
+                    }
+
                 }
             }
         }
