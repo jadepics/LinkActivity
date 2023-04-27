@@ -3,6 +3,7 @@ package linkactivity.linkactivity;
 
 import java.sql.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -14,16 +15,17 @@ public class EventDAO {
 
         Connection myConnection = DBConnection.getDBConnection();
 
-        String verifyLoginQuery;
+        String verifyLoginQuery ="SELECT * FROM evento";
         if (tag.equals("java")) {
             verifyLoginQuery = "SELECT *  FROM evento WHERE tag= 'Java'";
         } else if (tag.equals("cpp")) {
             verifyLoginQuery = "SELECT * FROM evento WHERE tag= 'C++'";
         } else if (tag.equals("python")) {
             verifyLoginQuery = "SELECT *  FROM evento WHERE tag= 'Python'";
-        } else {
-            verifyLoginQuery = "SELECT * FROM evento";
         }
+//        } else if(tag.equals("")) {
+//            verifyLoginQuery = "SELECT * FROM evento";
+//        }
 
         List<EventModel> resultList = null;
 
@@ -78,19 +80,22 @@ public class EventDAO {
 
     public int insertEvent(EventModel event){
         int newKeys=-1;
+        System.out.println(event.eventName);
         Connection myConnection = DBConnection.getDBConnection();
         try(PreparedStatement statement =myConnection.prepareStatement("INSERT evento(nomeEvento, descrizioneEvento, data, expirationDate,numeroPartecipanti,nomeAzienda,tag) VALUES (?,?,?,?,?,?,?);")) {
             statement.setString(1, event.getEventModelNomeAzienda());
             statement.setString(2, event.getEventModelDescription());
-            statement.setDate(3, (Date) event.getEventModelData());
-            statement.setDate(4, (Date) event.getEventModelExpirationDate());
+            System.out.println("prima della data");
+            statement.setDate(3, (Date) event.getEventModelData());   //come devo modifica ste date
+            System.out.println("post prima data");
+            statement.setDate(4, (Date) event.getEventModelExpirationDate());//todo
             statement.setInt(5, event.getEventModelPartecipantNumber());
             statement.setString(6, event.getEventModelNomeAzienda());
             statement.setString(7, event.getEventModelTag());
-
+            System.out.println("pre execute della dao");
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
-
+            System.out.println("post execute devo entrare nell'if");
             if(resultSet.next()) {
                 newKeys = resultSet.getInt(1);
             }

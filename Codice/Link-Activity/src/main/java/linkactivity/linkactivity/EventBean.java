@@ -22,8 +22,14 @@ public class EventBean {
     public EventBean(){}    //costruttore vuoto
 
     public EventBean(String eventName, Date dataEvento, Date expirationDate, String description, int partecipantNumber, String nomeAzienda, String tag ){
-
-
+        super();
+        this.setEventName(eventName);
+        this.setDataEvento(dataEvento);
+        this.setExpirationDate(expirationDate);
+        this.setDescription(description);
+        this.setPartecipantNumber(partecipantNumber);
+        this.setNomeAzienda(nomeAzienda);
+        this.setTag(tag);
         System.out.println(eventName+" aaaaaaaaaaaaaaaa");
     }
 
@@ -40,6 +46,7 @@ public class EventBean {
     }
 
     public void setDataEvento(Date dataEvento) {
+
         this.dataEvento=dataEvento;
     }
 

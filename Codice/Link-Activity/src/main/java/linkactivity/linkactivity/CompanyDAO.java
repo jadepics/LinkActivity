@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CompanyDAO {
-    private static final String COMPANY_EMAIL="email";
+    //private static final String COMPANY_EMAIL="email";
     private static final String COMPANY_NOME ="nomeAzienda";
     private static final String COMPANY_LOGO= ""; //vedi che ci devi mette
 
@@ -26,10 +26,10 @@ public class CompanyDAO {
     return company;}
 
     private Company createCompany(ResultSet resultSet) throws SQLException{
-        String email =resultSet.getString(COMPANY_EMAIL);
+      //  String email =resultSet.getString(COMPANY_EMAIL);
         String nomeAzienda =resultSet.getString(COMPANY_NOME);
-        String logo =resultSet.getString(COMPANY_LOGO);
+        //String logo =resultSet.getString(COMPANY_LOGO);
 
-        return new Company(email, nomeAzienda, "", logo);
+        return new Company(nomeAzienda, "");
     }
 }
