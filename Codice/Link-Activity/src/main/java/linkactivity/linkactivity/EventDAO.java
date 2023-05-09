@@ -53,7 +53,7 @@ public class EventDAO {
     }
 
     public static StringBuilder getLogo(String nomeaz) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
 
         String line;
         boolean foundCompany = false;
@@ -83,31 +83,24 @@ public class EventDAO {
     }
 
     public int modifyParticipantNumber(EventBean x) {
-        /*Connection myConnection = DBConnection.getDBConnection();
+        Connection myConnection = DBConnection.getDBConnection();
         String updatePartecipantQuery;
-
-        //mettere UNIQUE il nome dell'evento affinche non ci siano eventi con lo stesso nome
         //fare prepared statment altrimenti sql injection
-        //UPDATE Evento set NumeroPartecipanti = k  WHERE NomeEvento = x.getNomeEvento();
         int k = x.getPartecipantNumber() - 1;
         System.out.println(k);
         String a = x.getEventName();
-       // updatePartecipantQuery = "UPDATE evento set numeroPartecipanti = '" + k + "'  WHERE nomeEvento = '" + a + "'";
-          updatePartecipantQuery = "UPDATE evento SET `numeroPartecipanti` ='"+ (x.getPartecipantNumber()-1) +"' WHERE (`nomeEvento` = x.getEventName())";
-       // updatePartecipantQuery = "UPDATE evento SET numeroPartecipanti = '"+k+"' WHERE nomeEvento = '"+a+"')";
+        System.out.println(a);
+          updatePartecipantQuery = String.format("UPDATE evento SET numeroPartecipanti = %d WHERE nomeEvento = '%s';",k, a);
         System.out.println("non so scoppiato");
         try {
             Statement statement = myConnection.createStatement();
             System.out.println("non so scoppiato sto nel try");
-            statement.executeQuery(updatePartecipantQuery);
+            statement.execute(updatePartecipantQuery);
             System.out.println("non so scoppiato sto nel try dopo esecuzione");
-            //if(queryUpdateResult){
-            //    System.out.println("query di update ok");
-            //}
 
         } catch (Exception e) {
             e.printStackTrace();
-        }*/
+        }
         return 1;
     }
 
