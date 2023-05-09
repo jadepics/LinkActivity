@@ -1,12 +1,13 @@
 package linkactivity.linkactivity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class EventModel {
 
     String eventName;
-    Date dataEvento;
-    Date expirationDate;
+    String dataEvento;
+    String expirationDate;
     String description;
     int partecipantNumber;
     String nomeAzienda;
@@ -15,7 +16,7 @@ public class EventModel {
 
 
     public EventModel(){}
-    public EventModel(String eventName,Date dataEvento,Date expirationDate,String description,int partecipantNumber,String nomeAzienda, String tag ){
+    public EventModel(String eventName,String description,String dataEvento,String expirationDate,int partecipantNumber,String nomeAzienda, String tag ){
         setEventModelName(eventName);
         setEventModelDescription(description);
         setEventModelData(dataEvento);
@@ -33,19 +34,19 @@ public class EventModel {
         this.eventName = eventName;
     }
 
-    public Date getEventModelData() {
+    public String getEventModelData() {
         return dataEvento;
     }
 
-    public void setEventModelData(Date dataEvento) {
+    public void setEventModelData(String dataEvento) {
         this.dataEvento=dataEvento;
     }
 
-    public Date getEventModelExpirationDate() {
+    public String getEventModelExpirationDate() {
         return expirationDate;
     }
 
-    public void setEventModelExpirationDate(Date expirationDate) {
+    public void setEventModelExpirationDate(String expirationDate) {
         this.expirationDate=expirationDate;
     }
 

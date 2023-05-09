@@ -6,8 +6,8 @@ import java.util.Date;
 public class EventBean {
 
     String eventName;
-    Date dataEvento;
-    Date expirationDate;
+    String dataEvento;
+    String expirationDate;
     String description;
 
     int partecipantNumber;
@@ -21,12 +21,12 @@ public class EventBean {
 
     public EventBean(){}    //costruttore vuoto
 
-    public EventBean(String eventName, Date dataEvento, Date expirationDate, String description, int partecipantNumber, String nomeAzienda, String tag ){
+    public EventBean(String eventName, String description, String dataEvento, String expirationDate, int partecipantNumber, String nomeAzienda, String tag ){
         super();
         this.setEventName(eventName);
+        this.setDescription(description);
         this.setDataEvento(dataEvento);
         this.setExpirationDate(expirationDate);
-        this.setDescription(description);
         this.setPartecipantNumber(partecipantNumber);
         this.setNomeAzienda(nomeAzienda);
         this.setTag(tag);
@@ -41,20 +41,20 @@ public class EventBean {
         this.eventName = eventName;
     }
 
-    public Date getDataEvento() {
+    public String getDataEvento() {
         return dataEvento;
     }
 
-    public void setDataEvento(Date dataEvento) {
+    public void setDataEvento(String dataEvento) {
 
         this.dataEvento=dataEvento;
     }
 
-    public Date getExpirationDate() {
+    public String getExpirationDate() {
         return expirationDate;
     }
 
-    public void setExpirationDate(Date expirationDate) {
+    public void setExpirationDate(String expirationDate) {
         this.expirationDate=expirationDate;
     }
 

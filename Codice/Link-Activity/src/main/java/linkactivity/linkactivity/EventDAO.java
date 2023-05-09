@@ -40,7 +40,7 @@ public class EventDAO {
 
 
                 EventModel x = new EventModel(queryLoginResult.getString("nomeEvento"),
-                        queryLoginResult.getDate("data"), queryLoginResult.getDate("expirationDate"),
+                        queryLoginResult.getString("data"), queryLoginResult.getString("expirationDate"),
                         queryLoginResult.getString("descrizioneEvento"), Integer.parseInt(queryLoginResult.getString("numeroPartecipanti")),
                         queryLoginResult.getString("nomeAzienda"), queryLoginResult.getString("tag"));
                 resultList.add(x);
@@ -106,25 +106,21 @@ public class EventDAO {
 
     public int insertEvent(EventModel event){
         int newKeys=-1;
-        System.out.println(event.eventName);
         Connection myConnection = DBConnection.getDBConnection();
         try(PreparedStatement statement =myConnection.prepareStatement("INSERT evento(nomeEvento, descrizioneEvento, data, expirationDate,numeroPartecipanti,nomeAzienda,tag) VALUES (?,?,?,?,?,?,?);")) {
-            statement.setString(1, event.getEventModelNomeAzienda());
+            statement.setString(1, event.getEventModelName());
             statement.setString(2, event.getEventModelDescription());
             System.out.println("prima della data");
-            statement.setDate(3, (Date) event.getEventModelData());   //come devo modifica ste date
+            statement.setString(3, event.getEventModelData());    //come devo modifica ste date
             System.out.println("post prima data");
-            statement.setDate(4, (Date) event.getEventModelExpirationDate());//todo
+            statement.setString(4, event.getEventModelExpirationDate());
             statement.setInt(5, event.getEventModelPartecipantNumber());
             statement.setString(6, event.getEventModelNomeAzienda());
+            System.out.println(event.getEventModelNomeAzienda());
             statement.setString(7, event.getEventModelTag());
             System.out.println("pre execute della dao");
-            statement.executeUpdate();
-            ResultSet resultSet = statement.getGeneratedKeys();
+            newKeys = statement.executeUpdate();
             System.out.println("post execute devo entrare nell'if");
-            if(resultSet.next()) {
-                newKeys = resultSet.getInt(1);
-            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -62,11 +62,11 @@ public class EventCreateGraphicController {
             stage.show();
 
         }
-//    public static LocalDate getDateFromString(String string, DateTimeFormatter format)
-//    {
-//        LocalDate date = LocalDate.parse(string, format);
-//        return date;
-//    }
+    public static LocalDate getDateFromString(String string, DateTimeFormatter format)
+    {
+        LocalDate date = LocalDate.parse(string, format);
+        return date;
+    }
 
     public static int convert(String s){
         int val=0;
@@ -86,21 +86,19 @@ public class EventCreateGraphicController {
 
         @FXML
         public void createItGotoPay() throws IOException, DuplicatedEventException, ParseException {
-            String date= initialDateInsert.getText();
-            String expdate= expireDateInsert.getText();
+//            String date= initialDateInsert.getText();
+//            String expdate= expireDateInsert.getText();
 
-            DateFormat df= new SimpleDateFormat("yyyy-MM-dd");
-            Date initialDate= df.parse(date);
-            Date expireDate=df.parse(expdate);
+//            DateFormat df= new SimpleDateFormat("yyyy-MM-dd");
+//            Date initialDate= df.parse(date);
+//            Date expireDate=df.parse(expdate);
 
-            System.out.println(initialDate);
-            System.out.println(expireDate);
 
-            /*DateTimeFormatter format = DateTimeFormatter.ofPattern("d MMMM, yyyy");
-            LocalDate initialDate= getDateFromString(initialDateInsert.getText(), format);
-            LocalDate expireDate= getDateFromString(expireDateInsert.getText(), format);*/
+//            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+//            LocalDate initialDate= getDateFromString(initialDateInsert.getText(), format);
+//            LocalDate expireDate= getDateFromString(expireDateInsert.getText(), format);
             int partecipant= convert(maxPartecipantNumber.getText());
-            EventBean eventBean = new EventBean(eventName.getText(),initialDate,expireDate,Description.getText(), partecipant,nameA,tagInsert.getValue());
+            EventBean eventBean = new EventBean(eventName.getText(),Description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,nameA,tagInsert.getValue());
 //BARBERADDSERVICECONTROLLER 43
             new eventCreateController.newEvent(eventBean);
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));

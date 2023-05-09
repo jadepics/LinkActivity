@@ -27,7 +27,7 @@ public class eventCreateController {
              userBeans.add(new UserBean(user.getEmail()));
                             }             */
             System.out.println("sto per controllare l'evento");
-            addEvent = new EventModel(createEBean.getEventName(), createEBean.getDataEvento(), createEBean.getExpirationDate(), createEBean.getDescription(), createEBean.getPartecipantNumber(), createEBean.getNomeAzienda(), createEBean.getTag());
+            addEvent = new EventModel(createEBean.getEventName(),createEBean.getDescription(), createEBean.getDataEvento(), createEBean.getExpirationDate(), createEBean.getPartecipantNumber(), createEBean.getNomeAzienda(), createEBean.getTag());
             //addEvent.setEventModelNomeAzienda(company); non mi serve
 
             List <EventModel> checkEvents = eventDAO.getEvent("");
