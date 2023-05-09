@@ -7,8 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -16,38 +14,6 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
     private Parent parentNode = null;
     private int i=0;
 
-
-    //TODO FARE DAO PER ACCEDERE AL FILESYSTEM:
-    // cg chiama ca chiama dao ritorna ca parsa stringa ritorna a cg che al mercato mio padre comprò
-    public StringBuilder parseSlash(String nomeaz) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
-
-        String line;
-        boolean foundCompany = false;
-        String companyString = "";
-        StringBuilder sb = new StringBuilder();
-
-        // Lettura del file riga per riga
-        while ((line = reader.readLine()) != null) {
-            // Se la riga contiene "IBM", copia la stringa successiva
-            if (!foundCompany && line.contains(nomeaz)) {
-                companyString = line.substring(line.indexOf(nomeaz) + nomeaz.length()+1).trim();
-                foundCompany = true;
-            } else if (foundCompany) {
-                // Scandisce la stringa per cercare il carattere "\" e aggiunge un secondo "\"
-
-                for (char h : companyString.toCharArray()) {
-                    sb.append(h);
-                    if (h == '\\') {
-                        sb.append('\\');
-                    }
-                }
-                break;
-            }
-        }
-        reader.close();
-        return sb;
-    }
 
     @Override
     protected void updateItem(EventBean item, boolean empty) {
@@ -73,9 +39,9 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
                 tagText.setText(item.getTag());
 
                 String nomeaz= item.getNomeAzienda();
-                StringBuilder sb= parseSlash(nomeaz);
+                String sb= ItemController.getLogo(nomeaz);
 
-                String ttt= String.valueOf(sb);
+                String ttt= (sb);
                 //Image imm= new Image("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\\\Codice\\Codice\\Link-Activity\\src\\main\\resources\\linkactivity\\linkactivity\\Images\\IBM.png");
                 Image imm= new Image("file:"+ ttt);
                 immToChange.setImage(imm);

@@ -1,5 +1,8 @@
 package linkactivity.linkactivity;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -51,4 +54,10 @@ public class ItemController {
         new EventDAO().modifyParticipantNumber(x);
         return 0;
     }
+
+    public static String getLogo(String nomeaz) throws IOException {
+        String pathLogo= String.valueOf(EventDAO.getLogo(nomeaz));
+        return pathLogo;
+    }
+
 }

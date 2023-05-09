@@ -26,5 +26,4 @@ public class JoinEventGraphicController{
         y= x;
         descriptionText.setText(x.getDescription());
     }
-
 }
