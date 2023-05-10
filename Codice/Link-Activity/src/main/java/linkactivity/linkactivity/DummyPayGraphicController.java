@@ -5,18 +5,45 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 
 public class DummyPayGraphicController {
 
     @FXML
+    private Button applyCouponButton;
+
+    @FXML
     private Button backButton7;
 
     @FXML
+    private Text fiftPCouponAviable;
+
+    @FXML
+    private TextField fiftpToUse;
+
+    @FXML
+    private Text fivePCouponAviable;
+
+    @FXML
+    private TextField fivepToUse;
+
+    @FXML
     private Button paymentButton;
+
+    @FXML
+    private Text tenPCouponAviable;
+
+    @FXML
+    private TextField tenpToUse;
+
+
+    String y;
 
     @FXML
     private void backToEventCreate() throws IOException {
@@ -29,6 +56,23 @@ public class DummyPayGraphicController {
         stage.setResizable(false);
         stage.show();
 
+    }
+
+    @FXML
+    void applyCoupon() {
+
+    }
+
+    @FXML
+    private void paymentDone() throws FileNotFoundException {
+        CompanyBean compBean= new CompanyBean(y);
+        ItemController.addPoints(compBean);
+    }
+
+    @FXML
+    public void setCurrentCompany(String nomeaz){
+        y= nomeaz;
+        System.out.println(y);
     }
 
 }

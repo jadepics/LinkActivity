@@ -101,14 +101,33 @@ public class EventCreateGraphicController {
             EventBean eventBean = new EventBean(eventName.getText(),Description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,nameA,tagInsert.getValue());
 //BARBERADDSERVICECONTROLLER 43
             new eventCreateController.newEvent(eventBean);
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));
+            /*Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));
             Scene scene = new Scene(root, 690, 518);
             Stage stage = (Stage) createItButton.getScene().getWindow();
 
             stage.setTitle("Link-Activity");
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.show();
+            stage.show();*/
+
+            Stage stage = new Stage();
+            FXMLLoader root;
+            root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));
+            //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
+            //EventBean x= elements.get(dashboard.getSelectionModel().getSelectedIndex());
+
+            Scene scene;
+            try {
+                scene = new Scene(root.load(), 690, 518);
+                stage.setTitle("Link-Activity");
+                stage.setScene(scene);
+                stage.show();
+                DummyPayGraphicController o = root.getController();
+                o.setCurrentCompany(eventBean.getNomeAzienda());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            assert false;
 
         }
     public void newSpostare(String companyName){

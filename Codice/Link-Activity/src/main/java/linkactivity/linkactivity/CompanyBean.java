@@ -1,7 +1,5 @@
 package linkactivity.linkactivity;
 
-import javafx.scene.image.Image;
-
 public class CompanyBean {
 
 
@@ -11,14 +9,15 @@ public class CompanyBean {
 
     public CompanyBean(){}
     public CompanyBean(String nomeAzienda){
-
+        this.setNomeAzienda(nomeAzienda);
     }
     public String getNomeAzienda() {
         return nomeAzienda;
     }
 
-    public void setNomeAzienda(String nomeAzienda) {
+    public CompanyBean setNomeAzienda(String nomeAzienda) {
         this.nomeAzienda = nomeAzienda;
+        return null;
     }
 
     public String getEmail() {

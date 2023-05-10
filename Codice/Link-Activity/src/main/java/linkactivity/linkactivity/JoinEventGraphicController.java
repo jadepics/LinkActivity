@@ -15,13 +15,13 @@ public class JoinEventGraphicController{
     EventBean y= new EventBean();
 
     @FXML
-    void joinEventButton() {
+    public void joinEventButton() {
         EventBean k= y;
         new ItemController().joinEvent(k);
     }
 
     @FXML
-    void setDescriptionText(EventBean x){
+    public void setDescriptionText(EventBean x){
         y= x;
         descriptionText.setText(x.getDescription());
     }

@@ -69,6 +69,11 @@ public void spostare(String companyName){
     private void viewEventInsights() throws IOException{
         //todo or not?
     }
+
+    @FXML
+    void buyCoupon(ActionEvent event) {
+
+    }
 //    @FXML
 //    protected void getNomeAzienda(String companyName) throws IOException {
 //        eventCreate(event, companyName);

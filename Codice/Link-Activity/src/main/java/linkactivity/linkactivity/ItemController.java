@@ -1,6 +1,7 @@
 package linkactivity.linkactivity;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -58,6 +59,13 @@ public class ItemController {
     public static String getLogo(String nomeaz) throws IOException {
         String pathLogo= String.valueOf(EvetLogoDAO.getLogo(nomeaz));
         return pathLogo;
+    }
+
+    public static void addPoints(CompanyBean companyBean) throws FileNotFoundException {
+        String nomeaz= companyBean.getNomeAzienda();
+        System.out.println(nomeaz+"ciaeeee");
+        CouponPointsDAO.addPoints(nomeaz);
+
     }
 
 }
