@@ -29,3 +29,7 @@ public class MainClass extends Application {
 //TODO tutte le funzioni che tornano ad una stessa pagina fxml sono codice ripetuto, per risolvere forse si potrebbe
 // usare il singleton, fare una classe normale che gestisce la creazione magari protected che viene estesa
 // non dovrebbe andare bene
+
+
+//TODO crere nelle dao funzionalità nuova riga azienda per i filesystem qual'ora azienda x decide di registrarsi alla
+// piattaforma (azienda nuova)

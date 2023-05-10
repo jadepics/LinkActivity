@@ -56,7 +56,7 @@ public class ItemController {
     }
 
     public static String getLogo(String nomeaz) throws IOException {
-        String pathLogo= String.valueOf(EventDAO.getLogo(nomeaz));
+        String pathLogo= String.valueOf(EvetLogoDAO.getLogo(nomeaz));
         return pathLogo;
     }
 

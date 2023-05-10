@@ -52,8 +52,8 @@ public class EventDAO {
         return resultList;
     }
 
-    public static StringBuilder getLogo(String nomeaz) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
+    /*public static StringBuilder getLogo(String nomeaz) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
 
         String line;
         boolean foundCompany = false;
@@ -80,7 +80,7 @@ public class EventDAO {
         }
         reader.close();
         return sb;
-    }
+    }*/
 
     public int modifyParticipantNumber(EventBean x) {
         Connection myConnection = DBConnection.getDBConnection();

@@ -1,0 +1,7 @@
+IBM: pts= - cp1= - cp2= - cp3=
+Apple: pts= - cp1= - cp2= - cp3=
+Microsoft: pts= - cp1= - cp2= - cp3=
+
+
+
+
