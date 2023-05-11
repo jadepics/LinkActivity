@@ -31,11 +31,11 @@ public class AzioniAziendaSecondViewGraphicController {
         } else if(s.compareTo("goto describe yourself to followers")==0){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Describe yourself to followers is a dummy function");
-            alert.showAndWait();
+            alert.showAndWait();    //leviamo todo su first gia tolto
         } else if(s.compareTo("goto view event insights")==0){
             Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
             alert2.setHeaderText("View event insights is a dummy function");
-            alert2.showAndWait();
+            alert2.showAndWait();   //leviamo todo su first gia tolto
         } else if(s.compareTo("back")==0){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegistrationSecondView.fxml")));
             Scene scene = new Scene(root);

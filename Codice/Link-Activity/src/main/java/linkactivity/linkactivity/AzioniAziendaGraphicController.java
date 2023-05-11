@@ -24,11 +24,6 @@ public class AzioniAziendaGraphicController {
     @FXML
     private Button buyCouponButton;
 
-    @FXML
-    private Button describeToFollowers; //todo boh, ma deve esse dummy? no ve?
-
-    @FXML
-    private Button viewEventInsights; //todo eh va fatto, stamo sempre la
 
     @FXML
     private void backToLogin() throws IOException {
@@ -63,15 +58,7 @@ public void spostare(String companyName){
         company = companyName;
 }
 
-    @FXML
-    private void describeToFollowers() throws IOException{
-        //not todo or yes
-    }
 
-    @FXML
-    private void viewEventInsights() throws IOException{
-        //todo or not?
-    }
 
     @FXML
     void buyCoupon() throws IOException {
@@ -97,9 +84,6 @@ public void spostare(String companyName){
         }
         assert false;
     }
-//    @FXML
-//    protected void getNomeAzienda(String companyName) throws IOException {
-//        eventCreate(event, companyName);
-//    }
+
 }
 

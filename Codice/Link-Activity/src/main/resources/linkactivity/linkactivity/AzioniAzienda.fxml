@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.AzioniAziendaGraphicController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.AzioniAziendaGraphicController">
    <children>
       <Pane prefHeight="518.0" prefWidth="690.0">
          <children>
@@ -40,43 +40,23 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="54.0" layoutX="213.0" layoutY="106.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
-            <Text layoutX="213.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crea nuovo evento" textAlignment="CENTER" wrappingWidth="265.0">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="54.0" layoutX="217.0" layoutY="152.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
+            <Text layoutX="217.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new Event" textAlignment="CENTER" wrappingWidth="265.0">
                <font>
                   <Font name="Georgia" size="28.0" />
                </font>
             </Text>
-            <Button fx:id="createNewEvent" layoutX="213.0" layoutY="106.0" mnemonicParsing="false" onAction="#eventCreate" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
+            <Button fx:id="createNewEvent" layoutX="217.0" layoutY="152.0" mnemonicParsing="false" onAction="#eventCreate" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="54.0" layoutX="213.0" layoutY="289.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
-            <Text layoutX="213.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizza Insights Eventi" textAlignment="CENTER" wrappingWidth="265.0">
-               <font>
-                  <Font name="Georgia" size="22.0" />
-               </font>
-            </Text>
-            <Button fx:id="viewEventInsights" layoutX="213.0" layoutY="289.0" mnemonicParsing="false" onAction="#viewEventInsights" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="54.0" layoutX="213.0" layoutY="197.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
-            <Text layoutX="213.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descriviti ai tuoi followers" textAlignment="CENTER" wrappingWidth="265.0">
-               <font>
-                  <Font name="Georgia" size="22.0" />
-               </font>
-            </Text>
-            <Button fx:id="describeToFollowers" layoutX="213.0" layoutY="197.0" mnemonicParsing="false" onAction="#describeToFollowers" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="54.0" layoutX="213.0" layoutY="374.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
-            <Text layoutX="213.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Riscatta Coupon" textAlignment="CENTER" wrappingWidth="265.0">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="54.0" layoutX="217.0" layoutY="259.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
+            <Text layoutX="217.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Redeem Coupons" textAlignment="CENTER" wrappingWidth="265.0">
                <font>
                   <Font name="Georgia" size="28.0" />
                </font>
             </Text>
-            <Button fx:id="buyCouponButton" layoutX="213.0" layoutY="374.0" mnemonicParsing="false" onAction="#buyCoupon" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
+            <Button fx:id="buyCouponButton" layoutX="217.0" layoutY="259.0" mnemonicParsing="false" onAction="#buyCoupon" opacity="0.0" prefHeight="54.0" prefWidth="265.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

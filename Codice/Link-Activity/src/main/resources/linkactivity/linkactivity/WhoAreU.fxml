@@ -66,13 +66,13 @@
                </cursor>
             </Button>
             <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="93.0" layoutX="460.0" layoutY="179.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-            <Text layoutX="466.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Creerai eventi facendoti conoscere a molte più persone" wrappingWidth="120.0">
+            <Text layoutX="466.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You will create events making yourself known to many more people." wrappingWidth="107.20001220703125">
                <font>
                   <Font name="Georgia" size="14.0" />
                </font>
             </Text>
             <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="93.0" layoutX="100.0" layoutY="178.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-            <Text layoutX="101.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Potrai partecipare agli eventi che più ti interessano" wrappingWidth="120.0">
+            <Text layoutX="106.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You will be able to participate in the events that interest you most." wrappingWidth="107.20001220703125">
                <font>
                   <Font name="Georgia" size="14.0" />
                </font>
