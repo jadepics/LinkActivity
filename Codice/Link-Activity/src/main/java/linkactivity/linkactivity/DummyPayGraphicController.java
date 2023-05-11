@@ -82,6 +82,7 @@ public class DummyPayGraphicController {
     private void paymentDone() throws FileNotFoundException {
         CompanyBean compBean= new CompanyBean(y);
         ItemController.addPoints(compBean);
+        paymentButton.setDisable(true);
     }
 
     @FXML
