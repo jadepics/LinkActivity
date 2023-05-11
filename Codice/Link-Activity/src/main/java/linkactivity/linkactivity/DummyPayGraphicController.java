@@ -47,16 +47,30 @@ public class DummyPayGraphicController {
 
     @FXML
     private void backToEventCreate() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
+        /*Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
         Scene scene = new Scene(root, 690, 518);
         Stage stage = (Stage) backButton7.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.show();
+        stage.show();*/
 
+        Stage stage= (Stage) backButton7.getScene().getWindow();
+        FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
+        Scene scene;
+        try {
+            scene = new Scene(root.load(), 690, 518);
+            stage.setScene(scene);
+            stage.show();
+            EventCreateGraphicController a = root.getController();
+            a.newSpostare(y); //da modificare il metodo
+        } //PROBLEMA CON CAMBIO INTERFACCIA
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
+
 
     @FXML
     void applyCoupon() {
@@ -70,7 +84,7 @@ public class DummyPayGraphicController {
     }
 
     @FXML
-    public void setCurrentCompany(String nomeaz){
+    public void setCurrentCompany(String nomeaz){ //TODO forse cambiare con una bean
         y= nomeaz;
         System.out.println(y);
     }

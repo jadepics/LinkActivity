@@ -33,3 +33,6 @@ public class MainClass extends Application {
 
 //TODO crere nelle dao funzionalità nuova riga azienda per i filesystem qual'ora azienda x decide di registrarsi alla
 // piattaforma (azienda nuova)
+
+//TODO ca to cg e viceversa comunicano SOLO tramite Bean niente stringhe singole, controllare e cambiarle tutte
+// ca e DAO e viceversa comunicano SOLO tramite Model niente stringhe singole, controllare e cambiarle tutte

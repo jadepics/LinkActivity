@@ -38,23 +38,27 @@
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="backButton7" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#backToEventCreate" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
+            <Button fx:id="paymentButton" layoutX="305.0" layoutY="420.0" mnemonicParsing="false" onAction="#paymentDone" opacity="0.0" prefHeight="43.0" prefWidth="80.0" text="Button">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+               </cursor></Button>
             <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="3.0" layoutY="2.0">
                <image>
                   <Image url="@Images/icons8-back-arrow-50.png" />
                </image>
             </ImageView>
+            <Button fx:id="backButton7" layoutX="3.0" layoutY="2.0" mnemonicParsing="false" onAction="#backToEventCreate" opacity="0.0" prefHeight="37.0" prefWidth="37.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="270.0" layoutX="16.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" width="657.0" />
             <Text layoutX="245.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total: 100€" textAlignment="CENTER" wrappingWidth="199.0">
                <font>
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Text layoutX="246.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apply Coupon:" textAlignment="CENTER" wrappingWidth="199.0">
+            <Text layoutX="245.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apply Coupon:" textAlignment="CENTER" wrappingWidth="199.0">
                <font>
                   <Font name="Georgia" size="25.0" />
                </font>
@@ -98,8 +102,10 @@
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Button fx:id="paymentButton" layoutX="305.0" layoutY="420.0" mnemonicParsing="false" onAction="#paymentDone" opacity="0.0" prefHeight="43.0" prefWidth="80.0" text="Button" />
-            <Button fx:id="applyCouponButton" layoutX="435.0" layoutY="292.0" mnemonicParsing="false" onAction="#applyCoupon" opacity="0.0" prefHeight="37.0" prefWidth="168.0" text="Button" />
+            <Button fx:id="applyCouponButton" layoutX="435.0" layoutY="292.0" mnemonicParsing="false" onAction="#applyCoupon" opacity="0.0" prefHeight="37.0" prefWidth="168.0" text="Button">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </Pane>
    </children>

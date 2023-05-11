@@ -56,7 +56,7 @@ public class ItemController {
         return 0;
     }
 
-    public static String getLogo(String nomeaz) throws IOException {
+    public static String getLogo(String nomeaz) throws IOException { //TODO forse cambiare con una bean
         String pathLogo= String.valueOf(EvetLogoDAO.getLogo(nomeaz));
         return pathLogo;
     }
@@ -64,8 +64,17 @@ public class ItemController {
     public static void addPoints(CompanyBean companyBean) throws FileNotFoundException {
         String nomeaz= companyBean.getNomeAzienda();
         System.out.println(nomeaz+"ciaeeee");
-        CouponPointsDAO.addPoints(nomeaz);
+        CouponPointsDAO.addPoints(nomeaz, "add",0);
+    }
 
+    public static int getCurrentPoints(String nomeaz){ //TODO forse cambiare con una bean
+        int points= CouponPointsDAO.getCurrentPoints(nomeaz);
+        System.out.println(points);
+        return points;
+    }
+
+    public static void removePoints(String nomeaz, int points) throws FileNotFoundException {
+        CouponPointsDAO.addPoints(nomeaz, "", points);
     }
 
 }

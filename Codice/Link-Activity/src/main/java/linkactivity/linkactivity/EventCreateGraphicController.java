@@ -19,14 +19,14 @@ import java.util.Date;
 import java.util.Objects;
 
 public class EventCreateGraphicController {
-        @FXML
-        private Button backButton5;
+    @FXML
+    private Button backButton5;
 
-        @FXML
-        private Button createItButton;
+    @FXML
+    private Button createItButton;
 
-        @FXML
-        private TextField eventName;
+    @FXML
+    private TextField eventName;
 
     @FXML
     private TextField expireDateInsert;
@@ -36,13 +36,14 @@ public class EventCreateGraphicController {
     @FXML
     private TextField Description;
 
-        @FXML
-        private TextField maxPartecipantNumber;
+    @FXML
+    private TextField maxPartecipantNumber;
 
     @FXML
     private ChoiceBox<String> tagInsert;
 
     private String[] tags ={"C++","Python","Java"};
+
 
 
     public void initialize(){
@@ -52,16 +53,30 @@ public class EventCreateGraphicController {
 
         @FXML
         private void backToAzioniAzienda() throws IOException {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+            /*Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
             Scene scene = new Scene(root, 690, 518);
             Stage stage = (Stage) backButton5.getScene().getWindow();
 
             stage.setTitle("Link-Activity");
             stage.setScene(scene);
             stage.setResizable(false);
-            stage.show();
+            stage.show();*/
 
+            Stage stage= (Stage) backButton5.getScene().getWindow();
+            FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+            Scene scene;
+            try {
+                scene = new Scene(root.load(), 690, 518);
+                stage.setScene(scene);
+                stage.show();
+                AzioniAziendaGraphicController a = root.getController();
+                a.spostare(nameA); //da modificare il metodo
+            } //PROBLEMA CON CAMBIO INTERFACCIA
+            catch (IOException e){
+                throw new RuntimeException(e);
+            }
         }
+
     public static LocalDate getDateFromString(String string, DateTimeFormatter format)
     {
         LocalDate date = LocalDate.parse(string, format);
@@ -110,7 +125,8 @@ public class EventCreateGraphicController {
             stage.setResizable(false);
             stage.show();*/
 
-            Stage stage = new Stage();
+            Stage stage = (Stage) createItButton.getScene().getWindow();
+            //Stage stage = new Stage();
             FXMLLoader root;
             root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));
             //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
@@ -123,7 +139,7 @@ public class EventCreateGraphicController {
                 stage.setScene(scene);
                 stage.show();
                 DummyPayGraphicController o = root.getController();
-                o.setCurrentCompany(eventBean.getNomeAzienda());
+                o.setCurrentCompany(eventBean.getNomeAzienda()); //TODO forse deve passare la bean non una string
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -22,6 +22,9 @@ public class AzioniAziendaGraphicController {
     private Button createNewEvent;
 
     @FXML
+    private Button buyCouponButton;
+
+    @FXML
     private Button describeToFollowers; //todo boh, ma deve esse dummy? no ve?
 
     @FXML
@@ -71,8 +74,28 @@ public void spostare(String companyName){
     }
 
     @FXML
-    void buyCoupon(ActionEvent event) {
+    void buyCoupon() throws IOException {
+        String nomeaz= company;
+        CompanyBean companyBean= new CompanyBean(nomeaz);
 
+        Stage stage = (Stage) buyCouponButton.getScene().getWindow();
+        FXMLLoader root;
+        root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("RedeemCoupon.fxml")));
+        //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
+        //EventBean x= elements.get(dashboard.getSelectionModel().getSelectedIndex());
+
+        Scene scene;
+        try {
+            scene = new Scene(root.load(), 690, 518);
+            stage.setTitle("Link-Activity");
+            stage.setScene(scene);
+            stage.show();
+            RedeemCouponGraphicController o = root.getController();
+            o.setCurrentCompany(companyBean.getNomeAzienda()); //TODO forse deve passare una bean non una string
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert false;
     }
 //    @FXML
 //    protected void getNomeAzienda(String companyName) throws IOException {
