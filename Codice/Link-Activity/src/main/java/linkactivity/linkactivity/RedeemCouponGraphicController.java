@@ -36,21 +36,36 @@ public class RedeemCouponGraphicController {
 
     @FXML
     void backToAzioniAzienda() throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+        /*Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene = new Scene(root, 690, 518);
         Stage stage = (Stage) backButtonX.getScene().getWindow();
 
         stage.setTitle("Link-Activity");
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.show();
+        stage.show();*/
+
+        Stage stage= (Stage) backButtonX.getScene().getWindow();
+        FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
+        Scene scene;
+        try {
+            scene = new Scene(root.load(), 690, 518);
+            stage.setScene(scene);
+            stage.show();
+            AzioniAziendaGraphicController a = root.getController();
+            a.spostare(y); //da modificare il metodo
+        } //PROBLEMA CON CAMBIO INTERFACCIA
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+
     }
 
     @FXML
     void redeemFiftpCoup() throws FileNotFoundException {
         if(pts>=800){
             ItemController.removePoints(y,800);
-            //setCurrentCompanyPoints();
+            setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Not Enough Points");
@@ -59,13 +74,27 @@ public class RedeemCouponGraphicController {
     }
 
     @FXML
-    void redeemFivepCoupButton() {
-
+    void redeemFivepCoupButton() throws FileNotFoundException {
+        if(pts>=300){
+            ItemController.removePoints(y,300);
+            setCurrentCompanyPoints();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Not Enough Points");
+            alert.showAndWait();
+        }
     }
 
     @FXML
-    void redeemTenpCoup() {
-
+    void redeemTenpCoup() throws FileNotFoundException {
+        if(pts>=550){
+            ItemController.removePoints(y,550);
+            setCurrentCompanyPoints();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Not Enough Points");
+            alert.showAndWait();
+        }
     }
 
     public void setCurrentCompany(String nomeaz){

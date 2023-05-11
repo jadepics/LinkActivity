@@ -63,17 +63,17 @@
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
-            <Text fx:id="fivePCouponAviable" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Aviable 5% coupon:" textAlignment="CENTER" wrappingWidth="275.0">
+            <Text fx:id="fivePCouponAvailable" layoutX="2.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Available 5% coupon:" textAlignment="CENTER" wrappingWidth="275.0">
                <font>
                   <Font name="Georgia" size="22.0" />
                </font>
             </Text>
-            <Text fx:id="tenPCouponAviable" layoutX="6.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Aviable 10% coupon:" textAlignment="CENTER" wrappingWidth="275.0">
+            <Text fx:id="tenPCouponAvailable" layoutX="6.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Available 10% coupon:" textAlignment="CENTER" wrappingWidth="275.0">
                <font>
                   <Font name="Georgia" size="22.0" />
                </font>
             </Text>
-            <Text fx:id="fiftPCouponAviable" layoutX="6.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Aviable 15% coupon:" textAlignment="CENTER" wrappingWidth="275.0">
+            <Text fx:id="fiftPCouponAvailable" layoutX="6.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- Available 15% coupon:" textAlignment="CENTER" wrappingWidth="275.0">
                <font>
                   <Font name="Georgia" size="22.0" />
                </font>
@@ -93,9 +93,9 @@
                   <Font name="Georgia" size="22.0" />
                </font>
             </Text>
-            <TextField fx:id="fivepToUse" layoutX="612.0" layoutY="196.0" prefHeight="25.0" prefWidth="56.0" promptText="number" />
-            <TextField fx:id="tenpToUse" layoutX="612.0" layoutY="226.0" prefHeight="25.0" prefWidth="56.0" promptText="number" />
-            <TextField fx:id="fiftpToUse" layoutX="612.0" layoutY="257.0" prefHeight="25.0" prefWidth="56.0" promptText="number" />
+            <TextField fx:id="fivepToUse" layoutX="609.0" layoutY="198.0" prefHeight="25.0" prefWidth="56.0" promptText="number" />
+            <TextField fx:id="tenpToUse" layoutX="609.0" layoutY="228.0" prefHeight="25.0" prefWidth="56.0" promptText="number" />
+            <TextField fx:id="fiftpToUse" layoutX="609.0" layoutY="259.0" prefHeight="25.0" prefWidth="56.0" promptText="number" />
             <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="37.0" layoutX="435.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="168.0" />
             <Text layoutX="435.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apply Coupon" textAlignment="CENTER" wrappingWidth="168.0">
                <font>

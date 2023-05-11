@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class DummyPayGraphicController {
@@ -22,13 +23,13 @@ public class DummyPayGraphicController {
     private Button backButton7;
 
     @FXML
-    private Text fiftPCouponAviable;
+    private Text fiftPCouponAvailable;
 
     @FXML
     private TextField fiftpToUse;
 
     @FXML
-    private Text fivePCouponAviable;
+    private Text fivePCouponAvailable;
 
     @FXML
     private TextField fivepToUse;
@@ -37,7 +38,7 @@ public class DummyPayGraphicController {
     private Button paymentButton;
 
     @FXML
-    private Text tenPCouponAviable;
+    private Text tenPCouponAvailable;
 
     @FXML
     private TextField tenpToUse;
@@ -86,8 +87,15 @@ public class DummyPayGraphicController {
     @FXML
     public void setCurrentCompany(String nomeaz){ //TODO forse cambiare con una bean
         y= nomeaz;
+        setAvailableCoupons(y);
         System.out.println(y);
     }
 
+    private void setAvailableCoupons(String nomeaz){
+        List<Integer> coupList= ItemController.getAvailableCoupons(nomeaz);
+        fivePCouponAvailable.setText("- Available 5% coupons: "+ coupList.get(0));
+        tenPCouponAvailable.setText("- Available 10% coupons: "+ coupList.get(1));
+        fiftPCouponAvailable.setText("- Available 15% coupons: "+ coupList.get(2));
+    }
 }
 

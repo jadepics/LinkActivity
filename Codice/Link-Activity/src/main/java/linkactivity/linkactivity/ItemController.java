@@ -75,6 +75,12 @@ public class ItemController {
 
     public static void removePoints(String nomeaz, int points) throws FileNotFoundException {
         CouponPointsDAO.addPoints(nomeaz, "", points);
+        CouponPointsDAO.redeemCoupon(nomeaz,points);
+    }
+
+    public static List<Integer> getAvailableCoupons(String nomeaz){ //TODO replace List<int> con bean di coupon
+        List<Integer> coupList= CouponPointsDAO.getAvailableCoupons(nomeaz);
+        return coupList;
     }
 
 }
