@@ -30,7 +30,7 @@ public class CouponPointsDAO {
                         }
                         String numberString = line.substring(startIndex, endIndex);
                         int number = Integer.parseInt(numberString);
-                        if(todo.equals("add")){
+                        if(todo.equals("add")){ //TODO passare questo if e il relativo else in una funz dedicata (costo comp)
                             updatedNumber = number + 100;
                         } else {
                             updatedNumber= number-quantity;
@@ -79,7 +79,7 @@ public class CouponPointsDAO {
                     if (index >= 0) {
                         int startIndex = index + 4;
                         int endIndex = line.indexOf(' ', startIndex);
-                        if (endIndex < 0) {
+                        if (endIndex < 0) { //TODO passare questo if e il relativo else in una funz dedicata (costo comp)
                             endIndex = line.length();
                         }
                         String numberString = line.substring(startIndex, endIndex);
