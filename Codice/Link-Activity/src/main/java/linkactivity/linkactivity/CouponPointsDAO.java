@@ -161,43 +161,23 @@ public class CouponPointsDAO {
             while ((line = reader.readLine()) != null) {
                 if (line.contains(nomeaz)) {
                     // Se la riga contiene la stringa cercata, cerca i numeri successivi a "cp1=", "cp2=" e "cp3="
-                    int index = line.indexOf("cp1=");
-                    if (index >= 0) {
-                        int startIndex = index + 4;
-                        int endIndex = line.indexOf(' ', startIndex);
-                        if (endIndex < 0) {
-                            endIndex = line.length();
-                        }
-                        String numberString = line.substring(startIndex, endIndex);
-                        int number = Integer.parseInt(numberString);
-                        assert coupList != null;
-                        coupList.add(number);
-                    }
+                    //int index = line.indexOf("cp1=");
+                    List<Integer> index= new ArrayList<>();
+                    index.add(line.indexOf("cp1="));
+                    index.add(line.indexOf("cp2="));
+                    index.add(line.indexOf("cp3="));
 
-                    index = line.indexOf("cp2=");
-                    if (index >= 0) {
-                        int startIndex = index + 4;
-                        int endIndex = line.indexOf(' ', startIndex);
-                        if (endIndex < 0) {
-                            endIndex = line.length();
+                    for(int i=0; i<=2; i++){
+                        if (index.get(i) >= 0) {
+                            int startIndex = index.get(i) + 4;
+                            int endIndex = line.indexOf(' ', startIndex);
+                            if (endIndex < 0) {
+                                endIndex = line.length();
+                            }
+                            String numberString = line.substring(startIndex, endIndex);
+                            int number = Integer.parseInt(numberString);
+                            coupList.add(number);
                         }
-                        String numberString = line.substring(startIndex, endIndex);
-                        int number = Integer.parseInt(numberString);
-                        assert coupList != null;
-                        coupList.add(number);
-                    }
-
-                    index = line.indexOf("cp3=");
-                    if (index >= 0) {
-                        int startIndex = index + 4;
-                        int endIndex = line.indexOf(' ', startIndex);
-                        if (endIndex < 0) {
-                            endIndex = line.length();
-                        }
-                        String numberString = line.substring(startIndex, endIndex);
-                        int number = Integer.parseInt(numberString);
-                        assert coupList != null;
-                        coupList.add(number);
                     }
                 }
             }
@@ -207,7 +187,6 @@ public class CouponPointsDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(coupList.get(2)+"eooooooooooooooooo");
         return coupList;
     }
 
