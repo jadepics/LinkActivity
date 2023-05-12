@@ -73,7 +73,7 @@ public class CareerBonaGraphicController implements Initializable {
     }
 
     @FXML
-    void javaFunction() throws ParseException {
+    void javaFunction(){
         List<EventBean> y = new ItemController().item("java");
         elements.clear();
         dashboard.refresh();
@@ -86,7 +86,7 @@ public class CareerBonaGraphicController implements Initializable {
     }
 
     @FXML
-    void pythonFunction() throws ParseException {
+    void pythonFunction(){
         List<EventBean> y = new ItemController().item("python");
         elements.clear();
         dashboard.refresh();
@@ -126,7 +126,6 @@ public class CareerBonaGraphicController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader root;
             root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("JoinEvent.fxml")));
-            //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
             EventBean x= elements.get(dashboard.getSelectionModel().getSelectedIndex());
 
             Scene scene;

@@ -44,6 +44,8 @@ public class EventCreateGraphicController {
 
     private String[] tags ={"C++","Python","Java"};
 
+    private CompanyBean companyBean;
+
 
 
     public void initialize(){
@@ -70,7 +72,7 @@ public class EventCreateGraphicController {
                 stage.setScene(scene);
                 stage.show();
                 AzioniAziendaGraphicController a = root.getController();
-                a.spostare(nameA); //da modificare il metodo
+                a.spostare(companyBean); //da modificare il metodo
             } //PROBLEMA CON CAMBIO INTERFACCIA
             catch (IOException e){
                 throw new RuntimeException(e);
@@ -97,7 +99,7 @@ public class EventCreateGraphicController {
     return val;
     }
 
-        private String nameA;
+
 
         @FXML
         public void createItGotoPay() throws IOException, DuplicatedEventException, ParseException {
@@ -113,25 +115,14 @@ public class EventCreateGraphicController {
 //            LocalDate initialDate= getDateFromString(initialDateInsert.getText(), format);
 //            LocalDate expireDate= getDateFromString(expireDateInsert.getText(), format);
             int partecipant= convert(maxPartecipantNumber.getText());
-            EventBean eventBean = new EventBean(eventName.getText(),Description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,nameA,tagInsert.getValue());
+            EventBean eventBean = new EventBean(eventName.getText(),Description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,companyBean.getNomeAzienda(),tagInsert.getValue());
 //BARBERADDSERVICECONTROLLER 43
+            CompanyBean companyBean= new CompanyBean(eventBean.getNomeAzienda());
             new eventCreateController.newEvent(eventBean);
-            /*Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));
-            Scene scene = new Scene(root, 690, 518);
-            Stage stage = (Stage) createItButton.getScene().getWindow();
-
-            stage.setTitle("Link-Activity");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();*/
 
             Stage stage = (Stage) createItButton.getScene().getWindow();
-            //Stage stage = new Stage();
             FXMLLoader root;
             root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPay.fxml")));
-            //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
-            //EventBean x= elements.get(dashboard.getSelectionModel().getSelectedIndex());
-
             Scene scene;
             try {
                 scene = new Scene(root.load(), 690, 518);
@@ -139,15 +130,15 @@ public class EventCreateGraphicController {
                 stage.setScene(scene);
                 stage.show();
                 DummyPayGraphicController o = root.getController();
-                o.setCurrentCompany(eventBean.getNomeAzienda()); //TODO forse deve passare la bean non una string
+                o.setCurrentCompany(companyBean); //TODO forse deve passare la bean non una string
             } catch (IOException e) {
                 e.printStackTrace();
             }
             assert false;
 
         }
-    public void newSpostare(String companyName){
-        nameA = companyName;
+    public void newSpostare(CompanyBean companyBean2){
+        companyBean = companyBean2;
     }
 
 }

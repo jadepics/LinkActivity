@@ -6,7 +6,8 @@ import java.util.List;
 
 public class CouponPointsDAO {
 
-    public static void addPoints(String nomeaz, String todo, int quantity) throws FileNotFoundException {
+    public static void addPoints(Company company, String todo, int quantity) throws FileNotFoundException {
+        String nomeaz= company.getCompanyNomeaz();
 
         try {
             // Apertura del file di testo
@@ -61,7 +62,8 @@ public class CouponPointsDAO {
         }
     }
 
-    public static int getCurrentPoints(String nomeaz) { //TODO forse cambiare con una bean
+    public static int getCurrentPoints(Company company) { //TODO forse cambiare con una bean
+        String nomeaz= company.getCompanyNomeaz();
         int points = 0; // Variabile per salvare il valore di "pts="
 
         try {
@@ -97,7 +99,9 @@ public class CouponPointsDAO {
         return points;
     }
 
-    public static void redeemCoupon(String nomeaz, int points){
+    public static void redeemCoupon(Company company, int points){
+        String nomeaz= company.getCompanyNomeaz();
+
         String s;
         if(points==300){
             s= "cp1=";
@@ -146,8 +150,8 @@ public class CouponPointsDAO {
         }
     }
 
-    public static List<Integer> getAvailableCoupons(String nomeaz){ //TODO replace List<int> con model di coupon
-
+    public static List<Integer> getAvailableCoupons(Company company){ //TODO replace List<Integer> con model di coupon
+        String nomeaz= company.getCompanyNomeaz();
         List<Integer> coupList = new ArrayList<>();
 
         try {

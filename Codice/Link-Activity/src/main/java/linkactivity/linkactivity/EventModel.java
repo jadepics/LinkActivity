@@ -12,10 +12,16 @@ public class EventModel {
     int partecipantNumber;
     String nomeAzienda;
     String tag;
+    String path;
 
 
 
     public EventModel(){}
+
+    public EventModel(String path){
+        setEventModelPath(path);
+    }
+
     public EventModel(String eventName,String description,String dataEvento,String expirationDate,int partecipantNumber,String nomeAzienda, String tag ){
         setEventModelName(eventName);
         setEventModelDescription(description);
@@ -24,6 +30,14 @@ public class EventModel {
         setEventModelPartecipantNumber(partecipantNumber);
         setEventModelNomeAzienda(nomeAzienda);
         setEventModelTag(tag);
+    }
+
+    public void setEventModelPath(String path){
+        this.path=path;
+    }
+
+    public String getEventModelPath(){
+        return path;
     }
 
     public String getEventModelName() {
