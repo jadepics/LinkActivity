@@ -5,7 +5,7 @@ public class UserBean {
     private String userEmail;
     private String userPass;
 
-public UserBean(){}
+public UserBean(String email){}
 
     public String getUsername() {
         return username;

@@ -1,9 +1,11 @@
 package linkactivity.linkactivity;
 
+import linkactivity.linkactivity.Observer.Subject;
+
 import java.time.LocalDate;
 import java.util.Date;
 
-public class EventBean {
+public class EventBean extends Subject {
 
     String eventName;
     String dataEvento;
@@ -88,5 +90,9 @@ public class EventBean {
 
     public void setTag(String tag) {
         this.tag=tag;
+    }
+
+    public void notifyChanges(){
+        super.notifyObservers();
     }
 }

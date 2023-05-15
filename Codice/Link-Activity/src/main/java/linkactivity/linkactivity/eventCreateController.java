@@ -8,27 +8,27 @@ import java.util.Objects;
 //qui ci arrivo dal controller grafico
 public class eventCreateController {
     public static class newEvent {
-        public newEvent(EventBean createEBean) throws DuplicatedEventException /*throws DuplicatedEventException*/ {
+        public newEvent(EventBean createEBean) throws DuplicatedEventException {
             //chiama dao per vedere se evento esiste già altrimenti eccezione(specifica)
             CompanyDAO companyDAO = new CompanyDAO();
             UserDAO userDAO = new UserDAO(); //mi serve? forse per observer e notifica
             EventDAO eventDAO = new EventDAO();
             EventModel addEvent; //model del nuovo evento
-            //Company company =companyDAO.loadCompany(createEBean.nomeAzienda);   //forse non serve
+            String company =companyDAO.loadCompany(createEBean.nomeAzienda);   //forse non serve
             // mi carico l'azienda perche la devo mette nella dao evento, ma la devo recuperare dalla sessione
             System.out.println("sto nell'inizializzazione del controller");
             //TODO BOUNDARY
-            //eventCreateSendEmailBoundary con observer tramite boundary
+            EventCreateBoundarySendEmail addEventBoundarySendEmail = new EventCreateBoundarySendEmail(createEBean,company);
 
-            /* List <UserBean> userBeans = new ArrayList<>();
-            List <User> users;
-            users loadUserFromFavoriteTag sempre per observer da DAO
-             for(User user : users){
-             userBeans.add(new UserBean(user.getEmail()));
-                            }             */
+             List <UserBean> userBeans = new ArrayList<>();
+            List <UserModel> userModels;
+            userModels =userDAO.loadUserFromFavoriteTag(createEBean.tag); //sempre per observer da DAO
+             for(UserModel userModel : userModels){
+             userBeans.add(new UserBean(userModel.getEmail()));
+                            }
             System.out.println("sto per controllare l'evento");
             addEvent = new EventModel(createEBean.getEventName(),createEBean.getDescription(), createEBean.getDataEvento(), createEBean.getExpirationDate(), createEBean.getPartecipantNumber(), createEBean.getNomeAzienda(), createEBean.getTag());
-            //addEvent.setEventModelNomeAzienda(company); non mi serve
+
 
             List <EventModel> checkEvents = eventDAO.getEvent("");
             while(!(checkEvents.isEmpty())) {
@@ -43,15 +43,19 @@ public class eventCreateController {
             }
             System.out.println("vado ad inserire l'evento");
             int m= eventDAO.insertEvent(addEvent);
-            if(m!=-1)System.out.println("inserimento andato a buon fine");
+            if(m!=-1){
+                addEventBoundarySendEmail.setUserBeans(userBeans);
+                createEBean.notifyChanges();
+                System.out.println("inserimento andato a buon fine");}
+        }
+        private static boolean controlDuplicatedEvent(EventModel localEvent, EventModel addEvent){
+            return Objects.equals(localEvent.getEventModelName(), addEvent.getEventModelName()) && Objects.equals(localEvent.getEventModelData(), addEvent.getEventModelData()) &&
+                    Objects.equals(localEvent.getEventModelDescription(), addEvent.getEventModelDescription()) && Objects.equals(localEvent.getEventModelTag(), addEvent.getEventModelTag());
         }
     }
 
 
-private static boolean controlDuplicatedEvent(EventModel localEvent, EventModel addEvent){
-    return Objects.equals(localEvent.getEventModelName(), addEvent.getEventModelName()) && Objects.equals(localEvent.getEventModelData(), addEvent.getEventModelData()) &&
-            Objects.equals(localEvent.getEventModelDescription(), addEvent.getEventModelDescription()) && Objects.equals(localEvent.getEventModelTag(), addEvent.getEventModelTag());
-}
+
 }
 
 

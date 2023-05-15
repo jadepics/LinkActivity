@@ -25,7 +25,7 @@
                </font>
             </Text>
             <Rectangle fill="WHITE" height="150.0" layoutX="14.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
-            <Text layoutX="19.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set email &lt;email&gt;&#10;- set password &lt;password&gt;&#10;- set profile &lt;user&gt; or &lt;company&gt;&#10;- goto googleLogin&#10;- goto register&#10;- submit" wrappingWidth="300.0">
+            <Text layoutX="19.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set email &lt;email&gt;&#10;- set password &lt;password&gt;&#10;- set profile &lt;userModel&gt; or &lt;company&gt;&#10;- goto googleLogin&#10;- goto register&#10;- submit" wrappingWidth="300.0">
                <font>
                   <Font size="18.0" />
                </font>
