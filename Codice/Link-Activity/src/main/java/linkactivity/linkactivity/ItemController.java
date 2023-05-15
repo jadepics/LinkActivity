@@ -56,31 +56,34 @@ public class ItemController {
         return 0;
     }
 
-    public static String getLogo(String nomeaz) throws IOException { //TODO forse cambiare con una bean
-        String pathLogo= String.valueOf(EvetLogoDAO.getLogo(nomeaz));
-        return pathLogo;
+    public static EventBean getLogo(EventBean item) throws IOException {
+        EventModel eventModel= new EventModel(null,null,null,null,0,item.getNomeAzienda(), null){};
+        EventModel eventModel1= EvetLogoDAO.getLogo(eventModel);
+        item= new EventBean(eventModel1.getEventModelPath());
+        return item;
     }
 
     public static void addPoints(CompanyBean companyBean) throws FileNotFoundException {
-        String nomeaz= companyBean.getNomeAzienda();
-        System.out.println(nomeaz+"ciaeeee");
-        CouponPointsDAO.addPoints(nomeaz, "add",0);
+        Company company= new Company(companyBean.getNomeAzienda());
+        CouponPointsDAO.addPoints(company, "add",0); //TODO passare MODEL non string estratta da Bean
     }
 
-    public static int getCurrentPoints(String nomeaz){ //TODO forse cambiare con una bean
-        int points= CouponPointsDAO.getCurrentPoints(nomeaz);
+    public static int getCurrentPoints(CompanyBean companyBean){ //TODO forse cambiare con una bean
+        Company company= new Company(companyBean.getNomeAzienda());
+        int points= CouponPointsDAO.getCurrentPoints(company);
         System.out.println(points);
         return points;
     }
 
-    public static void removePoints(String nomeaz, int points) throws FileNotFoundException {
-        CouponPointsDAO.addPoints(nomeaz, "", points);
-        CouponPointsDAO.redeemCoupon(nomeaz,points);
+    public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException { //TODO no stringa si model
+        Company company= new Company(companyBean.getNomeAzienda());
+        CouponPointsDAO.addPoints(company, "", points);
+        CouponPointsDAO.redeemCoupon(company,points);
     }
 
-    public static List<Integer> getAvailableCoupons(String nomeaz){ //TODO replace List<int> con bean di coupon
-        List<Integer> coupList= CouponPointsDAO.getAvailableCoupons(nomeaz);
-        return coupList;
+    public static List<Integer> getAvailableCoupons(CompanyBean companyBean){ //TODO replace List<Integer> con bean di coupon
+        Company company= new Company(companyBean.getNomeAzienda());
+        return CouponPointsDAO.getAvailableCoupons(company);
     }
 
 }

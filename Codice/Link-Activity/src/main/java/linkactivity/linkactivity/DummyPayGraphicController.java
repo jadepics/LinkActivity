@@ -44,18 +44,10 @@ public class DummyPayGraphicController {
     private TextField tenpToUse;
 
 
-    String y;
+    CompanyBean y;
 
     @FXML
-    private void backToEventCreate() throws IOException {
-        /*Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
-        Scene scene = new Scene(root, 690, 518);
-        Stage stage = (Stage) backButton7.getScene().getWindow();
-
-        stage.setTitle("Link-Activity");
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();*/
+    private void backToEventCreate(){
 
         Stage stage= (Stage) backButton7.getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
@@ -80,20 +72,19 @@ public class DummyPayGraphicController {
 
     @FXML
     private void paymentDone() throws FileNotFoundException {
-        CompanyBean compBean= new CompanyBean(y);
-        ItemController.addPoints(compBean);
+        ItemController.addPoints(y);
         paymentButton.setDisable(true);
     }
 
     @FXML
-    public void setCurrentCompany(String nomeaz){ //TODO forse cambiare con una bean
-        y= nomeaz;
+    public void setCurrentCompany(CompanyBean companyBean){ //TODO forse cambiare con una bean
+        y= companyBean;
         setAvailableCoupons(y);
         System.out.println(y);
     }
 
-    private void setAvailableCoupons(String nomeaz){
-        List<Integer> coupList= ItemController.getAvailableCoupons(nomeaz);
+    private void setAvailableCoupons(CompanyBean companyBean){ //TODO cambiare con bean
+        List<Integer> coupList= ItemController.getAvailableCoupons(companyBean);
         fivePCouponAvailable.setText("- Available 5% coupons: "+ coupList.get(0));
         tenPCouponAvailable.setText("- Available 10% coupons: "+ coupList.get(1));
         fiftPCouponAvailable.setText("- Available 15% coupons: "+ coupList.get(2));

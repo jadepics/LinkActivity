@@ -18,10 +18,14 @@ public class EventBean extends Subject {
 
     String tag;
 
-
+    String path;
 
 
     public EventBean(){}    //costruttore vuoto
+
+    public EventBean(String path){
+        setEventPath(path);
+    }
 
     public EventBean(String eventName, String description, String dataEvento, String expirationDate, int partecipantNumber, String nomeAzienda, String tag ){
         super();
@@ -33,6 +37,14 @@ public class EventBean extends Subject {
         this.setNomeAzienda(nomeAzienda);
         this.setTag(tag);
         System.out.println(eventName+" aaaaaaaaaaaaaaaa");
+    }
+
+    public void setEventPath(String path){
+        this.path=path;
+    }
+
+    public String getEventPath(){
+        return path;
     }
 
     public String getEventName() {

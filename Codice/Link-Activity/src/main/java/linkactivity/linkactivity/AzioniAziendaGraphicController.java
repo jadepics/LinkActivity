@@ -36,7 +36,7 @@ public class AzioniAziendaGraphicController {
         stage.setResizable(false);
         stage.show();
     }
-private String company;
+private CompanyBean companyBean;
     @FXML
     public void eventCreate() throws IOException {
        // Stage stage = new Stage();        C E ACTION EVENT E DEVE ESSERCI!
@@ -48,28 +48,24 @@ private String company;
             stage.setScene(scene);
             stage.show();
             EventCreateGraphicController a = root.getController();
-            a.newSpostare(company); //da modificare il metodo
+            a.newSpostare(companyBean); //da modificare il metodo
         } //PROBLEMA CON CAMBIO INTERFACCIA
         catch (IOException e){
             throw new RuntimeException(e);
         }
     }
-public void spostare(String companyName){
-        company = companyName;
-}
+    public void spostare(CompanyBean companyBean2){
+        companyBean = companyBean2;
+    }
 
 
 
     @FXML
-    void buyCoupon() throws IOException {
-        String nomeaz= company;
-        CompanyBean companyBean= new CompanyBean(nomeaz);
+    void buyCoupon(){
 
         Stage stage = (Stage) buyCouponButton.getScene().getWindow();
         FXMLLoader root;
         root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("RedeemCoupon.fxml")));
-        //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
-        //EventBean x= elements.get(dashboard.getSelectionModel().getSelectedIndex());
 
         Scene scene;
         try {
@@ -78,7 +74,7 @@ public void spostare(String companyName){
             stage.setScene(scene);
             stage.show();
             RedeemCouponGraphicController o = root.getController();
-            o.setCurrentCompany(companyBean.getNomeAzienda()); //TODO forse deve passare una bean non una string
+            o.setCurrentCompany(companyBean);
         } catch (IOException e) {
             e.printStackTrace();
         }

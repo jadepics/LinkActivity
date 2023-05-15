@@ -59,9 +59,9 @@ public class LoginGraphicController {
         stage.show();
     }
 
-    public void switchToAziendaProfile(ActionEvent event) throws IOException {
-        //Stage stage= new Stage();
+    public void switchToAziendaProfile(ActionEvent event){
         String companyName=(emailUsernameLogin.getText());
+        CompanyBean companyBean= new CompanyBean(companyName);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene ;
@@ -70,7 +70,7 @@ public class LoginGraphicController {
             stage.setScene(scene);
             stage.show();
             AzioniAziendaGraphicController a = root.getController();
-            a.spostare(companyName); ///modifica nome metodo
+            a.spostare(companyBean); ///modifica nome metodo
         }
         catch (IOException e){
             throw new RuntimeException(e);
