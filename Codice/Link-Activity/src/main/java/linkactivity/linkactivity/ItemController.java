@@ -1,12 +1,7 @@
 package linkactivity.linkactivity;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class ItemController {
@@ -64,25 +59,25 @@ public class ItemController {
     }
 
     public static void addPoints(CompanyBean companyBean) throws FileNotFoundException {
-        Company company= new Company(companyBean.getNomeAzienda());
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "add",0); //TODO passare MODEL non string estratta da Bean
     }
 
     public static int getCurrentPoints(CompanyBean companyBean){ //TODO forse cambiare con una bean
-        Company company= new Company(companyBean.getNomeAzienda());
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         int points= CouponPointsDAO.getCurrentPoints(company);
         System.out.println(points);
         return points;
     }
 
     public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException { //TODO no stringa si model
-        Company company= new Company(companyBean.getNomeAzienda());
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "", points);
         CouponPointsDAO.redeemCoupon(company,points);
     }
 
     public static List<Integer> getAvailableCoupons(CompanyBean companyBean){ //TODO replace List<Integer> con bean di coupon
-        Company company= new Company(companyBean.getNomeAzienda());
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         return CouponPointsDAO.getAvailableCoupons(company);
     }
 

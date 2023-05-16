@@ -2,21 +2,21 @@ package linkactivity.linkactivity;
 
 import java.io.Serializable;
 
-public class Company implements Serializable {
+public class CompanyModel implements Serializable {
 
     String nomeaz;
     String email;
 
-    public Company(String email, String nomeAzienda, String password){
+    public CompanyModel(String email, String nomeAzienda, String password){
         this.email=email;
         this.nomeaz= nomeAzienda;
 
         }
 
-    public Company(String email, int i){
+    public CompanyModel(String email, int i){
         setCompanyEmail(email);} //super serve per accedere a metodi della superclasse sovrascritti nella sottoclasse
 
-   public Company(String nomeaz){
+   public CompanyModel(String nomeaz){
         setCompanyNomeaz(nomeaz);
    }
 

@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 public class Queries {
     public static ResultSet selectCompanybyName(Statement statement, String nomeAzienda) throws SQLException {
-    String query =String.format("SELECT Email FROM azienda_u where NomeAzienda = '%s' ", nomeAzienda);
+    String query =String.format("SELECT * FROM azienda_u where NomeAzienda = '%s' ", nomeAzienda);
     return statement.executeQuery(query);
     }
 

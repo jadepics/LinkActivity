@@ -10,9 +10,9 @@ public class CompanyDAO {
     private static final String COMPANY_NOME ="nomeAzienda";
     private static final String COMPANY_LOGO= ""; //vedi che ci devi mette
 
-    public Company loadCompany(String nomeAzienda){
+    public CompanyModel loadCompany(String nomeAzienda){
         Connection myConnection = DBConnection.getDBConnection();
-    Company company= null;
+    CompanyModel company= null;
         try {
 
             Statement statement = myConnection.createStatement();
@@ -25,11 +25,11 @@ public class CompanyDAO {
         }
     return company;}
 
-    private Company createCompany(ResultSet resultSet) throws SQLException{
+    private CompanyModel createCompany(ResultSet resultSet) throws SQLException{
         String email =resultSet.getString(COMPANY_EMAIL);
         String nomeAzienda =resultSet.getString(COMPANY_NOME);
         //String logo =resultSet.getString(COMPANY_LOGO);
 
-        return new Company(email, nomeAzienda, "");
+        return new CompanyModel(email, nomeAzienda, "");
     }
 }   //ho svalvolato qualcosa perchè io devo tornare l'email non il nome
