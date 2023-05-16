@@ -6,8 +6,10 @@ import java.io.IOException;
 
 public class EvetLogoDAO {
 
-    public static StringBuilder getLogo(String nomeaz) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
+    public static EventModel getLogo(EventModel eventModel) throws IOException {
+        String nomeaz= eventModel.getEventModelNomeAzienda();
+
+        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
 
         String line;
         boolean foundCompany = false;
@@ -33,6 +35,8 @@ public class EvetLogoDAO {
             }
         }
         reader.close();
-        return sb;
+
+        eventModel= new EventModel(String.valueOf(sb)){};
+        return eventModel;
     }
 }

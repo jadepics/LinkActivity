@@ -10,15 +10,15 @@ public class CompanyDAO {
     private static final String COMPANY_NOME ="nomeAzienda";
     private static final String COMPANY_LOGO= ""; //vedi che ci devi mette
 
-    public String loadCompany(String nomeAzienda){
+    public Company loadCompany(String nomeAzienda){
         Connection myConnection = DBConnection.getDBConnection();
-    String company=null;
+    Company company= null;
         try {
 
             Statement statement = myConnection.createStatement();
             ResultSet resultSet = Queries.selectCompanybyName(statement, nomeAzienda);
             if(resultSet.next()){
-                company = createCompany(resultSet).toString();
+                company = createCompany(resultSet);
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();

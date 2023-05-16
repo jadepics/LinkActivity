@@ -14,11 +14,12 @@ public class eventCreateController {
             UserDAO userDAO = new UserDAO(); //mi serve? forse per observer e notifica
             EventDAO eventDAO = new EventDAO();
             EventModel addEvent; //model del nuovo evento
-            String company =companyDAO.loadCompany(createEBean.nomeAzienda);   //forse non serve
+            Company company =companyDAO.loadCompany(createEBean.nomeAzienda);   //forse non serve
+            String companyMail = company.getCompanyEmail();
             // mi carico l'azienda perche la devo mette nella dao evento, ma la devo recuperare dalla sessione
             System.out.println("sto nell'inizializzazione del controller");
             //TODO BOUNDARY
-            EventCreateBoundarySendEmail addEventBoundarySendEmail = new EventCreateBoundarySendEmail(createEBean,company);
+            EventCreateBoundarySendEmail addEventBoundarySendEmail = new EventCreateBoundarySendEmail(createEBean,companyMail);
 
              List <UserBean> userBeans = new ArrayList<>();
             List <UserModel> userModels;
