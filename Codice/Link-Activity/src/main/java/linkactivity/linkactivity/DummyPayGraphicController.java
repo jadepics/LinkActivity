@@ -72,7 +72,7 @@ public class DummyPayGraphicController {
 
     @FXML
     private void paymentDone() throws FileNotFoundException {
-        ItemController.addPoints(y);
+        eventCreateController.addPoints(y);
         paymentButton.setDisable(true);
     }
 
@@ -84,7 +84,7 @@ public class DummyPayGraphicController {
     }
 
     private void setAvailableCoupons(CompanyBean companyBean){ //TODO cambiare con bean
-        List<Integer> coupList= ItemController.getAvailableCoupons(companyBean);
+        List<Integer> coupList= eventCreateController.getAvailableCoupons(companyBean);
         fivePCouponAvailable.setText("- Available 5% coupons: "+ coupList.get(0));
         tenPCouponAvailable.setText("- Available 10% coupons: "+ coupList.get(1));
         fiftPCouponAvailable.setText("- Available 15% coupons: "+ coupList.get(2));

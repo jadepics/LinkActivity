@@ -56,7 +56,7 @@ public class RedeemCouponGraphicController {
     @FXML
     void redeemFiftpCoup() throws FileNotFoundException {
         if(pts>=800){
-            ItemController.removePoints(y,800);
+            eventCreateController.removePoints(y,800);
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -68,7 +68,7 @@ public class RedeemCouponGraphicController {
     @FXML
     void redeemFivepCoupButton() throws FileNotFoundException {
         if(pts>=300){
-            ItemController.removePoints(y,300);
+            eventCreateController.removePoints(y,300);
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -80,7 +80,7 @@ public class RedeemCouponGraphicController {
     @FXML
     void redeemTenpCoup() throws FileNotFoundException {
         if(pts>=550){
-            ItemController.removePoints(y,550);
+            eventCreateController.removePoints(y,550);
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -95,7 +95,7 @@ public class RedeemCouponGraphicController {
     }
 
     private void setCurrentCompanyPoints(){
-        pts= ItemController.getCurrentPoints(y);
+        pts= eventCreateController.getCurrentPoints(y);
         aviablePoints.setText("Your Aviable Points: "+pts);
     }
 

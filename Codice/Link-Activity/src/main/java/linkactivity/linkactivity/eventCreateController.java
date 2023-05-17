@@ -1,6 +1,7 @@
 package linkactivity.linkactivity;
 
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -53,6 +54,29 @@ public class eventCreateController {
             return Objects.equals(localEvent.getEventModelName(), addEvent.getEventModelName()) && Objects.equals(localEvent.getEventModelData(), addEvent.getEventModelData()) &&
                     Objects.equals(localEvent.getEventModelDescription(), addEvent.getEventModelDescription()) && Objects.equals(localEvent.getEventModelTag(), addEvent.getEventModelTag());
         }
+    }
+
+    public static void addPoints(CompanyBean companyBean) throws FileNotFoundException {
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
+        CouponPointsDAO.addPoints(company, "add",0); //TODO passare MODEL non string estratta da Bean
+    }
+
+    public static int getCurrentPoints(CompanyBean companyBean){ //TODO forse cambiare con una bean
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
+        int points= CouponPointsDAO.getCurrentPoints(company);
+        System.out.println(points);
+        return points;
+    }
+
+    public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException { //TODO no stringa si model
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
+        CouponPointsDAO.addPoints(company, "", points);
+        CouponPointsDAO.redeemCoupon(company,points);
+    }
+
+    public static List<Integer> getAvailableCoupons(CompanyBean companyBean){ //TODO replace List<Integer> con bean di coupon
+        CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
+        return CouponPointsDAO.getAvailableCoupons(company);
     }
 
 

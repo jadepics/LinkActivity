@@ -11,7 +11,7 @@ public class CouponPointsDAO {
 
         try {
             // Apertura del file di testo
-            File file = new File("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt");
+            File file = new File("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
@@ -156,7 +156,7 @@ public class CouponPointsDAO {
 
         try {
             // Apertura del file di testo
-            File file = new File("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt");
+            File file = new File("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt");
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
