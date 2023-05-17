@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,6 +22,9 @@ public class DummyPayGraphicController {
 
     @FXML
     private Button backButton7;
+
+    @FXML
+    private Text total;
 
     @FXML
     private Text fiftPCouponAvailable;
@@ -68,6 +72,39 @@ public class DummyPayGraphicController {
     @FXML
     void applyCoupon() {
 
+        System.out.println("eooooooooooo");
+        int x= Integer.parseInt(fivepToUse.getText());
+        int y= Integer.parseInt(tenpToUse.getText());
+        int z= Integer.parseInt(fiftpToUse.getText());
+
+        List<CouponBean> couponBeans= new ArrayList<>(){};
+
+        while(z!=0){
+            CouponBean k= new CouponBean(15.0);
+            couponBeans.add(k);
+            z--;
+        }
+        while(y!=0){
+            CouponBean k= new CouponBean(10.0);
+            couponBeans.add(k);
+            y--;
+        }
+        while(x!=0){
+            CouponBean k= new CouponBean(5.0);
+            couponBeans.add(k);
+            x--;
+        }
+
+        Double finalPrice = eventCreateController.applyCoupon(couponBeans);
+        /*CouponApplier instance = new CouponApplier(new Priceable() {
+            @Override
+            public Double getPrice() {
+                return 10.0;
+            }
+        }) ;
+        instance.getFinalPrice() ;
+         */
+        total.setText("Total: "+finalPrice);
     }
 
     @FXML
@@ -77,13 +114,13 @@ public class DummyPayGraphicController {
     }
 
     @FXML
-    public void setCurrentCompany(CompanyBean companyBean){ //TODO forse cambiare con una bean
+    public void setCurrentCompany(CompanyBean companyBean){
         y= companyBean;
         setAvailableCoupons(y);
         System.out.println(y);
     }
 
-    private void setAvailableCoupons(CompanyBean companyBean){ //TODO cambiare con bean
+    private void setAvailableCoupons(CompanyBean companyBean){
         List<Integer> coupList= eventCreateController.getAvailableCoupons(companyBean);
         fivePCouponAvailable.setText("- Available 5% coupons: "+ coupList.get(0));
         tenPCouponAvailable.setText("- Available 10% coupons: "+ coupList.get(1));

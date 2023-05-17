@@ -3,7 +3,7 @@ package linkactivity.linkactivity;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class EventModel {
+public class EventModel implements Priceable {
 
     String eventName;
     String dataEvento;
@@ -13,7 +13,6 @@ public class EventModel {
     String nomeAzienda;
     String tag;
     String path;
-    int price=100;
 
 
     public EventModel(){}
@@ -21,8 +20,6 @@ public class EventModel {
     public EventModel(String path){
         setEventModelPath(path);
     }
-
-    public EventModel(int price){}
 
     public EventModel(String eventName,String description,String dataEvento,String expirationDate,int partecipantNumber,String nomeAzienda, String tag ){
         setEventModelName(eventName);
@@ -32,10 +29,6 @@ public class EventModel {
         setEventModelPartecipantNumber(partecipantNumber);
         setEventModelNomeAzienda(nomeAzienda);
         setEventModelTag(tag);
-    }
-
-    public int getPrice(){
-        return price;
     }
 
     public void setEventModelPath(String path){
@@ -102,4 +95,8 @@ public class EventModel {
         this.tag=tag;
     }
 
+    @Override
+    public Double getPrice() {
+        return 100.0;
+    }
 }

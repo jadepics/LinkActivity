@@ -58,25 +58,43 @@ public class eventCreateController {
 
     public static void addPoints(CompanyBean companyBean) throws FileNotFoundException {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
-        CouponPointsDAO.addPoints(company, "add",0); //TODO passare MODEL non string estratta da Bean
+        CouponPointsDAO.addPoints(company, "add",0);
     }
 
-    public static int getCurrentPoints(CompanyBean companyBean){ //TODO forse cambiare con una bean
+    public static int getCurrentPoints(CompanyBean companyBean){
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         int points= CouponPointsDAO.getCurrentPoints(company);
         System.out.println(points);
         return points;
     }
 
-    public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException { //TODO no stringa si model
+    public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "", points);
         CouponPointsDAO.redeemCoupon(company,points);
     }
 
-    public static List<Integer> getAvailableCoupons(CompanyBean companyBean){ //TODO replace List<Integer> con bean di coupon
+    public static List<Integer> getAvailableCoupons(CompanyBean companyBean){
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         return CouponPointsDAO.getAvailableCoupons(company);
+    }
+
+    public static Double applyCoupon(List<CouponBean> couponBean){
+        int i=0;
+
+        List<CouponModel> couponModel= new ArrayList<>(){};
+        while(i!=couponBean.size()){
+            CouponModel k= new ConcreteCoupon(couponBean.get(i).getCouponDiscount()) ;
+            couponModel.add(k);
+            i++;
+        }
+
+        EventModel eventModel= new EventModel();
+
+        CouponApplier couponApplier = new CouponApplier(eventModel) ;
+        couponApplier.applyDiscount(couponModel);
+
+        return couponApplier.getFinalPrice();
     }
 
 
