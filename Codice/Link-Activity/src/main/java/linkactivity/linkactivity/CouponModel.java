@@ -1,5 +1,7 @@
 package linkactivity.linkactivity;
 
+import linkactivity.linkactivity.Pattern.Decorator.Priceable;
+
 public abstract class CouponModel implements Priceable {
     private Double couponDiscount;
     private Priceable appliedPrice ;

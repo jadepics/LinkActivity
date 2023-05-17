@@ -7,6 +7,8 @@ module linkactivity.linkactivity {
 
     opens linkactivity.linkactivity to javafx.fxml;
     exports linkactivity.linkactivity;
-    exports linkactivity.linkactivity.Observer;
-    opens linkactivity.linkactivity.Observer to javafx.fxml;
+    exports linkactivity.linkactivity.Pattern.Observer;
+    opens linkactivity.linkactivity.Pattern.Observer to javafx.fxml;
+    exports linkactivity.linkactivity.Pattern.Decorator;
+    opens linkactivity.linkactivity.Pattern.Decorator to javafx.fxml;
 }

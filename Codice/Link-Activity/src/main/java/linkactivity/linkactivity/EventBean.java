@@ -1,9 +1,6 @@
 package linkactivity.linkactivity;
 
-import linkactivity.linkactivity.Observer.Subject;
-
-import java.time.LocalDate;
-import java.util.Date;
+import linkactivity.linkactivity.Pattern.Observer.Subject;
 
 public class EventBean extends Subject {
 

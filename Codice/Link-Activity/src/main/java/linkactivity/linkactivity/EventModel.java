@@ -1,7 +1,6 @@
 package linkactivity.linkactivity;
 
-import java.time.LocalDate;
-import java.util.Date;
+import linkactivity.linkactivity.Pattern.Decorator.Priceable;
 
 public class EventModel implements Priceable {
 
