@@ -1,6 +1,7 @@
 package linkactivity.linkactivity;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -8,8 +9,9 @@ public class EvetLogoDAO {
 
     public static EventModel getLogo(EventModel eventModel) throws IOException {
         String nomeaz= eventModel.getEventModelNomeAzienda();
+        File file= new File("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt");
 
-        BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Reliq\\Desktop\\ISPW\\1Progetto\\LinkActivity\\Codice\\Link-Activity\\src\\main\\CompanyLogo-Filesystem.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader(file));
 
         String line;
         boolean foundCompany = false;
