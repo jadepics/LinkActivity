@@ -35,5 +35,4 @@ public class CompanyModel implements Serializable {
     }
 
 
-    // E' UN MODEL? SE SI SCRIVERE MODEL NEL NOME!!!
 }

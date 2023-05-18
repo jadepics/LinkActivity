@@ -10,7 +10,6 @@ public class CouponApplier{
     private Priceable finalPrice ;
 
     public CouponApplier(Priceable priceable) {
-        // Creates a coupon container in order to manage all the Coupons that are added to the price
         setOriginalPrice(priceable);
         finalPrice = originalPrice ;
     }
@@ -25,15 +24,6 @@ public class CouponApplier{
                 finalPrice=currentCoupon;
             }
         }
-
-        /*finalPrice = originalPrice ;
-        for (int i = 0 ; i < couponContainer.getSize() ; i++) {
-            Coupon currentCoupon = couponContainer.getCouponByIndex(i) ;
-            if (currentCoupon != null) {
-                currentCoupon.setAppliedPrice(finalPrice);
-                finalPrice = currentCoupon ;
-            }
-        }*/
     }
 
     public void setOriginalPrice(Priceable originalPrice) {
@@ -41,7 +31,6 @@ public class CouponApplier{
     }
 
     public Double getFinalPrice() {
-        // Access to the finalPrice attribute: this starts recursive calls of Decorator Pattern
         return finalPrice.getPrice() ;
     }
 

@@ -1,13 +1,10 @@
 package linkactivity.linkactivity;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -38,7 +35,7 @@ public class AzioniAziendaGraphicController {
     }
 private CompanyBean companyBean;
     @FXML
-    public void eventCreate() throws IOException {
+    public void eventCreate() {
        // Stage stage = new Stage();        C E ACTION EVENT E DEVE ESSERCI!
         Stage stage= (Stage) createNewEvent.getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));

@@ -1,21 +1,16 @@
 package linkactivity.linkactivity;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Objects;
 
 public class EventCreateGraphicController {
@@ -54,15 +49,7 @@ public class EventCreateGraphicController {
 
 
         @FXML
-        private void backToAzioniAzienda() throws IOException {
-            /*Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
-            Scene scene = new Scene(root, 690, 518);
-            Stage stage = (Stage) backButton5.getScene().getWindow();
-
-            stage.setTitle("Link-Activity");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();*/
+        private void backToAzioniAzienda(){
 
             Stage stage= (Stage) backButton5.getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
@@ -102,18 +89,7 @@ public class EventCreateGraphicController {
 
 
         @FXML
-        public void createItGotoPay() throws IOException, DuplicatedEventException, ParseException {
-//            String date= initialDateInsert.getText();
-//            String expdate= expireDateInsert.getText();
-
-//            DateFormat df= new SimpleDateFormat("yyyy-MM-dd");
-//            Date initialDate= df.parse(date);
-//            Date expireDate=df.parse(expdate);
-
-
-//            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-//            LocalDate initialDate= getDateFromString(initialDateInsert.getText(), format);
-//            LocalDate expireDate= getDateFromString(expireDateInsert.getText(), format);
+        public void createItGotoPay() throws DuplicatedEventException {
             int partecipant= convert(maxPartecipantNumber.getText());
             EventBean eventBean = new EventBean(eventName.getText(),Description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,companyBean.getNomeAzienda(),tagInsert.getValue());
 //BARBERADDSERVICECONTROLLER 43

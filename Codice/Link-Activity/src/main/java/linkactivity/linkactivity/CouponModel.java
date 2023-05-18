@@ -20,7 +20,6 @@ public abstract class CouponModel implements Priceable {
     }
 
     public void setAppliedPrice(Priceable appliedPrice) {
-        //This operation allows to set the Priceable on which the coupon must be applied
         this.appliedPrice = appliedPrice;
     }
 

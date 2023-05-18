@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -60,7 +59,7 @@ public class CareerBonaGraphicController implements Initializable {
     }
 
     @FXML
-    void cppFunction() throws ParseException {
+    void cppFunction(){
         List<EventBean> y = new ItemController().item("cpp");
         elements.clear();
         dashboard.refresh();

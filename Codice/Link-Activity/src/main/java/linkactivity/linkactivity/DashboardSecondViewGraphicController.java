@@ -1,7 +1,6 @@
 package linkactivity.linkactivity;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,7 +29,7 @@ public class DashboardSecondViewGraphicController implements Initializable {
     private final ArrayList<EventBean> elements= new ArrayList<>();
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException, ParseException {
+    void executeCommand() throws IOException, ParseException {
         String s= dashboardCommandLine.getText();
         dashboardCommandLine.setText("");
 
@@ -56,7 +55,6 @@ public class DashboardSecondViewGraphicController implements Initializable {
             Stage stage = new Stage();
             FXMLLoader root;
             root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("JoinEventSecondView.fxml")));
-            //String x = String.valueOf(elements.get(dashboard.getSelectionModel().getSelectedIndex()).getDescription());
 
             Scene scene;
             try {
@@ -106,8 +104,6 @@ public class DashboardSecondViewGraphicController implements Initializable {
         dashboardSecondView.setItems(FXCollections.observableList(elements));
 
         dashboardSecondView.setCellFactory(param -> new AddThingsListCellFactory());
-        /*dashboardSecondView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-        });*/
 
     }
 }

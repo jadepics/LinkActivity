@@ -1,7 +1,6 @@
 package linkactivity.linkactivity;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,7 +28,7 @@ public class LoginSecondViewGraphicController {
     private Text loginProfileTypeText;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException {
+    void executeCommand() throws IOException {
         String s= loginCommandLine.getText();
         loginCommandLine.setText("");
         if(s.matches("set email .*")){
@@ -68,7 +67,6 @@ public class LoginSecondViewGraphicController {
             //PER ORA PASSA DIRETTAMENTE IN DASHBOARD o spawp per azienda
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
-            //Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
             Scene scene = new Scene(root);
             Stage stage = (Stage) loginCommandLine.getScene().getWindow();
             stage.setScene(scene);

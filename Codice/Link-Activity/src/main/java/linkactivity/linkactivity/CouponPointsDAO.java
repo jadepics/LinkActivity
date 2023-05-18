@@ -63,7 +63,7 @@ public class CouponPointsDAO {
         }
     }
 
-    public static int getCurrentPoints(CompanyModel company) { //TODO forse cambiare con una bean
+    public static int getCurrentPoints(CompanyModel company) { //TODO forse cambiare int con una bean
         String nomeaz= company.getCompanyNomeaz();
         int points = 0; // Variabile per salvare il valore di "pts="
 
@@ -163,7 +163,6 @@ public class CouponPointsDAO {
             while ((line = reader.readLine()) != null) {
                 if (line.contains(nomeaz)) {
                     // Se la riga contiene la stringa cercata, cerca i numeri successivi a "cp1=", "cp2=" e "cp3="
-                    //int index = line.indexOf("cp1=");
                     List<Integer> index= new ArrayList<>();
                     index.add(line.indexOf("cp1="));
                     index.add(line.indexOf("cp2="));

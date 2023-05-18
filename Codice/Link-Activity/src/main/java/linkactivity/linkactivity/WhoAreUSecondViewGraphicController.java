@@ -1,6 +1,5 @@
 package linkactivity.linkactivity;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +16,7 @@ public class WhoAreUSecondViewGraphicController {
     private TextField whoAreUCommandLine;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException {
+    void executeCommand() throws IOException {
         String s= whoAreUCommandLine.getText();
 
         if(s.compareTo("goto login")== 0){

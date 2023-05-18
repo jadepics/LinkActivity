@@ -1,6 +1,5 @@
 package linkactivity.linkactivity;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,7 +30,7 @@ public class RegistrationSecondViewGraphicController {
     private Text registrationRepeatPasswordText;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException {
+    void executeCommand() throws IOException {
         String s= registrationCommandLine.getText();
         registrationCommandLine.setText("");
 

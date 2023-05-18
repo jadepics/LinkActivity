@@ -34,7 +34,7 @@ public class EventCreateSecondViewGraphicController {
     private Text eventCreateTagText;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException {
+    void executeCommand() throws IOException {
         String s= eventCreateCommandLine.getText();
         eventCreateCommandLine.setText("");
 

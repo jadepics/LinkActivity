@@ -1,6 +1,5 @@
 package linkactivity.linkactivity;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +17,7 @@ public class AzioniAziendaSecondViewGraphicController {
     private TextField azioniAziendaCommandLine;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException {
+    void executeCommand() throws IOException {
         String s= azioniAziendaCommandLine.getText();
         azioniAziendaCommandLine.setText("");
 

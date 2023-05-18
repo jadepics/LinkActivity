@@ -1,17 +1,10 @@
 package linkactivity.linkactivity;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
 public class ItemController {
     public List<EventBean> item(String tag){
-        /*Date c= new Date();
-        DateFormat d= DateFormat.getDateInstance(DateFormat.SHORT, Locale.ITALY);
-        Calendar v= d.getCalendar();
-        v.setTime(c);
-        c.toString();
-        System.out.println(c);*/
 
 
         List<EventModel> z;

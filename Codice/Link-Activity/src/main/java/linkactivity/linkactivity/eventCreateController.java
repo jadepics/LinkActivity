@@ -8,7 +8,7 @@ import java.util.Objects;
 
 //qui ci arrivo dal controller grafico
 public class eventCreateController {
-    public static class newEvent {
+    public static class newEvent {  //TODO indagre se è corretta in static
         public newEvent(EventBean createEBean) throws DuplicatedEventException {
             //chiama dao per vedere se evento esiste già altrimenti eccezione(specifica)
             CompanyDAO companyDAO = new CompanyDAO();
@@ -50,7 +50,7 @@ public class eventCreateController {
                 createEBean.notifyChanges();
                 System.out.println("inserimento andato a buon fine");}
         }
-        private static boolean controlDuplicatedEvent(EventModel localEvent, EventModel addEvent){
+        private static boolean controlDuplicatedEvent(EventModel localEvent, EventModel addEvent){ //TODO controllare se va bene static
             return Objects.equals(localEvent.getEventModelName(), addEvent.getEventModelName()) && Objects.equals(localEvent.getEventModelData(), addEvent.getEventModelData()) &&
                     Objects.equals(localEvent.getEventModelDescription(), addEvent.getEventModelDescription()) && Objects.equals(localEvent.getEventModelTag(), addEvent.getEventModelTag());
         }
@@ -79,7 +79,7 @@ public class eventCreateController {
         return CouponPointsDAO.getAvailableCoupons(company);
     }
 
-    public static Double applyCoupon(List<CouponBean> couponBean){
+    public static Double applyCoupon(List<CouponBean> couponBean){ //TODO indagare se deve essere stiatic
         int i=0;
 
         List<CouponModel> couponModel= new ArrayList<>(){};
