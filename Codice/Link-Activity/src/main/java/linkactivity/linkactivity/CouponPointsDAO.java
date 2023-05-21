@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CouponPointsDAO {
 
-    private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
+    private static final File file= new File("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt");
 
     public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException {
         String nomeaz= company.getCompanyNomeaz();

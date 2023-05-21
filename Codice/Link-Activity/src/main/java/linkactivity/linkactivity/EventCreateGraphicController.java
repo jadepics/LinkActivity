@@ -66,11 +66,11 @@ public class EventCreateGraphicController {
             }
         }
 
-    public static LocalDate getDateFromString(String string, DateTimeFormatter format)
-    {
-        LocalDate date = LocalDate.parse(string, format);
-        return date;
-    }
+//    public static LocalDate getDateFromString(String string, DateTimeFormatter format)
+//    {
+//        LocalDate date = LocalDate.parse(string, format);
+//        return date;
+//    }
 
     public static int convert(String s){
         int val=0;

@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -23,12 +22,32 @@
                   <Image url="@Images/R2.jpg" />
                </image>
             </ImageView>
-            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="40.0" layoutX="273.0" layoutY="367.0" stroke="BLACK" strokeType="INSIDE" width="156.0" />
-            <Text layoutX="278.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER" textAlignment="CENTER" wrappingWidth="145.0">
+            <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="30.0" layoutX="284.0" layoutY="366.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+            <Text layoutX="288.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" textAlignment="CENTER" wrappingWidth="112.20001220703125">
                <font>
                   <Font name="Georgia" size="25.0" />
                </font>
             </Text>
+            <TextField fx:id="regEmailUser" layoutX="228.0" layoutY="114.0" onAction="#regEmailUser" prefHeight="28.0" prefWidth="235.0" promptText="Email">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="regUsernameUser" layoutX="228.0" layoutY="151.0" onAction="#regUsernameUser" prefHeight="28.0" prefWidth="235.0" promptText="Username">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="regPassUser" layoutX="228.0" layoutY="207.0" onAction="#regPassUser" prefHeight="28.0" prefWidth="235.0" promptText="Password">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </PasswordField>
+            <PasswordField fx:id="regRepPassUser" layoutX="228.0" layoutY="249.0" onAction="#regRepPassUser" prefHeight="28.0" prefWidth="235.0" promptText="Repeat Password">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </PasswordField>
             <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="222.0" layoutY="431.0" stroke="BLACK" strokeType="INSIDE" width="193.0" />
             <Text fill="#2f00ff" layoutX="258.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up with Google" wrappingWidth="156.0">
                <font>
@@ -45,17 +64,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Line endX="-15.0" endY="4.0" layoutX="432.0" layoutY="363.0" startX="-15.0" startY="32.0" stroke="WHITE" />
-            <TextField fx:id="regEmailUser" layoutX="228.0" layoutY="114.0" onAction="#regEmailUser" prefHeight="28.0" prefWidth="235.0" promptText="Email">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="regPassUser" layoutX="228.0" layoutY="207.0" onAction="#regPassUser" prefHeight="28.0" prefWidth="235.0" promptText="Password">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </PasswordField>
             <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="428.0" layoutY="432.0" stroke="BLACK" strokeType="INSIDE" width="50.0" />
             <Text fill="#2f00ff" layoutX="431.0" layoutY="451.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="44.0">
                <font>
@@ -67,23 +75,13 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <PasswordField fx:id="regRepPassUser" layoutX="228.0" layoutY="249.0" onAction="#regRepPassUser" prefHeight="28.0" prefWidth="235.0" promptText="Repeat Password">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </PasswordField>
-            <TextField fx:id="regUsernameUser" layoutX="228.0" layoutY="151.0" onAction="#regUsernameUser" prefHeight="28.0" prefWidth="235.0" promptText="Username">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </TextField>
             <Rectangle fill="WHITE" height="43.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
             <Text layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LINK-ACTIVITY" textAlignment="CENTER" wrappingWidth="339.04296875">
                <font>
                   <Font name="Georgia" size="35.0" />
                </font>
             </Text>
-            <Button fx:id="userRegisterButton" ellipsisString="" layoutX="273.0" layoutY="367.0" mnemonicParsing="false" onAction="#userRegister" opacity="0.0" prefHeight="40.0" prefWidth="156.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
+            <Button fx:id="userRegisterButton" ellipsisString="" layoutX="288.0" layoutY="372.0" mnemonicParsing="false" onAction="#userRegister" opacity="0.0" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -62,13 +62,24 @@ public class RegistrationGraphicController {
         stage.show();
 
     }
-    public void switchToDashboard(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CareerBona.fxml")));
-        Scene scene = new Scene(root);
+    public void switchToSelectFavourite(ActionEvent event) throws IOException {
+        String userName = regUsernameUser.getText();
+        UserBean userBean = new UserBean(userName);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("FavouriteTagInsert.fxml")));
+        Scene scene;
+        try {
+            scene = new Scene(root.load(), 690, 518);
+            stage.setScene(scene);
+            stage.show();
+            FavouriteTagInsertGraphicController a = root.getController();
+            a.spostare(userBean); // devo portarmi il nome dello user in favouriteTagInsert per la query in cui metto nel db i tag preferiti
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
+
     public void switchToAziendaProfile(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene = new Scene(root);
@@ -80,7 +91,6 @@ public class RegistrationGraphicController {
 
     @FXML
     private void userRegister(ActionEvent event) throws IOException {
-         //tutto ok quindi push sul db
             Connection myConnection = DBConnection.getDBConnection();
 
             String emailText = regEmailUser.getText();
@@ -103,7 +113,7 @@ public class RegistrationGraphicController {
                 Statement statement = myConnection.createStatement();
                 statement.executeUpdate(insertToRegister);
                 if(i==0) {
-                    switchToDashboard(event);
+                    switchToSelectFavourite(event);
                 }else {
                     switchToAziendaProfile(event);
                 }

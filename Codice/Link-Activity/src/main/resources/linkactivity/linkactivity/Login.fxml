@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -22,41 +21,29 @@
             <Image url="@Images/R2.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="288.0" layoutY="393.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
-      <Text layoutX="289.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" textAlignment="CENTER" wrappingWidth="120.0">
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="30.0" layoutX="289.0" layoutY="340.0" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+      <Text layoutX="290.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" textAlignment="CENTER" wrappingWidth="120.0">
          <font>
             <Font name="Georgia" size="25.0" />
          </font>
       </Text>
-      <Button fx:id="loginButton3" ellipsisString="" layoutX="288.0" layoutY="393.0" mnemonicParsing="false" onAction="#validateLogin" opacity="0.0" prefHeight="28.0" prefWidth="120.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
+      <Button fx:id="loginButton3" ellipsisString="" layoutX="289.0" layoutY="340.0" mnemonicParsing="false" onAction="#validateLogin" opacity="0.0" prefHeight="28.0" prefWidth="120.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="212.0" layoutY="268.0" stroke="BLACK" strokeType="INSIDE" width="176.0" />
-      <Text fill="#2f00ff" layoutX="248.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login with Google" wrappingWidth="156.0">
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="254.0" layoutY="401.0" stroke="BLACK" strokeType="INSIDE" width="176.0" />
+      <Text fill="#2f00ff" layoutX="290.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login with Google" wrappingWidth="156.0">
          <font>
             <Font name="Georgia" size="17.0" />
          </font>
       </Text>
-      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="213.0" layoutY="267.0">
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="255.0" layoutY="400.0">
          <image>
             <Image url="@Images/GoogleIcon.png" />
          </image>
       </ImageView>
-      <Button fx:id="loginWithGoogleButton" ellipsisString="" layoutX="212.0" layoutY="268.0" mnemonicParsing="false" onAction="#loginGoogle" opacity="0.0" prefHeight="28.0" prefWidth="176.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Line endX="-15.0" endY="4.0" layoutX="411.0" layoutY="264.0" startX="-15.0" startY="32.0" stroke="WHITE" />
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="404.0" layoutY="268.0" stroke="BLACK" strokeType="INSIDE" width="73.0" />
-      <Text fill="#2f00ff" layoutX="410.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register" wrappingWidth="69.0">
-         <font>
-            <Font name="Georgia" size="17.0" />
-         </font>
-      </Text>
-      <Button fx:id="registerButton" ellipsisString="" layoutX="404.0" layoutY="268.0" mnemonicParsing="false" opacity="0.0" prefHeight="28.0" prefWidth="73.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
+      <Button fx:id="loginWithGoogleButton" ellipsisString="" layoutX="254.0" layoutY="401.0" mnemonicParsing="false" onAction="#loginGoogle" opacity="0.0" prefHeight="28.0" prefWidth="176.0" style="-fx-background-color: ffffff;" textFill="#2f00ff">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -88,14 +75,14 @@
          </cursor>
       </Button>
       <Rectangle id="RectEnte" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="43.0" layoutX="228.0" layoutY="80.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="235.0" />
-      <Text layoutX="227.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" textAlignment="CENTER" wrappingWidth="235.0">
+      <Text layoutX="227.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" textAlignment="CENTER" wrappingWidth="235.0">
          <font>
             <Font name="Georgia" size="26.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="227.0" layoutY="334.0" stroke="BLACK" strokeType="INSIDE" width="88.0" />
-      <RadioButton fx:id="userRB" layoutX="233.0" layoutY="339.0" mnemonicParsing="false" text="User" />
-      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="378.0" layoutY="334.0" stroke="BLACK" strokeType="INSIDE" width="88.0" />
-      <RadioButton fx:id="companyRB" layoutX="386.0" layoutY="339.0" mnemonicParsing="false" text="Company" />
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="234.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="88.0" />
+      <RadioButton fx:id="userRB" layoutX="240.0" layoutY="281.0" mnemonicParsing="false" text="User" />
+      <Rectangle arcHeight="15.0" arcWidth="15.0" fill="WHITE" height="28.0" layoutX="386.0" layoutY="276.0" stroke="BLACK" strokeType="INSIDE" width="88.0" />
+      <RadioButton fx:id="companyRB" layoutX="393.0" layoutY="281.0" mnemonicParsing="false" text="Company" />
    </children>
 </AnchorPane>

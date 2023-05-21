@@ -9,7 +9,7 @@ public class EvetLogoDAO {
 
     public static EventModel getLogo(EventModel eventModel) throws IOException {
         String nomeaz= eventModel.getEventModelNomeAzienda();
-        File file= new File("src/main/CompanyLogo-Filesystem.txt");
+        File file= new File("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt");
 
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
