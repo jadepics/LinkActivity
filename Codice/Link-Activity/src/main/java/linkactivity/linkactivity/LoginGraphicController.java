@@ -78,38 +78,39 @@ public class LoginGraphicController {
     }
 
 
-    public void validateLogin(ActionEvent event) {
+    public void validateLogin(ActionEvent event) throws IOException, NotExistentUserException {
         Connection myConnection = DBConnection.getDBConnection();
         //Connection connectDB = (Connection) myConnection.getInstance();
-        String verifyLoginQuery=null;
-        int i=0;
+        int i=-1;
         if (userRB.isSelected()) {
-            verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
-            //String verifyLoginQuery = "SELECT count(1)  FROM user WHERE Username AND Password";
-        }
+            UserBean userBean= new UserBean(emailUsernameLogin.getText(), passLogin.getText());
+            System.out.println(userBean.getUsername());
+            i=new LoginController().LoginUser(userBean);  //qui dentro ci esco basta che sia selezionato lo user quindi devo far in modo che la dao mi ritorni un si ok
+            System.out.println(i);        }
         else if(companyRB.isSelected()) {
-            verifyLoginQuery= "SELECT count(1)  FROM azienda_u WHERE NomeAzienda = '" + emailUsernameLogin.getText() + "' AND password = '" + passLogin.getText() + "'";
-            i=1;
+            CompanyBean companyBean= new CompanyBean(emailUsernameLogin.getText(), passLogin.getText());
+            i=new LoginController().LoginCompany(companyBean);
         }
-        try {
-            Statement statement = myConnection.createStatement();
-            ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
-
-            while (queryLoginResult.next()) {
-
-                if (queryLoginResult.getInt(1) == 1) {
-                    if(i == 0) switchToUserProfile(event);
-
-                        else {
+//        try {
+//            Statement statement = myConnection.createStatement();
+//            ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
+//
+//            while (queryLoginResult.next()) {
+//
+//                if (queryLoginResult.getInt(1) == 1) {
+                    if(i == 0) {switchToUserProfile(event);}
+//
+                        else if(i==1) {
                             switchToAziendaProfile(event);
                     }
 
-                }
-            }
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
+//
+//                }
+//            }
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//        }
     }
 
 

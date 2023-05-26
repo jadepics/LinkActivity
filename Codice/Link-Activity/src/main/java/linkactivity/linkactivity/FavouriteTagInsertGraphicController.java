@@ -46,8 +46,10 @@ public class FavouriteTagInsertGraphicController {
                         stage.show();
                 }
     @FXML
-        public void gotodashboard() throws IOException {    //qui sorge il problema
-        //lo userbean me lo devo portare nel controller applicativo di careerBona e farlo li?
+        public void gotodashboard() throws IOException {
+        System.out.println(userBean0.getUsername());
+        System.out.println(favouriteTagInsert.getValue());
+            new LoginController.UserAddTag(userBean0, favouriteTagInsert.getValue());
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CareerBona.fxml")));
                 Scene scene = new Scene(root,690, 518);
                 Stage stage = (Stage) gotodashboardButton.getScene().getWindow();
@@ -57,6 +59,7 @@ public class FavouriteTagInsertGraphicController {
         }
 
 
+//devo fare controller applicativo
 
     }
 

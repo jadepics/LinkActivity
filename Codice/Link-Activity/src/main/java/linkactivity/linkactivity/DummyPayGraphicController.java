@@ -94,7 +94,7 @@ public class DummyPayGraphicController {
             x--;
         }
 
-        Double finalPrice = eventCreateController.applyCoupon(couponBeans);
+        Double finalPrice = EventCreateController.applyCoupon(couponBeans);
         /*CouponApplier instance = new CouponApplier(new Priceable() {
             @Override
             public Double getPrice() {
@@ -108,7 +108,7 @@ public class DummyPayGraphicController {
 
     @FXML
     private void paymentDone() throws FileNotFoundException {
-        eventCreateController.addPoints(y);
+        EventCreateController.addPoints(y);
         paymentButton.setDisable(true);
     }
 
@@ -120,7 +120,7 @@ public class DummyPayGraphicController {
     }
 
     private void setAvailableCoupons(CompanyBean companyBean){
-        List<Integer> coupList= eventCreateController.getAvailableCoupons(companyBean);
+        List<Integer> coupList= EventCreateController.getAvailableCoupons(companyBean);
         fivePCouponAvailable.setText("- Available 5% coupons: "+ coupList.get(0));
         tenPCouponAvailable.setText("- Available 10% coupons: "+ coupList.get(1));
         fiftPCouponAvailable.setText("- Available 15% coupons: "+ coupList.get(2));

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 //qui ci arrivo dal controller grafico
-public class eventCreateController {
+public class EventCreateController {
     public static class newEvent {  //TODO indagre se è corretta in static
         public newEvent(EventBean createEBean) throws DuplicatedEventException {
             //chiama dao per vedere se evento esiste già altrimenti eccezione(specifica)
@@ -15,11 +15,10 @@ public class eventCreateController {
             UserDAO userDAO = new UserDAO(); //mi serve? forse per observer e notifica
             EventDAO eventDAO = new EventDAO();
             EventModel addEvent; //model del nuovo evento
-            CompanyModel company =companyDAO.loadCompany(createEBean.nomeAzienda);   //forse non serve
+            CompanyModel company =companyDAO.loadCompany(createEBean.nomeAzienda);
             String companyMail = company.getCompanyEmail();
             // mi carico l'azienda perche la devo mette nella dao evento, ma la devo recuperare dalla sessione
-            System.out.println("sto nell'inizializzazione del controller");
-            //TODO BOUNDARY
+
             EventCreateBoundarySendEmail addEventBoundarySendEmail = new EventCreateBoundarySendEmail(createEBean,companyMail);
 
              List <UserBean> userBeans = new ArrayList<>();

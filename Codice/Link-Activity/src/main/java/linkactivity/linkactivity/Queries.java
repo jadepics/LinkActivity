@@ -15,5 +15,15 @@ public class Queries {
         return statement.executeQuery(query);
     }
 
+    public static ResultSet loadUser(Statement statement, String username, String userPass) throws SQLException {
+    String query= String.format("SELECT * FROM user WHERE Username= '%s' AND Password= '%s'", username, userPass);
+    return  statement.executeQuery(query);
+    }
+
+    public static ResultSet loadCompany(Statement statement, String nomeAzienda, String password) throws SQLException {
+        String query= String.format("SELECT * FROM azienda_u WHERE NomeAzienda ='%s' AND Password ='%s'", nomeAzienda, password);
+        return statement.executeQuery(query);
+    }
+
     //classe dove mettere tutte le queries
 }

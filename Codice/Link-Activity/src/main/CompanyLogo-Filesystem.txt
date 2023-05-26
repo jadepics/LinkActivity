@@ -1,3 +1,10 @@
-IBM C:\Users\Reliq\Desktop\ISPW\1Progetto\LinkActivity\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\IBM.png
-Apple C:\Users\Reliq\Desktop\ISPW\1Progetto\LinkActivity\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\AppleLogo.jpg
-Microsoft C:\Users\Reliq\Desktop\ISPW\1Progetto\LinkActivity\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\Microsoft.png
+IBM C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\IBM.png
+Apple C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\AppleLogo.jpg
+Microsoft C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\Microsoft.png
+
+
+
+
+
+
+

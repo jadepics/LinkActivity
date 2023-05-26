@@ -8,9 +8,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class EventCreateGraphicController {
@@ -94,7 +91,7 @@ public class EventCreateGraphicController {
             EventBean eventBean = new EventBean(eventName.getText(),Description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,companyBean.getNomeAzienda(),tagInsert.getValue());
 //BARBERADDSERVICECONTROLLER 43
             CompanyBean companyBean= new CompanyBean(eventBean.getNomeAzienda());
-            new eventCreateController.newEvent(eventBean);
+            new EventCreateController.newEvent(eventBean);
 
             Stage stage = (Stage) createItButton.getScene().getWindow();
             FXMLLoader root;

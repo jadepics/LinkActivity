@@ -63,8 +63,10 @@ public class RegistrationGraphicController {
 
     }
     public void switchToSelectFavourite(ActionEvent event) throws IOException {
-        String userName = regUsernameUser.getText();
-        UserBean userBean = new UserBean(userName);
+        String emailText = regEmailUser.getText();
+        String usernameText = regUsernameUser.getText();
+        String checkpass = regPassUser.getText();
+        UserBean userBean = new UserBean(emailText, usernameText, checkpass);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("FavouriteTagInsert.fxml")));
         Scene scene;
@@ -91,41 +93,30 @@ public class RegistrationGraphicController {
 
     @FXML
     private void userRegister(ActionEvent event) throws IOException {
-            Connection myConnection = DBConnection.getDBConnection();
+
 
             String emailText = regEmailUser.getText();
             String usernameText = regUsernameUser.getText();
             String checkpass = regPassUser.getText();
-            String insertToRegister=null;
            int i=0;
             if(userRB.isSelected()) {
-                String insertFields = "INSERT INTO user(Email, Username, Password) VALUES ('";
-                String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
-                insertToRegister = insertFields + insertValues;
+                UserBean userBean = new UserBean(emailText, usernameText, checkpass);
+                System.out.println(userBean.getUsername());
+                new LoginController.UserRegistration(userBean);
             } else if (companyRB.isSelected()) {
-                String insertFields = "INSERT INTO azienda_u(Email, NomeAzienda, Password) VALUES ('";
-                String insertValues = emailText + "','" + usernameText + "','" + checkpass + "')";
-                insertToRegister = insertFields + insertValues;
+                CompanyBean companyBean = new CompanyBean(emailText,usernameText,checkpass);
+                new LoginController.CompanyRegister(companyBean);
                 i=1;
             }
-        try {
 
-                Statement statement = myConnection.createStatement();
-                statement.executeUpdate(insertToRegister);
                 if(i==0) {
                     switchToSelectFavourite(event);
                 }else {
                     switchToAziendaProfile(event);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-                e.getCause();
-            }
 
         }
 
-
-//login ok, push su database ok
     @FXML
     private void login() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
@@ -140,7 +131,7 @@ public class RegistrationGraphicController {
     }
 
     @FXML
-    private void signUpGoogle() /*throws IOException*/ {
+    private void signUpGoogle(){
         //todo  SIGNUPGOOGLE
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("SignUpGoogle is a dummy function");

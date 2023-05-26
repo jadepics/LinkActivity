@@ -5,6 +5,7 @@ public class UserModel {
     public UserModel(String userEmail) {
         super();
     }
+    public UserModel(){}
     public String getEmail(){
         return userEmail;
     }

@@ -1,9 +1,6 @@
 package linkactivity.linkactivity;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class CompanyDAO {
     private static final String COMPANY_EMAIL="email";
@@ -32,4 +29,31 @@ public class CompanyDAO {
 
         return new CompanyModel(email, nomeAzienda, "");
     }
-}   //ho svalvolato qualcosa perchè io devo tornare l'email non il nome
+    public void newCompany(String userEmail, String username, String userPass) {
+        Connection myConnection = DBConnection.getDBConnection();
+        try(PreparedStatement statement =myConnection.prepareStatement("INSERT INTO azienda_u(NomeAzienda, Email, Password) VALUES (?,?,?);")){
+            statement.setString(1, username);
+            statement.setString(2, userEmail);
+            statement.setString(3, userPass);
+            statement.execute();
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    public int verifyCompany(String nomeAzienda, String password) throws NotExistentUserException{
+        int i=15;
+        Connection myConnection = DBConnection.getDBConnection();
+        try (Statement statement = myConnection.createStatement();
+             ResultSet resultSet = Queries.loadCompany(statement, nomeAzienda, password)) {
+            if (resultSet.next()) {
+                i = 1;
+            } else {
+                throw new NotExistentUserException("NOT EXISTENT COMPANY!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+    }

@@ -1,6 +1,7 @@
 Azienda mail address:    Apple@Apple.Apple
 
-New event added:   lala
+New event added:   all
 
 Send to users mail address:
 
+null
