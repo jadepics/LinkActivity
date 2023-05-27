@@ -90,6 +90,7 @@ public class RegistrationSecondViewGraphicController {
                 }
 
                 // TODO controlli su email @ e .com/it ecc
+                //TODO 2 inserire nuova interfaccia per mettere i preferiti dopo questo CG
 
 
             }
