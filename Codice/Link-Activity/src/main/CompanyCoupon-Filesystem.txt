@@ -1,4 +1,6 @@
 IBM: pts=150 - cp1=1 - cp2=1 - cp3=0
-Apple: pts=450 - cp1=18 - cp2=11 - cp3=13
-Microsoft: pts=0 - cp1=0 - cp2=0 - cp3=0
+Apple: pts=96900 - cp1=18 - cp2=6 - cp3=5
+Microsoft: pts=0 - cp1=2 - cp2=0 - cp3=0
+
+
 

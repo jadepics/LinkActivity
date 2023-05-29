@@ -6,7 +6,9 @@ import java.util.List;
 
 public class CouponPointsDAO {
 
-    private static final File file= new File("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt");
+            //TODO creare funzione sottrazione coupon usati a coupon disponibili
+
+    private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
 
     public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException {
         String nomeaz= company.getCompanyNomeaz();
@@ -191,4 +193,76 @@ public class CouponPointsDAO {
         return coupList;
     }
 
+    public static void removeCoupons(List<CouponModel> couponModels, CompanyModel y) {
+        String nomeaz = y.getCompanyNomeaz();
+        List<Integer> numbers = new ArrayList<>(List.of(0, 0, 0)); // Esempio di lista di interi
+        int i = 0;
+        int j;
+
+        while (i < couponModels.size()) {
+            if (couponModels.get(i).getCouponDiscount().equals(5.0)) {
+                j = numbers.get(0);
+                j = j + 1;
+                numbers.set(0, j);
+            } else if (couponModels.get(i).getCouponDiscount().equals(10.0)) {
+                j = numbers.get(1);
+                j = j + 1;
+                numbers.set(1, j);
+            } else {
+                j = numbers.get(2);
+                j = j + 1;
+                numbers.set(2, j);
+            }
+            i++;
+        }
+        System.out.println(numbers + " pirirurururu");
+
+        String filePath = "src/main/CompanyCoupon-Filesystem.txt"; // Percorso del file da leggere
+
+        try {
+            File file = new File(filePath);
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            boolean foundSearchString = false;
+
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(nomeaz)) {
+                    foundSearchString = true;
+                    String[] tokens = line.split(" ");
+
+                    for (int g = 0; g < tokens.length; g++) {
+                        if (tokens[g].startsWith("cp1=")) {
+                            int number = Integer.parseInt(tokens[g].substring(4));
+                            number -= numbers.get(0);
+                            tokens[g] = "cp1=" + number;
+                        } else if (tokens[g].startsWith("cp2=")) {
+                            int number = Integer.parseInt(tokens[g].substring(4));
+                            number -= numbers.get(1);
+                            tokens[g] = "cp2=" + number;
+                        } else if (tokens[g].startsWith("cp3=")) {
+                            int number = Integer.parseInt(tokens[g].substring(4));
+                            number -= numbers.get(2);
+                            tokens[g] = "cp3=" + number;
+                        }
+                    }
+
+                    line = String.join(" ", tokens);
+                }
+
+                sb.append(line).append(System.lineSeparator());
+            }
+
+            reader.close();
+
+            // Sovrascrive il file originale con le modifiche
+            FileWriter writer = new FileWriter(file);
+            writer.write(sb.toString());
+            writer.close();
+
+            System.out.println("File modificato con successo.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

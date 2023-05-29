@@ -71,10 +71,16 @@ public class DummyPayGraphicController {
     @FXML
     void applyCoupon() {
 
+
         System.out.println("eooooooooooo");
         int x= Integer.parseInt(fivepToUse.getText());
-        int y= Integer.parseInt(tenpToUse.getText());
+        int j= Integer.parseInt(tenpToUse.getText());
         int z= Integer.parseInt(fiftpToUse.getText());
+
+        //TODO qui è piazzabile un'eccezione poiché null non può essere parsato ad intero quindi eccezione che rimanda
+        // ad alert
+
+        //TODO forse eccezione coupon slezionati vs coupon disponibili
 
         List<CouponBean> couponBeans= new ArrayList<>(){};
 
@@ -83,10 +89,10 @@ public class DummyPayGraphicController {
             couponBeans.add(k);
             z--;
         }
-        while(y!=0){
+        while(j!=0){
             CouponBean k= new CouponBean(10.0);
             couponBeans.add(k);
-            y--;
+            j--;
         }
         while(x!=0){
             CouponBean k= new CouponBean(5.0);
@@ -104,12 +110,18 @@ public class DummyPayGraphicController {
         instance.getFinalPrice() ;
          */
         total.setText("Total: "+finalPrice);
+
+        EventCreateController.removeCoupon(couponBeans, y);
+        setAvailableCoupons(y);
+
+        applyCouponButton.setDisable(true);
     }
 
     @FXML
     private void paymentDone() throws FileNotFoundException {
         EventCreateController.addPoints(y);
         paymentButton.setDisable(true);
+        applyCouponButton.setDisable(true);
     }
 
     @FXML

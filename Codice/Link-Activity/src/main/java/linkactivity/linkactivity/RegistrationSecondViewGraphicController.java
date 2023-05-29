@@ -50,28 +50,44 @@ public class RegistrationSecondViewGraphicController {
         } else if (s.matches("set repeat password .*")) {
             String repPass = s.replace("set repeat password ", "");
             registrationRepeatPasswordText.setText(repPass);
-        } else if (s.matches("set profile type .*")) {
-            String profileType = s.replace("set profile type ", "");
+        } else if (s.matches("set profile .*")) {
+            String profileType = s.replace("set profile ", "");
             registrationProfileTypeText.setText(profileType);
-            if (!profileType.matches("user") || !profileType.matches("company")) {
+            if (profileType.matches("user")) {
+                registrationProfileTypeText.setText(profileType);
+            } else if (profileType.matches("company")) {
+                registrationProfileTypeText.setText(profileType);
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("Choose between user or company");
                 alert.showAndWait();
-            } //else {
-//                registrationProfileTypeText.setText(profileType);}}
-            else if (s.compareTo("goto googleSignUp") == 0) {
+            }
+            //else {
+            //registrationProfileTypeText.setText(profileType);}}
+        }else if (s.compareTo("goto googleSignUp") == 0) {
                 Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                 alert2.setHeaderText("GoogleSignUp is a dummy function");
                 alert2.showAndWait();
-            } else if (s.compareTo("goto login") == 0) {
+        } else if (s.compareTo("goto login") == 0) {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginSecondView.fxml")));
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();
-            } else if (s.compareTo("submit") == 0) {
+        } else if (s.compareTo("submit") == 0) {
                 String type = registrationProfileTypeText.getText();
+
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+
+                /*
                 if (type.matches("user")) {
+
+                    //TODO login non funziona neanche con parametri null torna errore sql, passare usernam, pass ecc
+
                     UserBean userBean = new UserBean(email, username, pass);
                     new LoginController.UserRegistration(userBean);
                     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
@@ -89,13 +105,10 @@ public class RegistrationSecondViewGraphicController {
                     stage.show();
                 }
 
+                */
+
                 // TODO controlli su email @ e .com/it ecc
                 //TODO 2 inserire nuova interfaccia per mettere i preferiti dopo questo CG
-
-
-            }
-
         }
-
     }
 }

@@ -96,6 +96,28 @@ public class EventCreateController {
         return couponApplier.getFinalPrice();
     }
 
+    public static void removeCoupon(List<CouponBean> couponBeans, CompanyBean y){
+        Double coupon;
+        CouponModel couponModel;
+        List<CouponModel> couponModels= new ArrayList<>(){};
+        int i = 0;
+        while(i < couponBeans.size()){
+            System.out.println(couponBeans.size()+" oooooooooooooooooooo");
+            coupon= couponBeans.get(i).getCouponDiscount();
+            couponModel= new CouponModel(coupon) {
+                @Override
+                public Double getPrice() {
+                    return null;
+                }
+            };
+            couponModels.add(couponModel);
+            i++;
+        }
+
+        CompanyModel companyModel= new CompanyModel(y.getNomeAzienda());
+
+        CouponPointsDAO.removeCoupons(couponModels, companyModel);
+    }
 
 
 }

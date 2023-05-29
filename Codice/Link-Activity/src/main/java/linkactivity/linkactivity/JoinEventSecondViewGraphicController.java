@@ -34,7 +34,7 @@ public class JoinEventSecondViewGraphicController {
     @FXML
     void setDescriptionText(EventBean x){
         y= x;
-        descriptionText.setText(x.getDescription());
+        descriptionText.setText(x.getExpirationDate());
     }
 
 }

@@ -83,6 +83,8 @@ public class RegistrationGraphicController {
     }
 
     public void switchToAziendaProfile(ActionEvent event) throws IOException {
+        //TODO passare la "current company"
+
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

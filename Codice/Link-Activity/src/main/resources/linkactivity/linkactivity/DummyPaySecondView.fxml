@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.DummyPaySecondViewGraphicController">
+   <children>
+      <Pane prefHeight="518.0" prefWidth="690.0">
+         <children>
+            <ImageView fitHeight="526.0" fitWidth="690.0" layoutY="-6.0" pickOnBounds="true">
+               <image>
+                  <Image url="@Images/R2.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle fill="WHITE" height="43.0" stroke="BLACK" strokeType="INSIDE" width="690.0" />
+            <Text layoutX="180.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LINK-ACTIVITY" textAlignment="CENTER" wrappingWidth="339.04296875">
+               <font>
+                  <Font name="Georgia" size="35.0" />
+               </font>
+            </Text>
+            <Rectangle fill="WHITE" height="144.0" layoutX="21.0" layoutY="213.0" stroke="BLACK" strokeType="INSIDE" width="275.0" />
+            <Text layoutX="29.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- use 5% coupon &lt;number&gt;&#10;- use 10% coupon &lt;number&gt;&#10;- use 15% coupon &lt;number&gt;&#10;- submit coupons and pay&#10;- back" wrappingWidth="252.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="dummyPayCommandLine" layoutX="21.0" layoutY="413.0" onAction="#executeCommand" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
+            <Rectangle fill="WHITE" height="86.0" layoutX="21.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
+            <Text fx:id="fivePCouponAvailable" layoutX="29.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available 5% coupon:" wrappingWidth="275.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="tenPCouponAvailable" layoutX="28.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available 10% coupon:" wrappingWidth="275.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="fiftPCouponAvailable" layoutX="28.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available 15% coupon:" wrappingWidth="275.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Rectangle fill="WHITE" height="86.0" layoutX="386.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" width="252.0" />
+            <Text layoutX="393.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5% coupon to use:" wrappingWidth="157.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="390.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10% coupon to use:" wrappingWidth="164.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="390.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15% coupon to use:" wrappingWidth="164.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Rectangle fill="WHITE" height="66.0" layoutX="407.0" layoutY="266.0" stroke="BLACK" strokeType="INSIDE" width="210.0" />
+            <Text fx:id="total" layoutX="452.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total: 100€" textAlignment="CENTER" wrappingWidth="121.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="fivePCouponToUse" layoutX="563.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="60.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="tenPCouponToUse" layoutX="563.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="60.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="fiftPCouponToUse" layoutX="563.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="60.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
