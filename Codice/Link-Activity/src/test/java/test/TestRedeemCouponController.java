@@ -61,11 +61,9 @@ public class TestRedeemCouponController {
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
-            boolean foundSearchString = false;
 
             while ((line = br.readLine()) != null) {
                 if (line.contains(nomeaz)) {
-                    foundSearchString = true;
                     int cp1Index = line.indexOf(cp1String);
                     if (cp1Index != -1) {
                         String numberString = line.substring(cp1Index + cp1String.length()).split("\\s+")[0];
