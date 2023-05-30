@@ -55,67 +55,85 @@ public class DummyPaySecondViewGraphicController {
 
         if(s.matches("use 5% coupon .*")){
             String fivepcoup= s.replace("use 5% coupon ","");
-            if(fivep < Integer.parseInt(fivepcoup)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Not Enough 5% coupons");
-                alert.showAndWait();
-            } else {
-                fivePCouponToUse.setText(fivepcoup);
-            }
+            fivePCouponToUse.setText(fivepcoup);
+
         } else if(s.matches("use 10% coupon .*")){
             String tenpcoup= s.replace("use 10% coupon ", "");
-            if(tenp < Integer.parseInt(tenpcoup)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Not Enough 10% coupons");
-                alert.showAndWait();
-            } else {
-                tenPCouponToUse.setText(tenpcoup);
-            }
+            tenPCouponToUse.setText(tenpcoup);
+
         } else if(s.matches("use 15% coupon .*")) {
             String fiftpcoup = s.replace("use 15% coupon ", "");
-            if(fiftp < Integer.parseInt(fiftpcoup)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Not Enough 15% coupons");
-                alert.showAndWait();
-            } else {
-                fiftPCouponToUse.setText(fiftpcoup);
-            }
+            fiftPCouponToUse.setText(fiftpcoup);
+
         } else if(s.compareTo("submit coupons and pay")==0){
-            int x= Integer.parseInt(fivePCouponToUse.getText());
-            int j= Integer.parseInt(tenPCouponToUse.getText());
-            int z= Integer.parseInt(fiftPCouponToUse.getText());
+            int x=0;
+            int j=0;
+            int z=0;
 
-            List<CouponBean> couponBeans= new ArrayList<>(){};
+            try {
+                if (fivePCouponToUse.getText().isEmpty() || tenPCouponToUse.getText().isEmpty() || fiftPCouponToUse.getText().isEmpty()) {
+                    throw new NotNullCouponToUseException("Coupon fields can't be null");
 
-            while(z!=0){
-                CouponBean k= new CouponBean(15.0);
-                couponBeans.add(k);
-                z--;
+                } else {
+                    x = Integer.parseInt(fivePCouponToUse.getText());
+                    j = Integer.parseInt(tenPCouponToUse.getText());
+                    z = Integer.parseInt(fiftPCouponToUse.getText());
+
+                    try {
+                        if (x > fivep || j > tenp || z > fiftp) {
+                            throw new NotEnoughCouponAvailableException("Not Enough Coupon");
+
+                        } else {
+                            List<CouponBean> couponBeans= new ArrayList<>(){};
+
+                            while(z!=0){
+                                CouponBean k= new CouponBean(15.0);
+                                couponBeans.add(k);
+                                z--;
+                            }
+                            while(j!=0){
+                                CouponBean k= new CouponBean(10.0);
+                                couponBeans.add(k);
+                                j--;
+                            }
+                            while(x!=0){
+                                CouponBean k= new CouponBean(5.0);
+                                couponBeans.add(k);
+                                x--;
+                            }
+
+                            Double finalPrice = EventCreateController.applyCoupon(couponBeans);
+                            /*CouponApplier instance = new CouponApplier(new Priceable() {
+                                @Override
+                                public Double getPrice() {
+                                    return 10.0;
+                                }
+                            }) ;
+                            instance.getFinalPrice() ;
+                            */
+                            total.setText("Total: "+finalPrice);
+
+                            EventCreateController.removeCoupon(couponBeans, y);
+                            setCurrentCompanyCoupons();
+
+                            EventCreateController.addPoints(y);
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setHeaderText("Event creation successfully completed");
+                            alert.showAndWait();
+                            dummyPayCommandLine.setText("back");
+                            dummyPayCommandLine.fireEvent(event);
+                        }
+                    } catch (NotEnoughCouponAvailableException e) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setHeaderText("Not enough coupon available");
+                        alert.showAndWait();
+                    }
+                }
+            } catch(NotNullCouponToUseException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Complete all coupon fields");
+                alert.showAndWait();
             }
-            while(j!=0){
-                CouponBean k= new CouponBean(10.0);
-                couponBeans.add(k);
-                j--;
-            }
-            while(x!=0){
-                CouponBean k= new CouponBean(5.0);
-                couponBeans.add(k);
-                x--;
-            }
-
-            Double finalPrice = EventCreateController.applyCoupon(couponBeans);
-
-            total.setText("Total: "+finalPrice);
-
-            EventCreateController.removeCoupon(couponBeans, y);
-            setCurrentCompanyCoupons();
-
-            EventCreateController.addPoints(y);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText("Event creation successfully completed");
-            alert.showAndWait();
-            dummyPayCommandLine.setText("back");
-            dummyPayCommandLine.fireEvent(event);
 
         } else if(s.compareTo("back")==0){
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
