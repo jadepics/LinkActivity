@@ -11,7 +11,7 @@ import java.util.List;
 public class TestRedeemCouponController {
 
     @Test
-    public void Testredeemcoupon() throws FileNotFoundException {
+    public void testredeemcoupon() throws FileNotFoundException {
         File file = new File("src/main/CompanyCoupon-Filesystem.txt");
         CompanyBean companyBean = new CompanyBean("Apple");
         int coupNumberBefore;
@@ -21,14 +21,14 @@ public class TestRedeemCouponController {
         String nomeaz = "Apple";
 
 
-        coupNumberBefore= Ausfunct(cp1String,nomeaz,file);
+        coupNumberBefore= ausfunct(cp1String,nomeaz,file);
         EventCreateController.removePoints(companyBean,pts);
-        coupoNumberAfter=Ausfunct(cp1String,nomeaz,file);
+        coupoNumberAfter=ausfunct(cp1String,nomeaz,file);
         assert(coupNumberBefore==coupoNumberAfter-1);
-        Originalfile(cp1String,nomeaz,file);
+        originalfile(cp1String,nomeaz,file);
     }
 
-    public void Originalfile(String cp1String, String nomeaz, File file){
+    public void originalfile(String cp1String, String nomeaz, File file){
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
             String line;
@@ -59,7 +59,7 @@ public class TestRedeemCouponController {
         }
     }
 
-    public int Ausfunct(String cp1String, String nomeaz, File file){
+    public int ausfunct(String cp1String, String nomeaz, File file){
         int coupNumber=0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
