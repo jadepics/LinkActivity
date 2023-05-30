@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.Utilities.ApplyCouponAid;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -66,9 +67,9 @@ public class DummyPaySecondViewGraphicController {
             fiftPCouponToUse.setText(fiftpcoup);
 
         } else if(s.compareTo("submit coupons and pay")==0){
-            int x=0;
-            int j=0;
-            int z=0;
+            int x;
+            int j;
+            int z;
 
             try {
                 if (fivePCouponToUse.getText().isEmpty() || tenPCouponToUse.getText().isEmpty() || fiftPCouponToUse.getText().isEmpty()) {
@@ -79,60 +80,25 @@ public class DummyPaySecondViewGraphicController {
                     j = Integer.parseInt(tenPCouponToUse.getText());
                     z = Integer.parseInt(fiftPCouponToUse.getText());
 
-                    try {
-                        if (x > fivep || j > tenp || z > fiftp) {
-                            throw new NotEnoughCouponAvailableException("Not Enough Coupon");
+                    Double finalPrice= ApplyCouponAid.applycoupnaid(x,j,z,y,fivep,tenp,fiftp);
 
-                        } else {
-                            List<CouponBean> couponBeans= new ArrayList<>(){};
-
-                            while(z!=0){
-                                CouponBean k= new CouponBean(15.0);
-                                couponBeans.add(k);
-                                z--;
-                            }
-                            while(j!=0){
-                                CouponBean k= new CouponBean(10.0);
-                                couponBeans.add(k);
-                                j--;
-                            }
-                            while(x!=0){
-                                CouponBean k= new CouponBean(5.0);
-                                couponBeans.add(k);
-                                x--;
-                            }
-
-                            Double finalPrice = EventCreateController.applyCoupon(couponBeans);
-                            /*CouponApplier instance = new CouponApplier(new Priceable() {
-                                @Override
-                                public Double getPrice() {
-                                    return 10.0;
-                                }
-                            }) ;
-                            instance.getFinalPrice() ;
-                            */
-                            total.setText("Total: "+finalPrice);
-
-                            EventCreateController.removeCoupon(couponBeans, y);
-                            setCurrentCompanyCoupons();
-
-                            EventCreateController.addPoints(y);
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.setHeaderText("Event creation successfully completed");
-                            alert.showAndWait();
-                            dummyPayCommandLine.setText("back");
-                            dummyPayCommandLine.fireEvent(event);
-                        }
-                    } catch (NotEnoughCouponAvailableException e) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setHeaderText("Not enough coupon available");
+                    if(finalPrice != null) {
+                        setCurrentCompanyCoupons();
+                        EventCreateController.addPoints(y);
+                        total.setText("Total: " + finalPrice);
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setHeaderText("Event creation successfully completed");
                         alert.showAndWait();
+                        dummyPayCommandLine.setText("back");
+                        dummyPayCommandLine.fireEvent(event);
                     }
                 }
             } catch(NotNullCouponToUseException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("Complete all coupon fields");
                 alert.showAndWait();
+            } catch (NotEnoughCouponAvailableException e) {
+                throw new RuntimeException(e);
             }
 
         } else if(s.compareTo("back")==0){

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.Utilities.ApplyCouponAid;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -76,9 +77,9 @@ public class DummyPayGraphicController {
     @FXML
     void applyCoupon() {
 
-        int x=0;
-        int j=0;
-        int z=0;
+        int x;
+        int j;
+        int z;
 
         try {
             if (fivepToUse.getText().isEmpty() || tenpToUse.getText().isEmpty() || fiftpToUse.getText().isEmpty()) {
@@ -90,56 +91,20 @@ public class DummyPayGraphicController {
                 j = Integer.parseInt(tenpToUse.getText());
                 z = Integer.parseInt(fiftpToUse.getText());
 
-                try {
-                    if (x > fivep || j > tenp || z > fiftp) {
-                        throw new NotEnoughCouponAvailableException("Not Enough Coupon");
-                    } else {
-                        List<CouponBean> couponBeans= new ArrayList<>(){};
-
-                        while(z!=0){
-                            CouponBean k= new CouponBean(15.0);
-                            couponBeans.add(k);
-                            z--;
-                        }
-                        while(j!=0){
-                            CouponBean k= new CouponBean(10.0);
-                            couponBeans.add(k);
-                            j--;
-                        }
-                        while(x!=0){
-                            CouponBean k= new CouponBean(5.0);
-                            couponBeans.add(k);
-                            x--;
-                        }
-
-                        Double finalPrice = EventCreateController.applyCoupon(couponBeans);
-                        /*CouponApplier instance = new CouponApplier(new Priceable() {
-                            @Override
-                            public Double getPrice() {
-                                return 10.0;
-                            }
-                        }) ;
-                        instance.getFinalPrice() ;
-                        */
-                        total.setText("Total: "+finalPrice);
-
-                        EventCreateController.removeCoupon(couponBeans, y);
-                        setAvailableCoupons(y);
-
-                        applyCouponButton.setDisable(true);
-                    }
-                } catch (NotEnoughCouponAvailableException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText("Not enough coupon available");
-                    alert.showAndWait();
+                Double finalPrice= ApplyCouponAid.applycoupnaid(x,j,z,y,fivep,tenp,fiftp);
+                if(finalPrice != null) {
+                    setAvailableCoupons(y);
+                    total.setText("Total: " + finalPrice);
+                    applyCouponButton.setDisable(true);
                 }
-
             }
 
         } catch(NotNullCouponToUseException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Complete all coupon fields");
             alert.showAndWait();
+        } catch (NotEnoughCouponAvailableException e) {
+            throw new RuntimeException(e);
         }
 
 
