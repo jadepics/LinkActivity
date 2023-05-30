@@ -53,7 +53,7 @@ public class RegistrationSecondViewGraphicController {
         } else if (s.matches("set profile .*")) {
             String profileType = s.replace("set profile ", "");
             registrationProfileTypeText.setText(profileType);
-            if (profileType.matches("user")) {
+            /*if (profileType.matches("user")) {
                 registrationProfileTypeText.setText(profileType);
             } else if (profileType.matches("company")) {
                 registrationProfileTypeText.setText(profileType);
@@ -61,7 +61,7 @@ public class RegistrationSecondViewGraphicController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("Choose between user or company");
                 alert.showAndWait();
-            }
+            }*/
             //else {
             //registrationProfileTypeText.setText(profileType);}}
         }else if (s.compareTo("goto googleSignUp") == 0) {
@@ -76,18 +76,15 @@ public class RegistrationSecondViewGraphicController {
                 stage.show();
         } else if (s.compareTo("submit") == 0) {
                 String type = registrationProfileTypeText.getText();
+                email = registrationEmailText.getText();
+                username =registrationUsernameText.getText();
+                pass = registrationPasswordText.getText();
 
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
 
-                /*
+
                 if (type.matches("user")) {
 
                     //TODO login non funziona neanche con parametri null torna errore sql, passare usernam, pass ecc
-
                     UserBean userBean = new UserBean(email, username, pass);
                     new LoginController.UserRegistration(userBean);
                     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
@@ -105,7 +102,7 @@ public class RegistrationSecondViewGraphicController {
                     stage.show();
                 }
 
-                */
+
 
                 // TODO controlli su email @ e .com/it ecc
                 //TODO 2 inserire nuova interfaccia per mettere i preferiti dopo questo CG
