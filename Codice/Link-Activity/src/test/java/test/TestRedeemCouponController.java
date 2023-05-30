@@ -10,8 +10,20 @@ import java.util.List;
 
 public class TestRedeemCouponController {
 
+    /*
+        Responsabile testing: Alessandro Lori
+        Matricola: 0280155
+    */
+
     @Test
     public void testredeemcoupon() throws FileNotFoundException {
+
+        /*
+            L'intento del test è verificare che ogni qual volta
+            l'azieda riscatta un coupon tramite l'uso di punti accumulati
+            quest'ultimo venga accreditato correttamente nel filesystem.
+        */
+
         File file = new File("src/main/CompanyCoupon-Filesystem.txt");
         CompanyBean companyBean = new CompanyBean("Apple");
         int coupNumberBefore;
