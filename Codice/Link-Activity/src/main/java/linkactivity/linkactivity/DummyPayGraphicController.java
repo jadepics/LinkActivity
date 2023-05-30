@@ -3,6 +3,7 @@ package linkactivity.linkactivity;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -46,6 +47,9 @@ public class DummyPayGraphicController {
     @FXML
     private TextField tenpToUse;
 
+    private Integer fivep;
+    private Integer tenp;
+    private Integer fiftp;
 
     CompanyBean y;
 
@@ -71,50 +75,76 @@ public class DummyPayGraphicController {
     @FXML
     void applyCoupon() {
 
+        int x=0;
+        int j=0;
+        int z=0;
 
-        System.out.println("eooooooooooo");
-        int x= Integer.parseInt(fivepToUse.getText());
-        int j= Integer.parseInt(tenpToUse.getText());
-        int z= Integer.parseInt(fiftpToUse.getText());
+        try {
+            if (fivepToUse.getText().isEmpty() || tenpToUse.getText().isEmpty() || fiftpToUse.getText().isEmpty()) {
 
-        //TODO qui è piazzabile un'eccezione poiché null non può essere parsato ad intero quindi eccezione che rimanda
-        // ad alert
+                throw new NotNullCouponToUseException("Coupon fields can't be null");
+
+            } else {
+                x = Integer.parseInt(fivepToUse.getText());
+                j = Integer.parseInt(tenpToUse.getText());
+                z = Integer.parseInt(fiftpToUse.getText());
+
+                try {
+                    if (x > fivep || j > tenp || z > fiftp) {
+                        throw new NotEnoughCouponAvailableException("Not Enough Coupon");
+                    } else {
+                        List<CouponBean> couponBeans= new ArrayList<>(){};
+
+                        while(z!=0){
+                            CouponBean k= new CouponBean(15.0);
+                            couponBeans.add(k);
+                            z--;
+                        }
+                        while(j!=0){
+                            CouponBean k= new CouponBean(10.0);
+                            couponBeans.add(k);
+                            j--;
+                        }
+                        while(x!=0){
+                            CouponBean k= new CouponBean(5.0);
+                            couponBeans.add(k);
+                            x--;
+                        }
+
+                        Double finalPrice = EventCreateController.applyCoupon(couponBeans);
+                        /*CouponApplier instance = new CouponApplier(new Priceable() {
+                            @Override
+                            public Double getPrice() {
+                                return 10.0;
+                            }
+                        }) ;
+                        instance.getFinalPrice() ;
+                        */
+                        total.setText("Total: "+finalPrice);
+
+                        EventCreateController.removeCoupon(couponBeans, y);
+                        setAvailableCoupons(y);
+
+                        applyCouponButton.setDisable(true);
+                    }
+                } catch (NotEnoughCouponAvailableException e) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText("Not enough coupon available");
+                    alert.showAndWait();
+                }
+
+            }
+
+        } catch(NotNullCouponToUseException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Complete all coupon fields");
+            alert.showAndWait();
+        }
+
 
         //TODO forse eccezione coupon slezionati vs coupon disponibili
 
-        List<CouponBean> couponBeans= new ArrayList<>(){};
 
-        while(z!=0){
-            CouponBean k= new CouponBean(15.0);
-            couponBeans.add(k);
-            z--;
-        }
-        while(j!=0){
-            CouponBean k= new CouponBean(10.0);
-            couponBeans.add(k);
-            j--;
-        }
-        while(x!=0){
-            CouponBean k= new CouponBean(5.0);
-            couponBeans.add(k);
-            x--;
-        }
-
-        Double finalPrice = EventCreateController.applyCoupon(couponBeans);
-        /*CouponApplier instance = new CouponApplier(new Priceable() {
-            @Override
-            public Double getPrice() {
-                return 10.0;
-            }
-        }) ;
-        instance.getFinalPrice() ;
-         */
-        total.setText("Total: "+finalPrice);
-
-        EventCreateController.removeCoupon(couponBeans, y);
-        setAvailableCoupons(y);
-
-        applyCouponButton.setDisable(true);
     }
 
     @FXML
@@ -133,9 +163,12 @@ public class DummyPayGraphicController {
 
     private void setAvailableCoupons(CompanyBean companyBean){
         List<Integer> coupList= EventCreateController.getAvailableCoupons(companyBean);
-        fivePCouponAvailable.setText("- Available 5% coupons: "+ coupList.get(0));
-        tenPCouponAvailable.setText("- Available 10% coupons: "+ coupList.get(1));
-        fiftPCouponAvailable.setText("- Available 15% coupons: "+ coupList.get(2));
+        fivep= coupList.get(0);
+        tenp= coupList.get(1);
+        fiftp= coupList.get(2);
+        fivePCouponAvailable.setText("- Available 5% coupons: "+ fivep);
+        tenPCouponAvailable.setText("- Available 10% coupons: "+ tenp);
+        fiftPCouponAvailable.setText("- Available 15% coupons: "+ fiftp);
     }
 }
 
