@@ -11,7 +11,7 @@ import java.util.List;
 public class TestRedeemCouponController {
 
     @Test
-    public void TestRedeemCoupon() throws FileNotFoundException {
+    public void Testredeemcoupon() throws FileNotFoundException {
         File file = new File("src/main/CompanyCoupon-Filesystem.txt");
         CompanyBean companyBean = new CompanyBean("Apple");
         int coupNumberBefore;
@@ -21,14 +21,14 @@ public class TestRedeemCouponController {
         String nomeaz = "Apple";
 
 
-        coupNumberBefore= AusFunct(cp1String,nomeaz,file);
+        coupNumberBefore= Ausfunct(cp1String,nomeaz,file);
         EventCreateController.removePoints(companyBean,pts);
-        coupoNumberAfter=AusFunct(cp1String,nomeaz,file);
+        coupoNumberAfter=Ausfunct(cp1String,nomeaz,file);
         assert(coupNumberBefore==coupoNumberAfter-1);
-        OriginalFile(cp1String,nomeaz,file);
+        Originalfile(cp1String,nomeaz,file);
     }
 
-    public void OriginalFile(String cp1String, String nomeaz, File file){
+    public void Originalfile(String cp1String, String nomeaz, File file){
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
             String line;
@@ -45,18 +45,21 @@ public class TestRedeemCouponController {
                 }
                 sb.append(line).append("\n");
             }
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
-                bw.write(sb.toString());
-            } catch (IOException e) {
-                System.out.println("Error writing to the file: " + e.getMessage());
-            }
+            writefile(sb, file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    public void writefile(StringBuilder sb,File file){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+            bw.write(sb.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public int AusFunct(String cp1String, String nomeaz, File file){
+    public int Ausfunct(String cp1String, String nomeaz, File file){
         int coupNumber=0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -74,7 +77,7 @@ public class TestRedeemCouponController {
             }
 
         } catch (IOException e) {
-            System.out.println("Error reading the file: " + e.getMessage());
+            e.printStackTrace();
         }
 
         return coupNumber;
