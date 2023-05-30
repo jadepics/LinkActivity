@@ -33,26 +33,11 @@ public class RedeemCouponSecondViewGraphicController {
         String s= redeemCouponCommandLine.getText();
         redeemCouponCommandLine.setText("");
         if(s.compareTo("redeem 5% coupon")==0){
-            if(pts >= 300){
-                EventCreateController.removePoints(y, 300);
-                setCurrentCompanyPoints();
-            } else {
-                errorMessage();
-            }
+            setPoints(300);
         } else if(s.compareTo("redeem 10% coupon")==0){
-            if(pts>=550){
-                EventCreateController.removePoints(y,550);
-                setCurrentCompanyPoints();
-            } else {
-                errorMessage();
-            }
+            setPoints(550);
         } else if(s.compareTo("redeem 15% coupon")==0){
-            if(pts>=800){
-                EventCreateController.removePoints(y,800);
-                setCurrentCompanyPoints();
-            } else {
-                errorMessage();
-            }
+            setPoints(800);
         } else if(s.compareTo("back")==0){
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
@@ -70,12 +55,23 @@ public class RedeemCouponSecondViewGraphicController {
         }
     }
 
+    private void setPoints(int points) throws FileNotFoundException {
+        if(pts >= points){
+            EventCreateController.removePoints(y, points);
+            setCurrentCompanyPoints();
+        } else {
+            errorMessage();
+        }
+    }
+
     private void errorMessage(){
         String p= "Not Enough Points";
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(p);
         alert.showAndWait();
     }
+
+
 
     public void currentCompany(CompanyBean x){
         y=x;
