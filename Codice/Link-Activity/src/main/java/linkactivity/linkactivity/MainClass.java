@@ -27,7 +27,7 @@ public class MainClass extends Application {
 }
 
 
-/*CouponApplier instance = new CouponApplier(new Priceable() {
+                        /*CouponApplier instance = new CouponApplier(new Priceable() {
                             @Override
                             public Double getPrice() {
                                 return 10.0;

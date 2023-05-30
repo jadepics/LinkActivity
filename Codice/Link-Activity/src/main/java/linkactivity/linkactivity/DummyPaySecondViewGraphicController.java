@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import linkactivity.linkactivity.Utilities.ApplyCouponAid;
+import linkactivity.linkactivity.Utilities.GUISwtichAid;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -102,6 +103,10 @@ public class DummyPaySecondViewGraphicController {
             }
 
         } else if(s.compareTo("back")==0){
+            FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreateSecondView.fxml")));
+            GUISwtichAid.eventcreatesecondviewguiswitch(event,y,root);
+
+            /*
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreateSecondView.fxml")));
             Scene scene;
@@ -115,6 +120,8 @@ public class DummyPaySecondViewGraphicController {
             catch (IOException e){
                 throw new RuntimeException(e);
             }
+            */
+
         }
     }
 
