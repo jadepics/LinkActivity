@@ -26,6 +26,8 @@ public class RedeemCouponSecondViewGraphicController {
     CompanyBean y;
     int pts;
 
+    String p= "Not Enough Points";
+
     @FXML
     public void executeCommand(ActionEvent event) throws FileNotFoundException {
         String s= redeemCouponCommandLine.getText();
@@ -36,7 +38,7 @@ public class RedeemCouponSecondViewGraphicController {
                 setCurrentCompanyPoints();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Not Enough Points");
+                alert.setHeaderText(p);
                 alert.showAndWait();
             }
         } else if(s.compareTo("redeem 10% coupon")==0){
@@ -45,7 +47,7 @@ public class RedeemCouponSecondViewGraphicController {
                 setCurrentCompanyPoints();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Not Enough Points");
+                alert.setHeaderText(p);
                 alert.showAndWait();
             }
         } else if(s.compareTo("redeem 15% coupon")==0){
@@ -54,7 +56,7 @@ public class RedeemCouponSecondViewGraphicController {
                 setCurrentCompanyPoints();
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Not Enough Points");
+                alert.setHeaderText(p);
                 alert.showAndWait();
             }
         } else if(s.compareTo("back")==0){

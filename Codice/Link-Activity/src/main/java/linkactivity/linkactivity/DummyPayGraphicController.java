@@ -51,6 +51,7 @@ public class DummyPayGraphicController {
     private Integer tenp;
     private Integer fiftp;
 
+
     CompanyBean y;
 
     @FXML
