@@ -26,7 +26,7 @@ public class RedeemCouponSecondViewGraphicController {
     CompanyBean y;
     int pts;
 
-    String p= "Not Enough Points";
+
 
     @FXML
     public void executeCommand(ActionEvent event) throws FileNotFoundException {
@@ -37,27 +37,21 @@ public class RedeemCouponSecondViewGraphicController {
                 EventCreateController.removePoints(y, 300);
                 setCurrentCompanyPoints();
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(p);
-                alert.showAndWait();
+                errorMessage();
             }
         } else if(s.compareTo("redeem 10% coupon")==0){
             if(pts>=550){
                 EventCreateController.removePoints(y,550);
                 setCurrentCompanyPoints();
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(p);
-                alert.showAndWait();
+                errorMessage();
             }
         } else if(s.compareTo("redeem 15% coupon")==0){
             if(pts>=800){
                 EventCreateController.removePoints(y,800);
                 setCurrentCompanyPoints();
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText(p);
-                alert.showAndWait();
+                errorMessage();
             }
         } else if(s.compareTo("back")==0){
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -74,6 +68,13 @@ public class RedeemCouponSecondViewGraphicController {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    private void errorMessage(){
+        String p= "Not Enough Points";
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setHeaderText(p);
+        alert.showAndWait();
     }
 
     public void currentCompany(CompanyBean x){
