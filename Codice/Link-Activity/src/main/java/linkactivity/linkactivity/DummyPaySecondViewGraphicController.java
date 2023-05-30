@@ -105,23 +105,6 @@ public class DummyPaySecondViewGraphicController {
         } else if(s.compareTo("back")==0){
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreateSecondView.fxml")));
             GUISwtichAid.eventcreatesecondviewguiswitch(event,y,root);
-
-            /*
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreateSecondView.fxml")));
-            Scene scene;
-            try {
-                scene = new Scene(root.load(), 690, 518);
-                stage.setScene(scene);
-                stage.show();
-                EventCreateSecondViewGraphicController a = root.getController();
-                a.currentCompany(y);
-            }
-            catch (IOException e){
-                throw new RuntimeException(e);
-            }
-            */
-
         }
     }
 

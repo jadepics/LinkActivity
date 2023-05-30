@@ -9,13 +9,11 @@ import linkactivity.linkactivity.CompanyBean;
 import linkactivity.linkactivity.EventCreateSecondViewGraphicController;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class GUISwtichAid {
 
     public static void eventcreatesecondviewguiswitch(ActionEvent event, CompanyBean y, FXMLLoader root){
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        //FXMLLoader root = new FXMLLoader(Objects.requireNonNull(GUISwtichAid.class.getResource("src/main/resources/linkactivity/linkactivity/EventCreateSecondView.fxml")));
         Scene scene;
         try {
             scene = new Scene(root.load(), 690, 518);
