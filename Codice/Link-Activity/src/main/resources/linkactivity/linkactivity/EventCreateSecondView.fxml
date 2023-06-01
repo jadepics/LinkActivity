@@ -24,8 +24,8 @@
                   <Font name="Georgia" size="35.0" />
                </font>
             </Text>
-            <Rectangle fill="WHITE" height="176.0" layoutX="14.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="435.0" />
-            <Text layoutX="21.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set event name &lt;name&gt;&#10;- set event date &lt;YYYY-MM-DD&gt;&#10;- set expiration date &lt;YYYY-MM-DD&gt;&#10;- set tag &lt;Java&gt; or &lt;C++&gt; or &lt;Python&gt;&#10;- set partecipant number &lt;number&gt;&#10;- back&#10;- submit" wrappingWidth="371.0">
+            <Rectangle fill="WHITE" height="190.0" layoutX="14.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="435.0" />
+            <Text layoutX="21.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set event name &lt;name&gt;&#10;- set description &lt;description(max 100)&gt;&#10;- set event date &lt;YYYY-MM-DD&gt;&#10;- set expiration date &lt;YYYY-MM-DD&gt;&#10;- set tag &lt;Java&gt; or &lt;C++&gt; or &lt;Python&gt;&#10;- set participant number &lt;number&gt;&#10;- back&#10;- submit" wrappingWidth="371.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -90,6 +90,11 @@
             <Text fx:id="eventCreatePartecipantNumberText" layoutX="485.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="eventCreateEventDescriptionText" layoutX="40.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="63.199951171875">
+               <font>
+                  <Font size="1.0" />
                </font>
             </Text>
          </children>

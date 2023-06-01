@@ -33,18 +33,22 @@ public class EventCreateSecondViewGraphicController {
 
     @FXML
     private Text eventCreateTagText;
-
+    @FXML
+    private Text eventCreateEventDescriptionText;
     CompanyBean y;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException {
+    void executeCommand(ActionEvent event) throws IOException, DuplicatedEventException {
         String s= eventCreateCommandLine.getText();
         eventCreateCommandLine.setText("");
 
         if(s.matches("set event name .*")){
             String name= s.replace("set event name ","");
             eventCreateEventNameText.setText(name);
-        } else if(s.matches("set event date .*")){
+        }else if(s.matches("set description .*")){
+            String description= s.replace("set description ","");
+            eventCreateEventDescriptionText.setText(description); }
+        else if(s.matches("set event date .*")){
              String date= s.replace("set event date ","");
              eventCreateEventDateText.setText(date);
         } else if(s.matches("set expiration date .*")){
@@ -63,6 +67,15 @@ public class EventCreateSecondViewGraphicController {
             String num= s.replace("set participant number ", "");
             eventCreatePartecipantNumberText.setText(num);
         } else if(s.compareTo("submit")==0){
+            String name= eventCreateEventNameText.getText();
+            String descrizione= eventCreateEventDescriptionText.getText();
+            String date= eventCreateEventDateText.getText();
+            String exDate= eventCreateExpirationDateText.getText();
+            String tag = eventCreateTagText.getText();
+            int num = convert1(eventCreatePartecipantNumberText.getText()) ;
+            String nomeAzienda = y.getNomeAzienda();
+            EventBean eventBean = new EventBean(name, descrizione,date,exDate,num, nomeAzienda,tag);
+            new EventCreateController.newEvent(eventBean);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPaySecondView.fxml")));
             Scene scene;
@@ -76,9 +89,6 @@ public class EventCreateSecondViewGraphicController {
             catch (IOException e){
                 throw new RuntimeException(e);
             }
-
-            //TODO take all from fxml text and push su db
-            //TODO convertire string num partecipanti in INT e forse data
         } else if(s.compareTo("back")==0){
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
@@ -99,5 +109,15 @@ public class EventCreateSecondViewGraphicController {
     public void currentCompany(CompanyBean x){
         y=x;
     }
-
+    private static int convert1(String s){
+        int val=0;
+        try {
+            val = Integer.parseInt(s);
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Invalid String");
+        }
+        return val;
+    }
 }
+//  TODO check not null
