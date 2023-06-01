@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.LoginSecondViewGraphicController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="linkactivity.linkactivity.LoginSecondViewGraphicController">
    <children>
       <Pane prefHeight="518.0" prefWidth="690.0">
          <children>
@@ -24,26 +24,26 @@
                   <Font name="Georgia" size="35.0" />
                </font>
             </Text>
-            <Rectangle fill="WHITE" height="150.0" layoutX="14.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
-            <Text layoutX="19.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set email &lt;email&gt;&#10;- set password &lt;password&gt;&#10;- set profile &lt;userModel&gt; or &lt;company&gt;&#10;- goto googleLogin&#10;- goto register&#10;- submit" wrappingWidth="300.0">
+            <Rectangle fill="WHITE" height="164.0" layoutX="14.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
+            <Text layoutX="19.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- set username &lt;username&gt;&#10;- set password &lt;password&gt;&#10;- set profile &lt;user&gt; or &lt;company&gt;&#10;- goto googleLogin&#10;- goto register&#10;- submit" wrappingWidth="300.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
             <TextField fx:id="loginCommandLine" layoutX="21.0" layoutY="413.0" onAction="#executeCommand" prefHeight="25.0" prefWidth="648.0" promptText="write here commands" />
-            <Rectangle fill="WHITE" height="25.0" layoutX="363.0" layoutY="252.0" stroke="BLACK" strokeType="INSIDE" width="89.0" />
-            <Text layoutX="374.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" textAlignment="CENTER" wrappingWidth="66.04296875">
+            <Rectangle fill="WHITE" height="25.0" layoutX="349.0" layoutY="254.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+            <Text layoutX="358.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="username" textAlignment="CENTER" wrappingWidth="89.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Rectangle fill="WHITE" height="25.0" layoutX="363.0" layoutY="287.0" stroke="BLACK" strokeType="INSIDE" width="89.0" />
-            <Text layoutX="363.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" textAlignment="CENTER" wrappingWidth="89.0">
+            <Rectangle fill="WHITE" height="25.0" layoutX="349.0" layoutY="287.0" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+            <Text layoutX="357.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" textAlignment="CENTER" wrappingWidth="89.0">
                <font>
                   <Font name="Georgia" size="20.0" />
                </font>
             </Text>
-            <Rectangle fill="WHITE" height="25.0" layoutX="289.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
+            <Rectangle fill="WHITE" height="25.0" layoutX="290.0" layoutY="318.0" stroke="BLACK" strokeType="INSIDE" width="163.0" />
             <Text layoutX="296.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="profile type" textAlignment="CENTER" wrappingWidth="150.0">
                <font>
                   <Font name="Georgia" size="20.0" />

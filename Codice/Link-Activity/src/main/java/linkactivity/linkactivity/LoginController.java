@@ -14,7 +14,18 @@ public class LoginController {
                 return i;
         }
 
-        public static class UserRegistration {
+    public void addLogoImage(String imagePath, CompanyBean companyName) {
+            EventLogoDAO eventLogoDAO= new EventLogoDAO();
+            eventLogoDAO.insertLogo(imagePath,companyName);
+
+    }
+
+    public void AddInPoints(String nomeAzienda) {
+            CouponPointsDAO couponPointsDAO =new CouponPointsDAO();
+            couponPointsDAO.insertNewAzienda(nomeAzienda);
+    }
+
+    public static class UserRegistration {
                 public UserRegistration(UserBean userBean) {
                         UserDAO userDAO = new UserDAO();
                         userDAO.newUser(userBean.getUserEmail(),userBean.getUsername(),userBean.getUserPass());

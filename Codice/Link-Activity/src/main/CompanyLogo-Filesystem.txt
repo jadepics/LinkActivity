@@ -1,10 +1,7 @@
-IBM C:\Users\Reliq\Desktop\ISPW\1Progetto\LinkActivity\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\IBM.png
-Apple C:\Users\Reliq\Desktop\ISPW\1Progetto\LinkActivity\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\AppleLogo.jpg
-Microsoft C:\Users\Reliq\Desktop\ISPW\1Progetto\LinkActivity\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\Microsoft.png
-
-
-
-
-
-
-
+IBM C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\IBM.png
+Apple C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\AppleLogo.jpg
+Microsoft C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\Microsoft.png
+Michiamo C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\pyth.png
+ikki C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\icons8-instagram-48.png
+asdfghjklòlkjhgfds C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\GoogleIcon.png
+opsss C:\Users\micci\Desktop\LinkActivityDEMO\Codice\Link-Activity\src\main\resources\linkactivity\linkactivity\Images\pyth.png

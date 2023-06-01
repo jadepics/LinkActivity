@@ -52,7 +52,7 @@ public class EventCreateSecondViewGraphicController {
             eventCreateExpirationDateText.setText(expdate);
         } else if(s.matches("set tag .*")){
             String tag= s.replace("set tag ","");
-            if(!(tag.matches("java") || tag.matches("python") || tag.matches("cpp"))){
+            if(!(tag.matches("Java") || tag.matches("Python") || tag.matches("C++"))){
                 Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                 alert2.setHeaderText(tag+" is not a valid tag");
                 alert2.showAndWait();

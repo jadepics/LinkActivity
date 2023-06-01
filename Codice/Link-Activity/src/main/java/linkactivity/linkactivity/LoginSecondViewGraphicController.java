@@ -33,8 +33,8 @@ public class LoginSecondViewGraphicController {
     void executeCommand(ActionEvent event) throws IOException, NotExistentUserException {
         String s= loginCommandLine.getText();
         loginCommandLine.setText("");
-        if(s.matches("set email .*")){
-            String email= s.replace("set email ","");
+        if(s.matches("set username .*")){
+            String email= s.replace("set username ","");
             loginEmailText.setText(email);
         } else if(s.matches("set password .*")){
             String passw= s.replace("set password ","");
@@ -66,42 +66,51 @@ public class LoginSecondViewGraphicController {
             stage.setScene(scene);
             stage.show();
         } else if(s.compareTo("submit")==0){
-
-            //TODO cambiare le diciture email con username in quanto non fa login con email e password ma solo con username
-
             String passw= loginPasswordText.getText();
             String email= loginEmailText.getText();
             String type= loginProfileTypeText.getText();
 
-            CompanyBean companyBean= new CompanyBean(email);
+
 
             if (type.matches("user")){
                 UserBean userBean= new UserBean(email, passw);
                 new LoginController().LoginUser(userBean);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
+                Scene scene;
+                try {
+                    scene = new Scene(root.load(), 690, 518);
+                    stage.setScene(scene);
+                    stage.show();
+                   // DashboardSecondViewGraphicController a = root.getController();
+                  //  a.currentCompany(userBean);
+                }
+                catch (IOException e){
+                    throw new RuntimeException(e);
+                }
+
 
             } else if (type.matches("company")) {
-                //CompanyBean companyBean= new CompanyBean(email,passw);
-                //new LoginController().LoginCompany(companyBean);
+                CompanyBean companyBean= new CompanyBean(email,passw);
+                new LoginController().LoginCompany(companyBean);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
+                Scene scene;
+                try {
+                    scene = new Scene(root.load(), 690, 518);
+                    stage.setScene(scene);
+                    stage.show();
+                    AzioniAziendaSecondViewGraphicController a = root.getController();
+                    a.currentCompany(companyBean);
+                }
+                catch (IOException e){
+                    throw new RuntimeException(e);
+                }
 
             }
-            //TODO query per richiesta login
-            // controllo su email @ e .com/it ecc
+            // TODO controllo su email @ e .com/it ecc
 
-            //PER ORA PASSA DIRETTAMENTE IN DASHBOARD o spawp per azienda
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
-            Scene scene;
-            try {
-                scene = new Scene(root.load(), 690, 518);
-                stage.setScene(scene);
-                stage.show();
-                AzioniAziendaSecondViewGraphicController a = root.getController();
-                a.currentCompany(companyBean);
-            }
-            catch (IOException e){
-                throw new RuntimeException(e);
-            }
 
 
         }

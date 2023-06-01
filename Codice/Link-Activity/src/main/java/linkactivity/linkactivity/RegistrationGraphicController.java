@@ -62,7 +62,7 @@ public class RegistrationGraphicController {
         stage.show();
 
     }
-    public void switchToSelectFavourite(ActionEvent event) throws IOException {
+    private void switchToSelectFavourite(ActionEvent event) throws IOException {
         String emailText = regEmailUser.getText();
         String usernameText = regUsernameUser.getText();
         String checkpass = regPassUser.getText();
@@ -82,15 +82,22 @@ public class RegistrationGraphicController {
         }
     }
 
-    public void switchToAziendaProfile(ActionEvent event) throws IOException {
-        //TODO passare la "current company"
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
-        Scene scene = new Scene(root);
+    private void switchToInsertLogo(ActionEvent event) throws IOException {
+        String usernameText = regUsernameUser.getText();
+        CompanyBean companyBean =new CompanyBean(usernameText);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
+        FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("InsertLogoAzienda.fxml")));
+        Scene scene;
+        try {
+            scene = new Scene(root.load(), 690, 518);
+            stage.setScene(scene);
+            stage.show();
+            InsertLogoAziendaGraphicalController a = root.getController();
+            a.getNomeAzienda(companyBean);
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -108,13 +115,14 @@ public class RegistrationGraphicController {
             } else if (companyRB.isSelected()) {
                 CompanyBean companyBean = new CompanyBean(emailText,usernameText,checkpass);
                 new LoginController.CompanyRegister(companyBean);
+                new LoginController().AddInPoints(companyBean.getNomeAzienda());
                 i=1;
             }
 
                 if(i==0) {
                     switchToSelectFavourite(event);
                 }else {
-                    switchToAziendaProfile(event);
+                    switchToInsertLogo(event);
                 }
 
         }
