@@ -25,5 +25,6 @@ public class Queries {
         return statement.executeQuery(query);
     }
 
-    //classe dove mettere tutte le queries
+
+
 }

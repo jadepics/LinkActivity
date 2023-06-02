@@ -79,38 +79,33 @@ public class LoginGraphicController {
 
 
     public void validateLogin(ActionEvent event) throws IOException, NotExistentUserException {
-        Connection myConnection = DBConnection.getDBConnection();
-        //Connection connectDB = (Connection) myConnection.getInstance();
         int i=-1;
-        if (userRB.isSelected()) {
-            UserBean userBean= new UserBean(emailUsernameLogin.getText(), passLogin.getText());
-            System.out.println(userBean.getUsername());
-            i=new LoginController().LoginUser(userBean);  //qui dentro ci esco basta che sia selezionato lo user quindi devo far in modo che la dao mi ritorni un si ok
-            System.out.println(i);        }
-        else if(companyRB.isSelected()) {
-            CompanyBean companyBean= new CompanyBean(emailUsernameLogin.getText(), passLogin.getText());
-            i=new LoginController().LoginCompany(companyBean);
-        }
-//        try {
-//            Statement statement = myConnection.createStatement();
-//            ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
-//
-//            while (queryLoginResult.next()) {
-//
-//                if (queryLoginResult.getInt(1) == 1) {
-                    if(i == 0) {switchToUserProfile(event);}
-//
-                        else if(i==1) {
-                            switchToAziendaProfile(event);
-                    }
+        if(emailUsernameLogin.getText().isEmpty() || passLogin.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Username or Password are empty");
+            alert.showAndWait();
+        } else if (!(userRB.isSelected() || companyRB.isSelected())) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Select User Type");
+            alert.showAndWait();
 
-//
-//                }
-//            }
-//        }
-//        catch(Exception e){
-//            e.printStackTrace();
-//        }
+        } else {
+            if (userRB.isSelected()) {
+                UserBean userBean = new UserBean(emailUsernameLogin.getText(), passLogin.getText());
+                System.out.println(userBean.getUsername());
+                i = new LoginController().LoginUser(userBean);
+                System.out.println(i);
+            } else if (companyRB.isSelected()) {
+                CompanyBean companyBean = new CompanyBean(emailUsernameLogin.getText(), passLogin.getText());
+                i = new LoginController().LoginCompany(companyBean);
+            }
+            if (i == 0) {
+                switchToUserProfile(event);
+            } else if (i == 1) {
+                switchToAziendaProfile(event);
+            }
+        }
+
     }
 
 

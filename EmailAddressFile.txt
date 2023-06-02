@@ -1,6 +1,7 @@
 Azienda mail address:    Apple@Apple.Apple
 
-New event added:   nuovonuovo
+New event added:   www
 
 Send to users mail address:
 
+null

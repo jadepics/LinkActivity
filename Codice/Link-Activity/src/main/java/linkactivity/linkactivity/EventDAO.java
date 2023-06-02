@@ -56,18 +56,12 @@ public class EventDAO {
     public int modifyParticipantNumber(EventBean x) {
         Connection myConnection = DBConnection.getDBConnection();
         String updatePartecipantQuery;
-        //fare prepared statment altrimenti sql injection
         int k = x.getPartecipantNumber() - 1;
-        System.out.println(k);
         String a = x.getEventName();
-        System.out.println(a);
           updatePartecipantQuery = String.format("UPDATE evento SET numeroPartecipanti = %d WHERE nomeEvento = '%s';",k, a);
-        System.out.println("non so scoppiato");
         try {
             Statement statement = myConnection.createStatement();
-            System.out.println("non so scoppiato sto nel try");
             statement.execute(updatePartecipantQuery);
-            System.out.println("non so scoppiato sto nel try dopo esecuzione");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -81,22 +75,39 @@ public class EventDAO {
         try(PreparedStatement statement =myConnection.prepareStatement("INSERT evento(nomeEvento, descrizioneEvento, data, expirationDate,numeroPartecipanti,nomeAzienda,tag) VALUES (?,?,?,?,?,?,?);")) {
             statement.setString(1, event.getEventModelName());
             statement.setString(2, event.getEventModelDescription());
-            System.out.println("prima della data");
-            statement.setString(3, event.getEventModelData());    //come devo modifica ste date
-            System.out.println("post prima data");
+            statement.setString(3, event.getEventModelData());
             statement.setString(4, event.getEventModelExpirationDate());
             statement.setInt(5, event.getEventModelPartecipantNumber());
             statement.setString(6, event.getEventModelNomeAzienda());
-            System.out.println(event.getEventModelNomeAzienda());
             statement.setString(7, event.getEventModelTag());
-            System.out.println("pre execute della dao");
             newKeys = statement.executeUpdate();
-            System.out.println("post execute devo entrare nell'if");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return newKeys;
     }
+   /* public EventModel getEventByName(String nome) { //Todo check questa è per test
+        EventModel eventModel = new EventModel();
+        Connection myConnection = DBConnection.getDBConnection();
+        String query= "SELECT * FROM evento WHERE nomeEvento = ?;";
+        try (Statement statement = myConnection.prepareStatement(query)) {
+            statement.setString(1,nome);
+            ResultSet resultSet = statement.executeQuery();     //questi errori non li capisco
+            if (resultSet.next()) {
+                eventModel.setEventModelName(resultSet.getString("nomeEvento"));
+                eventModel.setEventModelDescription(resultSet.getString("descrizioneEvento"));
+                eventModel.setEventModelData(resultSet.getString("data"));
+                eventModel.setEventModelExpirationDate(resultSet.getString("expirationDate"));
+                eventModel.setEventModelPartecipantNumber(Integer.parseInt(resultSet.getString("numeroPartecipanti")));
+                eventModel.setEventModelTag(resultSet.getString("tag"));
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return eventModel;
+    }*/
+
 }
 
 

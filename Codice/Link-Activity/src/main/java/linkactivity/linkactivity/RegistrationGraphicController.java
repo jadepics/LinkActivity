@@ -102,26 +102,33 @@ public class RegistrationGraphicController {
 
     @FXML
     private void userRegister(ActionEvent event) throws IOException {
+        String emailText = "";
+        String checkpass="";
+        String usernameText="";
+        int check=0;
+        if(regEmailUser()==1){emailText = regEmailUser.getText();}
 
-
-            String emailText = regEmailUser.getText();
-            String usernameText = regUsernameUser.getText();
-            String checkpass = regPassUser.getText();
-           int i=0;
-            if(userRB.isSelected()) {
+        if(!(regUsernameUser.getText().isEmpty())){
+            usernameText=regUsernameUser.getText();
+        }
+        if(regPassUser() && regRepPassUser()){checkpass = regPassUser.getText();}
+           int i = 0;
+        if(regEmailUser()==1 && regPassUser() &&regRepPassUser()) {
+            if (userRB.isSelected()) {
                 UserBean userBean = new UserBean(emailText, usernameText, checkpass);
                 System.out.println(userBean.getUsername());
                 new LoginController.UserRegistration(userBean);
+                i=1;
             } else if (companyRB.isSelected()) {
-                CompanyBean companyBean = new CompanyBean(emailText,usernameText,checkpass);
+                CompanyBean companyBean = new CompanyBean(emailText, usernameText, checkpass);
                 new LoginController.CompanyRegister(companyBean);
                 new LoginController().AddInPoints(companyBean.getNomeAzienda());
-                i=1;
+                i = 2;
             }
-
-                if(i==0) {
+        }
+                if(i==1) {
                     switchToSelectFavourite(event);
-                }else {
+                }else if(i==2){
                     switchToInsertLogo(event);
                 }
 
@@ -150,8 +157,9 @@ public class RegistrationGraphicController {
 
 
    @FXML
-    private void regEmailUser() {
+    private int regEmailUser() {
         String str;
+        int ret=0;
         int a=0;
         int b=0;
         String[] pars = new String[10];
@@ -168,12 +176,15 @@ public class RegistrationGraphicController {
             if(a==1 && pars[0].equals(".")) {
                     b = 1;
             }
+            if(a==1 &&b==1) ret=1;
         }
         if(a==0 || b==0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Immettere una mail valida");
+            alert.setHeaderText("Enter a valid email");
             alert.showAndWait();
+            return ret;
         }
+        else return ret;
     }
 
     @FXML
@@ -181,28 +192,31 @@ public class RegistrationGraphicController {
     }
 
     @FXML
-    private void regPassUser() {
+    private boolean regPassUser() {
        if(regPassUser.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Password Vuota");
+            alert.setHeaderText("Password is empty");
             alert.showAndWait();
-
+            return false;
         }
+       else return true;
     }
 
     @FXML
-    private void regRepPassUser() {
+    private boolean regRepPassUser() {
         if(regRepPassUser.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Il campo non può essere vuoto");
+            alert.setHeaderText("Repeat password is empty");
             alert.showAndWait();
+            return false;
 
         } else if (!Objects.equals(regRepPassUser.getText(), regPassUser.getText())) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Le password non coincidono");
+            alert.setHeaderText("Passwords do not match");
             alert.showAndWait();
-
+            return  false;
         }
+        return true;
     }
 }
 

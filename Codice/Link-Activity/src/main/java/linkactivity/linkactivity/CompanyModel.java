@@ -20,6 +20,10 @@ public class CompanyModel implements Serializable {
         setCompanyNomeaz(nomeaz);
    }
 
+    public CompanyModel() {
+
+    }
+
     public void setCompanyNomeaz(String nomeaz){
         this.nomeaz= nomeaz;
     }

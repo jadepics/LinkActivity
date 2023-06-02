@@ -24,6 +24,7 @@ public class EventCreateController {
              List <UserBean> userBeans = new ArrayList<>();
             List <UserModel> userModels;
             userModels =userDAO.loadUserFromFavoriteTag(createEBean.tag); //sempre per observer da DAO
+        //    System.out.println(userModels.get(0).getEmail());   //TODO qui email è null
              for(UserModel userModel : userModels){
              userBeans.add(new UserBean(userModel.getEmail()));
                             }
@@ -37,7 +38,6 @@ public class EventCreateController {
                 //devo scorrere checkevents
                 if (controlDuplicatedEvent(checkEvents.get(0), addEvent)){
                     throw new DuplicatedEventException("evento già esistente");
-                //riga 145 di manageServiceController
                 }
                 checkEvents.remove(0);
                 System.out.println("rimuovo e vado avanti");
