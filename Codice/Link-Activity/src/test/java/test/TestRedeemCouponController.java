@@ -37,13 +37,14 @@ public class TestRedeemCouponController {
         EventCreateController.removePoints(companyBean,pts);
         coupNumberAfter=ausfunct(cp1String,nomeaz,file);
         assert(coupNumberBefore==coupNumberAfter-1);
-        originalfile(cp1String,nomeaz,file);
+        originalfile(cp1String,nomeaz,file,0);
     }
 
-    public void originalfile(String cp1String, String nomeaz, File file){
+    public static void originalfile(String cp1String, String nomeaz, File file, int i){
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
             String line;
+            int updatedNumber;
 
             while ((line = br.readLine()) != null) {
                 if (line.contains(nomeaz)) {
@@ -51,7 +52,12 @@ public class TestRedeemCouponController {
                     if (cp1Index != -1) {
                         String numberString = line.substring(cp1Index + cp1String.length()).split("\\s+")[0];
                         int number = Integer.parseInt(numberString);
-                        int updatedNumber = number - 1;
+                        if(i==0){
+                            updatedNumber = number - 1;
+                        } else {
+                            updatedNumber= number + 1;
+                        }
+
                         line = line.replace(cp1String + numberString, cp1String + updatedNumber);
                     }
                 }
@@ -63,7 +69,7 @@ public class TestRedeemCouponController {
         }
     }
 
-    public void writefile(StringBuilder sb,File file){
+    public static void writefile(StringBuilder sb, File file){
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             bw.write(sb.toString());
         } catch (IOException e) {

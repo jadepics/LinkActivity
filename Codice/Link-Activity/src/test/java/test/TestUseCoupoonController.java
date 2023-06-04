@@ -31,37 +31,6 @@ public class TestUseCoupoonController {
         EventCreateController.removeCoupon(couponBeans, companyBean);
         coupNumberAfter= TestRedeemCouponController.ausfunct(cp1String, nomeaz, file);
         assert(coupNumberBefore==coupNumberAfter+1);
-        originalfile(cp1String,nomeaz,file);
-    }
-
-    public void originalfile(String cp1String, String nomeaz, File file){
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            StringBuilder sb = new StringBuilder();
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                if (line.contains(nomeaz)) {
-                    int cp1Index = line.indexOf(cp1String);
-                    if (cp1Index != -1) {
-                        String numberString = line.substring(cp1Index + cp1String.length()).split("\\s+")[0];
-                        int number = Integer.parseInt(numberString);
-                        int updatedNumber = number + 1;
-                        line = line.replace(cp1String + numberString, cp1String + updatedNumber);
-                    }
-                }
-                sb.append(line).append("\n");
-            }
-            writefile(sb, file);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void writefile(StringBuilder sb,File file){
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
-            bw.write(sb.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        TestRedeemCouponController.originalfile(cp1String,nomeaz,file,1);
     }
 }
