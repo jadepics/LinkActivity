@@ -1,14 +1,8 @@
 package linkactivity.linkactivity;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.*;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
-
 import java.util.List;
 
 
@@ -26,9 +20,6 @@ public class EventDAO {
         } else if (tag.equals("python")) {
             verifyLoginQuery = "SELECT *  FROM evento WHERE tag= 'Python'";
         }
-//        } else if(tag.equals("")) {
-//            verifyLoginQuery = "SELECT * FROM evento";
-//        }
 
         List<EventModel> resultList = null;
 

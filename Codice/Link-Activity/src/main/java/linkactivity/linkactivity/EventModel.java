@@ -1,6 +1,6 @@
 package linkactivity.linkactivity;
 
-import linkactivity.linkactivity.Pattern.Decorator.Priceable;
+import linkactivity.linkactivity.pattern.decorator.Priceable;
 
 public class EventModel implements Priceable {
 

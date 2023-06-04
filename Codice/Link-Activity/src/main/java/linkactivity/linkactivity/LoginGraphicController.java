@@ -92,9 +92,7 @@ public class LoginGraphicController {
         } else {
             if (userRB.isSelected()) {
                 UserBean userBean = new UserBean(emailUsernameLogin.getText(), passLogin.getText());
-                System.out.println(userBean.getUsername());
                 i = new LoginController().LoginUser(userBean);
-                System.out.println(i);
             } else if (companyRB.isSelected()) {
                 CompanyBean companyBean = new CompanyBean(emailUsernameLogin.getText(), passLogin.getText());
                 i = new LoginController().LoginCompany(companyBean);
@@ -107,8 +105,6 @@ public class LoginGraphicController {
         }
 
     }
-
-
 
     @FXML
     private void loginGoogle () {

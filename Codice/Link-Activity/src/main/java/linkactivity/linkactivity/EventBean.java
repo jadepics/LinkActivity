@@ -1,6 +1,6 @@
 package linkactivity.linkactivity;
 
-import linkactivity.linkactivity.Pattern.Observer.Subject;
+import linkactivity.linkactivity.pattern.observer.Subject;
 
 public class EventBean extends Subject {
 
@@ -18,7 +18,7 @@ public class EventBean extends Subject {
     String path;
 
 
-    public EventBean(){}    //costruttore vuoto
+    public EventBean(){}
 
     public EventBean(String path){
         setEventPath(path);
@@ -33,7 +33,6 @@ public class EventBean extends Subject {
         this.setPartecipantNumber(partecipantNumber);
         this.setNomeAzienda(nomeAzienda);
         this.setTag(tag);
-        System.out.println(eventName+" aaaaaaaaaaaaaaaa");
     }
 
     public void setEventPath(String path){

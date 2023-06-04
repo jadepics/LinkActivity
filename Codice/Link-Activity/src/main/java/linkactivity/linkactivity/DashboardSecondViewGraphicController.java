@@ -47,7 +47,6 @@ public class DashboardSecondViewGraphicController implements Initializable {
 
 
         } else if(s.matches("select .*")){
-            //TODO click dashboard int x
             String ind = s.replace("select ", "");
             int index = Integer.parseInt(ind);
             EventBean x= elements.get(index);

@@ -1,6 +1,6 @@
 Azienda mail address:    Apple@Apple.Apple
 
-New event added:   NomeEvento
+New event added:   ciccio
 
 Send to users mail address:
 

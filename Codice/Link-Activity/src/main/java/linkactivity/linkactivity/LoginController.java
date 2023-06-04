@@ -2,27 +2,24 @@ package linkactivity.linkactivity;
 
 public class LoginController {
 
-        public int LoginUser(UserBean userBean) throws NotExistentUserException {
-                UserDAO userDAO =new UserDAO();
-                int i=userDAO.verifyUser(userBean.getUsername(),userBean.getUserPass());
-                return i;
-        }
+    public int LoginUser(UserBean userBean) throws NotExistentUserException {
+        UserDAO userDAO =new UserDAO();
+        return userDAO.verifyUser(userBean.getUsername(),userBean.getUserPass());
+    }
 
-        public int LoginCompany(CompanyBean companyBean) throws NotExistentUserException {
-                CompanyDAO companyDAO= new CompanyDAO();
-                int i=companyDAO.verifyCompany(companyBean.getNomeAzienda(),companyBean.getPassword());
-                return i;
-        }
+    public int LoginCompany(CompanyBean companyBean) throws NotExistentUserException {
+        CompanyDAO companyDAO= new CompanyDAO();
+        return companyDAO.verifyCompany(companyBean.getNomeAzienda(),companyBean.getPassword());
+    }
 
     public void addLogoImage(String imagePath, CompanyBean companyName) {
-            EventLogoDAO eventLogoDAO= new EventLogoDAO();
-            eventLogoDAO.insertLogo(imagePath,companyName);
-
+        EventLogoDAO eventLogoDAO= new EventLogoDAO();
+        eventLogoDAO.insertLogo(imagePath,companyName);
     }
 
     public void AddInPoints(String nomeAzienda) {
-            CouponPointsDAO couponPointsDAO =new CouponPointsDAO();
-            couponPointsDAO.insertNewAzienda(nomeAzienda);
+        CouponPointsDAO couponPointsDAO =new CouponPointsDAO();
+        couponPointsDAO.insertNewAzienda(nomeAzienda);
     }
 
     public static class UserRegistration {

@@ -1,6 +1,6 @@
 package linkactivity.linkactivity;
 
-import linkactivity.linkactivity.Pattern.Observer.Observer;
+import linkactivity.linkactivity.pattern.observer.Observer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

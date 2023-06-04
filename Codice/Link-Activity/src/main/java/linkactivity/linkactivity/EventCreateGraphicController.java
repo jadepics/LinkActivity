@@ -26,7 +26,7 @@ public class EventCreateGraphicController {
     @FXML
     private TextField initialDateInsert;
     @FXML
-    private TextField Description;
+    private TextField description;
 
     @FXML
     private TextField maxPartecipantNumber;
@@ -63,12 +63,6 @@ public class EventCreateGraphicController {
             }
         }
 
-//    public static LocalDate getDateFromString(String string, DateTimeFormatter format)
-//    {
-//        LocalDate date = LocalDate.parse(string, format);
-//        return date;
-//    }
-
     public static int convert(String s){
         int val=0;
         try {
@@ -78,9 +72,8 @@ public class EventCreateGraphicController {
 
             // This is thrown when the String
             // contains characters other than digits
-            System.out.println("Invalid String");
         }
-    return val;
+        return val;
     }
 
 
@@ -88,9 +81,8 @@ public class EventCreateGraphicController {
         @FXML
         public void createItGotoPay() throws DuplicatedEventException {
             int partecipant= convert(maxPartecipantNumber.getText());
-            EventBean eventBean = new EventBean(eventName.getText(),Description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,companyBean.getNomeAzienda(),tagInsert.getValue());
-//BARBERADDSERVICECONTROLLER 43
-            CompanyBean companyBean= new CompanyBean(eventBean.getNomeAzienda());
+            EventBean eventBean = new EventBean(eventName.getText(),description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,companyBean.getNomeAzienda(),tagInsert.getValue());
+            CompanyBean companyBean2= new CompanyBean(eventBean.getNomeAzienda());
             new EventCreateController.newEvent(eventBean);
 
             Stage stage = (Stage) createItButton.getScene().getWindow();
@@ -103,7 +95,7 @@ public class EventCreateGraphicController {
                 stage.setScene(scene);
                 stage.show();
                 DummyPayGraphicController o = root.getController();
-                o.setCurrentCompany(companyBean); //TODO forse deve passare la bean non una string
+                o.setCurrentCompany(companyBean2); //TODO forse deve passare la bean non una string
             } catch (IOException e) {
                 e.printStackTrace();
             }

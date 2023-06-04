@@ -1,6 +1,6 @@
 package linkactivity.linkactivity;
 
-import linkactivity.linkactivity.Pattern.Decorator.Priceable;
+import linkactivity.linkactivity.pattern.decorator.Priceable;
 
 import java.util.List;
 

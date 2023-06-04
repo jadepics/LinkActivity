@@ -28,26 +28,22 @@ public class EventCreateController {
              for(UserModel userModel : userModels){
              userBeans.add(new UserBean(userModel.getEmail()));
                             }
-            System.out.println("sto per controllare l'evento");
             addEvent = new EventModel(createEBean.getEventName(),createEBean.getDescription(), createEBean.getDataEvento(), createEBean.getExpirationDate(), createEBean.getPartecipantNumber(), createEBean.getNomeAzienda(), createEBean.getTag());
 
 
             List <EventModel> checkEvents = eventDAO.getEvent("");
             while(!(checkEvents.isEmpty())) {
                 System.out.println("controllo");
-                //devo scorrere checkevents
                 if (controlDuplicatedEvent(checkEvents.get(0), addEvent)){
                     throw new DuplicatedEventException("evento già esistente");
                 }
                 checkEvents.remove(0);
-                System.out.println("rimuovo e vado avanti");
             }
-            System.out.println("vado ad inserire l'evento");
             int m= eventDAO.insertEvent(addEvent);
             if(m!=-1){
                 addEventBoundarySendEmail.setUserBeans(userBeans);
                 createEBean.notifyChanges();
-                System.out.println("inserimento andato a buon fine");}
+            }
         }
         private static boolean controlDuplicatedEvent(EventModel localEvent, EventModel addEvent){ //TODO controllare se va bene static
             return Objects.equals(localEvent.getEventModelName(), addEvent.getEventModelName()) && Objects.equals(localEvent.getEventModelData(), addEvent.getEventModelData()) &&
@@ -102,7 +98,6 @@ public class EventCreateController {
         List<CouponModel> couponModels= new ArrayList<>(){};
         int i = 0;
         while(i < couponBeans.size()){
-            System.out.println(couponBeans.size()+" oooooooooooooooooooo");
             coupon= couponBeans.get(i).getCouponDiscount();
             couponModel= new CouponModel(coupon) {
                 @Override
@@ -115,7 +110,6 @@ public class EventCreateController {
         }
 
         CompanyModel companyModel= new CompanyModel(y.getNomeAzienda());
-
         CouponPointsDAO.removeCoupons(couponModels, companyModel);
     }
 

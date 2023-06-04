@@ -8,11 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import linkactivity.linkactivity.Utilities.ApplyCouponAid;
+import linkactivity.linkactivity.utilities.ApplyCouponAid;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -106,11 +105,6 @@ public class DummyPayGraphicController {
         } catch (NotEnoughCouponAvailableException e) {
             throw new RuntimeException(e);
         }
-
-
-        //TODO forse eccezione coupon slezionati vs coupon disponibili
-
-
     }
 
     @FXML
@@ -124,7 +118,6 @@ public class DummyPayGraphicController {
     public void setCurrentCompany(CompanyBean companyBean){
         y= companyBean;
         setAvailableCoupons(y);
-        System.out.println(y);
     }
 
     private void setAvailableCoupons(CompanyBean companyBean){

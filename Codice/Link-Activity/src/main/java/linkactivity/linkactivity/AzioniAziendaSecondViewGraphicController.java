@@ -6,10 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import linkactivity.linkactivity.Utilities.GUISwtichAid;
+import linkactivity.linkactivity.utilities.GUISwtichAid;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -44,15 +43,6 @@ public class AzioniAziendaSecondViewGraphicController {
             catch (IOException e){
                 throw new RuntimeException(e);
             }
-
-        } else if(s.compareTo("goto describe yourself to followers")==0){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setHeaderText("Describe yourself to followers is a dummy function");
-            alert.showAndWait();    //leviamo todo su first gia tolto
-        } else if(s.compareTo("goto view event insights")==0){
-            Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-            alert2.setHeaderText("View event insights is a dummy function");
-            alert2.showAndWait();   //leviamo todo su first gia tolto
         } else if(s.compareTo("back")==0){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegistrationSecondView.fxml")));
             Scene scene = new Scene(root);

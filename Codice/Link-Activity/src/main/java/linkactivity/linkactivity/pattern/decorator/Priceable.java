@@ -1,4 +1,4 @@
-package linkactivity.linkactivity.Pattern.Decorator;
+package linkactivity.linkactivity.pattern.decorator;
 
 public interface Priceable {
     Double getPrice();

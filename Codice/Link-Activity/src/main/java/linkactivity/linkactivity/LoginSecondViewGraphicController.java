@@ -82,8 +82,6 @@ public class LoginSecondViewGraphicController {
                     scene = new Scene(root.load(), 690, 518);
                     stage.setScene(scene);
                     stage.show();
-                   // DashboardSecondViewGraphicController a = root.getController();
-                  //  a.currentCompany(userBean);
                 }
                 catch (IOException e){
                     throw new RuntimeException(e);

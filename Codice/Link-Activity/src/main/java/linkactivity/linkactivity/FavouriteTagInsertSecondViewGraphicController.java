@@ -22,7 +22,7 @@ public class FavouriteTagInsertSecondViewGraphicController {
     void executeCommand() throws IOException {
         String s = favouriteTagCommandLine.getText();
         favouriteTagCommandLine.setText("");
-        String tag = null;
+        String tag;
         if (s.matches("set favourite tag .*")) {
             tag = s.replace("set favourite tag ", "");
             favouriteTagText.setText(tag);

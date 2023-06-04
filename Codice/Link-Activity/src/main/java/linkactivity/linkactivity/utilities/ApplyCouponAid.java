@@ -1,4 +1,4 @@
-package linkactivity.linkactivity.Utilities;
+package linkactivity.linkactivity.utilities;
 
 import javafx.scene.control.Alert;
 import linkactivity.linkactivity.CompanyBean;

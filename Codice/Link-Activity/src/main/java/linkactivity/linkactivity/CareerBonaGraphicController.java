@@ -58,11 +58,18 @@ public class CareerBonaGraphicController implements Initializable {
         stage.show();
     }
 
+    private void clear(){
+        elements.clear();
+    }
+    private void refresh(){
+        dashboard.refresh();
+    }
+
     @FXML
     void cppFunction(){
         List<EventBean> y = new ItemController().item("cpp");
-        elements.clear();
-        dashboard.refresh();
+        clear();
+        refresh();
         while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
@@ -74,8 +81,8 @@ public class CareerBonaGraphicController implements Initializable {
     @FXML
     void javaFunction(){
         List<EventBean> y = new ItemController().item("java");
-        elements.clear();
-        dashboard.refresh();
+        clear();
+        refresh();
         while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
@@ -87,8 +94,8 @@ public class CareerBonaGraphicController implements Initializable {
     @FXML
     void pythonFunction(){
         List<EventBean> y = new ItemController().item("python");
-        elements.clear();
-        dashboard.refresh();
+        clear();
+        refresh();
         while(!(y.isEmpty())){
             EventBean z= y.get(0);
             elements.add(z);
@@ -97,16 +104,10 @@ public class CareerBonaGraphicController implements Initializable {
         dashboard.setItems(FXCollections.observableList(elements));
     }
 
-    @FXML
-    void fakeListViewInsert() {
-
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        elements.clear();
-        dashboard.refresh();
+        clear();
+        refresh();
         List<EventBean> y;
         y = new ItemController().item("");
 

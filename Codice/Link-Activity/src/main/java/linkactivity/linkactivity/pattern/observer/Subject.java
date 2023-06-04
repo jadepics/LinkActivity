@@ -1,4 +1,4 @@
-package linkactivity.linkactivity.Pattern.Observer;
+package linkactivity.linkactivity.pattern.observer;
 
 import java.util.ArrayList;
 

@@ -8,7 +8,9 @@ public class UserBean {
     private String userEmail;
     private String userPass;
 
-public UserBean(String email){}
+public UserBean(String email){
+    //UserBean email method
+}
 
 
     public UserBean(String userEmail, String username, String userPass){

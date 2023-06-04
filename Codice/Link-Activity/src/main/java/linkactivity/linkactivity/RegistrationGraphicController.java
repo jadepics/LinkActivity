@@ -10,8 +10,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.Statement;
 import java.util.Objects;
 
 public class RegistrationGraphicController {
@@ -62,7 +60,7 @@ public class RegistrationGraphicController {
         stage.show();
 
     }
-    private void switchToSelectFavourite(ActionEvent event) throws IOException {
+    private void switchToSelectFavourite(ActionEvent event){
         String emailText = regEmailUser.getText();
         String usernameText = regUsernameUser.getText();
         String checkpass = regPassUser.getText();
@@ -82,7 +80,7 @@ public class RegistrationGraphicController {
         }
     }
 
-    private void switchToInsertLogo(ActionEvent event) throws IOException {
+    private void switchToInsertLogo(ActionEvent event){
         String usernameText = regUsernameUser.getText();
         CompanyBean companyBean =new CompanyBean(usernameText);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -105,7 +103,6 @@ public class RegistrationGraphicController {
         String emailText = "";
         String checkpass="";
         String usernameText="";
-        int check=0;
         if(regEmailUser()==1){emailText = regEmailUser.getText();}
 
         if(!(regUsernameUser.getText().isEmpty())){
@@ -116,7 +113,6 @@ public class RegistrationGraphicController {
         if(regEmailUser()==1 && regPassUser() &&regRepPassUser()) {
             if (userRB.isSelected()) {
                 UserBean userBean = new UserBean(emailText, usernameText, checkpass);
-                System.out.println(userBean.getUsername());
                 new LoginController.UserRegistration(userBean);
                 i=1;
             } else if (companyRB.isSelected()) {
@@ -149,7 +145,6 @@ public class RegistrationGraphicController {
 
     @FXML
     private void signUpGoogle(){
-        //todo  SIGNUPGOOGLE
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("SignUpGoogle is a dummy function");
         alert.showAndWait();
@@ -168,7 +163,7 @@ public class RegistrationGraphicController {
 
         String[] result = str.split("\\a");
         for (int i = 0;i < result[0].length(); i++){
-            pars[0]= String.valueOf(result[0].charAt(i)); //parsa la parola in lettere per controllare se c'è la @
+            pars[0]= String.valueOf(result[0].charAt(i));
 
             if(pars[0].equals("@")){
                 a=1;
@@ -185,10 +180,6 @@ public class RegistrationGraphicController {
             return ret;
         }
         else return ret;
-    }
-
-    @FXML
-    private void regUsernameUser() {
     }
 
     @FXML

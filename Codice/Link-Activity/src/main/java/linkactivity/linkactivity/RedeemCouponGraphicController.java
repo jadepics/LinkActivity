@@ -32,6 +32,8 @@ public class RedeemCouponGraphicController {
     CompanyBean y;
     int pts;
 
+    String notpoints= "Not Enough Points";
+
     @FXML
     void backToAzioniAzienda(){
 
@@ -58,7 +60,7 @@ public class RedeemCouponGraphicController {
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Not Enough Points");
+            alert.setHeaderText(notpoints);
             alert.showAndWait();
         }
     }
@@ -70,7 +72,7 @@ public class RedeemCouponGraphicController {
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Not Enough Points");
+            alert.setHeaderText(notpoints);
             alert.showAndWait();
         }
     }
@@ -82,7 +84,7 @@ public class RedeemCouponGraphicController {
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Not Enough Points");
+            alert.setHeaderText(notpoints);
             alert.showAndWait();
         }
     }

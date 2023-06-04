@@ -33,7 +33,7 @@
                   <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="regUsernameUser" layoutX="228.0" layoutY="151.0" onAction="#regUsernameUser" prefHeight="28.0" prefWidth="235.0" promptText="Username">
+            <TextField fx:id="regUsernameUser" layoutX="228.0" layoutY="151.0" prefHeight="28.0" prefWidth="235.0" promptText="Username">
                <font>
                   <Font size="13.0" />
                </font>

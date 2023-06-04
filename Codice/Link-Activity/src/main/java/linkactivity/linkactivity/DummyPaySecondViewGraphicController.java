@@ -3,18 +3,13 @@ package linkactivity.linkactivity;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import linkactivity.linkactivity.Utilities.ApplyCouponAid;
-import linkactivity.linkactivity.Utilities.GUISwtichAid;
+import linkactivity.linkactivity.utilities.ApplyCouponAid;
+import linkactivity.linkactivity.utilities.GUISwtichAid;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 

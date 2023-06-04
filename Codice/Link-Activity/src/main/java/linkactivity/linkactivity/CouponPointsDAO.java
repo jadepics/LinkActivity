@@ -6,25 +6,20 @@ import java.util.List;
 
 public class CouponPointsDAO {
 
-            //TODO creare funzione sottrazione coupon usati a coupon disponibili
-
     private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
 
     public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException {
         String nomeaz= company.getCompanyNomeaz();
 
         try {
-            // Apertura del file di testo
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
             StringBuilder result = new StringBuilder();
             int updatedNumber;
 
-            // Lettura del file riga per riga
             while ((line = reader.readLine()) != null) {
                 if (line.contains(nomeaz)) {
-                    // Se la riga contiene la stringa cercata, cerca "pts=" e aggiorna il valore successivo
                     int index = line.indexOf("pts=");
                     if (index >= 0) {
                         int startIndex = index + 4;
@@ -53,12 +48,9 @@ public class CouponPointsDAO {
 
             reader.close();
 
-            // Sovrascrittura del file con il contenuto modificato
             FileWriter writer = new FileWriter(file);
             writer.write(result.toString());
             writer.close();
-
-            System.out.println("Operazione completata.");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -67,18 +59,15 @@ public class CouponPointsDAO {
 
     public static int getCurrentPoints(CompanyModel company) { //TODO forse cambiare int con una bean
         String nomeaz= company.getCompanyNomeaz();
-        int points = 0; // Variabile per salvare il valore di "pts="
+        int points = 0;
 
         try {
-            // Apertura del file di testo
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
 
-            // Lettura del file riga per riga
             while ((line = reader.readLine()) != null) {
                 if (line.contains(nomeaz)) {
-                    // Se la riga contiene la stringa cercata, cerca "pts=" e legge il valore successivo
                     int index = line.indexOf("pts=");
                     if (index >= 0) {
                         int startIndex = index + 4;
@@ -88,7 +77,7 @@ public class CouponPointsDAO {
                         }
                         String numberString = line.substring(startIndex, endIndex);
                         points = Integer.parseInt(numberString);
-                        break; // Esci dal ciclo una volta trovato il valore di "pts="
+                        break;
                     }
                 }
             }
@@ -114,16 +103,13 @@ public class CouponPointsDAO {
         }
 
         try {
-            // Apertura del file di testo
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
             StringBuilder updatedContent = new StringBuilder();
 
-            // Lettura del file riga per riga
             while ((line = reader.readLine()) != null) {
                 if (line.contains(nomeaz)) {
-                    // Se la riga contiene la stringa cercata, cerca "cp1=" e aggiorna il valore successivo
                     int index = line.indexOf(s);
                     if (index >= 0) {
                         int startIndex = index + 4;
@@ -142,7 +128,6 @@ public class CouponPointsDAO {
 
             reader.close();
 
-            // Aggiornamento del file con il contenuto modificato
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(updatedContent.toString());
             writer.close();
@@ -156,15 +141,12 @@ public class CouponPointsDAO {
         List<Integer> coupList = new ArrayList<>();
 
         try {
-            // Apertura del file di testo
             BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
 
-            // Lettura del file riga per riga
             while ((line = reader.readLine()) != null) {
                 if (line.contains(nomeaz)) {
-                    // Se la riga contiene la stringa cercata, cerca i numeri successivi a "cp1=", "cp2=" e "cp3="
                     List<Integer> index= new ArrayList<>();
                     index.add(line.indexOf("cp1="));
                     index.add(line.indexOf("cp2="));
@@ -215,20 +197,15 @@ public class CouponPointsDAO {
             }
             i++;
         }
-        System.out.println(numbers + " pirirurururu");
-
-        String filePath = "src/main/CompanyCoupon-Filesystem.txt"; // Percorso del file da leggere
 
         try {
-            File file = new File(filePath);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            File file2 = new File(String.valueOf(file));
+            BufferedReader reader = new BufferedReader(new FileReader(file2));
             StringBuilder sb = new StringBuilder();
             String line;
-            boolean foundSearchString = false;
 
             while ((line = reader.readLine()) != null) {
                 if (line.contains(nomeaz)) {
-                    foundSearchString = true;
                     String[] tokens = line.split(" ");
 
                     for (int g = 0; g < tokens.length; g++) {
@@ -256,11 +233,9 @@ public class CouponPointsDAO {
             reader.close();
 
             // Sovrascrive il file originale con le modifiche
-            FileWriter writer = new FileWriter(file);
+            FileWriter writer = new FileWriter(file2);
             writer.write(sb.toString());
             writer.close();
-
-            System.out.println("File modificato con successo.");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -268,7 +243,7 @@ public class CouponPointsDAO {
 
     public void insertNewAzienda(String nomeAzienda) {
         String content= nomeAzienda +": pts=0 - cp1=0 - cp2=0 - cp3=0";
-        try (FileWriter fileWriter = new FileWriter("src/main/CompanyCoupon-Filesystem.txt", true)) {
+        try (FileWriter fileWriter = new FileWriter(file, true)) {
             fileWriter.write(content);
             fileWriter.write(System.lineSeparator());
         } catch (IOException e) {

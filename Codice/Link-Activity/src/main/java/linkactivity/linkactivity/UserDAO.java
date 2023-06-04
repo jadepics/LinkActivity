@@ -16,7 +16,6 @@ public class UserDAO {
         try (Statement statement = myConnection.createStatement();
             ResultSet resultSet = Queries.selectUserbyTag(statement, tag)){
             while(resultSet.next()){
-                System.out.println(resultSet);
                 user.add(createUser(resultSet));
 
             }
@@ -27,7 +26,6 @@ public class UserDAO {
 
     private UserModel createUser(ResultSet resultSet) throws SQLException{
         String email =resultSet.getString(USER_EMAIL);
-        System.out.println(email);
         return new UserModel(email);
     }
 
