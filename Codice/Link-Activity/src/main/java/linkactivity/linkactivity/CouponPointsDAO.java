@@ -268,7 +268,7 @@ public class CouponPointsDAO {
 
     public void insertNewAzienda(String nomeAzienda) {
         String content= nomeAzienda +": pts=0 - cp1=0 - cp2=0 - cp3=0";
-        try (FileWriter fileWriter = new FileWriter("C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\CompanyCoupon-Filesystem.txt", true)) {
+        try (FileWriter fileWriter = new FileWriter("src/main/CompanyCoupon-Filesystem.txt", true)) {
             fileWriter.write(content);
             fileWriter.write(System.lineSeparator());
         } catch (IOException e) {

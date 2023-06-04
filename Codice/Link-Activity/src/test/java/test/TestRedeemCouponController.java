@@ -27,7 +27,7 @@ public class TestRedeemCouponController {
         File file = new File("src/main/CompanyCoupon-Filesystem.txt");
         CompanyBean companyBean = new CompanyBean("Apple");
         int coupNumberBefore;
-        int coupoNumberAfter;
+        int coupNumberAfter;
         int pts = 300;
         String cp1String= "cp1=";
         String nomeaz = "Apple";
@@ -35,8 +35,8 @@ public class TestRedeemCouponController {
 
         coupNumberBefore= ausfunct(cp1String,nomeaz,file);
         EventCreateController.removePoints(companyBean,pts);
-        coupoNumberAfter=ausfunct(cp1String,nomeaz,file);
-        assert(coupNumberBefore==coupoNumberAfter-1);
+        coupNumberAfter=ausfunct(cp1String,nomeaz,file);
+        assert(coupNumberBefore==coupNumberAfter-1);
         originalfile(cp1String,nomeaz,file);
     }
 
