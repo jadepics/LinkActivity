@@ -27,9 +27,9 @@ public class TestUseCoupoonController {
         String cp1String= "cp1=";
         String nomeaz= "Apple";
 
-        coupNumberBefore= ausfunct(cp1String,nomeaz,file);
+        coupNumberBefore= TestRedeemCouponController.ausfunct(cp1String,nomeaz,file);
         EventCreateController.removeCoupon(couponBeans, companyBean);
-        coupNumberAfter= ausfunct(cp1String, nomeaz, file);
+        coupNumberAfter= TestRedeemCouponController.ausfunct(cp1String, nomeaz, file);
         assert(coupNumberBefore==coupNumberAfter+1);
         originalfile(cp1String,nomeaz,file);
     }
@@ -64,29 +64,4 @@ public class TestUseCoupoonController {
             e.printStackTrace();
         }
     }
-
-    public int ausfunct(String cp1String, String nomeaz, File file){
-        int coupNumber=0;
-
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                if (line.contains(nomeaz)) {
-                    int cp1Index = line.indexOf(cp1String);
-                    if (cp1Index != -1) {
-                        String numberString = line.substring(cp1Index + cp1String.length()).split("\\s+")[0];
-                        coupNumber = Integer.parseInt(numberString);
-                        break;
-                    }
-                }
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return coupNumber;
-    }
-
 }

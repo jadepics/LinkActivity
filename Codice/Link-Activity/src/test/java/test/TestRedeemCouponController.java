@@ -71,7 +71,7 @@ public class TestRedeemCouponController {
         }
     }
 
-    public int ausfunct(String cp1String, String nomeaz, File file){
+    public static int ausfunct(String cp1String, String nomeaz, File file){
         int coupNumber=0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
