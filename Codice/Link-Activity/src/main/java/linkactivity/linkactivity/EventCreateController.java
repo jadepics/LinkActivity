@@ -56,11 +56,12 @@ public class EventCreateController {
         CouponPointsDAO.addPoints(company, "add",0);
     }
 
-    public static int getCurrentPoints(CompanyBean companyBean){
+    public static CouponBean getCurrentPoints(CompanyBean companyBean){
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
-        int points= CouponPointsDAO.getCurrentPoints(company);
-        System.out.println(points);
-        return points;
+        CouponModel couponModel= CouponPointsDAO.getCurrentPoints(company);
+        int points= couponModel.getPoints();
+        CouponBean couponBean= new CouponBean(points);
+        return couponBean;
     }
 
     public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException {
@@ -69,9 +70,16 @@ public class EventCreateController {
         CouponPointsDAO.redeemCoupon(company,points);
     }
 
-    public static List<Integer> getAvailableCoupons(CompanyBean companyBean){
+    public static List<CouponBean> getAvailableCoupons(CompanyBean companyBean){
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
-        return CouponPointsDAO.getAvailableCoupons(company);
+        List<CouponModel> couponModels= CouponPointsDAO.getAvailableCoupons(company);
+        List<CouponBean> couponBeans= new ArrayList<>();
+        while(3> couponBeans.size()){
+            CouponBean couponBean= new CouponBean(couponModels.get(0).getQuantity(), "");
+            couponBeans.add(couponBean);
+            couponModels.remove(0);
+        }
+        return couponBeans;
     }
 
     public static Double applyCoupon(List<CouponBean> couponBean){ //TODO indagare se deve essere stiatic

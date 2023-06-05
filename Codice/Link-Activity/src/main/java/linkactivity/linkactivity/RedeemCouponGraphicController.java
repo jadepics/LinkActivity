@@ -95,7 +95,8 @@ public class RedeemCouponGraphicController {
     }
 
     private void setCurrentCompanyPoints(){
-        pts= EventCreateController.getCurrentPoints(y);
+        CouponBean couponBean= EventCreateController.getCurrentPoints(y);
+        pts= couponBean.getPoints();
         aviablePoints.setText("Your Aviable Points: "+pts);
     }
 

@@ -109,10 +109,10 @@ public class DummyPaySecondViewGraphicController {
     }
 
     private void setCurrentCompanyCoupons(){
-        List<Integer> coupList= EventCreateController.getAvailableCoupons(y);
-        fivep= coupList.get(0);
-        tenp= coupList.get(1);
-        fiftp= coupList.get(2);
+        List<CouponBean> coupList= EventCreateController.getAvailableCoupons(y);
+        fivep= coupList.get(0).getQuantity();
+        tenp= coupList.get(1).getQuantity();
+        fiftp= coupList.get(2).getQuantity();
         fivePCouponAvailable.setText("Available 5% coupons: "+ fivep);
         tenPCouponAvailable.setText("Available 10% coupons: "+ tenp);
         fiftPCouponAvailable.setText("Available 15% coupons: "+ fiftp);

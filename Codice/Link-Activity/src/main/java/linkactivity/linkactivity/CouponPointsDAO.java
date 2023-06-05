@@ -29,11 +29,8 @@ public class CouponPointsDAO {
                         }
                         String numberString = line.substring(startIndex, endIndex);
                         int number = Integer.parseInt(numberString);
-                        if(todo.equals("add")){ //TODO passare questo if e il relativo else in una funz dedicata (costo comp)
-                            updatedNumber = number + 100;
-                        } else {
-                            updatedNumber= number-quantity;
-                        }
+
+                        updatedNumber= ausfunction(todo, number, quantity);
 
                         String updatedLine = line.substring(0, startIndex) + updatedNumber + line.substring(endIndex);
                         result.append(updatedLine);
@@ -57,7 +54,17 @@ public class CouponPointsDAO {
         }
     }
 
-    public static int getCurrentPoints(CompanyModel company) { //TODO forse cambiare int con una bean
+    private static int ausfunction(String todo, int number, int quantity){
+        int updatedNumber;
+        if(todo.equals("add")){
+            updatedNumber = number + 100;
+        } else {
+            updatedNumber= number-quantity;
+        }
+        return updatedNumber;
+    }
+
+    public static CouponModel getCurrentPoints(CompanyModel company) { //TODO forse cambiare int con una model
         String nomeaz= company.getCompanyNomeaz();
         int points = 0;
 
@@ -87,7 +94,13 @@ public class CouponPointsDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return points;
+
+        return new CouponModel(points) {
+            @Override
+            public Double getPrice() {
+                return null;
+            }
+        };
     }
 
     public static void redeemCoupon(CompanyModel company, int points){
@@ -136,7 +149,7 @@ public class CouponPointsDAO {
         }
     }
 
-    public static List<Integer> getAvailableCoupons(CompanyModel company){ //TODO replace List<Integer> con model di coupon
+    public static List<CouponModel> getAvailableCoupons(CompanyModel company){ //TODO replace List<Integer> con model di coupon
         String nomeaz= company.getCompanyNomeaz();
         List<Integer> coupList = new ArrayList<>();
 
@@ -172,8 +185,21 @@ public class CouponPointsDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return coupList;
+
+        List<CouponModel> couponModels= new ArrayList<>();
+        while(3> couponModels.size()){
+            CouponModel couponModel= new CouponModel(coupList.get(0),"") {
+                @Override
+                public Double getPrice() {
+                    return null;
+                }
+            };
+            couponModels.add(couponModel);
+            coupList.remove(0);
+        }
+        return couponModels;
     }
+
 
     public static void removeCoupons(List<CouponModel> couponModels, CompanyModel y) {
         String nomeaz = y.getCompanyNomeaz();

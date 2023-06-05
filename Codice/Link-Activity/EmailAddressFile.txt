@@ -1,8 +1,6 @@
-Azienda mail address:    io@io.io
+Azienda mail address:    Apple@Apple.Apple
 
-New event added:   ioioioiooi
+New event added:   IOOI
 
 Send to users mail address:
 
-null
-null
