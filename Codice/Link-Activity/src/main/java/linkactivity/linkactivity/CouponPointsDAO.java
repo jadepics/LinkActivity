@@ -11,7 +11,7 @@ public class CouponPointsDAO {
     public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException {
         String nomeaz= company.getCompanyNomeaz();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(file));) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
 
             String line;
             StringBuilder result = new StringBuilder();
@@ -67,8 +67,8 @@ public class CouponPointsDAO {
         String nomeaz= company.getCompanyNomeaz();
         int points = 0;
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+
 
             String line;
 
@@ -114,8 +114,8 @@ public class CouponPointsDAO {
             s="cp3=";
         }
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))){
+
 
             String line;
             StringBuilder updatedContent = new StringBuilder();
@@ -152,8 +152,7 @@ public class CouponPointsDAO {
         String nomeaz= company.getCompanyNomeaz();
         List<Integer> coupList = new ArrayList<>();
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))){
 
             String line;
 
@@ -229,10 +228,9 @@ public class CouponPointsDAO {
             }
             i++;
         }
+        File file2 = new File(String.valueOf(file));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file2))){
 
-        try {
-            File file2 = new File(String.valueOf(file));
-            BufferedReader reader = new BufferedReader(new FileReader(file2));
             StringBuilder sb = new StringBuilder();
             String line;
 
