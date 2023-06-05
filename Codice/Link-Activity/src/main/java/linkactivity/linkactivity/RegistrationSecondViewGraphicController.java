@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.utilities.ShowAlertAid;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -42,31 +43,31 @@ public class RegistrationSecondViewGraphicController {
             if (email.contains("@") && email.contains(".")) {
                 registrationEmailText.setText(email);
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Email is not valid ");
-                alert.showAndWait();
+
+                ShowAlertAid.showalerterror("Email is not valid ");
+
             }
         } else if (s.matches("set username .*")) {
             String username = s.replace("set username ", "");
             if (username.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Username is not valid ");
-                alert.showAndWait();
+
+                ShowAlertAid.showalerterror("Username is not valid ");
+
             } else registrationUsernameText.setText(username);
         } else if (s.matches("set password .*")) {
             String pass = s.replace("set password ", "");
             if (pass.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Password is empty");
-                alert.showAndWait();
+
+
+                ShowAlertAid.showalerterror("Password is empty");
+
+
             } else registrationPasswordText.setText(pass);
         } else if (s.matches("set repeat password .*")) {
             String repPass = s.replace("set repeat password ", "");
             registrationRepeatPasswordText.setText(repPass);
             if (repPass.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Repeat password is empty");
-                alert.showAndWait();
+                ShowAlertAid.showalerterror("Repeat password is empty");
             }
         }
 
@@ -74,10 +75,10 @@ public class RegistrationSecondViewGraphicController {
                 String profileType = s.replace("set profile ", "");
                 registrationProfileTypeText.setText(profileType);
             } else if (s.compareTo("goto googleSignUp") == 0) {
-                Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                alert2.setHeaderText("GoogleSignUp is a dummy function");
-                alert2.showAndWait();
-            } else if (s.compareTo("goto login") == 0) {
+
+                ShowAlertAid.showalertinformation("GoogleSignUp is a dummy function");
+
+        } else if (s.compareTo("goto login") == 0) {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("LoginSecondView.fxml")));
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
@@ -89,14 +90,10 @@ public class RegistrationSecondViewGraphicController {
                 String username = registrationUsernameText.getText();
                 String pass = registrationPasswordText.getText();
                 if(type.isEmpty() ||email.isEmpty()||username.isEmpty()||pass.isEmpty()){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setHeaderText("Fields are empty");
-                    alert.showAndWait();
+                    ShowAlertAid.showalerterror("Fields are empty");
                 }
             if (!(registrationPasswordText.getText().matches(registrationRepeatPasswordText.getText()))) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Passwords not match");
-                alert.showAndWait();
+                ShowAlertAid.showalerterror("Passwords not match");
             } else {
                 if (type.matches("user")) {
                     UserBean userBean = new UserBean(email, username, pass);
@@ -130,8 +127,6 @@ public class RegistrationSecondViewGraphicController {
                     }
 
                 }
-
-
             }
         }
     }
