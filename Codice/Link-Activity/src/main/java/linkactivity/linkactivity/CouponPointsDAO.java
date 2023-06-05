@@ -11,8 +11,7 @@ public class CouponPointsDAO {
     public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException {
         String nomeaz= company.getCompanyNomeaz();
 
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file));) {
 
             String line;
             StringBuilder result = new StringBuilder();
