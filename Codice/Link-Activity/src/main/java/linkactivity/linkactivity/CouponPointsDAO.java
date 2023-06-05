@@ -172,10 +172,6 @@ public class CouponPointsDAO {
 
                             endIndex= endindex(endIndex, line);
 
-                            if (endIndex < 0) {
-                                endIndex = line.length();
-                            }
-
                             String numberString = line.substring(startIndex, endIndex);
                             int number = Integer.parseInt(numberString);
                             coupList.add(number);
