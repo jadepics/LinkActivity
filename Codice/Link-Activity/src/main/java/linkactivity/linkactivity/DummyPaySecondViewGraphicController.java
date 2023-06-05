@@ -85,7 +85,9 @@ public class DummyPaySecondViewGraphicController {
                 alert.setHeaderText("Complete all coupon fields");
                 alert.showAndWait();
             } catch (NotEnoughCouponAvailableException e) {
-                throw new RuntimeException(e);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Not Enough Coupon Available");
+                alert.showAndWait();
             }
 
         } else if(s.compareTo("back")==0){
