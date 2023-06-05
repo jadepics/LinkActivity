@@ -55,13 +55,19 @@ public class EventCreateSecondViewGraphicController {
             eventCreateExpirationDateText.setText(expdate);
         } else if(s.matches("set tag .*")){
             String tag= s.replace("set tag ","");
-            if(!(tag.matches("Java") || tag.matches("Python") || tag.matches("C\\+\\+"))){
+            taginsertaid(tag);
+
+            /*if(!(tag.matches("Java") || tag.matches("Python") || tag.matches("C\\+\\+"))){
                 Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                 alert2.setHeaderText(tag+" is not a valid tag");
                 alert2.showAndWait();
             } else {
                 eventCreateTagText.setText(tag);
             }
+
+             */
+
+
         } else if(s.matches("set participant number .*")){
             String num= s.replace("set participant number ", "");
             eventCreatePartecipantNumberText.setText(num);
@@ -102,6 +108,16 @@ public class EventCreateSecondViewGraphicController {
             catch (IOException e){
                 throw new RuntimeException(e);
             }
+        }
+    }
+
+    private void taginsertaid(String tag){
+        if(!(tag.matches("Java") || tag.matches("Python") || tag.matches("C\\+\\+"))){
+            Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+            alert2.setHeaderText(tag+" is not a valid tag");
+            alert2.showAndWait();
+        } else {
+            eventCreateTagText.setText(tag);
         }
     }
 

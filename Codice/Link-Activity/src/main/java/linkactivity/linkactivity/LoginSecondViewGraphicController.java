@@ -41,20 +41,8 @@ public class LoginSecondViewGraphicController {
             loginPasswordText.setText(passw);
         } else if (s.matches("set profile .*")) {
             String profileType = s.replace("set profile ", "");
-            /*if (!profileType.matches("user") || !profileType.matches("company")) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Choose between user or company");
-                alert.showAndWait();
-             */
-            if(profileType.matches("user")){
-                loginProfileTypeText.setText(profileType);
-            } else if(profileType.matches("company")){
-                loginProfileTypeText.setText(profileType);
-            } else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Choose between user or company");
-                alert.showAndWait();
-            }
+            profiletypeaid(profileType);
+
         } else if(s.compareTo("goto googleLogin")==0){
             Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
             alert2.setHeaderText("GoogleLogin is a dummy function");
@@ -111,6 +99,18 @@ public class LoginSecondViewGraphicController {
 
 
 
+        }
+    }
+
+    private void profiletypeaid(String profileType){
+        if(profileType.matches("user")){
+            loginProfileTypeText.setText(profileType);
+        } else if(profileType.matches("company")){
+            loginProfileTypeText.setText(profileType);
+        } else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Choose between user or company");
+            alert.showAndWait();
         }
     }
 }

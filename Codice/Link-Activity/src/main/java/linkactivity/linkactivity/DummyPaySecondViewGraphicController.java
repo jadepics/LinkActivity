@@ -1,6 +1,7 @@
 package linkactivity.linkactivity;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
@@ -77,17 +78,7 @@ public class DummyPaySecondViewGraphicController {
                     z = Integer.parseInt(fiftPCouponToUse.getText());
 
                     Double finalPrice= ApplyCouponAid.applycoupnaid(x,j,z,y,fivep,tenp,fiftp);
-
-                    if(finalPrice != null) {
-                        setCurrentCompanyCoupons();
-                        EventCreateController.addPoints(y);
-                        total.setText("Total: " + finalPrice);
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setHeaderText("Event creation successfully completed");
-                        alert.showAndWait();
-                        dummyPayCommandLine.setText("back");
-                        dummyPayCommandLine.fireEvent(event);
-                    }
+                    nullfinalpriceaid(finalPrice, event);
                 }
             } catch(NotNullCouponToUseException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -100,6 +91,19 @@ public class DummyPaySecondViewGraphicController {
         } else if(s.compareTo("back")==0){
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreateSecondView.fxml")));
             GUISwtichAid.eventcreatesecondviewguiswitch(event,y,root);
+        }
+    }
+
+    private void nullfinalpriceaid(Double finalPrice, Event event) throws FileNotFoundException {
+        if(finalPrice != null) {
+            setCurrentCompanyCoupons();
+            EventCreateController.addPoints(y);
+            total.setText("Total: " + finalPrice);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Event creation successfully completed");
+            alert.showAndWait();
+            dummyPayCommandLine.setText("back");
+            dummyPayCommandLine.fireEvent(event);
         }
     }
 

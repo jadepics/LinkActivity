@@ -169,9 +169,13 @@ public class CouponPointsDAO {
                         if (index.get(i) >= 0) {
                             int startIndex = index.get(i) + 4;
                             int endIndex = line.indexOf(' ', startIndex);
+
+                            endIndex= endindex(endIndex, line);
+
                             if (endIndex < 0) {
                                 endIndex = line.length();
                             }
+
                             String numberString = line.substring(startIndex, endIndex);
                             int number = Integer.parseInt(numberString);
                             coupList.add(number);
@@ -198,6 +202,13 @@ public class CouponPointsDAO {
             coupList.remove(0);
         }
         return couponModels;
+    }
+
+    private static int endindex(int endIndex, String line){
+        if (endIndex < 0) {
+            endIndex = line.length();
+        }
+        return endIndex;
     }
 
 
@@ -234,21 +245,7 @@ public class CouponPointsDAO {
                 if (line.contains(nomeaz)) {
                     String[] tokens = line.split(" ");
 
-                    for (int g = 0; g < tokens.length; g++) {
-                        if (tokens[g].startsWith("cp1=")) {
-                            int number = Integer.parseInt(tokens[g].substring(4));
-                            number -= numbers.get(0);
-                            tokens[g] = "cp1=" + number;
-                        } else if (tokens[g].startsWith("cp2=")) {
-                            int number = Integer.parseInt(tokens[g].substring(4));
-                            number -= numbers.get(1);
-                            tokens[g] = "cp2=" + number;
-                        } else if (tokens[g].startsWith("cp3=")) {
-                            int number = Integer.parseInt(tokens[g].substring(4));
-                            number -= numbers.get(2);
-                            tokens[g] = "cp3=" + number;
-                        }
-                    }
+                    tokensaid(tokens, numbers);
 
                     line = String.join(" ", tokens);
                 }
@@ -265,6 +262,25 @@ public class CouponPointsDAO {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static String[] tokensaid(String[] tokens, List<Integer> numbers){
+        for (int g = 0; g < tokens.length; g++) {
+            if (tokens[g].startsWith("cp1=")) {
+                int number = Integer.parseInt(tokens[g].substring(4));
+                number -= numbers.get(0);
+                tokens[g] = "cp1=" + number;
+            } else if (tokens[g].startsWith("cp2=")) {
+                int number = Integer.parseInt(tokens[g].substring(4));
+                number -= numbers.get(1);
+                tokens[g] = "cp2=" + number;
+            } else if (tokens[g].startsWith("cp3=")) {
+                int number = Integer.parseInt(tokens[g].substring(4));
+                number -= numbers.get(2);
+                tokens[g] = "cp3=" + number;
+            }
+        }
+        return tokens;
     }
 
     public void insertNewAzienda(String nomeAzienda) {
