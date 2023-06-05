@@ -1,7 +1,5 @@
 package linkactivity.linkactivity;
 
-import javafx.scene.control.Alert;
-
 public class NotNullCouponToUseException extends Exception{
 
     public NotNullCouponToUseException(){
