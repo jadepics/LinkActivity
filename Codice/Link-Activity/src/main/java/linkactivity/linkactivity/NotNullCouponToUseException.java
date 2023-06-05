@@ -8,7 +8,5 @@ public class NotNullCouponToUseException extends Exception{
 
     public NotNullCouponToUseException(String errorMessage){
         super(errorMessage);
-
     }
-
 }

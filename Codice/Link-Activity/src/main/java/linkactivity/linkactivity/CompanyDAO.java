@@ -48,9 +48,15 @@ public class CompanyDAO {
              ResultSet resultSet = Queries.loadCompany(statement, nomeAzienda, password)) {
             if (resultSet.next()) {
                 i = 1;
-            } else {
+            } else { //TODO fare if resultsetnext().isempty(), se si throw exception else i=1; idem in userDAO
                 throw new NotExistentUserException("NOT EXISTENT COMPANY!");
             }
+            //TODO serve un altro try per il controllo che vuoi fare e di conseguenza un altro catch con notexist.
+            // e all'interno il relativo aler grafico
+            /*Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Username or password are not correct");
+            alert.showAndWait();
+             */
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -64,7 +64,7 @@ public class CouponPointsDAO {
         return updatedNumber;
     }
 
-    public static CouponModel getCurrentPoints(CompanyModel company) { //TODO forse cambiare int con una model
+    public static CouponModel getCurrentPoints(CompanyModel company) {
         String nomeaz= company.getCompanyNomeaz();
         int points = 0;
 
@@ -79,7 +79,7 @@ public class CouponPointsDAO {
                     if (index >= 0) {
                         int startIndex = index + 4;
                         int endIndex = line.indexOf(' ', startIndex);
-                        if (endIndex < 0) { //TODO passare questo if e il relativo else in una funz dedicata (costo comp)
+                        if (endIndex < 0) {
                             endIndex = line.length();
                         }
                         String numberString = line.substring(startIndex, endIndex);
@@ -149,7 +149,7 @@ public class CouponPointsDAO {
         }
     }
 
-    public static List<CouponModel> getAvailableCoupons(CompanyModel company){ //TODO replace List<Integer> con model di coupon
+    public static List<CouponModel> getAvailableCoupons(CompanyModel company){
         String nomeaz= company.getCompanyNomeaz();
         List<Integer> coupList = new ArrayList<>();
 

@@ -33,7 +33,6 @@ public class EventCreateController {
 
             List <EventModel> checkEvents = eventDAO.getEvent("");
             while(!(checkEvents.isEmpty())) {
-                System.out.println("controllo");
                 if (controlDuplicatedEvent(checkEvents.get(0), addEvent)){
                     throw new DuplicatedEventException("evento già esistente");
                 }
@@ -45,7 +44,7 @@ public class EventCreateController {
                 createEBean.notifyChanges();
             }
         }
-        private static boolean controlDuplicatedEvent(EventModel localEvent, EventModel addEvent){ //TODO controllare se va bene static
+        private static boolean controlDuplicatedEvent(EventModel localEvent, EventModel addEvent){
             return Objects.equals(localEvent.getEventModelName(), addEvent.getEventModelName()) && Objects.equals(localEvent.getEventModelData(), addEvent.getEventModelData()) &&
                     Objects.equals(localEvent.getEventModelDescription(), addEvent.getEventModelDescription()) && Objects.equals(localEvent.getEventModelTag(), addEvent.getEventModelTag());
         }
@@ -60,8 +59,7 @@ public class EventCreateController {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponModel couponModel= CouponPointsDAO.getCurrentPoints(company);
         int points= couponModel.getPoints();
-        CouponBean couponBean= new CouponBean(points);
-        return couponBean;
+        return new CouponBean(points);
     }
 
     public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException {

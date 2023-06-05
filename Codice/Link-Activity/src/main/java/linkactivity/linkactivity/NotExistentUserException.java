@@ -10,8 +10,5 @@ public class NotExistentUserException extends Exception {
 
     public NotExistentUserException(String errorMessage) {
         super(errorMessage) ;
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setHeaderText("Username or password are not correct");
-        alert.showAndWait();
     }
 }
