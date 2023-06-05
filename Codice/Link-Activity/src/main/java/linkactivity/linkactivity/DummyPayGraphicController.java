@@ -68,8 +68,7 @@ public class DummyPayGraphicController {
             a.newSpostare(y); //da modificare il metodo
         } //PROBLEMA CON CAMBIO INTERFACCIA
         catch (IOException e){
-            //throw new IOExceptionHandler("IOException error");
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
