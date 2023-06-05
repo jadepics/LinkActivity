@@ -5,6 +5,7 @@ public class CouponBean {
     private Double couponDiscount;
     private int points;
     private int quantity;
+    private String string;
 
 
     public CouponBean(Double couponDiscount){
@@ -12,10 +13,17 @@ public class CouponBean {
     }
     public CouponBean(int quantity, String string){
         setQuantity(quantity);
+        setString(string);
     }
 
     public void setQuantity(int quantity){
         this.quantity= quantity;
+    }
+    public void setString(String string){
+        this.string=string;
+    }
+    public String getString(){
+        return string;
     }
     public int getQuantity(){
         return quantity;

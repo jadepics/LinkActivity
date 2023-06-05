@@ -7,6 +7,7 @@ public abstract class CouponModel implements Priceable {
     private Priceable appliedPrice ;
     private int points;
     private int quantity;
+    private String string;
 
     protected CouponModel(Double couponDiscount){
         setCouponDiscount(couponDiscount);
@@ -16,6 +17,13 @@ public abstract class CouponModel implements Priceable {
     }
     protected  CouponModel(int quantity,String string) {
         setQuantity(quantity);
+        setString(string);
+    }
+    public void setString(String string){
+        this.string= string;
+    }
+    public String getString(){
+        return string;
     }
     public void setQuantity(int quantity){
         this.quantity=quantity;
