@@ -8,7 +8,7 @@ public class CouponPointsDAO {
 
     private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
 
-    public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException {
+    public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException, IOExceptionHandler {
         String nomeaz= company.getCompanyNomeaz();
 
         try(BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -45,7 +45,7 @@ public class CouponPointsDAO {
             writer.write(result.toString());
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
@@ -59,7 +59,7 @@ public class CouponPointsDAO {
         return updatedNumber;
     }
 
-    public static CouponModel getCurrentPoints(CompanyModel company) {
+    public static CouponModel getCurrentPoints(CompanyModel company) throws IOExceptionHandler {
         String nomeaz= company.getCompanyNomeaz();
         int points = 0;
 
@@ -85,7 +85,7 @@ public class CouponPointsDAO {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
 
         return new CouponModel(points) {
@@ -96,7 +96,7 @@ public class CouponPointsDAO {
         };
     }
 
-    public static void redeemCoupon(CompanyModel company, int points){
+    public static void redeemCoupon(CompanyModel company, int points) throws IOExceptionHandler {
         String nomeaz= company.getCompanyNomeaz();
 
         String s;
@@ -135,11 +135,11 @@ public class CouponPointsDAO {
             writer.write(updatedContent.toString());
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
-    public static List<CouponModel> getAvailableCoupons(CompanyModel company){
+    public static List<CouponModel> getAvailableCoupons(CompanyModel company) throws IOExceptionHandler {
         String nomeaz= company.getCompanyNomeaz();
         List<Integer> coupList = new ArrayList<>();
 
@@ -170,7 +170,7 @@ public class CouponPointsDAO {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
 
         List<CouponModel> couponModels= new ArrayList<>();
@@ -195,7 +195,7 @@ public class CouponPointsDAO {
     }
 
 
-    public static void removeCoupons(List<CouponModel> couponModels, CompanyModel y) {
+    public static void removeCoupons(List<CouponModel> couponModels, CompanyModel y) throws IOExceptionHandler {
         String nomeaz = y.getCompanyNomeaz();
         List<Integer> numbers = new ArrayList<>(List.of(0, 0, 0)); // Esempio di lista di interi
         int i = 0;
@@ -237,7 +237,7 @@ public class CouponPointsDAO {
             }
             writer.write(sb.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
 

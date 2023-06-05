@@ -16,7 +16,7 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
 
 
     @Override
-    protected void updateItem(EventBean item, boolean empty) {
+    protected void updateItem(EventBean item, boolean empty){
         super.updateItem(item, empty);
         if (item != null) {
             try {
@@ -47,8 +47,8 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
 
                 setGraphic(parentNode);
 
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException ignored) {
+
             }
         }
         else {

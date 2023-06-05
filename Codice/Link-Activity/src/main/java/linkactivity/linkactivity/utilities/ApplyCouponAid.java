@@ -1,10 +1,7 @@
 package linkactivity.linkactivity.utilities;
 
 import javafx.scene.control.Alert;
-import linkactivity.linkactivity.CompanyBean;
-import linkactivity.linkactivity.CouponBean;
-import linkactivity.linkactivity.EventCreateController;
-import linkactivity.linkactivity.NotEnoughCouponAvailableException;
+import linkactivity.linkactivity.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +39,7 @@ public class ApplyCouponAid {
                 EventCreateController.removeCoupon(couponBeans, y);
 
             }
-        } catch (NotEnoughCouponAvailableException e) {
+        } catch (NotEnoughCouponAvailableException | IOExceptionHandler e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Not enough coupon available");
             alert.showAndWait();

@@ -47,7 +47,7 @@ public class DummyPaySecondViewGraphicController {
     private Integer fiftp;
 
     @FXML
-    void executeCommand(ActionEvent event) throws FileNotFoundException {
+    void executeCommand(ActionEvent event) throws FileNotFoundException, IOExceptionHandler {
         String s= dummyPayCommandLine.getText();
         dummyPayCommandLine.setText("");
 
@@ -88,6 +88,8 @@ public class DummyPaySecondViewGraphicController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("Not Enough Coupon Available");
                 alert.showAndWait();
+            } catch (IOExceptionHandler e) {
+                throw new IOExceptionHandler("IOException error");
             }
 
         } else if(s.compareTo("back")==0){
@@ -96,7 +98,7 @@ public class DummyPaySecondViewGraphicController {
         }
     }
 
-    private void nullfinalpriceaid(Double finalPrice, Event event) throws FileNotFoundException {
+    private void nullfinalpriceaid(Double finalPrice, Event event) throws FileNotFoundException, IOExceptionHandler {
         if(finalPrice != null) {
             setCurrentCompanyCoupons();
             EventCreateController.addPoints(y);
@@ -109,12 +111,12 @@ public class DummyPaySecondViewGraphicController {
         }
     }
 
-    public void currentCompany(CompanyBean x){
+    public void currentCompany(CompanyBean x) throws IOExceptionHandler {
         y=x;
         setCurrentCompanyCoupons();
     }
 
-    private void setCurrentCompanyCoupons(){
+    private void setCurrentCompanyCoupons() throws IOExceptionHandler {
         List<CouponBean> coupList= EventCreateController.getAvailableCoupons(y);
         fivep= coupList.get(0).getQuantity();
         tenp= coupList.get(1).getQuantity();

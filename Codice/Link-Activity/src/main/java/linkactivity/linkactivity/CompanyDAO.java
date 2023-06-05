@@ -36,12 +36,12 @@ public class CompanyDAO {
             statement.setString(2, userEmail);
             statement.setString(3, userPass);
             statement.execute();
-        } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
-    public int verifyCompany(String nomeAzienda, String password) throws NotExistentUserException{
+    public int verifyCompany(String nomeAzienda, String password) throws NotExistentUserException, IOExceptionHandler {
         int i=15;
         Connection myConnection = DBConnection.getDBConnection();
         try (Statement statement = myConnection.createStatement();

@@ -74,7 +74,7 @@ public class DummyPayGraphicController {
 
 
     @FXML
-    void applyCoupon() {
+    void applyCoupon() throws IOExceptionHandler {
 
         int x;
         int j;
@@ -106,23 +106,25 @@ public class DummyPayGraphicController {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Not Enough Coupon Available");
             alert.showAndWait();
+        } catch (IOExceptionHandler e) {
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
     @FXML
-    private void paymentDone() throws FileNotFoundException {
+    private void paymentDone() throws FileNotFoundException, IOExceptionHandler {
         EventCreateController.addPoints(y);
         paymentButton.setDisable(true);
         applyCouponButton.setDisable(true);
     }
 
     @FXML
-    public void setCurrentCompany(CompanyBean companyBean){
+    public void setCurrentCompany(CompanyBean companyBean) throws IOExceptionHandler {
         y= companyBean;
         setAvailableCoupons(y);
     }
 
-    private void setAvailableCoupons(CompanyBean companyBean){
+    private void setAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler {
         List<CouponBean> coupList= EventCreateController.getAvailableCoupons(companyBean);
         fivep= coupList.get(0).getQuantity();
         tenp= coupList.get(1).getQuantity();

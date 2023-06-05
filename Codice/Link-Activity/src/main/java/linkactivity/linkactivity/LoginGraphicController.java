@@ -69,7 +69,7 @@ public class LoginGraphicController {
     }
 
 
-    public void validateLogin(ActionEvent event) throws IOException, NotExistentUserException {
+    public void validateLogin(ActionEvent event) throws IOException, NotExistentUserException, IOExceptionHandler {
         int i=-1;
         if(emailUsernameLogin.getText().isEmpty() || passLogin.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);

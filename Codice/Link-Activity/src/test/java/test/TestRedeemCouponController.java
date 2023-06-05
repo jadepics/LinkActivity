@@ -2,6 +2,7 @@ package test;
 
 import linkactivity.linkactivity.CompanyBean;
 import linkactivity.linkactivity.EventCreateController;
+import linkactivity.linkactivity.IOExceptionHandler;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -16,7 +17,7 @@ public class TestRedeemCouponController {
     */
 
     @Test
-    public void testredeemcoupon() throws FileNotFoundException {
+    public void testredeemcoupon() throws FileNotFoundException, IOExceptionHandler {
 
         /*
             L'intento del test è verificare che ogni qual volta

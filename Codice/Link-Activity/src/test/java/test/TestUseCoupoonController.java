@@ -3,6 +3,7 @@ package test;
 import linkactivity.linkactivity.CompanyBean;
 import linkactivity.linkactivity.CouponBean;
 import linkactivity.linkactivity.EventCreateController;
+import linkactivity.linkactivity.IOExceptionHandler;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -16,7 +17,7 @@ public class TestUseCoupoonController {
     */
 
     @Test
-    public void testusecoupon(){
+    public void testusecoupon() throws IOExceptionHandler {
         File file = new File("src/main/CompanyCoupon-Filesystem.txt");
         CompanyBean companyBean = new CompanyBean("Apple");
         CouponBean couponBean= new CouponBean(5.0);

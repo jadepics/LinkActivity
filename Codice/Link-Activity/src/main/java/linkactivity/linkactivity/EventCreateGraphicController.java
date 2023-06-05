@@ -68,7 +68,7 @@ public class EventCreateGraphicController {
 
 
         @FXML
-        public void createItGotoPay() throws DuplicatedEventException {
+        public void createItGotoPay() throws DuplicatedEventException, IOExceptionHandler {
             int partecipant= convert(maxPartecipantNumber.getText());
             EventBean eventBean = new EventBean(eventName.getText(),description.getText(),initialDateInsert.getText(),expireDateInsert.getText(), partecipant,companyBean.getNomeAzienda(),tagInsert.getValue());
             CompanyBean companyBean2= new CompanyBean(eventBean.getNomeAzienda());
@@ -86,7 +86,7 @@ public class EventCreateGraphicController {
                 DummyPayGraphicController o = root.getController();
                 o.setCurrentCompany(companyBean2); //TODO forse deve passare la bean non una string
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new IOExceptionHandler("IOException error");
             }
             assert false;
 

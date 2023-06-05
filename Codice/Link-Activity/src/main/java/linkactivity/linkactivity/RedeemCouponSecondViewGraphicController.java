@@ -30,7 +30,7 @@ public class RedeemCouponSecondViewGraphicController {
 
 
     @FXML
-    public void executeCommand(ActionEvent event) throws FileNotFoundException {
+    public void executeCommand(ActionEvent event) throws FileNotFoundException, IOExceptionHandler {
         String s= redeemCouponCommandLine.getText();
         redeemCouponCommandLine.setText("");
         if(s.compareTo("redeem 5% coupon")==0){
@@ -45,7 +45,7 @@ public class RedeemCouponSecondViewGraphicController {
         }
     }
 
-    private void setPoints(int points) throws FileNotFoundException {
+    private void setPoints(int points) throws FileNotFoundException, IOExceptionHandler {
         if(pts >= points){
             EventCreateController.removePoints(y, points);
             setCurrentCompanyPoints();
@@ -63,12 +63,12 @@ public class RedeemCouponSecondViewGraphicController {
 
 
 
-    public void currentCompany(CompanyBean x){
+    public void currentCompany(CompanyBean x) throws IOExceptionHandler {
         y=x;
         setCurrentCompanyPoints();
     }
 
-    private void setCurrentCompanyPoints(){
+    private void setCurrentCompanyPoints() throws IOExceptionHandler {
         CouponBean couponBean= EventCreateController.getCurrentPoints(y);
         pts= couponBean.getPoints();
         aviablePoints.setText("Your Aviable Points: "+pts);

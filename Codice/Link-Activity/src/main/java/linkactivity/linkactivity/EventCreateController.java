@@ -50,25 +50,25 @@ public class EventCreateController {
         }
     }
 
-    public static void addPoints(CompanyBean companyBean) throws FileNotFoundException {
+    public static void addPoints(CompanyBean companyBean) throws FileNotFoundException, IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "add",0);
     }
 
-    public static CouponBean getCurrentPoints(CompanyBean companyBean){
+    public static CouponBean getCurrentPoints(CompanyBean companyBean) throws IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponModel couponModel= CouponPointsDAO.getCurrentPoints(company);
         int points= couponModel.getPoints();
         return new CouponBean(points);
     }
 
-    public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException {
+    public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException, IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "", points);
         CouponPointsDAO.redeemCoupon(company,points);
     }
 
-    public static List<CouponBean> getAvailableCoupons(CompanyBean companyBean){
+    public static List<CouponBean> getAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         List<CouponModel> couponModels= CouponPointsDAO.getAvailableCoupons(company);
         List<CouponBean> couponBeans= new ArrayList<>();
@@ -98,7 +98,7 @@ public class EventCreateController {
         return couponApplier.getFinalPrice();
     }
 
-    public static void removeCoupon(List<CouponBean> couponBeans, CompanyBean y){
+    public static void removeCoupon(List<CouponBean> couponBeans, CompanyBean y) throws IOExceptionHandler {
         Double coupon;
         CouponModel couponModel;
         List<CouponModel> couponModels= new ArrayList<>(){};

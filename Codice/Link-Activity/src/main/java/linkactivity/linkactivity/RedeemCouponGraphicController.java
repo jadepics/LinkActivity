@@ -54,7 +54,7 @@ public class RedeemCouponGraphicController {
     }
 
     @FXML
-    void redeemFiftpCoup() throws FileNotFoundException {
+    void redeemFiftpCoup() throws FileNotFoundException, IOExceptionHandler {
         if(pts>=800){
             EventCreateController.removePoints(y,800);
             setCurrentCompanyPoints();
@@ -66,7 +66,7 @@ public class RedeemCouponGraphicController {
     }
 
     @FXML
-    void redeemFivepCoupButton() throws FileNotFoundException {
+    void redeemFivepCoupButton() throws FileNotFoundException, IOExceptionHandler {
         if(pts>=300){
             EventCreateController.removePoints(y,300);
             setCurrentCompanyPoints();
@@ -78,7 +78,7 @@ public class RedeemCouponGraphicController {
     }
 
     @FXML
-    void redeemTenpCoup() throws FileNotFoundException {
+    void redeemTenpCoup() throws FileNotFoundException, IOExceptionHandler {
         if(pts>=550){
             EventCreateController.removePoints(y,550);
             setCurrentCompanyPoints();
@@ -89,12 +89,12 @@ public class RedeemCouponGraphicController {
         }
     }
 
-    public void setCurrentCompany(CompanyBean nomeaz){
+    public void setCurrentCompany(CompanyBean nomeaz) throws IOExceptionHandler {
         y=nomeaz;
         setCurrentCompanyPoints();
     }
 
-    private void setCurrentCompanyPoints(){
+    private void setCurrentCompanyPoints() throws IOExceptionHandler {
         CouponBean couponBean= EventCreateController.getCurrentPoints(y);
         pts= couponBean.getPoints();
         aviablePoints.setText("Your Aviable Points: "+pts);
