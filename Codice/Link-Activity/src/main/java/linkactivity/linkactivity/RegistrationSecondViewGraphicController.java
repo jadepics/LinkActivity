@@ -75,39 +75,43 @@ public class RegistrationSecondViewGraphicController {
                 String username = registrationUsernameText.getText();
                 String pass = registrationPasswordText.getText();
                 fieldscheck(type, email, username, pass);
-            if (!(registrationPasswordText.getText().matches(registrationRepeatPasswordText.getText()))) {
-                ShowAlertAid.showalerterror("Passwords not match");
-            } else {
-                if (type.matches("user")) {
-                    UserBean userBean = new UserBean(email, username, pass);
-                    new LoginController.UserRegistration(userBean);
-                    Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
-                    FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("FavouriteTagInsertSecondView.fxml")));
-                    Scene scene;
-                    try {
-                        scene = new Scene(root.load(), 690, 518);
-                        stage.setScene(scene);
-                        stage.show();
-                        FavouriteTagInsertSecondViewGraphicController a = root.getController();
-                        a.setUserBean(userBean);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                } else if (type.matches("company")) {
-                    CompanyBean companyBean = new CompanyBean(email, username, pass);
-                    new LoginController.CompanyRegister(companyBean);
-                    Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
-                    FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("InsertLogoAziendaSecondView.fxml")));
-                    Scene scene;
-                    try {
-                        scene = new Scene(root.load(), 690, 518);
-                        stage.setScene(scene);
-                        stage.show();
-                        InsertLogoAziendaSecondViewGraphicController a = root.getController();
-                        a.setCompanyName(companyBean);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+                submitAid(type, email, username, pass);
+        }
+    }
+
+    private void submitAid(String type, String email, String username, String pass) {
+        if (!(registrationPasswordText.getText().matches(registrationRepeatPasswordText.getText()))) {
+            ShowAlertAid.showalerterror("Passwords not match");
+        } else {
+            if (type.matches("user")) {
+                UserBean userBean = new UserBean(email, username, pass);
+                new LoginController.UserRegistration(userBean);
+                Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
+                FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("FavouriteTagInsertSecondView.fxml")));
+                Scene scene;
+                try {
+                    scene = new Scene(root.load(), 690, 518);
+                    stage.setScene(scene);
+                    stage.show();
+                    FavouriteTagInsertSecondViewGraphicController a = root.getController();
+                    a.setUserBean(userBean);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            } else if (type.matches("company")) {
+                CompanyBean companyBean = new CompanyBean(email, username, pass);
+                new LoginController.CompanyRegister(companyBean);
+                Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
+                FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("InsertLogoAziendaSecondView.fxml")));
+                Scene scene;
+                try {
+                    scene = new Scene(root.load(), 690, 518);
+                    stage.setScene(scene);
+                    stage.show();
+                    InsertLogoAziendaSecondViewGraphicController a = root.getController();
+                    a.setCompanyName(companyBean);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
         }
