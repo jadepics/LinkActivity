@@ -43,34 +43,19 @@ public class RegistrationSecondViewGraphicController {
             if (email.contains("@") && email.contains(".")) {
                 registrationEmailText.setText(email);
             } else {
-
                 ShowAlertAid.showalerterror("Email is not valid ");
-
             }
         } else if (s.matches("set username .*")) {
             String username = s.replace("set username ", "");
-            if (username.isEmpty()) {
-
-                ShowAlertAid.showalerterror("Username is not valid ");
-
-            } else registrationUsernameText.setText(username);
+            usernamecheck(username);
         } else if (s.matches("set password .*")) {
             String pass = s.replace("set password ", "");
-            if (pass.isEmpty()) {
-
-
-                ShowAlertAid.showalerterror("Password is empty");
-
-
-            } else registrationPasswordText.setText(pass);
+            passcheck(pass);
         } else if (s.matches("set repeat password .*")) {
             String repPass = s.replace("set repeat password ", "");
             registrationRepeatPasswordText.setText(repPass);
-            if (repPass.isEmpty()) {
-                ShowAlertAid.showalerterror("Repeat password is empty");
-            }
+            reppasscheck(repPass);
         }
-
         else if (s.matches("set profile .*")) {
                 String profileType = s.replace("set profile ", "");
                 registrationProfileTypeText.setText(profileType);
@@ -89,9 +74,7 @@ public class RegistrationSecondViewGraphicController {
                 String email = registrationEmailText.getText();
                 String username = registrationUsernameText.getText();
                 String pass = registrationPasswordText.getText();
-                if(type.isEmpty() ||email.isEmpty()||username.isEmpty()||pass.isEmpty()){
-                    ShowAlertAid.showalerterror("Fields are empty");
-                }
+                fieldscheck(type, email, username, pass);
             if (!(registrationPasswordText.getText().matches(registrationRepeatPasswordText.getText()))) {
                 ShowAlertAid.showalerterror("Passwords not match");
             } else {
@@ -125,9 +108,36 @@ public class RegistrationSecondViewGraphicController {
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-
                 }
             }
+        }
+    }
+
+    private void fieldscheck(String type, String email, String username, String pass) {
+        if(type.isEmpty() || email.isEmpty()|| username.isEmpty()|| pass.isEmpty()){
+            ShowAlertAid.showalerterror("Fields are empty");
+        }
+    }
+
+    private void reppasscheck(String repPass) {
+        if (repPass.isEmpty()) {
+            ShowAlertAid.showalerterror("Repeat password is empty");
+        }
+    }
+
+    private void passcheck(String pass) {
+        if (pass.isEmpty()) {
+            ShowAlertAid.showalerterror("Password is empty");
+        } else {
+            registrationPasswordText.setText(pass);
+        }
+    }
+
+    private void usernamecheck(String username) {
+        if (username.isEmpty()) {
+            ShowAlertAid.showalerterror("Username is not valid ");
+        } else {
+            registrationUsernameText.setText(username);
         }
     }
 }
