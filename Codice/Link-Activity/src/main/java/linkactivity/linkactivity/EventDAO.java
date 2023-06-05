@@ -23,8 +23,8 @@ public class EventDAO {
 
         List<EventModel> resultList = null;
 
-        try {
-            Statement statement = myConnection.createStatement();
+        try (Statement statement = myConnection.createStatement()){
+
             ResultSet queryLoginResult = statement.executeQuery(verifyLoginQuery);
             resultList = new ArrayList<>();
             while (queryLoginResult.next()) {
@@ -50,8 +50,7 @@ public class EventDAO {
         int k = x.getPartecipantNumber() - 1;
         String a = x.getEventName();
           updatePartecipantQuery = String.format("UPDATE evento SET numeroPartecipanti = %d WHERE nomeEvento = '%s';",k, a);
-        try {
-            Statement statement = myConnection.createStatement();
+        try(Statement statement = myConnection.createStatement()){
             statement.execute(updatePartecipantQuery);
 
         } catch (Exception e) {
