@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.utilities.GUISwtichAid;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -82,16 +83,7 @@ public class LoginSecondViewGraphicController {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
                 Scene scene;
-                try {
-                    scene = new Scene(root.load(), 690, 518);
-                    stage.setScene(scene);
-                    stage.show();
-                    AzioniAziendaSecondViewGraphicController a = root.getController();
-                    a.currentCompany(companyBean);
-                }
-                catch (IOException e){
-                    throw new RuntimeException(e);
-                }
+                GUISwtichAid.tryazioniaziendasecondviewaid(companyBean, root, stage);
 
             }
             // TODO controllo su email @ e .com/it ecc

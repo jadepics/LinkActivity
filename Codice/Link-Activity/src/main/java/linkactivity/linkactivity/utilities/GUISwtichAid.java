@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import linkactivity.linkactivity.AzioniAziendaGraphicController;
+import linkactivity.linkactivity.AzioniAziendaSecondViewGraphicController;
 import linkactivity.linkactivity.CompanyBean;
 import linkactivity.linkactivity.EventCreateSecondViewGraphicController;
 
@@ -42,4 +43,24 @@ public class GUISwtichAid {
             throw new RuntimeException(e);
         }
     }
+
+    public static void azioniaziendasecondviewguiswitch(ActionEvent event,CompanyBean y, FXMLLoader root){
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        tryazioniaziendasecondviewaid(y, root, stage);
+    }
+
+    public static void tryazioniaziendasecondviewaid(CompanyBean y, FXMLLoader root, Stage stage) {
+        Scene scene;
+        try {
+            scene = new Scene(root.load(), 690, 518);
+            stage.setScene(scene);
+            stage.show();
+            AzioniAziendaSecondViewGraphicController a = root.getController();
+            a.currentCompany(y);
+        }
+        catch (IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

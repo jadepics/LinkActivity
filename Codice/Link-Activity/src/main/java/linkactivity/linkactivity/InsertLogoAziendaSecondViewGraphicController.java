@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.utilities.GUISwtichAid;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -31,16 +32,7 @@ public class InsertLogoAziendaSecondViewGraphicController {
             Stage stage = (Stage) insertLogoCommandLine.getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
             Scene scene;
-            try {
-                scene = new Scene(root.load(), 690, 518);
-                stage.setScene(scene);
-                stage.show();
-                AzioniAziendaSecondViewGraphicController a = root.getController();
-                a.currentCompany(companyName);
-            }
-            catch (IOException e){
-                throw new RuntimeException(e);
-            }
+            GUISwtichAid.tryazioniaziendasecondviewaid(companyName, root, stage);
 
 
         }

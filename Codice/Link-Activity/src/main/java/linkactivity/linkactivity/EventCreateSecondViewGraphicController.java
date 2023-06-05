@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.utilities.GUISwtichAid;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -83,19 +84,8 @@ public class EventCreateSecondViewGraphicController {
                 throw new RuntimeException(e);
             }
         } else if(s.compareTo("back")==0){
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
-            Scene scene;
-            try {
-                scene = new Scene(root.load(), 690, 518);
-                stage.setScene(scene);
-                stage.show();
-                AzioniAziendaSecondViewGraphicController a = root.getController();
-                a.currentCompany(y);
-            }
-            catch (IOException e){
-                throw new RuntimeException(e);
-            }
+            GUISwtichAid.azioniaziendasecondviewguiswitch(event, y, root);
         }
     }
 
