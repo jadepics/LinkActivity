@@ -35,7 +35,7 @@ public class AzioniAziendaGraphicController {
     }
 private CompanyBean companyBean;
     @FXML
-    public void eventCreate() {
+    public void eventCreate() throws IOExceptionHandler {
        // Stage stage = new Stage();        C E ACTION EVENT E DEVE ESSERCI!
         Stage stage= (Stage) createNewEvent.getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
@@ -48,7 +48,7 @@ private CompanyBean companyBean;
             a.newSpostare(companyBean); //da modificare il metodo
         } //PROBLEMA CON CAMBIO INTERFACCIA
         catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
     public void spostare(CompanyBean companyBean2){
@@ -58,7 +58,7 @@ private CompanyBean companyBean;
 
 
     @FXML
-    void buyCoupon(){
+    void buyCoupon() throws IOExceptionHandler {
 
         Stage stage = (Stage) buyCouponButton.getScene().getWindow();
         FXMLLoader root;
@@ -73,7 +73,7 @@ private CompanyBean companyBean;
             RedeemCouponGraphicController o = root.getController();
             o.setCurrentCompany(companyBean);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
         assert false;
     }

@@ -21,7 +21,7 @@ public class AzioniAziendaSecondViewGraphicController {
     CompanyBean y;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException {
+    void executeCommand(ActionEvent event) throws IOException, IOExceptionHandler {
         String s= azioniAziendaCommandLine.getText();
         azioniAziendaCommandLine.setText("");
 
@@ -41,7 +41,7 @@ public class AzioniAziendaSecondViewGraphicController {
                 a.currentCompany(y);
             }
             catch (IOException e){
-                throw new RuntimeException(e);
+                throw new IOExceptionHandler("IOException error");
             }
         } else if(s.compareTo("back")==0){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("RegistrationSecondView.fxml")));

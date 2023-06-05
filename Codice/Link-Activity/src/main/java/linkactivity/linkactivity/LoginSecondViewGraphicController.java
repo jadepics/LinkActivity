@@ -31,7 +31,7 @@ public class LoginSecondViewGraphicController {
     private Text loginProfileTypeText;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException, NotExistentUserException {
+    void executeCommand(ActionEvent event) throws IOException, NotExistentUserException, IOExceptionHandler {
         String s= loginCommandLine.getText();
         loginCommandLine.setText("");
         if(s.matches("set username .*")){
@@ -73,7 +73,7 @@ public class LoginSecondViewGraphicController {
                     stage.show();
                 }
                 catch (IOException e){
-                    throw new RuntimeException(e);
+                    throw new IOExceptionHandler("IOException error");
                 }
 
 
@@ -82,7 +82,6 @@ public class LoginSecondViewGraphicController {
                 new LoginController().LoginCompany(companyBean);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
-                Scene scene;
                 GUISwtichAid.tryazioniaziendasecondviewaid(companyBean, root, stage);
 
             }

@@ -39,7 +39,7 @@ public class InsertLogoAziendaGraphicalController {
     }
 
     private CompanyBean companyName ;
-    public void switchToAziendaProfile(ActionEvent event) throws IOException {
+    public void switchToAziendaProfile(ActionEvent event) throws IOExceptionHandler {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene;
@@ -50,7 +50,7 @@ public class InsertLogoAziendaGraphicalController {
             AzioniAziendaGraphicController a = root.getController();
             a.spostare(companyName); ///modifica nome metodo
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
 

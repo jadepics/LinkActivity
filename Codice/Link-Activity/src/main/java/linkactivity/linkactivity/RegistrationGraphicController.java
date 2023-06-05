@@ -60,7 +60,7 @@ public class RegistrationGraphicController {
         stage.show();
 
     }
-    private void switchToSelectFavourite(ActionEvent event){
+    private void switchToSelectFavourite(ActionEvent event) throws IOExceptionHandler {
         String emailText = regEmailUser.getText();
         String usernameText = regUsernameUser.getText();
         String checkpass = regPassUser.getText();
@@ -76,11 +76,11 @@ public class RegistrationGraphicController {
             a.spostare(userBean); // devo portarmi il nome dello user in favouriteTagInsert per la query in cui metto nel db i tag preferiti
         }
         catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
-    private void switchToInsertLogo(ActionEvent event){
+    private void switchToInsertLogo(ActionEvent event) throws IOExceptionHandler {
         String usernameText = regUsernameUser.getText();
         CompanyBean companyBean =new CompanyBean(usernameText);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -94,12 +94,12 @@ public class RegistrationGraphicController {
             a.getNomeAzienda(companyBean);
         }
         catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
     @FXML
-    private void userRegister(ActionEvent event) throws IOException {
+    private void userRegister(ActionEvent event) throws IOExceptionHandler {
         String emailText = "";
         String checkpass="";
         String usernameText="";

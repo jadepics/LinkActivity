@@ -38,7 +38,7 @@ public class EventCreateSecondViewGraphicController {
     CompanyBean y;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException, DuplicatedEventException {
+    void executeCommand(ActionEvent event) throws IOException, DuplicatedEventException, IOExceptionHandler {
         String s= eventCreateCommandLine.getText();
         eventCreateCommandLine.setText("");
 
@@ -81,7 +81,7 @@ public class EventCreateSecondViewGraphicController {
                 a.currentCompany(y);
             }
             catch (IOException e){
-                throw new RuntimeException(e);
+                throw new IOExceptionHandler("IOException error");
             }
         } else if(s.compareTo("back")==0){
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));

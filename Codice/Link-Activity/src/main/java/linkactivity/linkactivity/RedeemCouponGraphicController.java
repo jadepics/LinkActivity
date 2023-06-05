@@ -35,7 +35,7 @@ public class RedeemCouponGraphicController {
     String notpoints= "Not Enough Points";
 
     @FXML
-    void backToAzioniAzienda(){
+    void backToAzioniAzienda() throws IOExceptionHandler {
 
         Stage stage= (Stage) backButtonX.getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
@@ -48,7 +48,7 @@ public class RedeemCouponGraphicController {
             a.spostare(y); //da modificare il metodo
         } //PROBLEMA CON CAMBIO INTERFACCIA
         catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
 
     }

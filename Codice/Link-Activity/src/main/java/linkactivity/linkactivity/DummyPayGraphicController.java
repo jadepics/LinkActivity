@@ -55,7 +55,7 @@ public class DummyPayGraphicController {
     CompanyBean y;
 
     @FXML
-    private void backToEventCreate(){
+    private void backToEventCreate() throws IOExceptionHandler {
 
         Stage stage= (Stage) backButton7.getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("EventCreate.fxml")));
@@ -68,7 +68,8 @@ public class DummyPayGraphicController {
             a.newSpostare(y); //da modificare il metodo
         } //PROBLEMA CON CAMBIO INTERFACCIA
         catch (IOException e){
-            throw new RuntimeException(e);
+            //throw new IOExceptionHandler("IOException error");
+            e.printStackTrace();
         }
     }
 

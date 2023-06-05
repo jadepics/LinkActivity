@@ -34,7 +34,7 @@ public class RegistrationSecondViewGraphicController {
     private Text registrationRepeatPasswordText;
 
     @FXML
-    void executeCommand() throws IOException {
+    void executeCommand() throws IOException, IOExceptionHandler {
         String s = registrationCommandLine.getText();
         registrationCommandLine.setText("");
 
@@ -79,7 +79,7 @@ public class RegistrationSecondViewGraphicController {
         }
     }
 
-    private void submitAid(String type, String email, String username, String pass) {
+    private void submitAid(String type, String email, String username, String pass) throws IOExceptionHandler {
         if (!(registrationPasswordText.getText().matches(registrationRepeatPasswordText.getText()))) {
             ShowAlertAid.showalerterror("Passwords not match");
         } else {
@@ -96,7 +96,7 @@ public class RegistrationSecondViewGraphicController {
                     FavouriteTagInsertSecondViewGraphicController a = root.getController();
                     a.setUserBean(userBean);
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    throw new IOExceptionHandler("IOException error");
                 }
             } else if (type.matches("company")) {
                 CompanyBean companyBean = new CompanyBean(email, username, pass);
@@ -111,7 +111,7 @@ public class RegistrationSecondViewGraphicController {
                     InsertLogoAziendaSecondViewGraphicController a = root.getController();
                     a.setCompanyName(companyBean);
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    throw new IOExceptionHandler("IOException error");
                 }
             }
         }
