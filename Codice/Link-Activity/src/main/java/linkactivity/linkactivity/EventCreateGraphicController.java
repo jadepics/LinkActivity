@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.utilities.GUISwtichAid;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -39,7 +40,6 @@ public class EventCreateGraphicController {
     private CompanyBean companyBean;
 
 
-
     public void initialize(){
         tagInsert.getItems().addAll(tags);
     }
@@ -47,20 +47,9 @@ public class EventCreateGraphicController {
 
         @FXML
         private void backToAzioniAzienda(){
-
             Stage stage= (Stage) backButton5.getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
-            Scene scene;
-            try {
-                scene = new Scene(root.load(), 690, 518);
-                stage.setScene(scene);
-                stage.show();
-                AzioniAziendaGraphicController a = root.getController();
-                a.spostare(companyBean); //da modificare il metodo
-            } //PROBLEMA CON CAMBIO INTERFACCIA
-            catch (IOException e){
-                throw new RuntimeException(e);
-            }
+            GUISwtichAid.azioniaziendaguiswitch(stage, companyBean, root);
         }
 
     public static int convert(String s){

@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import linkactivity.linkactivity.utilities.GUISwtichAid;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -64,17 +65,7 @@ public class LoginGraphicController {
         CompanyBean companyBean= new CompanyBean(companyName);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
-        Scene scene ;
-        try {
-            scene = new Scene(root.load(), 690, 518);
-            stage.setScene(scene);
-            stage.show();
-            AzioniAziendaGraphicController a = root.getController();
-            a.spostare(companyBean); ///modifica nome metodo
-        }
-        catch (IOException e){
-            throw new RuntimeException(e);
-        }
+        GUISwtichAid.azioniaziendaguiswitch(stage, companyBean, root);
     }
 
 
