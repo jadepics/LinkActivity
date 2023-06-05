@@ -11,7 +11,8 @@ public class CouponPointsDAO {
     public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException {
         String nomeaz= company.getCompanyNomeaz();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try(BufferedReader reader = new BufferedReader(new FileReader(file));
+            FileWriter writer = new FileWriter(file)) {
 
             String line;
             StringBuilder result = new StringBuilder();
@@ -41,12 +42,7 @@ public class CouponPointsDAO {
                 }
                 result.append("\n");
             }
-
-            reader.close();
-
-            FileWriter writer = new FileWriter(file);
             writer.write(result.toString());
-            writer.close();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -88,8 +84,6 @@ public class CouponPointsDAO {
                 }
             }
 
-            reader.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -114,7 +108,8 @@ public class CouponPointsDAO {
             s="cp3=";
         }
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(file))){
+        try(BufferedReader reader = new BufferedReader(new FileReader(file));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));){
 
 
             String line;
@@ -137,12 +132,8 @@ public class CouponPointsDAO {
                 }
                 updatedContent.append(line).append("\n");
             }
-
-            reader.close();
-
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(updatedContent.toString());
-            writer.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -177,8 +168,6 @@ public class CouponPointsDAO {
                     }
                 }
             }
-
-            reader.close();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -229,7 +218,8 @@ public class CouponPointsDAO {
             i++;
         }
         File file2 = new File(String.valueOf(file));
-        try(BufferedReader reader = new BufferedReader(new FileReader(file2))){
+        try(BufferedReader reader = new BufferedReader(new FileReader(file2));
+            FileWriter writer = new FileWriter(file2);){
 
             StringBuilder sb = new StringBuilder();
             String line;
@@ -245,13 +235,7 @@ public class CouponPointsDAO {
 
                 sb.append(line).append(System.lineSeparator());
             }
-
-            reader.close();
-
-            // Sovrascrive il file originale con le modifiche
-            FileWriter writer = new FileWriter(file2);
             writer.write(sb.toString());
-            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
