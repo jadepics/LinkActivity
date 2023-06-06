@@ -63,7 +63,7 @@ public class LoginSecondViewGraphicController {
 
             if (type.matches("user")){
                 UserBean userBean= new UserBean(email, passw);
-                new LoginController().LoginUser(userBean);
+                new LoginController().loginUser(userBean);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
                 Scene scene;
@@ -79,13 +79,12 @@ public class LoginSecondViewGraphicController {
 
             } else if (type.matches("company")) {
                 CompanyBean companyBean= new CompanyBean(email,passw);
-                new LoginController().LoginCompany(companyBean);
+                new LoginController().loginCompany(companyBean);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
                 GUISwtichAid.tryazioniaziendasecondviewaid(companyBean, root, stage);
 
             }
-            // TODO controllo su email @ e .com/it ecc
 
 
 

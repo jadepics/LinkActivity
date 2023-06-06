@@ -8,8 +8,7 @@ import java.util.List;
 
 public class UserDAO {
     private static final String USER_EMAIL="email";
-    private static final String USER_USERNAME="username";
-    private static final String USER_PREFERITI ="preferiti";
+
 
 
     public List<UserModel> loadUserFromFavoriteTag(String tag){

@@ -1,8 +1,6 @@
 Azienda mail address:    Apple@Apple.Apple
 
-New event added:   sss
+New event added:   NomeEvento
 
 Send to users mail address:
 
-null
-null

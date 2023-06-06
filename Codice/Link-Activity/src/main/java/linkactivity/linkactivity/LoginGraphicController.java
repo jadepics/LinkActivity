@@ -40,7 +40,7 @@ public class LoginGraphicController {
     @FXML
     private RadioButton userRB;
     @FXML
-    private void backToWhoAreU() throws IOException { //todo levare shortcut register su login
+    private void backToWhoAreU() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WhoAreU.fxml")));
         Scene scene = new Scene(root, 690, 518);
         Stage stage = (Stage) backButton3.getScene().getWindow();
@@ -83,10 +83,10 @@ public class LoginGraphicController {
         } else {
             if (userRB.isSelected()) {
                 UserBean userBean = new UserBean(emailUsernameLogin.getText(), passLogin.getText());
-                i = new LoginController().LoginUser(userBean);
+                i = new LoginController().loginUser(userBean);
             } else if (companyRB.isSelected()) {
                 CompanyBean companyBean = new CompanyBean(emailUsernameLogin.getText(), passLogin.getText());
-                i = new LoginController().LoginCompany(companyBean);
+                i = new LoginController().loginCompany(companyBean);
             }
             if (i == 0) {
                 switchToUserProfile(event);

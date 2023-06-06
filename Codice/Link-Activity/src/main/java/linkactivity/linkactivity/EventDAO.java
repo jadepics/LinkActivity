@@ -65,7 +65,7 @@ public class EventDAO {
         return 1;
     }
 
-    public int insertEvent(EventModel event){
+    public int insertEvent(EventModel event) throws IOExceptionHandler {
         int newKeys=-1;
         Connection myConnection = DBConnection.getDBConnection();
         try(PreparedStatement statement =myConnection.prepareStatement("INSERT evento(nomeEvento, descrizioneEvento, data, expirationDate,numeroPartecipanti,nomeAzienda,tag) VALUES (?,?,?,?,?,?,?);")) {
@@ -78,28 +78,26 @@ public class EventDAO {
             statement.setString(7, event.getEventModelTag());
             newKeys = statement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler();
         }
         return newKeys;
     }
 
 
-    public static int getPartecipantNumber(String eventName) {
+    public static int getPartecipantNumber(String eventName) throws IOExceptionHandler {
         int num = 0;
         Connection myConnection = DBConnection.getDBConnection();
         String query=String.format("SELECT numeroPartecipanti FROM evento WHERE nomeEvento ='%s'", eventName);
         try(Statement statement =myConnection.createStatement())
         {  ResultSet result=  statement.executeQuery(query);
-            //while(result.next()){
             num= result.getInt(1);
             System.out.println(num);
-            //}
             return num;
         }
 
 
         catch(SQLException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler();
         }
 
     }
@@ -110,13 +108,12 @@ public class EventDAO {
 
 
 
-   /* public EventModel getEventByName(String nome) { //Todo check questa è per test
+   public EventModel getEventByName(String nome) { //Todo check questa è per test
         EventModel eventModel = new EventModel();
         Connection myConnection = DBConnection.getDBConnection();
-        String query= "SELECT * FROM evento WHERE nomeEvento = ?;";
-        try (Statement statement = myConnection.prepareStatement(query)) {
-            statement.setString(1,nome);
-            ResultSet resultSet = statement.executeQuery();     //questi errori non li capisco
+        String query = String.format("SELECT * FROM evento WHERE nomeEvento = '%s';",nome);
+        try (Statement statement = myConnection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(query);     //questi errori non li capisco
             if (resultSet.next()) {
                 eventModel.setEventModelName(resultSet.getString("nomeEvento"));
                 eventModel.setEventModelDescription(resultSet.getString("descrizioneEvento"));
@@ -130,7 +127,7 @@ public class EventDAO {
             throw new RuntimeException(e);
         }
         return eventModel;
-    }*/
+    }
 
 }
 

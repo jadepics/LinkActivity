@@ -85,7 +85,8 @@ public class RegistrationSecondViewGraphicController {
         } else {
             if (type.matches("user")) {
                 UserBean userBean = new UserBean(email, username, pass);
-                new LoginController.UserRegistration(userBean);
+                LoginController loginController= new LoginController();
+                loginController.userRegistration(userBean);
                 Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
                 FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("FavouriteTagInsertSecondView.fxml")));
                 Scene scene;
@@ -100,7 +101,8 @@ public class RegistrationSecondViewGraphicController {
                 }
             } else if (type.matches("company")) {
                 CompanyBean companyBean = new CompanyBean(email, username, pass);
-                new LoginController.CompanyRegister(companyBean);
+                LoginController loginController = new LoginController();
+                loginController.companyRegister(companyBean);
                 Stage stage = (Stage) registrationCommandLine.getScene().getWindow();
                 FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("InsertLogoAziendaSecondView.fxml")));
                 Scene scene;

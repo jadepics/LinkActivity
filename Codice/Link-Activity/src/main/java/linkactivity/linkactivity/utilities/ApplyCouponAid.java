@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ApplyCouponAid {
 
-    private static final String iomessage= "IOException error";
+    private static final String IO_MESSAGE= "IOException error";
 
     public Double applycoupnaid(int x, int j, int z, CompanyBean y, int fivep, int tenp, int fiftp) throws NotEnoughCouponAvailableException, IOExceptionHandler {
         Double finalPrice = null;
@@ -48,7 +48,7 @@ public class ApplyCouponAid {
             alert.setHeaderText("Not enough coupon available");
             alert.showAndWait();
         } catch (IOException e) {
-            throw new IOExceptionHandler(iomessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         }
         return finalPrice;
     }

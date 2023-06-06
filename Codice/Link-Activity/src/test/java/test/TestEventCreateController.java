@@ -13,7 +13,7 @@
 //    /*@author Testing: Giada Pica
 //            Matricola 0280050
 //     */
-//    private EventCreateController eventCreateController;
+//
 //    private EventBean eventBean;
 //    @BeforeEach
 //            public void setUp() {
@@ -21,19 +21,18 @@
 //
 //    }
 //    @Test
-//    public void testAddEvent() throws DuplicatedEventException {
+//    public void testAddEvent() throws DuplicatedEventException, IOExceptionHandler {
 //
-//        System.out.println(eventBean.getNomeAzienda() );
-//        System.out.println( eventBean.getTag());
-//        new EventCreateController.newEvent(eventBean);
+//
+//       EventCreateController eventCreateController1= new EventCreateController();
+//       eventCreateController1.newEvent(eventBean);
 //        EventDAO eventDAO =new EventDAO();
 //        List<EventModel> eventModel;
-//        eventModel =eventDAO.getEvent("Java");
-//       // NON POESSE
-//        while(!(eventModel.isEmpty())) {
-//            assertNotNull(eventModel);
+//      // eventModel =eventDAO.getEventByName("NomeEvento");
+//        //while(!(eventModel.isEmpty())) {
+//          //  assertNotNull(eventModel);
 //
-//            assertEquals(eventBean.getTag(), eventModel.get(0).getEventModelTag());
+//            //assertEquals(eventBean.getEventName(), eventModel.get(0).getEventModelName());
 //        }
 //        }
 //

@@ -29,7 +29,8 @@ public class FavouriteTagInsertSecondViewGraphicController {
         }
         tag= favouriteTagText.getText();
         if (s.matches("goto dashboard.*")) {
-            new LoginController.UserAddTag(userBean1, tag);
+            LoginController loginController= new LoginController();
+            loginController.userAddTag(userBean1, tag);
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("DashboardSecondView.fxml")));
             Scene scene = new Scene(root);
             Stage stage = (Stage) favouriteTagCommandLine.getScene().getWindow();

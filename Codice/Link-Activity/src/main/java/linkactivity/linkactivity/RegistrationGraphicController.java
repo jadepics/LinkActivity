@@ -30,10 +30,10 @@ public class RegistrationGraphicController {
     private Button bottoneokreg;
 
     @FXML
-    private Button signUpGoogleButton2; //todo forse va levato il button in quanto funzione dummy, potrebbe portare problemi su sonarcloud
+    private Button signUpGoogleButton2;
 
     @FXML
-    private Button userRegisterButton; //todo parte di registrazione vera e propria senza la quale torna errore minore al passaggio di schermata
+    private Button userRegisterButton;
 
     @FXML
     private PasswordField regPassUser;
@@ -113,12 +113,14 @@ public class RegistrationGraphicController {
         if(regEmailUser()==1 && regPassUser() &&regRepPassUser()) {
             if (userRB.isSelected()) {
                 UserBean userBean = new UserBean(emailText, usernameText, checkpass);
-                new LoginController.UserRegistration(userBean);
+                LoginController loginController= new LoginController();
+                loginController.userRegistration(userBean);
                 i=1;
             } else if (companyRB.isSelected()) {
                 CompanyBean companyBean = new CompanyBean(emailText, usernameText, checkpass);
-                new LoginController.CompanyRegister(companyBean);
-                new LoginController().AddInPoints(companyBean.getNomeAzienda());
+                LoginController loginController= new LoginController();
+                loginController.companyRegister(companyBean);
+                loginController.addInPoints(companyBean.getNomeAzienda());
                 i = 2;
             }
         }

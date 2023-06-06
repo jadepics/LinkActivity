@@ -57,7 +57,9 @@ public class EventCreateGraphicController {
         try {
             val = Integer.parseInt(s);
         } catch (NumberFormatException e) {
-
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("The number is not an int");
+            alert.showAndWait();
         }
         return val;
     }

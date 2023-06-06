@@ -2,12 +2,12 @@ package linkactivity.linkactivity;
 
 public class LoginController {
 
-    public int LoginUser(UserBean userBean) throws NotExistentUserException {
+    public int loginUser(UserBean userBean) throws NotExistentUserException {
         UserDAO userDAO =new UserDAO();
         return userDAO.verifyUser(userBean.getUsername(),userBean.getUserPass());
     }
 
-    public int LoginCompany(CompanyBean companyBean) throws NotExistentUserException {
+    public int loginCompany(CompanyBean companyBean) throws NotExistentUserException {
         CompanyDAO companyDAO= new CompanyDAO();
         return companyDAO.verifyCompany(companyBean.getNomeAzienda(),companyBean.getPassword());
     }
@@ -17,31 +17,22 @@ public class LoginController {
         eventLogoDAO.insertLogo(imagePath,companyName);
     }
 
-    public void AddInPoints(String nomeAzienda) throws IOExceptionHandler {
+    public void addInPoints(String nomeAzienda) throws IOExceptionHandler {
         CouponPointsDAO couponPointsDAO =new CouponPointsDAO();
         couponPointsDAO.insertNewAzienda(nomeAzienda);
     }
-
-    public static class UserRegistration { //TODO NON PUO ESSERE STATIC E' UN CONTROLLER APPLICATIVO!!!!
-                public UserRegistration(UserBean userBean) throws IOExceptionHandler {
+    public void userRegistration(UserBean userBean) throws IOExceptionHandler {
                         UserDAO userDAO = new UserDAO();
                         userDAO.newUser(userBean.getUserEmail(),userBean.getUsername(),userBean.getUserPass());
-
-
-                }
         }
 
-        public static class CompanyRegister {
-                public CompanyRegister(CompanyBean companyBean) {
+                public void companyRegister(CompanyBean companyBean) {
                         CompanyDAO companyDAO = new CompanyDAO();
                         companyDAO.newCompany(companyBean.getEmail(),companyBean.getNomeAzienda(),companyBean.getPassword());
-                }
         }
-
-        public static class UserAddTag {
-                public UserAddTag(UserBean userBean0, String tag) throws IOExceptionHandler {
+                public void userAddTag(UserBean userBean0, String tag) throws IOExceptionHandler {
                         UserDAO userDAO= new UserDAO();
                         userDAO.addFavouriteTag(userBean0.getUsername(), tag);
                 }
         }
-}
+

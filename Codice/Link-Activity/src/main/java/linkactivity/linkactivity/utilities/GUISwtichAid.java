@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class GUISwtichAid {
-
+    private static String MESSAGE_PRINT="IOException error";
     private GUISwtichAid(){
 
     }
@@ -27,7 +27,7 @@ public class GUISwtichAid {
             a.currentCompany(y);
         }
         catch (IOException e){
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(MESSAGE_PRINT);
         }
     }
     public static void azioniaziendaguiswitch(Stage stage, CompanyBean companyBean, FXMLLoader root) throws IOExceptionHandler {
@@ -41,7 +41,7 @@ public class GUISwtichAid {
             a.spostare(companyBean); ///modifica nome metodo
         }
         catch (IOException e){
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(MESSAGE_PRINT);
         }
     }
 
@@ -60,7 +60,7 @@ public class GUISwtichAid {
             a.currentCompany(y);
         }
         catch (IOException e){
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(MESSAGE_PRINT);
         }
     }
 
