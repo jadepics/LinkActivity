@@ -8,7 +8,6 @@ public class CouponPointsDAO {
 
     private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
     private static final String IO_MESSAGE= "IOException error";
-
     public static void addPoints(CompanyModel company, String todo, int quantity) throws IOException, IOExceptionHandler {
         String nomeaz = company.getCompanyNomeaz();
 

@@ -46,7 +46,7 @@ public class FavouriteTagInsertGraphicController {
                         stage.show();
                 }
     @FXML
-        public void gotodashboard() throws IOException {
+        public void gotodashboard() throws IOException, IOExceptionHandler {
             new LoginController.UserAddTag(userBean0, favouriteTagInsert.getValue());
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CareerBona.fxml")));
                 Scene scene = new Scene(root,690, 518);

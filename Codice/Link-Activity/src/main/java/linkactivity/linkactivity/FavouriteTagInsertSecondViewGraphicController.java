@@ -19,7 +19,7 @@ public class FavouriteTagInsertSecondViewGraphicController {
 
     private UserBean userBean1;
     @FXML
-    void executeCommand() throws IOException {
+    void executeCommand() throws IOException, IOExceptionHandler {
         String s = favouriteTagCommandLine.getText();
         favouriteTagCommandLine.setText("");
         String tag;

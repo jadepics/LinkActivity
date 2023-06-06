@@ -23,7 +23,7 @@ public class LoginController {
     }
 
     public static class UserRegistration { //TODO NON PUO ESSERE STATIC E' UN CONTROLLER APPLICATIVO!!!!
-                public UserRegistration(UserBean userBean) {
+                public UserRegistration(UserBean userBean) throws IOExceptionHandler {
                         UserDAO userDAO = new UserDAO();
                         userDAO.newUser(userBean.getUserEmail(),userBean.getUsername(),userBean.getUserPass());
 
@@ -39,7 +39,7 @@ public class LoginController {
         }
 
         public static class UserAddTag {
-                public UserAddTag(UserBean userBean0, String tag) {
+                public UserAddTag(UserBean userBean0, String tag) throws IOExceptionHandler {
                         UserDAO userDAO= new UserDAO();
                         userDAO.addFavouriteTag(userBean0.getUsername(), tag);
                 }

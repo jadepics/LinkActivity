@@ -8,7 +8,6 @@ public class UserModel {
     private String userEmail;
     public UserModel(String userEmail) {
         setUserEmail(userEmail);
-       // super();
     }
     public UserModel(){}
     public String getEmail(){
