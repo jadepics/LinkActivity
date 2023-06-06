@@ -31,8 +31,7 @@ public class LoginController {
                         companyDAO.newCompany(companyBean.getEmail(),companyBean.getNomeAzienda(),companyBean.getPassword());
         }
                 public void userAddTag(UserBean userBean0, String tag) throws IOExceptionHandler {
-                        UserDAO userDAO= new UserDAO();
-                        userDAO.addFavouriteTag(userBean0.getUsername(), tag);
+                        UserDAO.addFavouriteTag(userBean0.getUsername(), tag);
                 }
         }
 

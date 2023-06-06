@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class GUISwtichAid {
-    private static String MESSAGE_PRINT="IOException error";
+    private static final String MESSAGE_PRINT="IOException error";
     private GUISwtichAid(){
 
     }
@@ -31,7 +31,6 @@ public class GUISwtichAid {
         }
     }
     public static void azioniaziendaguiswitch(Stage stage, CompanyBean companyBean, FXMLLoader root) throws IOExceptionHandler {
-        //FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene ;
         try {
             scene = new Scene(root.load(), 690, 518);

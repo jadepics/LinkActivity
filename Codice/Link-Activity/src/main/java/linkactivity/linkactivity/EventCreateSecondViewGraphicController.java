@@ -71,26 +71,17 @@ public class EventCreateSecondViewGraphicController {
             String date = eventCreateEventDateText.getText();
             String exDate = eventCreateExpirationDateText.getText();
             String tag = eventCreateTagText.getText();
-            if (eventCreatePartecipantNumberText.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Partecipant number are not insert");
-                alert.showAndWait();
-            }
-            else if (!isValidDate(date) || !isValidDate(exDate)) {
+           if (!isValidDate(date) || !isValidDate(exDate)) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText("Not valid date format");
                 alert.showAndWait();
             }
-            else if (descrizione.isEmpty()) {
+            else if (descrizione.isEmpty()||name.isEmpty()||eventCreatePartecipantNumberText.getText().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Event description is empty");
+                alert.setHeaderText("Some fields are empty");
                 alert.showAndWait();
             }
-            else if (name.isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Event name is empty");
-                alert.showAndWait();
-            } else {
+            else {
                 int num = convert1(eventCreatePartecipantNumberText.getText());
                 String nomeAzienda = y.getNomeAzienda();
                 EventBean eventBean = new EventBean(name, descrizione, date, exDate, num, nomeAzienda, tag);
@@ -143,5 +134,6 @@ public class EventCreateSecondViewGraphicController {
         String regex = "\\d{4}-\\d{2}-\\d{2}";
         return date.matches(regex);
     }
+
 }
 
