@@ -7,6 +7,7 @@ import java.util.List;
 public class CouponPointsDAO {
 
     private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
+    private static final String iomessage= "IOException error";
 
     public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException, IOExceptionHandler {
         String nomeaz= company.getCompanyNomeaz();
@@ -45,7 +46,7 @@ public class CouponPointsDAO {
             writer.write(result.toString());
 
         } catch (IOException e) {
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(iomessage);
         }
     }
 
@@ -85,7 +86,7 @@ public class CouponPointsDAO {
             }
 
         } catch (IOException e) {
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(iomessage);
         }
 
         return new CouponModel(points) {
@@ -135,7 +136,7 @@ public class CouponPointsDAO {
             writer.write(updatedContent.toString());
 
         } catch (IOException e) {
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(iomessage);
         }
     }
 
@@ -170,7 +171,7 @@ public class CouponPointsDAO {
             }
 
         } catch (IOException e) {
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(iomessage);
         }
 
         List<CouponModel> couponModels= new ArrayList<>();
@@ -237,7 +238,7 @@ public class CouponPointsDAO {
             }
             writer.write(sb.toString());
         } catch (IOException e) {
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(iomessage);
         }
     }
 
@@ -266,7 +267,7 @@ public class CouponPointsDAO {
             fileWriter.write(content);
             fileWriter.write(System.lineSeparator());
         } catch (IOException e) {
-            throw new IOExceptionHandler("IOException error");
+            throw new IOExceptionHandler(iomessage);
         }
     }
 }

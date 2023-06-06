@@ -41,7 +41,7 @@ public class CompanyDAO {
         }
     }
 
-    public int verifyCompany(String nomeAzienda, String password) throws NotExistentUserException, IOExceptionHandler {
+    public int verifyCompany(String nomeAzienda, String password) throws NotExistentUserException {
         int i=15;
         Connection myConnection = DBConnection.getDBConnection();
         try (Statement statement = myConnection.createStatement();

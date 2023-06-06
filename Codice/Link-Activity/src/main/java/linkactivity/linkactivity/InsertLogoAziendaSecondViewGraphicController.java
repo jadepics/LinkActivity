@@ -31,7 +31,6 @@ public class InsertLogoAziendaSecondViewGraphicController {
         } else if (s.matches("goto company action.*")) {
             Stage stage = (Stage) insertLogoCommandLine.getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
-            Scene scene;
             GUISwtichAid.tryazioniaziendasecondviewaid(companyName, root, stage);
 
 
