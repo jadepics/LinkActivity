@@ -60,7 +60,7 @@ public class LoginGraphicController {
         stage.show();
     }
 
-    public void switchToAziendaProfile(ActionEvent event){
+    public void switchToAziendaProfile(ActionEvent event) throws IOExceptionHandler {
         String companyName=(emailUsernameLogin.getText());
         CompanyBean companyBean= new CompanyBean(companyName);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

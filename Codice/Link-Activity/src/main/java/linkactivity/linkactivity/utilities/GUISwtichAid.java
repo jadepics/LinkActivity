@@ -5,10 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import linkactivity.linkactivity.AzioniAziendaGraphicController;
-import linkactivity.linkactivity.AzioniAziendaSecondViewGraphicController;
-import linkactivity.linkactivity.CompanyBean;
-import linkactivity.linkactivity.EventCreateSecondViewGraphicController;
+import linkactivity.linkactivity.*;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -19,7 +16,7 @@ public class GUISwtichAid {
 
     }
 
-    public static void eventcreatesecondviewguiswitch(ActionEvent event, CompanyBean y, FXMLLoader root){
+    public static void eventcreatesecondviewguiswitch(ActionEvent event, CompanyBean y, FXMLLoader root) throws IOExceptionHandler {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene;
         try {
@@ -30,10 +27,10 @@ public class GUISwtichAid {
             a.currentCompany(y);
         }
         catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
-    public static void azioniaziendaguiswitch(Stage stage, CompanyBean companyBean, FXMLLoader root){
+    public static void azioniaziendaguiswitch(Stage stage, CompanyBean companyBean, FXMLLoader root) throws IOExceptionHandler {
         //FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
         Scene scene ;
         try {
@@ -44,16 +41,16 @@ public class GUISwtichAid {
             a.spostare(companyBean); ///modifica nome metodo
         }
         catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
-    public static void azioniaziendasecondviewguiswitch(ActionEvent event,CompanyBean y, FXMLLoader root){
+    public static void azioniaziendasecondviewguiswitch(ActionEvent event,CompanyBean y, FXMLLoader root) throws IOExceptionHandler {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         tryazioniaziendasecondviewaid(y, root, stage);
     }
 
-    public static void tryazioniaziendasecondviewaid(CompanyBean y, FXMLLoader root, Stage stage) {
+    public static void tryazioniaziendasecondviewaid(CompanyBean y, FXMLLoader root, Stage stage) throws IOExceptionHandler {
         Scene scene;
         try {
             scene = new Scene(root.load(), 690, 518);
@@ -63,7 +60,7 @@ public class GUISwtichAid {
             a.currentCompany(y);
         }
         catch (IOException e){
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
 

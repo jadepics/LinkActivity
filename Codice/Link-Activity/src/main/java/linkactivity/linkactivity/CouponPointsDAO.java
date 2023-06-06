@@ -180,9 +180,6 @@ public class CouponPointsDAO {
         }
         List<CouponModel> couponModels = new ArrayList<>();
         while (3 > couponModels.size()) {
-            System.out.println(coupList.get(0) + " aaaaaaaa");
-
-            System.out.println(couponModels.size());
             CouponModel couponModel = new CouponModel(coupList.get(0), "") {
                 @Override
                 public Double getPrice() {

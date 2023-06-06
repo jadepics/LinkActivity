@@ -46,7 +46,7 @@ public class EventCreateGraphicController {
 
 
         @FXML
-        private void backToAzioniAzienda(){
+        private void backToAzioniAzienda() throws IOExceptionHandler {
             Stage stage= (Stage) backButton5.getScene().getWindow();
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAzienda.fxml")));
             GUISwtichAid.azioniaziendaguiswitch(stage, companyBean, root);
