@@ -7,7 +7,7 @@ public class LoginController {
         return userDAO.verifyUser(userBean.getUsername(),userBean.getUserPass());
     }
 
-    public int LoginCompany(CompanyBean companyBean) throws NotExistentUserException, IOExceptionHandler {
+    public int LoginCompany(CompanyBean companyBean) throws NotExistentUserException {
         CompanyDAO companyDAO= new CompanyDAO();
         return companyDAO.verifyCompany(companyBean.getNomeAzienda(),companyBean.getPassword());
     }

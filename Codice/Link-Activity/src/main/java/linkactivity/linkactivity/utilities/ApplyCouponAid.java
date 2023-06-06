@@ -8,6 +8,10 @@ import java.util.List;
 
 public class ApplyCouponAid {
 
+    private ApplyCouponAid() {
+
+    }
+
     public static Double applycoupnaid(int x, int j, int z, CompanyBean y, int fivep, int tenp, int fiftp) throws NotEnoughCouponAvailableException {
         Double finalPrice = null;
 
