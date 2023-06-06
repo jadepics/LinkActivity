@@ -17,7 +17,7 @@ public class TestUseCoupoonController {
     */
 
     @Test
-    public void testusecoupon() throws IOExceptionHandler {
+    public void testusecoupon() throws IOExceptionHandler, IOException {
         File file = new File("src/main/CompanyCoupon-Filesystem.txt");
         CompanyBean companyBean = new CompanyBean("Apple");
         CouponBean couponBean= new CouponBean(5.0);

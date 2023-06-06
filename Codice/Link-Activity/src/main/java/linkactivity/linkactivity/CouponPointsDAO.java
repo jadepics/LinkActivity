@@ -13,9 +13,8 @@ public class CouponPointsDAO {
         String nomeaz = company.getCompanyNomeaz();
 
         FileWriter writer = null;
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file));){
+
             String line;
             StringBuilder result = new StringBuilder();
             int updatedNumber;
@@ -52,7 +51,6 @@ public class CouponPointsDAO {
         } finally {
             assert writer != null;
             writer.close();
-            reader.close();
         }
     }
 
@@ -70,9 +68,7 @@ public class CouponPointsDAO {
         String nomeaz = company.getCompanyNomeaz();
         int points = 0;
 
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file));) {
 
             String line;
 
@@ -94,8 +90,6 @@ public class CouponPointsDAO {
 
         } catch (IOException e) {
             throw new IOExceptionHandler(iomessage);
-        } finally {
-            reader.close();
         }
 
         return new CouponModel(points) {
@@ -119,9 +113,8 @@ public class CouponPointsDAO {
         }
 
         BufferedWriter writer = null;
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file));){
+
             String line;
             StringBuilder updatedContent = new StringBuilder();
 
@@ -150,7 +143,6 @@ public class CouponPointsDAO {
         } finally {
             assert writer != null;
             writer.close();
-            reader.close();
         }
     }
 
@@ -158,9 +150,8 @@ public class CouponPointsDAO {
         String nomeaz = company.getCompanyNomeaz();
         List<Integer> coupList = new ArrayList<>();
 
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(file));
+        try(BufferedReader reader = new BufferedReader(new FileReader(file));
+        ) {
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -186,10 +177,7 @@ public class CouponPointsDAO {
             }
         } catch (IOException e) {
             throw new IOExceptionHandler(iomessage);
-        } finally {
-            reader.close();
         }
-
         List<CouponModel> couponModels = new ArrayList<>();
         while (3 > couponModels.size()) {
             System.out.println(coupList.get(0) + " aaaaaaaa");
@@ -239,9 +227,8 @@ public class CouponPointsDAO {
         }
         File file2 = new File(String.valueOf(file));
         FileWriter writer = null;
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(file2));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file2));){
+
             StringBuilder sb = new StringBuilder();
             String line;
 
@@ -263,7 +250,6 @@ public class CouponPointsDAO {
         } finally {
             assert writer != null;
             writer.close();
-            reader.close();
         }
     }
 
