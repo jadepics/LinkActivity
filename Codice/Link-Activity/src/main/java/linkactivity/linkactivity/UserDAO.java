@@ -1,5 +1,7 @@
 package linkactivity.linkactivity;
 
+import javafx.scene.control.Alert;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,10 +62,12 @@ public class UserDAO {
             if (resultSet.next()) {
                 i = 0;
             } else {
-                throw new NotExistentUserException("NOT EXISTENT USER!");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Username or password are not correct");
+                alert.showAndWait();
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new NotExistentUserException("NOT EXISTENT USER");
         }
         return i;
     }

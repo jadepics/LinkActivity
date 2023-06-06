@@ -1,11 +1,12 @@
 package linkactivity.linkactivity;
 
+import javafx.scene.control.Alert;
+
 import java.sql.*;
 
 public class CompanyDAO {
     private static final String COMPANY_EMAIL="email";
     private static final String COMPANY_NOME ="nomeAzienda";
-    private static final String COMPANY_LOGO= ""; //vedi che ci devi mette
 
     public CompanyModel loadCompany(String nomeAzienda){
         Connection myConnection = DBConnection.getDBConnection();
@@ -25,9 +26,8 @@ public class CompanyDAO {
     private CompanyModel createCompany(ResultSet resultSet) throws SQLException{
         String email =resultSet.getString(COMPANY_EMAIL);
         String nomeAzienda =resultSet.getString(COMPANY_NOME);
-        //String logo =resultSet.getString(COMPANY_LOGO);
 
-        return new CompanyModel(email, nomeAzienda, "");
+        return new CompanyModel(email, nomeAzienda);
     }
     public void newCompany(String userEmail, String username, String userPass) {
         Connection myConnection = DBConnection.getDBConnection();
@@ -48,17 +48,15 @@ public class CompanyDAO {
              ResultSet resultSet = Queries.loadCompany(statement, nomeAzienda, password)) {
             if (resultSet.next()) {
                 i = 1;
-            } else { //TODO fare if resultsetnext().isempty(), se si throw exception else i=1; idem in userDAO
-                throw new NotExistentUserException("NOT EXISTENT COMPANY!");
             }
-            //TODO serve un altro try per il controllo che vuoi fare e di conseguenza un altro catch con notexist.
-            // e all'interno il relativo aler grafico
-            /*Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Username or password are not correct");
-            alert.showAndWait();
-             */
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Username or password are not correct");
+                alert.showAndWait();
+            }
+
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new NotExistentUserException("NOT EXISTENT USER");
         }
         return i;
     }
