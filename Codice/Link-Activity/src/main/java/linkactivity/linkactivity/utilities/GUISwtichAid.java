@@ -15,6 +15,10 @@ import java.util.Objects;
 
 public class GUISwtichAid {
 
+    private GUISwtichAid(){
+
+    }
+
     public static void eventcreatesecondviewguiswitch(ActionEvent event, CompanyBean y, FXMLLoader root){
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene;

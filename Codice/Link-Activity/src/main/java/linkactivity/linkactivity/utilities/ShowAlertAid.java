@@ -4,6 +4,9 @@ import javafx.scene.control.Alert;
 
 public class ShowAlertAid {
 
+    private ShowAlertAid(){
+
+    }
     public static void showalerterror(String message){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText(message);
