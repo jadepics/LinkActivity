@@ -91,7 +91,7 @@ public class EventDAO {
         try(Statement statement =myConnection.createStatement())
         {  ResultSet result=  statement.executeQuery(query);
             while(result.next()){
-            num= result.getInt(0);
+            num= result.getInt(1);
             System.out.println(num);
             }
             return num;
