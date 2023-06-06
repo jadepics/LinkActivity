@@ -104,7 +104,7 @@ public class DummyPayGraphicController {
             ShowAlertAid.showalerterror("Complete all coupon fields");
         } catch (NotEnoughCouponAvailableException e) {
             ShowAlertAid.showalerterror("Not Enough Coupon Available");
-        } catch (IOExceptionHandler e) {
+        } catch (IOException e) {
             throw new IOExceptionHandler("IOException error");
         }
     }
@@ -117,12 +117,12 @@ public class DummyPayGraphicController {
     }
 
     @FXML
-    public void setCurrentCompany(CompanyBean companyBean) throws IOExceptionHandler {
+    public void setCurrentCompany(CompanyBean companyBean) throws IOExceptionHandler, IOException {
         y= companyBean;
         setAvailableCoupons(y);
     }
 
-    private void setAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler {
+    private void setAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler, IOException {
         List<CouponBean> coupList= eventCreateController.getAvailableCoupons(companyBean);
         fivep= coupList.get(0).getQuantity();
         tenp= coupList.get(1).getQuantity();

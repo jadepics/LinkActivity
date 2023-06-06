@@ -62,12 +62,12 @@ public class RedeemCouponSecondViewGraphicController {
 
 
 
-    public void currentCompany(CompanyBean x) throws IOExceptionHandler {
+    public void currentCompany(CompanyBean x) throws IOExceptionHandler, IOException {
         y=x;
         setCurrentCompanyPoints();
     }
 
-    private void setCurrentCompanyPoints() throws IOExceptionHandler {
+    private void setCurrentCompanyPoints() throws IOExceptionHandler, IOException {
         CouponBean couponBean= eventCreateController.getCurrentPoints(y);
         pts= couponBean.getPoints();
         aviablePoints.setText("Your Aviable Points: "+pts);

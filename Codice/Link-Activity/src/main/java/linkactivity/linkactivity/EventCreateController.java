@@ -56,7 +56,7 @@ public class EventCreateController {
         CouponPointsDAO.addPoints(company, "add",0);
     }
 
-    public CouponBean getCurrentPoints(CompanyBean companyBean) throws IOExceptionHandler {
+    public CouponBean getCurrentPoints(CompanyBean companyBean) throws IOExceptionHandler, IOException {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponModel couponModel= CouponPointsDAO.getCurrentPoints(company);
         int points= couponModel.getPoints();
@@ -66,10 +66,10 @@ public class EventCreateController {
     public void removePoints(CompanyBean companyBean, int points) throws IOException, IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "", points);
-        //CouponPointsDAO.redeemCoupon(company,points);
+        CouponPointsDAO.redeemCoupon(company,points);
     }
 
-    public List<CouponBean> getAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler {
+    public List<CouponBean> getAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler, IOException {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         List<CouponModel> couponModels= CouponPointsDAO.getAvailableCoupons(company);
         List<CouponBean> couponBeans= new ArrayList<>();
@@ -99,7 +99,7 @@ public class EventCreateController {
         return couponApplier.getFinalPrice();
     }
 
-    public void removeCoupon(List<CouponBean> couponBeans, CompanyBean y) throws IOExceptionHandler {
+    public void removeCoupon(List<CouponBean> couponBeans, CompanyBean y) throws IOExceptionHandler, IOException {
         Double coupon;
         CouponModel couponModel;
         List<CouponModel> couponModels= new ArrayList<>(){};

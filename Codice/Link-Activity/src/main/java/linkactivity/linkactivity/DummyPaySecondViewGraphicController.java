@@ -110,12 +110,12 @@ public class DummyPaySecondViewGraphicController {
         }
     }
 
-    public void currentCompany(CompanyBean x) throws IOExceptionHandler {
+    public void currentCompany(CompanyBean x) throws IOExceptionHandler, IOException {
         y=x;
         setCurrentCompanyCoupons();
     }
 
-    private void setCurrentCompanyCoupons() throws IOExceptionHandler {
+    private void setCurrentCompanyCoupons() throws IOExceptionHandler, IOException {
         List<CouponBean> coupList= eventCreateController.getAvailableCoupons(y);
         fivep= coupList.get(0).getQuantity();
         tenp= coupList.get(1).getQuantity();

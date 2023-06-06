@@ -3,16 +3,20 @@ package linkactivity.linkactivity.utilities;
 import javafx.scene.control.Alert;
 import linkactivity.linkactivity.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ApplyCouponAid {
 
+    private static final String iomessage= "IOException error";
+
+
     private ApplyCouponAid() {
 
     }
 
-    public static Double applycoupnaid(int x, int j, int z, CompanyBean y, int fivep, int tenp, int fiftp) throws NotEnoughCouponAvailableException {
+    public static Double applycoupnaid(int x, int j, int z, CompanyBean y, int fivep, int tenp, int fiftp) throws NotEnoughCouponAvailableException, IOExceptionHandler {
         Double finalPrice = null;
         EventCreateController eventCreateController= new EventCreateController();
 
@@ -48,6 +52,8 @@ public class ApplyCouponAid {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Not enough coupon available");
             alert.showAndWait();
+        } catch (IOException e) {
+            throw new IOExceptionHandler(iomessage);
         }
         return finalPrice;
     }

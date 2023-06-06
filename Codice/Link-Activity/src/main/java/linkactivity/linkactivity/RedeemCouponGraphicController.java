@@ -85,12 +85,12 @@ public class RedeemCouponGraphicController {
         }
     }
 
-    public void setCurrentCompany(CompanyBean nomeaz) throws IOExceptionHandler {
+    public void setCurrentCompany(CompanyBean nomeaz) throws IOExceptionHandler, IOException {
         y=nomeaz;
         setCurrentCompanyPoints();
     }
 
-    private void setCurrentCompanyPoints() throws IOExceptionHandler {
+    private void setCurrentCompanyPoints() throws IOExceptionHandler, IOException {
         CouponBean couponBean= eventCreateController.getCurrentPoints(y);
         pts= couponBean.getPoints();
         aviablePoints.setText("Your Aviable Points: "+pts);
