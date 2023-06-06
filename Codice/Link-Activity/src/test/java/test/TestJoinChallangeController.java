@@ -27,10 +27,10 @@ public class TestJoinChallangeController {
         int availableSeatsBefore;
         int availableSeatsAfter;
 
-        EventBean eventBean= new EventBean("C++ Challange", null, null, null, 0, null, null );
+        EventBean eventBean= new EventBean("C++Challange", null, null, null, 0, null, null );
         availableSeatsBefore= EventDAO.getPartecipantNumber(eventBean.getEventName());
         System.out.println(availableSeatsBefore);
-        eventBean= new EventBean("C++ Challange", null, null, null, availableSeatsBefore, null, null );
+        eventBean= new EventBean("C++Challange", null, null, null, availableSeatsBefore, null, null );
         ItemController itemController= new ItemController();
         itemController.joinEvent(eventBean,"remove");
         availableSeatsAfter= EventDAO.getPartecipantNumber(eventBean.getEventName());

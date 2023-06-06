@@ -90,10 +90,10 @@ public class EventDAO {
         String query=String.format("SELECT numeroPartecipanti FROM evento WHERE nomeEvento ='%s'", eventName);
         try(Statement statement =myConnection.createStatement())
         {  ResultSet result=  statement.executeQuery(query);
-            while(result.next()){
+            //while(result.next()){
             num= result.getInt(1);
             System.out.println(num);
-            }
+            //}
             return num;
         }
 

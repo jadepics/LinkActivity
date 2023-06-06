@@ -48,8 +48,8 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
 
                 setGraphic(parentNode);
 
-            } catch (IOException ignored) {
-                //TODO CHIEDERE A SIMONE
+            } catch (IOException e) {
+                //
             }
         }
         else {

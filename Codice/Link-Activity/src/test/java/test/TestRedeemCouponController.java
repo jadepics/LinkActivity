@@ -3,6 +3,7 @@ package test;
 import linkactivity.linkactivity.CompanyBean;
 import linkactivity.linkactivity.EventCreateController;
 import linkactivity.linkactivity.IOExceptionHandler;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -17,7 +18,8 @@ public class TestRedeemCouponController {
     */
 
     private static final String iomessage= "IOException error";
-
+    //TODO USARE AFTERALL E PASSARE IN GLOBALE LE VARIABILI ANCHE SU TESTUSECOUPONCONTROLLER
+    //TODO CAMBIARE TESTJOINCHALLANGECONTROLLER
     @Test
     public void testredeemcoupon() throws IOException, IOExceptionHandler {
 
@@ -43,7 +45,7 @@ public class TestRedeemCouponController {
         assert(coupNumberBefore==coupNumberAfter-1);
         originalfile(cp1String,nomeaz,file,0);
     }
-
+    @AfterAll
     public static void originalfile(String cp1String, String nomeaz, File file, int i) throws IOExceptionHandler {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
