@@ -11,12 +11,7 @@ public class ApplyCouponAid {
 
     private static final String iomessage= "IOException error";
 
-
-    private ApplyCouponAid() {
-
-    }
-
-    public static Double applycoupnaid(int x, int j, int z, CompanyBean y, int fivep, int tenp, int fiftp) throws NotEnoughCouponAvailableException, IOExceptionHandler {
+    public Double applycoupnaid(int x, int j, int z, CompanyBean y, int fivep, int tenp, int fiftp) throws NotEnoughCouponAvailableException, IOExceptionHandler {
         Double finalPrice = null;
         EventCreateController eventCreateController= new EventCreateController();
 

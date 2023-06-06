@@ -4,6 +4,7 @@ package linkactivity.linkactivity;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class EventDAO {
@@ -44,10 +45,15 @@ public class EventDAO {
     }
 
 
-    public int modifyParticipantNumber(EventBean x) throws IOExceptionHandler {
+    public int modifyParticipantNumber(EventBean x, String todo) throws IOExceptionHandler {
         Connection myConnection = DBConnection.getDBConnection();
         String updatePartecipantQuery;
-        int k = x.getPartecipantNumber() - 1;
+        int k;
+        if(Objects.equals(todo, "remove")) {
+            k = x.getPartecipantNumber() - 1;
+        } else {
+            k= x.getPartecipantNumber()+1;
+        }
         String a = x.getEventName();
           updatePartecipantQuery = String.format("UPDATE evento SET numeroPartecipanti = %d WHERE nomeEvento = '%s';",k, a);
         try(Statement statement = myConnection.createStatement()){
@@ -76,6 +82,34 @@ public class EventDAO {
         }
         return newKeys;
     }
+
+
+    public static int getPartecipantNumber(String eventName) {
+        int num = 0;
+        Connection myConnection = DBConnection.getDBConnection();
+        String query=String.format("SELECT numeroPartecipanti FROM evento WHERE nomeEvento ='%s'", eventName);
+        try(Statement statement =myConnection.createStatement())
+        {  ResultSet result=  statement.executeQuery(query);
+            while(result.next()){
+            num= result.getInt(0);
+            System.out.println(num);
+            }
+            return num;
+        }
+
+
+        catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+
+
+
+
+
    /* public EventModel getEventByName(String nome) { //Todo check questa è per test
         EventModel eventModel = new EventModel();
         Connection myConnection = DBConnection.getDBConnection();

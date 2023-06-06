@@ -80,7 +80,8 @@ public class DummyPaySecondViewGraphicController {
                     j = Integer.parseInt(tenPCouponToUse.getText());
                     z = Integer.parseInt(fiftPCouponToUse.getText());
 
-                    Double finalPrice= ApplyCouponAid.applycoupnaid(x,j,z,y,fivep,tenp,fiftp);
+                    ApplyCouponAid applyCouponAid= new ApplyCouponAid();
+                    Double finalPrice= applyCouponAid.applycoupnaid(x,j,z,y,fivep,tenp,fiftp);
                     nullfinalpriceaid(finalPrice, event);
                 }
             } catch(NotNullCouponToUseException e) {

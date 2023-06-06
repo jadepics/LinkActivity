@@ -39,8 +39,8 @@ public class ItemController {
         return list;
     }
 
-    public int joinEvent(EventBean x) throws IOExceptionHandler {
-        new EventDAO().modifyParticipantNumber(x);
+    public int joinEvent(EventBean x,String todo) throws IOExceptionHandler {
+        new EventDAO().modifyParticipantNumber(x,todo);
         return 0;
     }
 

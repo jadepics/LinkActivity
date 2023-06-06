@@ -52,8 +52,6 @@ public class DummyPayGraphicController {
     private Integer tenp;
     private Integer fiftp;
     private final EventCreateController eventCreateController= new EventCreateController();
-
-
     CompanyBean y;
 
     @FXML
@@ -91,8 +89,8 @@ public class DummyPayGraphicController {
                 x = Integer.parseInt(fivepToUse.getText());
                 j = Integer.parseInt(tenpToUse.getText());
                 z = Integer.parseInt(fiftpToUse.getText());
-
-                Double finalPrice= ApplyCouponAid.applycoupnaid(x,j,z,y,fivep,tenp,fiftp);
+                ApplyCouponAid applyCouponAid= new ApplyCouponAid();
+                Double finalPrice= applyCouponAid.applycoupnaid(x,j,z,y,fivep,tenp,fiftp);
                 if(finalPrice != null) {
                     setAvailableCoupons(y);
                     total.setText("Total: " + finalPrice);

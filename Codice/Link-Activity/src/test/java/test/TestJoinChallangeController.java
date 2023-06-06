@@ -1,7 +1,12 @@
 package test;
 
-import linkactivity.linkactivity.EventBean;
+import linkactivity.linkactivity.*;
 import org.junit.jupiter.api.Test;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class TestJoinChallangeController {
 
@@ -11,8 +16,7 @@ public class TestJoinChallangeController {
     */
 
     @Test
-    public void testjoinchallange(){
-        //TODO chiedere Giada query
+    public void testjoinchallange() throws IOExceptionHandler {
 
         /*
             L'intento del test è quello di controllare se ogni qual volta
@@ -20,19 +24,21 @@ public class TestJoinChallangeController {
             posti disponibili per la challange in questione diminuisca di 1.
         */
 
-        int availableSeatsBefore = 0;
+        int availableSeatsBefore;
         int availableSeatsAfter;
 
-        // query per prendere availableSeatsBefore
-
-        EventBean eventBean= new EventBean("C++ Challange", null, null, null, availableSeatsBefore, null, null );
-
-        // simulazione prenotazione posto chiamando ItemController.joinEvent()
-
-        // query per prendere availableSeatsAfter
-
-        // assert per availabeSeatsAfter == availableSeatsBefore+1
+        EventBean eventBean= new EventBean("C++ Challange", null, null, null, 0, null, null );
+        availableSeatsBefore= EventDAO.getPartecipantNumber(eventBean.getEventName());
+        System.out.println(availableSeatsBefore);
+        eventBean= new EventBean("C++ Challange", null, null, null, availableSeatsBefore, null, null );
+        ItemController itemController= new ItemController();
+        itemController.joinEvent(eventBean,"remove");
+        availableSeatsAfter= EventDAO.getPartecipantNumber(eventBean.getEventName());
+        System.out.println(availableSeatsAfter);
+        assert(availableSeatsBefore==availableSeatsAfter+1);
+        itemController.joinEvent(eventBean,"");
 
     }
+
 
 }
