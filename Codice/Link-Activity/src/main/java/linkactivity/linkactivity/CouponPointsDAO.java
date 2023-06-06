@@ -9,12 +9,13 @@ public class CouponPointsDAO {
     private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
     private static final String iomessage= "IOException error";
 
-    public static void addPoints(CompanyModel company, String todo, int quantity) throws FileNotFoundException, IOExceptionHandler {
-        String nomeaz= company.getCompanyNomeaz();
+    public static void addPoints(CompanyModel company, String todo, int quantity) throws IOException, IOExceptionHandler {
+        String nomeaz = company.getCompanyNomeaz();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(file));
-            FileWriter writer = new FileWriter(file)) {
-
+        FileWriter writer = null;
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(file));
             String line;
             StringBuilder result = new StringBuilder();
             int updatedNumber;
@@ -31,7 +32,7 @@ public class CouponPointsDAO {
                         String numberString = line.substring(startIndex, endIndex);
                         int number = Integer.parseInt(numberString);
 
-                        updatedNumber= ausfunction(todo, number, quantity);
+                        updatedNumber = ausfunction(todo, number, quantity);
 
                         String updatedLine = line.substring(0, startIndex) + updatedNumber + line.substring(endIndex);
                         result.append(updatedLine);
@@ -43,10 +44,15 @@ public class CouponPointsDAO {
                 }
                 result.append("\n");
             }
+            writer = new FileWriter(file);
             writer.write(result.toString());
 
         } catch (IOException e) {
             throw new IOExceptionHandler(iomessage);
+        } finally {
+            assert writer != null;
+            writer.close();
+            reader.close();
         }
     }
 
@@ -64,8 +70,8 @@ public class CouponPointsDAO {
         String nomeaz= company.getCompanyNomeaz();
         int points = 0;
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
-
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
 
@@ -84,6 +90,7 @@ public class CouponPointsDAO {
                     }
                 }
             }
+            reader.close();
 
         } catch (IOException e) {
             throw new IOExceptionHandler(iomessage);
@@ -109,10 +116,8 @@ public class CouponPointsDAO {
             s="cp3=";
         }
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(file));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));){
-
-
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;
             StringBuilder updatedContent = new StringBuilder();
 
@@ -133,7 +138,10 @@ public class CouponPointsDAO {
                 }
                 updatedContent.append(line).append("\n");
             }
+            reader.close();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(updatedContent.toString());
+            writer.close();
 
         } catch (IOException e) {
             throw new IOExceptionHandler(iomessage);
@@ -144,8 +152,8 @@ public class CouponPointsDAO {
         String nomeaz= company.getCompanyNomeaz();
         List<Integer> coupList = new ArrayList<>();
 
-        try(BufferedReader reader = new BufferedReader(new FileReader(file))){
-
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(file));
             String line;
 
             while ((line = reader.readLine()) != null) {
@@ -169,6 +177,7 @@ public class CouponPointsDAO {
                     }
                 }
             }
+            reader.close();
 
         } catch (IOException e) {
             throw new IOExceptionHandler(iomessage);
@@ -176,6 +185,9 @@ public class CouponPointsDAO {
 
         List<CouponModel> couponModels= new ArrayList<>();
         while(3> couponModels.size()){
+            System.out.println(coupList.get(0)+" aaaaaaaa");
+
+            System.out.println(couponModels.size());
             CouponModel couponModel= new CouponModel(coupList.get(0),"") {
                 @Override
                 public Double getPrice() {
@@ -219,9 +231,8 @@ public class CouponPointsDAO {
             i++;
         }
         File file2 = new File(String.valueOf(file));
-        try(BufferedReader reader = new BufferedReader(new FileReader(file2));
-            FileWriter writer = new FileWriter(file2);){
-
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file2));
             StringBuilder sb = new StringBuilder();
             String line;
 
@@ -236,13 +247,16 @@ public class CouponPointsDAO {
 
                 sb.append(line).append(System.lineSeparator());
             }
+            reader.close();
+            FileWriter writer = new FileWriter(file2);
             writer.write(sb.toString());
+            writer.close();
         } catch (IOException e) {
             throw new IOExceptionHandler(iomessage);
         }
     }
 
-    private static String[] tokensaid(String[] tokens, List<Integer> numbers){
+    private static void tokensaid(String[] tokens, List<Integer> numbers){
         for (int g = 0; g < tokens.length; g++) {
             if (tokens[g].startsWith("cp1=")) {
                 int number = Integer.parseInt(tokens[g].substring(4));
@@ -258,7 +272,6 @@ public class CouponPointsDAO {
                 tokens[g] = "cp3=" + number;
             }
         }
-        return tokens;
     }
 
     public void insertNewAzienda(String nomeAzienda) throws IOExceptionHandler {

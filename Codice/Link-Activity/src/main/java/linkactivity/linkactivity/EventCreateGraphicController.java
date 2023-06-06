@@ -84,7 +84,7 @@ public class EventCreateGraphicController {
                 stage.setScene(scene);
                 stage.show();
                 DummyPayGraphicController o = root.getController();
-                o.setCurrentCompany(companyBean2); //TODO forse deve passare la bean non una string
+                o.setCurrentCompany(companyBean2);
             } catch (IOException e) {
                 throw new IOExceptionHandler("IOException error");
             }

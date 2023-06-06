@@ -20,17 +20,16 @@ public class RedeemCouponSecondViewGraphicController {
 
     @FXML
     private Text aviablePoints;
-
     @FXML
     private TextField redeemCouponCommandLine;
-
     CompanyBean y;
     int pts;
+    private final EventCreateController eventCreateController= new EventCreateController();
 
 
 
     @FXML
-    public void executeCommand(ActionEvent event) throws FileNotFoundException, IOExceptionHandler {
+    public void executeCommand(ActionEvent event) throws IOException, IOExceptionHandler {
         String s= redeemCouponCommandLine.getText();
         redeemCouponCommandLine.setText("");
         if(s.compareTo("redeem 5% coupon")==0){
@@ -45,9 +44,9 @@ public class RedeemCouponSecondViewGraphicController {
         }
     }
 
-    private void setPoints(int points) throws FileNotFoundException, IOExceptionHandler {
+    private void setPoints(int points) throws IOException, IOExceptionHandler {
         if(pts >= points){
-            EventCreateController.removePoints(y, points);
+            eventCreateController.removePoints(y, points);
             setCurrentCompanyPoints();
         } else {
             errorMessage();
@@ -69,7 +68,7 @@ public class RedeemCouponSecondViewGraphicController {
     }
 
     private void setCurrentCompanyPoints() throws IOExceptionHandler {
-        CouponBean couponBean= EventCreateController.getCurrentPoints(y);
+        CouponBean couponBean= eventCreateController.getCurrentPoints(y);
         pts= couponBean.getPoints();
         aviablePoints.setText("Your Aviable Points: "+pts);
     }

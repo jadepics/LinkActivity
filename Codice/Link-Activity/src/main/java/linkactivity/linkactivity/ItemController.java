@@ -44,7 +44,7 @@ public class ItemController {
         return 0;
     }
 
-    public static EventBean getLogo(EventBean item) throws IOException {
+    public EventBean getLogo(EventBean item) throws IOException {
         EventModel eventModel= new EventModel(null,null,null,null,0,item.getNomeAzienda(), null){};
         EventModel eventModel1= EventLogoDAO.getLogo(eventModel);
         item= new EventBean(eventModel1.getEventModelPath());

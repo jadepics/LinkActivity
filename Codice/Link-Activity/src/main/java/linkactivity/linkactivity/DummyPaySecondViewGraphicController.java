@@ -12,6 +12,7 @@ import linkactivity.linkactivity.utilities.GUISwtichAid;
 import linkactivity.linkactivity.utilities.ShowAlertAid;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
@@ -46,6 +47,7 @@ public class DummyPaySecondViewGraphicController {
     private Integer fivep;
     private Integer tenp;
     private Integer fiftp;
+    private final EventCreateController eventCreateController= new EventCreateController();
 
     @FXML
     void executeCommand(ActionEvent event) throws FileNotFoundException, IOExceptionHandler {
@@ -85,7 +87,7 @@ public class DummyPaySecondViewGraphicController {
                 ShowAlertAid.showalerterror("Complete all coupon fields");
             } catch (NotEnoughCouponAvailableException e) {
                 ShowAlertAid.showalerterror("Not Enough Coupon Available");
-            } catch (IOExceptionHandler e) {
+            } catch (IOException e) {
                 throw new IOExceptionHandler("IOException error");
             }
 
@@ -95,10 +97,10 @@ public class DummyPaySecondViewGraphicController {
         }
     }
 
-    private void nullfinalpriceaid(Double finalPrice, Event event) throws FileNotFoundException, IOExceptionHandler {
+    private void nullfinalpriceaid(Double finalPrice, Event event) throws IOException, IOExceptionHandler {
         if(finalPrice != null) {
             setCurrentCompanyCoupons();
-            EventCreateController.addPoints(y);
+            eventCreateController.addPoints(y);
             total.setText("Total: " + finalPrice);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Event creation successfully completed");
@@ -114,7 +116,7 @@ public class DummyPaySecondViewGraphicController {
     }
 
     private void setCurrentCompanyCoupons() throws IOExceptionHandler {
-        List<CouponBean> coupList= EventCreateController.getAvailableCoupons(y);
+        List<CouponBean> coupList= eventCreateController.getAvailableCoupons(y);
         fivep= coupList.get(0).getQuantity();
         tenp= coupList.get(1).getQuantity();
         fiftp= coupList.get(2).getQuantity();

@@ -16,19 +16,15 @@ public class RedeemCouponGraphicController {
 
     @FXML
     private Button backButtonX;
-
     @FXML
     private Text aviablePoints;
-
     @FXML
     private Button redeemFiftpCoupButton;
-
     @FXML
     private Button redeemFivepCoupButton;
-
     @FXML
     private Button redeemTenpCoupButton;
-
+    private final EventCreateController eventCreateController= new EventCreateController();
     CompanyBean y;
     int pts;
 
@@ -54,9 +50,9 @@ public class RedeemCouponGraphicController {
     }
 
     @FXML
-    void redeemFiftpCoup() throws FileNotFoundException, IOExceptionHandler {
+    void redeemFiftpCoup() throws IOException, IOExceptionHandler {
         if(pts>=800){
-            EventCreateController.removePoints(y,800);
+            eventCreateController.removePoints(y,800);
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -66,9 +62,9 @@ public class RedeemCouponGraphicController {
     }
 
     @FXML
-    void redeemFivepCoupButton() throws FileNotFoundException, IOExceptionHandler {
+    void redeemFivepCoupButton() throws IOException, IOExceptionHandler {
         if(pts>=300){
-            EventCreateController.removePoints(y,300);
+            eventCreateController.removePoints(y,300);
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -78,9 +74,9 @@ public class RedeemCouponGraphicController {
     }
 
     @FXML
-    void redeemTenpCoup() throws FileNotFoundException, IOExceptionHandler {
+    void redeemTenpCoup() throws IOException, IOExceptionHandler {
         if(pts>=550){
-            EventCreateController.removePoints(y,550);
+            eventCreateController.removePoints(y,550);
             setCurrentCompanyPoints();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -95,7 +91,7 @@ public class RedeemCouponGraphicController {
     }
 
     private void setCurrentCompanyPoints() throws IOExceptionHandler {
-        CouponBean couponBean= EventCreateController.getCurrentPoints(y);
+        CouponBean couponBean= eventCreateController.getCurrentPoints(y);
         pts= couponBean.getPoints();
         aviablePoints.setText("Your Aviable Points: "+pts);
     }

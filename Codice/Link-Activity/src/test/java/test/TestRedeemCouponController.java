@@ -19,7 +19,7 @@ public class TestRedeemCouponController {
     private static final String iomessage= "IOException error";
 
     @Test
-    public void testredeemcoupon() throws FileNotFoundException, IOExceptionHandler {
+    public void testredeemcoupon() throws IOException, IOExceptionHandler {
 
         /*
             L'intento del test è verificare che ogni qual volta
@@ -34,10 +34,11 @@ public class TestRedeemCouponController {
         int pts = 300;
         String cp1String= "cp1=";
         String nomeaz = "Apple";
+        EventCreateController eventCreateController = new EventCreateController();
 
 
         coupNumberBefore= ausfunct(cp1String,nomeaz,file);
-        EventCreateController.removePoints(companyBean,pts);
+        eventCreateController.removePoints(companyBean,pts);
         coupNumberAfter=ausfunct(cp1String,nomeaz,file);
         assert(coupNumberBefore==coupNumberAfter-1);
         originalfile(cp1String,nomeaz,file,0);

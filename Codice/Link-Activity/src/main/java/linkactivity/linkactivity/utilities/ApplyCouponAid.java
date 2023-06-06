@@ -14,6 +14,7 @@ public class ApplyCouponAid {
 
     public static Double applycoupnaid(int x, int j, int z, CompanyBean y, int fivep, int tenp, int fiftp) throws NotEnoughCouponAvailableException {
         Double finalPrice = null;
+        EventCreateController eventCreateController= new EventCreateController();
 
         try {
             if (x > fivep || j > tenp || z > fiftp) {
@@ -38,9 +39,9 @@ public class ApplyCouponAid {
                     x--;
                 }
 
-                finalPrice = EventCreateController.applyCoupon(couponBeans);
+                finalPrice = eventCreateController.applyCoupon(couponBeans);
 
-                EventCreateController.removeCoupon(couponBeans, y);
+                eventCreateController.removeCoupon(couponBeans, y);
 
             }
         } catch (NotEnoughCouponAvailableException | IOExceptionHandler e) {

@@ -51,6 +51,7 @@ public class DummyPayGraphicController {
     private Integer fivep;
     private Integer tenp;
     private Integer fiftp;
+    private final EventCreateController eventCreateController= new EventCreateController();
 
 
     CompanyBean y;
@@ -109,8 +110,8 @@ public class DummyPayGraphicController {
     }
 
     @FXML
-    private void paymentDone() throws FileNotFoundException, IOExceptionHandler {
-        EventCreateController.addPoints(y);
+    private void paymentDone() throws IOException, IOExceptionHandler {
+        eventCreateController.addPoints(y);
         paymentButton.setDisable(true);
         applyCouponButton.setDisable(true);
     }
@@ -122,7 +123,7 @@ public class DummyPayGraphicController {
     }
 
     private void setAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler {
-        List<CouponBean> coupList= EventCreateController.getAvailableCoupons(companyBean);
+        List<CouponBean> coupList= eventCreateController.getAvailableCoupons(companyBean);
         fivep= coupList.get(0).getQuantity();
         tenp= coupList.get(1).getQuantity();
         fiftp= coupList.get(2).getQuantity();

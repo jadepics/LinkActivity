@@ -22,7 +22,7 @@ public class LoginController {
         couponPointsDAO.insertNewAzienda(nomeAzienda);
     }
 
-    public static class UserRegistration {
+    public static class UserRegistration { //TODO NON PUO ESSERE STATIC E' UN CONTROLLER APPLICATIVO!!!!
                 public UserRegistration(UserBean userBean) {
                         UserDAO userDAO = new UserDAO();
                         userDAO.newUser(userBean.getUserEmail(),userBean.getUsername(),userBean.getUserPass());

@@ -2,14 +2,15 @@ package linkactivity.linkactivity;
 
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 //qui ci arrivo dal controller grafico
 public class EventCreateController {
-    public static class newEvent {  //TODO indagre se è corretta in static
-        public newEvent(EventBean createEBean) throws DuplicatedEventException {
+    public static class newEvent {  //TODO LEVARE STATIC NEI CONTROLLER APPLICATIVI
+        public newEvent(EventBean createEBean) throws DuplicatedEventException, IOExceptionHandler {
             //chiama dao per vedere se evento esiste già altrimenti eccezione(specifica)
             CompanyDAO companyDAO = new CompanyDAO();
             UserDAO userDAO = new UserDAO(); //mi serve? forse per observer e notifica
@@ -50,25 +51,25 @@ public class EventCreateController {
         }
     }
 
-    public static void addPoints(CompanyBean companyBean) throws FileNotFoundException, IOExceptionHandler {
+    public void addPoints(CompanyBean companyBean) throws IOException, IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "add",0);
     }
 
-    public static CouponBean getCurrentPoints(CompanyBean companyBean) throws IOExceptionHandler {
+    public CouponBean getCurrentPoints(CompanyBean companyBean) throws IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponModel couponModel= CouponPointsDAO.getCurrentPoints(company);
         int points= couponModel.getPoints();
         return new CouponBean(points);
     }
 
-    public static void removePoints(CompanyBean companyBean, int points) throws FileNotFoundException, IOExceptionHandler {
+    public void removePoints(CompanyBean companyBean, int points) throws IOException, IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         CouponPointsDAO.addPoints(company, "", points);
-        CouponPointsDAO.redeemCoupon(company,points);
+        //CouponPointsDAO.redeemCoupon(company,points);
     }
 
-    public static List<CouponBean> getAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler {
+    public List<CouponBean> getAvailableCoupons(CompanyBean companyBean) throws IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
         List<CouponModel> couponModels= CouponPointsDAO.getAvailableCoupons(company);
         List<CouponBean> couponBeans= new ArrayList<>();
@@ -80,7 +81,7 @@ public class EventCreateController {
         return couponBeans;
     }
 
-    public static Double applyCoupon(List<CouponBean> couponBean){ //TODO indagare se deve essere stiatic
+    public Double applyCoupon(List<CouponBean> couponBean){
         int i=0;
 
         List<CouponModel> couponModel= new ArrayList<>(){};
@@ -98,7 +99,7 @@ public class EventCreateController {
         return couponApplier.getFinalPrice();
     }
 
-    public static void removeCoupon(List<CouponBean> couponBeans, CompanyBean y) throws IOExceptionHandler {
+    public void removeCoupon(List<CouponBean> couponBeans, CompanyBean y) throws IOExceptionHandler {
         Double coupon;
         CouponModel couponModel;
         List<CouponModel> couponModels= new ArrayList<>(){};

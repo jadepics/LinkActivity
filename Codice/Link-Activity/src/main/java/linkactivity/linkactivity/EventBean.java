@@ -100,7 +100,7 @@ public class EventBean extends Subject {
         this.tag=tag;
     }
 
-    public void notifyChanges(){
+    public void notifyChanges() throws IOExceptionHandler {
         super.notifyObservers();
     }
 }

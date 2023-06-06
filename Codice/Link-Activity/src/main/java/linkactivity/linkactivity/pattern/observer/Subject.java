@@ -1,5 +1,7 @@
 package linkactivity.linkactivity.pattern.observer;
 
+import linkactivity.linkactivity.IOExceptionHandler;
+
 import java.util.ArrayList;
 
 public abstract class Subject {
@@ -12,7 +14,7 @@ public abstract class Subject {
     }
     public void detach (Observer removeObserver){observerArrayList.remove(removeObserver);}
 
-    protected void notifyObservers() {
+    protected void notifyObservers() throws IOExceptionHandler {
 
         for (Observer observer : observerArrayList) {
             observer.update();

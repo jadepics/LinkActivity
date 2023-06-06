@@ -38,7 +38,8 @@ public class AddThingsListCellFactory extends ListCell<EventBean> {
                 participantNumberText.setText(String.valueOf(item.getPartecipantNumber()));
                 tagText.setText(item.getTag());
 
-                EventBean sb= ItemController.getLogo(item);
+                ItemController itemController= new ItemController();
+                EventBean sb= itemController.getLogo(item);
                 String ttt= (sb.getEventPath());
                 Image imm= new Image("file:"+ ttt);
                 immToChange.setImage(imm);

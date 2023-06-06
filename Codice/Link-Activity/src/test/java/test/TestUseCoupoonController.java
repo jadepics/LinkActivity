@@ -27,9 +27,11 @@ public class TestUseCoupoonController {
         int coupNumberAfter;
         String cp1String= "cp1=";
         String nomeaz= "Apple";
+        EventCreateController eventCreateController= new EventCreateController();
+
 
         coupNumberBefore= TestRedeemCouponController.ausfunct(cp1String,nomeaz,file);
-        EventCreateController.removeCoupon(couponBeans, companyBean);
+        eventCreateController.removeCoupon(couponBeans, companyBean);
         coupNumberAfter= TestRedeemCouponController.ausfunct(cp1String, nomeaz, file);
         assert(coupNumberBefore==coupNumberAfter+1);
         TestRedeemCouponController.originalfile(cp1String,nomeaz,file,1);
