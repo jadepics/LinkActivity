@@ -41,7 +41,7 @@ public class TestRedeemCouponController {
         originalfile(cp1String,nomeaz,file,0);
     }
 
-    public static void originalfile(String cp1String, String nomeaz, File file, int i){
+    public static void originalfile(String cp1String, String nomeaz, File file, int i) throws IOExceptionHandler {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
             String line;
@@ -66,19 +66,19 @@ public class TestRedeemCouponController {
             }
             writefile(sb, file);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
-    public static void writefile(StringBuilder sb, File file){
+    public static void writefile(StringBuilder sb, File file) throws IOExceptionHandler {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             bw.write(sb.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
 
-    public static int ausfunct(String cp1String, String nomeaz, File file){
+    public static int ausfunct(String cp1String, String nomeaz, File file) throws IOExceptionHandler {
         int coupNumber=0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -96,7 +96,7 @@ public class TestRedeemCouponController {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
 
         return coupNumber;

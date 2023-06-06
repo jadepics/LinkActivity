@@ -56,7 +56,7 @@ public class InsertLogoAziendaGraphicalController {
 
 
     @FXML
-    private void setLogo(ActionEvent event) {
+    private void setLogo(ActionEvent event) throws IOExceptionHandler {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Logo Image");
         fileChooser.getExtensionFilters().add(

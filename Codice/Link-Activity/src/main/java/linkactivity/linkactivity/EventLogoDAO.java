@@ -35,13 +35,13 @@ public class EventLogoDAO {
         }
     }
 
-    public void insertLogo(String imagePath, CompanyBean companyName) {
+    public void insertLogo(String imagePath, CompanyBean companyName) throws IOExceptionHandler {
         String content= companyName.getNomeAzienda() +" " + imagePath;
         try (FileWriter fileWriter = new FileWriter("src/main/CompanyLogo-Filesystem.txt ", true)) {
             fileWriter.write(content);
             fileWriter.write(System.lineSeparator());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
 }

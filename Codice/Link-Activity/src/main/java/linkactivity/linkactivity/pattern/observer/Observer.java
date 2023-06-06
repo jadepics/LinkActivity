@@ -1,6 +1,8 @@
 package linkactivity.linkactivity.pattern.observer;
 
+import linkactivity.linkactivity.IOExceptionHandler;
+
 public interface Observer {
 
-    void update();
+    void update() throws IOExceptionHandler;
 }

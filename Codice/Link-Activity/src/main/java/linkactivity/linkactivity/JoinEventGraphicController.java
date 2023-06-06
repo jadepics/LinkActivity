@@ -15,7 +15,7 @@ public class JoinEventGraphicController{
     EventBean y= new EventBean();
 
     @FXML
-    public void joinEventButton() {
+    public void joinEventButton() throws IOExceptionHandler {
         EventBean k= y;
         new ItemController().joinEvent(k);
     }

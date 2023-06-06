@@ -29,7 +29,7 @@ public class DashboardSecondViewGraphicController implements Initializable {
     private final ArrayList<EventBean> elements= new ArrayList<>();
 
     @FXML
-    void executeCommand() throws IOException, ParseException {
+    void executeCommand() throws IOException, ParseException, IOExceptionHandler {
         String s= dashboardCommandLine.getText();
         dashboardCommandLine.setText("");
 
@@ -64,7 +64,7 @@ public class DashboardSecondViewGraphicController implements Initializable {
                 JoinEventSecondViewGraphicController o = root.getController();
                 o.setDescriptionText(x);
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new IOExceptionHandler("IOException error");
             }
             assert false;
 

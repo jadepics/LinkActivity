@@ -39,7 +39,7 @@ public class ItemController {
         return list;
     }
 
-    public int joinEvent(EventBean x){
+    public int joinEvent(EventBean x) throws IOExceptionHandler {
         new EventDAO().modifyParticipantNumber(x);
         return 0;
     }

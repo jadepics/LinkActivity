@@ -260,13 +260,13 @@ public class CouponPointsDAO {
         return tokens;
     }
 
-    public void insertNewAzienda(String nomeAzienda) {
+    public void insertNewAzienda(String nomeAzienda) throws IOExceptionHandler {
         String content= nomeAzienda +": pts=0 - cp1=0 - cp2=0 - cp3=0";
         try (FileWriter fileWriter = new FileWriter(file, true)) {
             fileWriter.write(content);
             fileWriter.write(System.lineSeparator());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
 }

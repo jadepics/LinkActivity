@@ -44,7 +44,7 @@ public class EventDAO {
     }
 
 
-    public int modifyParticipantNumber(EventBean x) {
+    public int modifyParticipantNumber(EventBean x) throws IOExceptionHandler {
         Connection myConnection = DBConnection.getDBConnection();
         String updatePartecipantQuery;
         int k = x.getPartecipantNumber() - 1;
@@ -54,7 +54,7 @@ public class EventDAO {
             statement.execute(updatePartecipantQuery);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
         return 1;
     }

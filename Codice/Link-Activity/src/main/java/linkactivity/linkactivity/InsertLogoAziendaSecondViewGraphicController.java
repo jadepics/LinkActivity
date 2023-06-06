@@ -21,7 +21,7 @@ public class InsertLogoAziendaSecondViewGraphicController {
     private Text insertLogoPathText;
 
     @FXML
-    void executeCommand() {
+    void executeCommand() throws IOExceptionHandler {
         String s = insertLogoCommandLine.getText();
         insertLogoCommandLine.setText("");
         if (s.matches("set logo path .*")) {

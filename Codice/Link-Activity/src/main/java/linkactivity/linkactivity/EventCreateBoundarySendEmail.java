@@ -20,7 +20,7 @@ public class EventCreateBoundarySendEmail implements Observer {
         this.aziendaMail = aziendaMail;
     }
     @Override
-    public void update() {
+    public void update() throws IOExceptionHandler {
         try(PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter( "EmailAddressFile.txt")))){
 
             printWriter.print("Azienda mail address:    ");
@@ -40,7 +40,7 @@ public class EventCreateBoundarySendEmail implements Observer {
 
 
         }catch (IOException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler("IOException error");
         }
     }
     public void setUserBeans(List<UserBean> userBeans) {

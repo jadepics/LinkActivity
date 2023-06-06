@@ -12,12 +12,12 @@ public class LoginController {
         return companyDAO.verifyCompany(companyBean.getNomeAzienda(),companyBean.getPassword());
     }
 
-    public void addLogoImage(String imagePath, CompanyBean companyName) {
+    public void addLogoImage(String imagePath, CompanyBean companyName) throws IOExceptionHandler {
         EventLogoDAO eventLogoDAO= new EventLogoDAO();
         eventLogoDAO.insertLogo(imagePath,companyName);
     }
 
-    public void AddInPoints(String nomeAzienda) {
+    public void AddInPoints(String nomeAzienda) throws IOExceptionHandler {
         CouponPointsDAO couponPointsDAO =new CouponPointsDAO();
         couponPointsDAO.insertNewAzienda(nomeAzienda);
     }

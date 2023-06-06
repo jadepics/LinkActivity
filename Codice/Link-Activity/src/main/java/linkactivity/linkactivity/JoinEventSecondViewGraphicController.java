@@ -18,7 +18,7 @@ public class JoinEventSecondViewGraphicController {
 
 
     @FXML
-    void executeCommand(ActionEvent event) {
+    void executeCommand(ActionEvent event) throws IOExceptionHandler {
         EventBean k=y;
         String s= joinEventCommandLine.getText();
         joinEventCommandLine.setText("");
