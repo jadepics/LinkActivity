@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import linkactivity.linkactivity.utilities.ApplyCouponAid;
 import linkactivity.linkactivity.utilities.GUISwtichAid;
+import linkactivity.linkactivity.utilities.ShowAlertAid;
 
 import java.io.FileNotFoundException;
 import java.util.List;
@@ -81,13 +82,9 @@ public class DummyPaySecondViewGraphicController {
                     nullfinalpriceaid(finalPrice, event);
                 }
             } catch(NotNullCouponToUseException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Complete all coupon fields");
-                alert.showAndWait();
+                ShowAlertAid.showalerterror("Complete all coupon fields");
             } catch (NotEnoughCouponAvailableException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Not Enough Coupon Available");
-                alert.showAndWait();
+                ShowAlertAid.showalerterror("Not Enough Coupon Available");
             } catch (IOExceptionHandler e) {
                 throw new IOExceptionHandler("IOException error");
             }
