@@ -1,34 +1,27 @@
 package linkactivity.linkactivity;
 
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-//qui ci arrivo dal controller grafico
 public class EventCreateController {
-    public static class newEvent {  //TODO LEVARE STATIC NEI CONTROLLER APPLICATIVI
-        public newEvent(EventBean createEBean) throws DuplicatedEventException, IOExceptionHandler {
-            //chiama dao per vedere se evento esiste già altrimenti eccezione(specifica)
+        public void newEvent(EventBean createEBean) throws DuplicatedEventException, IOExceptionHandler {
             CompanyDAO companyDAO = new CompanyDAO();
-            UserDAO userDAO = new UserDAO(); //mi serve? forse per observer e notifica
+            UserDAO userDAO = new UserDAO();
             EventDAO eventDAO = new EventDAO();
-            EventModel addEvent; //model del nuovo evento
+            EventModel addEvent;
             CompanyModel company =companyDAO.loadCompany(createEBean.nomeAzienda);
             String companyMail = company.getCompanyEmail();
-            // mi carico l'azienda perche la devo mette nella dao evento, ma la devo recuperare dalla sessione
+
 
             EventCreateBoundarySendEmail addEventBoundarySendEmail = new EventCreateBoundarySendEmail(createEBean,companyMail);
 
              List <UserBean> userBeans = new ArrayList<>();
             List <UserModel> userModels;
-            userModels =userDAO.loadUserFromFavoriteTag(createEBean.tag); //sempre per observer da DAO
-        //    System.out.println(userModels.get(0).getEmail());   //TODO qui email è null
+            userModels=userDAO.loadUserFromFavoriteTag(createEBean.tag); //sempre per observer da DAO
              for(UserModel userModel : userModels){
-             userBeans.add(new UserBean(userModel.getEmail()));
-                            }
+             userBeans.add(new UserBean(userModel.getEmail()));}
             addEvent = new EventModel(createEBean.getEventName(),createEBean.getDescription(), createEBean.getDataEvento(), createEBean.getExpirationDate(), createEBean.getPartecipantNumber(), createEBean.getNomeAzienda(), createEBean.getTag());
 
 
@@ -49,7 +42,7 @@ public class EventCreateController {
             return Objects.equals(localEvent.getEventModelName(), addEvent.getEventModelName()) && Objects.equals(localEvent.getEventModelData(), addEvent.getEventModelData()) &&
                     Objects.equals(localEvent.getEventModelDescription(), addEvent.getEventModelDescription()) && Objects.equals(localEvent.getEventModelTag(), addEvent.getEventModelTag());
         }
-    }
+
 
     public void addPoints(CompanyBean companyBean) throws IOException, IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());

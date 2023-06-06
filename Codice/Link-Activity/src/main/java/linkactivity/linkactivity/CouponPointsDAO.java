@@ -7,7 +7,7 @@ import java.util.List;
 public class CouponPointsDAO {
 
     private static final File file= new File("src/main/CompanyCoupon-Filesystem.txt");
-    private static final String ioMessage= "IOException error";
+    private static final String IO_MESSAGE= "IOException error";
 
     public static void addPoints(CompanyModel company, String todo, int quantity) throws IOException, IOExceptionHandler {
         String nomeaz = company.getCompanyNomeaz();
@@ -47,7 +47,7 @@ public class CouponPointsDAO {
             writer.write(result.toString());
 
         } catch (IOException e) {
-            throw new IOExceptionHandler(ioMessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         } finally {
             assert writer != null;
             writer.close();
@@ -89,7 +89,7 @@ public class CouponPointsDAO {
             }
 
         } catch (IOException e) {
-            throw new IOExceptionHandler(ioMessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         }
 
         return new CouponModel(points) {
@@ -139,7 +139,7 @@ public class CouponPointsDAO {
             writer.write(updatedContent.toString());
 
         } catch (IOException e) {
-            throw new IOExceptionHandler(ioMessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         } finally {
             assert writer != null;
             writer.close();
@@ -176,7 +176,7 @@ public class CouponPointsDAO {
                 }
             }
         } catch (IOException e) {
-            throw new IOExceptionHandler(ioMessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         }
         List<CouponModel> couponModels = new ArrayList<>();
         while (3 > couponModels.size()) {
@@ -243,7 +243,7 @@ public class CouponPointsDAO {
             writer = new FileWriter(file2);
             writer.write(sb.toString());
         } catch (IOException e) {
-            throw new IOExceptionHandler(ioMessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         } finally {
             assert writer != null;
             writer.close();
@@ -274,7 +274,7 @@ public class CouponPointsDAO {
             fileWriter.write(content);
             fileWriter.write(System.lineSeparator());
         } catch (IOException e) {
-            throw new IOExceptionHandler(ioMessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         }
     }
 }

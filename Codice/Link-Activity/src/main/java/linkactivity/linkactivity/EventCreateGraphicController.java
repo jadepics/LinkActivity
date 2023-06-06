@@ -58,8 +58,6 @@ public class EventCreateGraphicController {
             val = Integer.parseInt(s);
         } catch (NumberFormatException e) {
 
-            // This is thrown when the String
-            // contains characters other than digits
         }
         return val;
     }
@@ -103,7 +101,8 @@ public class EventCreateGraphicController {
         }
         EventBean eventBean = new EventBean(eventName.getText(), description.getText(), initialDateInsert.getText(), expireDateInsert.getText(), partecipant, companyBean.getNomeAzienda(), tagInsert.getValue());
         CompanyBean companyBean2 = new CompanyBean(eventBean.getNomeAzienda());
-        new EventCreateController.newEvent(eventBean);
+        EventCreateController eventCreateController =new EventCreateController();
+        eventCreateController.newEvent(eventBean);
 
         Stage stage = (Stage) createItButton.getScene().getWindow();
         FXMLLoader root;

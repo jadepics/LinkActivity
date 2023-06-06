@@ -1,9 +1,14 @@
 package linkactivity.linkactivity;
 
 public class UserModel {
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
     private String userEmail;
     public UserModel(String userEmail) {
-        super();
+        setUserEmail(userEmail);
+       // super();
     }
     public UserModel(){}
     public String getEmail(){

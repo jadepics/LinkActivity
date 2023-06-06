@@ -26,18 +26,4 @@ public class MainClass extends Application {
     }
 }
 
-
-                        /*CouponApplier instance = new CouponApplier(new Priceable() {
-                            @Override
-                            public Double getPrice() {
-                                return 10.0;
-                            }
-                        }) ;
-                        instance.getFinalPrice() ;
-                        */
 //TODO risolvere errore quando utente si logga, partecipa e usa filtri (errore out of bound ma non so il perche)
-
-//TODO qualsiasi errore di input tipo aggiungere un evento con campi vuoti o registrazione o login vanno risolti
-
-//TODO ENORME rifare tutte le classi che sono in static non static, vedere esempio in EventCreateController riga 94
-// metodi delle DAO vanno bene static, metodi del controller applicativo dipende dal caso, INFORMARSI

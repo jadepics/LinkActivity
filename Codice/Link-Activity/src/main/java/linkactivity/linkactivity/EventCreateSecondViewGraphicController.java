@@ -94,7 +94,8 @@ public class EventCreateSecondViewGraphicController {
                 int num = convert1(eventCreatePartecipantNumberText.getText());
                 String nomeAzienda = y.getNomeAzienda();
                 EventBean eventBean = new EventBean(name, descrizione, date, exDate, num, nomeAzienda, tag);
-                new EventCreateController.newEvent(eventBean);
+                EventCreateController eventCreateController = new EventCreateController();
+                eventCreateController.newEvent(eventBean);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPaySecondView.fxml")));
                 Scene scene;
