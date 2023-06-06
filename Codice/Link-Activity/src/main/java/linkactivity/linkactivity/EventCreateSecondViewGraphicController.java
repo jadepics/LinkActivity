@@ -45,45 +45,71 @@ public class EventCreateSecondViewGraphicController {
         if(s.matches("set event name .*")){
             String name= s.replace("set event name ","");
             eventCreateEventNameText.setText(name);
+
         }else if(s.matches("set description .*")){
             String description= s.replace("set description ","");
-            eventCreateEventDescriptionText.setText(description); }
+            eventCreateEventDescriptionText.setText(description);
+            }
         else if(s.matches("set event date .*")){
              String date= s.replace("set event date ","");
              eventCreateEventDateText.setText(date);
+
         } else if(s.matches("set expiration date .*")){
             String expdate= s.replace("set expiration date ","");
             eventCreateExpirationDateText.setText(expdate);
+
         } else if(s.matches("set tag .*")){
             String tag= s.replace("set tag ","");
             taginsertaid(tag);
         } else if(s.matches("set participant number .*")){
             String num= s.replace("set participant number ", "");
             eventCreatePartecipantNumberText.setText(num);
-        } else if(s.compareTo("submit")==0){
-            String name= eventCreateEventNameText.getText();
-            String descrizione= eventCreateEventDescriptionText.getText();
-            String date= eventCreateEventDateText.getText();
-            String exDate= eventCreateExpirationDateText.getText();
+
+        } else if(s.compareTo("submit")==0) {
+            String name = eventCreateEventNameText.getText();
+            String descrizione = eventCreateEventDescriptionText.getText();
+            String date = eventCreateEventDateText.getText();
+            String exDate = eventCreateExpirationDateText.getText();
             String tag = eventCreateTagText.getText();
-            int num = convert1(eventCreatePartecipantNumberText.getText()) ;
-            String nomeAzienda = y.getNomeAzienda();
-            EventBean eventBean = new EventBean(name, descrizione,date,exDate,num, nomeAzienda,tag);
-            new EventCreateController.newEvent(eventBean);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPaySecondView.fxml")));
-            Scene scene;
-            try {
-                scene = new Scene(root.load(), 690, 518);
-                stage.setScene(scene);
-                stage.show();
-                DummyPaySecondViewGraphicController a = root.getController();
-                a.currentCompany(y);
+            if (eventCreatePartecipantNumberText.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Partecipant number are not insert");
+                alert.showAndWait();
             }
-            catch (IOException e){
-                throw new IOExceptionHandler("IOException error");
+            else if (!isValidDate(date) || !isValidDate(exDate)) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Not valid date format");
+                alert.showAndWait();
             }
-        } else if(s.compareTo("back")==0){
+            else if (descrizione.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Event description is empty");
+                alert.showAndWait();
+            }
+            else if (name.isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Event name is empty");
+                alert.showAndWait();
+            } else {
+                int num = convert1(eventCreatePartecipantNumberText.getText());
+                String nomeAzienda = y.getNomeAzienda();
+                EventBean eventBean = new EventBean(name, descrizione, date, exDate, num, nomeAzienda, tag);
+                new EventCreateController.newEvent(eventBean);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPaySecondView.fxml")));
+                Scene scene;
+                try {
+                    scene = new Scene(root.load(), 690, 518);
+                    stage.setScene(scene);
+                    stage.show();
+                    DummyPaySecondViewGraphicController a = root.getController();
+                    a.currentCompany(y);
+                } catch (IOException e) {
+                    throw new IOExceptionHandler("IOException error");
+                }
+            }
+        }
+        else if (s.compareTo("back") == 0) {
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
             GUISwtichAid.azioniaziendasecondviewguiswitch(event, y, root);
         }
@@ -112,5 +138,9 @@ public class EventCreateSecondViewGraphicController {
         }
         return val;
     }
+    private boolean isValidDate(String date) {
+        String regex = "\\d{4}-\\d{2}-\\d{2}";
+        return date.matches(regex);
+    }
 }
-//  TODO check not null
+

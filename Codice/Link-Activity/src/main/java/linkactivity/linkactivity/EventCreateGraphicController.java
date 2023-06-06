@@ -70,6 +70,7 @@ public class EventCreateGraphicController {
         int partecipant = convert(maxPartecipantNumber.getText());
         String initialDate = initialDateInsert.getText();
         String expireDate =expireDateInsert.getText();
+        String selectedTag = tagInsert.getValue();
         if(eventName.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Event name is empty");
@@ -93,6 +94,12 @@ public class EventCreateGraphicController {
                 alert.setHeaderText("Partecipant number is empty");
                 alert.showAndWait();
                 return;
+        }
+        if(selectedTag == null || selectedTag.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Tag is not selected");
+            alert.showAndWait();
+            return;
         }
         EventBean eventBean = new EventBean(eventName.getText(), description.getText(), initialDateInsert.getText(), expireDateInsert.getText(), partecipant, companyBean.getNomeAzienda(), tagInsert.getValue());
         CompanyBean companyBean2 = new CompanyBean(eventBean.getNomeAzienda());
