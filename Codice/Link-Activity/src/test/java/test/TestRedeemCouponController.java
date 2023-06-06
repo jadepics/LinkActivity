@@ -18,8 +18,6 @@ public class TestRedeemCouponController {
     */
 
     private static final String iomessage= "IOException error";
-    //TODO USARE AFTERALL E PASSARE IN GLOBALE LE VARIABILI ANCHE SU TESTUSECOUPONCONTROLLER
-    //TODO CAMBIARE TESTJOINCHALLANGECONTROLLER
     @Test
     public void testredeemcoupon() throws IOException, IOExceptionHandler {
 
