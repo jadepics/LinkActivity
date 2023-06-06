@@ -1,6 +1,8 @@
 Azienda mail address:    Apple@Apple.Apple
 
-New event added:   NomeEvento
+New event added:   pspsps
 
 Send to users mail address:
 
+null
+null

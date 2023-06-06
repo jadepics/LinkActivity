@@ -57,8 +57,10 @@ public class CouponPointsDAO {
         int updatedNumber;
         if(todo.equals("add")){
             updatedNumber = number + 100;
-        } else {
+        } else if(todo.equals("")){
             updatedNumber= number-quantity;
+        } else{
+            updatedNumber= number-100;
         }
         return updatedNumber;
     }

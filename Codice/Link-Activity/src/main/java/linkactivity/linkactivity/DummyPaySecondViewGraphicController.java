@@ -101,7 +101,7 @@ public class DummyPaySecondViewGraphicController {
     private void nullfinalpriceaid(Double finalPrice, Event event) throws IOException, IOExceptionHandler {
         if(finalPrice != null) {
             setCurrentCompanyCoupons();
-            eventCreateController.addPoints(y);
+            eventCreateController.addPoints(y,"add");
             total.setText("Total: " + finalPrice);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Event creation successfully completed");

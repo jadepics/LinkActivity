@@ -44,9 +44,9 @@ public class EventCreateController {
         }
 
 
-    public void addPoints(CompanyBean companyBean) throws IOException, IOExceptionHandler {
+    public void addPoints(CompanyBean companyBean, String todo) throws IOException, IOExceptionHandler {
         CompanyModel company= new CompanyModel(companyBean.getNomeAzienda());
-        CouponPointsDAO.addPoints(company, "add",0);
+        CouponPointsDAO.addPoints(company, todo,0);
     }
 
     public CouponBean getCurrentPoints(CompanyBean companyBean) throws IOExceptionHandler, IOException {

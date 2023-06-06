@@ -45,7 +45,7 @@ public class TestRedeemCouponController {
         assert(coupNumberBefore==coupNumberAfter-1);
         originalfile(cp1String,nomeaz,file,0);
     }
-    @AfterAll
+
     public static void originalfile(String cp1String, String nomeaz, File file, int i) throws IOExceptionHandler {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();

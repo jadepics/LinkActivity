@@ -109,7 +109,7 @@ public class DummyPayGraphicController {
 
     @FXML
     private void paymentDone() throws IOException, IOExceptionHandler {
-        eventCreateController.addPoints(y);
+        eventCreateController.addPoints(y,"add");
         paymentButton.setDisable(true);
         applyCouponButton.setDisable(true);
     }
