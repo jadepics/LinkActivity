@@ -82,52 +82,6 @@ public class EventDAO {
         }
         return newKeys;
     }
-
-
-    public static int getPartecipantNumber(String eventName) throws IOExceptionHandler {
-        int num = 0;
-        Connection myConnection = DBConnection.getDBConnection();
-        String query=String.format("SELECT numeroPartecipanti FROM evento WHERE nomeEvento ='%s'", eventName);
-        try(Statement statement =myConnection.createStatement())
-        {  ResultSet result=  statement.executeQuery(query);
-            num= result.getInt(1);
-            return num;
-        }
-
-
-        catch(SQLException e){
-            throw new IOExceptionHandler();
-        }
-
-    }
-
-
-
-
-
-
-
-   public EventModel getEventByName(String nome) { //Todo check questa è per test
-        EventModel eventModel = new EventModel();
-        Connection myConnection = DBConnection.getDBConnection();
-        String query = String.format("SELECT * FROM evento WHERE nomeEvento = '%s';",nome);
-        try (Statement statement = myConnection.createStatement()) {
-            ResultSet resultSet = statement.executeQuery(query);     //questi errori non li capisco
-            if (resultSet.next()) {
-                eventModel.setEventModelName(resultSet.getString("nomeEvento"));
-                eventModel.setEventModelDescription(resultSet.getString("descrizioneEvento"));
-                eventModel.setEventModelData(resultSet.getString("data"));
-                eventModel.setEventModelExpirationDate(resultSet.getString("expirationDate"));
-                eventModel.setEventModelPartecipantNumber(Integer.parseInt(resultSet.getString("numeroPartecipanti")));
-                eventModel.setEventModelTag(resultSet.getString("tag"));
-
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return eventModel;
-    }
-
 }
 
 

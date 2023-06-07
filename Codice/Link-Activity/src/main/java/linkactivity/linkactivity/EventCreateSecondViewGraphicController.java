@@ -82,32 +82,28 @@ public class EventCreateSecondViewGraphicController {
                 alert.showAndWait();
             }
             else {
-               changeView(event, name, descrizione, date, exDate, tag);
-           }
+                int num = convert1(eventCreatePartecipantNumberText.getText());
+                String nomeAzienda = y.getNomeAzienda();
+                EventBean eventBean = new EventBean(name, descrizione, date, exDate, num, nomeAzienda, tag);
+                EventCreateController eventCreateController = new EventCreateController();
+                eventCreateController.newEvent(eventBean);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPaySecondView.fxml")));
+                Scene scene;
+                try {
+                    scene = new Scene(root.load(), 690, 518);
+                    stage.setScene(scene);
+                    stage.show();
+                    DummyPaySecondViewGraphicController a = root.getController();
+                    a.currentCompany(y);
+                } catch (IOException e) {
+                    throw new IOExceptionHandler("IOException error");
+                }
+            }
         }
         else if (s.compareTo("back") == 0) {
             FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("AzioniAziendaSecondView.fxml")));
             GUISwtichAid.azioniaziendasecondviewguiswitch(event, y, root);
-        }
-    }
-
-    private void changeView(ActionEvent event, String name, String descrizione, String date, String exDate, String tag) throws DuplicatedEventException, IOExceptionHandler {
-        int num = convert1(eventCreatePartecipantNumberText.getText());
-        String nomeAzienda = y.getNomeAzienda();
-        EventBean eventBean = new EventBean(name, descrizione, date, exDate, num, nomeAzienda, tag);
-        EventCreateController eventCreateController = new EventCreateController();
-        eventCreateController.newEvent(eventBean);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader root = new FXMLLoader(Objects.requireNonNull(getClass().getResource("DummyPaySecondView.fxml")));
-        Scene scene;
-        try {
-            scene = new Scene(root.load(), 690, 518);
-            stage.setScene(scene);
-            stage.show();
-            DummyPaySecondViewGraphicController a = root.getController();
-            a.currentCompany(y);
-        } catch (IOException e) {
-            throw new IOExceptionHandler("IOException error");
         }
     }
 
