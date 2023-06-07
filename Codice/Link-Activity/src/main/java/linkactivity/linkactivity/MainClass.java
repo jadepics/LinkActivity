@@ -26,4 +26,4 @@ public class MainClass extends Application {
     }
 }
 
-//TODO risolvere errore quando utente si logga, partecipa e usa filtri (errore out of bound ma non so il perche)
+

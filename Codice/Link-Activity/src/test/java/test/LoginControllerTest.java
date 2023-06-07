@@ -18,7 +18,7 @@ public class LoginControllerTest {
     * utenti diversi */
 
     @Test
-    public void testLoginUser_ValidCredentials_ReturnsSuccess() throws NotExistentUserException {
+    public void testLoginUserValidCredentialsReturnsSuccess() throws NotExistentUserException {
         /*Login dello user */
         UserBean userBean = new UserBean("","ale","ale");
         LoginController loginController = new LoginController() {
@@ -40,7 +40,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void testLoginCompany_ValidCredentials_ReturnsSuccess() throws NotExistentUserException {
+    public void testLoginCompanyValidCredentialsReturnsSuccess() throws NotExistentUserException {
         /*Login della company */
         CompanyBean companyBean = new CompanyBean();
         companyBean.setNomeAzienda("Apple");
@@ -63,7 +63,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void testAddLogoImage_ValidData_InvokesInsertLogo() throws IOExceptionHandler {
+    public void testAddLogoImageValidDataInvokesInsertLogo() throws IOExceptionHandler {
         /*Inserimento del logo di una company nel filesystem */
         String imagePath = "logo.png";
         CompanyBean companyName = new CompanyBean();

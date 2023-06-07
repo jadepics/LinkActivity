@@ -17,7 +17,7 @@ public class TestRedeemCouponController {
         Matricola: 0280155
     */
 
-    private static final String iomessage= "IOException error";
+    private static final String IO_MESSAGE= "IOException error";
     @Test
     public void testredeemcoupon() throws IOException, IOExceptionHandler {
 
@@ -69,7 +69,7 @@ public class TestRedeemCouponController {
             }
             writefile(sb, file);
         } catch (IOException e) {
-            throw new IOExceptionHandler(iomessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         }
     }
 
@@ -77,7 +77,7 @@ public class TestRedeemCouponController {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             bw.write(sb.toString());
         } catch (IOException e) {
-            throw new IOExceptionHandler(iomessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         }
     }
 
@@ -99,7 +99,7 @@ public class TestRedeemCouponController {
             }
 
         } catch (IOException e) {
-            throw new IOExceptionHandler(iomessage);
+            throw new IOExceptionHandler(IO_MESSAGE);
         }
 
         return coupNumber;
