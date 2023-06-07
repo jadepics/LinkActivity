@@ -65,7 +65,7 @@ public class EventDAO {
         return 1;
     }
 
-    public int insertEvent(EventModel event) throws IOExceptionHandler {
+    public int insertEvent(EventModel event) throws IOExceptionSQL {
         int newKeys=-1;
         Connection myConnection = DBConnection.getDBConnection();
         try(PreparedStatement statement =myConnection.prepareStatement("INSERT evento(nomeEvento, descrizioneEvento, data, expirationDate,numeroPartecipanti,nomeAzienda,tag) VALUES (?,?,?,?,?,?,?);")) {
@@ -78,7 +78,7 @@ public class EventDAO {
             statement.setString(7, event.getEventModelTag());
             newKeys = statement.executeUpdate();
         } catch (SQLException e) {
-            throw new IOExceptionHandler();
+            throw new IOExceptionSQL();
         }
         return newKeys;
     }

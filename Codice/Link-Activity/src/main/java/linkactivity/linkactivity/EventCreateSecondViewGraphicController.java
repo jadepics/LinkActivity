@@ -38,7 +38,7 @@ public class EventCreateSecondViewGraphicController {
     CompanyBean y;
 
     @FXML
-    void executeCommand(ActionEvent event) throws IOException, DuplicatedEventException, IOExceptionHandler {
+    void executeCommand(ActionEvent event) throws IOException, DuplicatedEventException, IOExceptionHandler, IOExceptionSQL {
         String s= eventCreateCommandLine.getText();
         eventCreateCommandLine.setText("");
 
@@ -91,7 +91,7 @@ public class EventCreateSecondViewGraphicController {
         }
     }
 
-    private void allRightChangeView(ActionEvent event, String name, String descrizione, String date, String exDate, String tag) throws DuplicatedEventException, IOExceptionHandler {
+    private void allRightChangeView(ActionEvent event, String name, String descrizione, String date, String exDate, String tag) throws DuplicatedEventException, IOExceptionHandler, IOExceptionSQL {
         int num = convert1(eventCreatePartecipantNumberText.getText());
         String nomeAzienda = y.getNomeAzienda();
         EventBean eventBean = new EventBean(name, descrizione, date, exDate, num, nomeAzienda, tag);

@@ -30,7 +30,7 @@ public class UserDAO {
         return new UserModel(email);
     }
 
-    public void newUser(String userEmail, String username, String userPass) throws IOExceptionHandler {
+    public void newUser(String userEmail, String username, String userPass) throws IOExceptionSQL {
         Connection myConnection = DBConnection.getDBConnection();
         try(PreparedStatement statement =myConnection.prepareStatement("INSERT INTO user(Email, Username, Password) VALUES (?,?,?);")){
             statement.setString(1, userEmail);
@@ -38,18 +38,18 @@ public class UserDAO {
             statement.setString(3, userPass);
             statement.execute();
         } catch (SQLException ex) {
-            throw new IOExceptionHandler();
+            throw new IOExceptionSQL();
         }
 
     }
-    public static void addFavouriteTag(String username, String tag) throws IOExceptionHandler {
+    public static void addFavouriteTag(String username, String tag) throws IOExceptionSQL {
         Connection myConnection = DBConnection.getDBConnection();
         try(PreparedStatement statement =myConnection.prepareStatement("UPDATE user SET preferiti = ? WHERE username = ?;"))
         { statement.setString(1, tag);
             statement.setString(2, username);
             statement.execute();
         } catch (SQLException e) {
-            throw new IOExceptionHandler();
+            throw new IOExceptionSQL();
         }
     }
 

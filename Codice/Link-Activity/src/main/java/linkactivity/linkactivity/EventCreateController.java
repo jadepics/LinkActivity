@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class EventCreateController {
-        public void newEvent(EventBean createEBean) throws DuplicatedEventException, IOExceptionHandler {
+        public void newEvent(EventBean createEBean) throws DuplicatedEventException, IOExceptionHandler, IOExceptionSQL {
             CompanyDAO companyDAO = new CompanyDAO();
             UserDAO userDAO = new UserDAO();
             EventDAO eventDAO = new EventDAO();

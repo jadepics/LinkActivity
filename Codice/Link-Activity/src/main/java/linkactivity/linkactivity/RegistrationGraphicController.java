@@ -99,7 +99,7 @@ public class RegistrationGraphicController {
     }
 
     @FXML
-    private void userRegister(ActionEvent event) throws IOExceptionHandler {
+    private void userRegister(ActionEvent event) throws IOExceptionSQL, IOExceptionHandler {
         String emailText = "";
         String checkpass="";
         String usernameText="";

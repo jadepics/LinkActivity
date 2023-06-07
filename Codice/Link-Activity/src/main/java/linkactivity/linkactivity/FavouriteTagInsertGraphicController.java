@@ -46,7 +46,7 @@ public class FavouriteTagInsertGraphicController {
                         stage.show();
                 }
     @FXML
-        public void gotodashboard() throws IOException, IOExceptionHandler {
+        public void gotodashboard() throws IOException, IOExceptionSQL {
         LoginController loginController= new LoginController();
 
             loginController.userAddTag(userBean0, favouriteTagInsert.getValue());

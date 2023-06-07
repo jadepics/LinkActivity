@@ -9,7 +9,7 @@ public class DBConnection {
 
     private static final String DATABASE_NAME = "mydb";
     private static final String DATABASE_USER = "root";
-    private static final String PASSWORD_FILE_PATH = "password.txt"; // Percorso del file contenente la password
+    private static final String PASSWORD_FILE_PATH = "C:\\Users\\micci\\Desktop\\LinkActivityDEMO\\Codice\\Link-Activity\\src\\main\\resources\\password.txt"; // Percorso del file contenente la password
     private static final String URL_DB = "jdbc:mysql://127.0.0.1/" + DATABASE_NAME;
     private static Connection connection;
 

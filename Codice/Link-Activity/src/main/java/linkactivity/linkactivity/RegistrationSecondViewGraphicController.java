@@ -34,7 +34,7 @@ public class RegistrationSecondViewGraphicController {
     private Text registrationRepeatPasswordText;
 
     @FXML
-    void executeCommand() throws IOException, IOExceptionHandler {
+    void executeCommand() throws IOException, IOExceptionHandler, IOExceptionSQL {
         String s = registrationCommandLine.getText();
         registrationCommandLine.setText("");
 
@@ -79,7 +79,7 @@ public class RegistrationSecondViewGraphicController {
         }
     }
 
-    private void submitAid(String type, String email, String username, String pass) throws IOExceptionHandler {
+    private void submitAid(String type, String email, String username, String pass) throws IOExceptionHandler, IOExceptionSQL {
         if (!(registrationPasswordText.getText().matches(registrationRepeatPasswordText.getText()))) {
             ShowAlertAid.showalerterror("Passwords not match");
         } else {

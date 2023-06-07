@@ -66,7 +66,7 @@ public class EventCreateGraphicController {
 
 
     @FXML
-    public void createItGotoPay() throws DuplicatedEventException, IOExceptionHandler {
+    public void createItGotoPay() throws DuplicatedEventException, IOExceptionHandler, IOExceptionSQL {
         int partecipant = convert(maxPartecipantNumber.getText());
         String initialDate = initialDateInsert.getText();
         String expireDate =expireDateInsert.getText();
