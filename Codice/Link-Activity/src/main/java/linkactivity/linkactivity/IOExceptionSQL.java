@@ -1,6 +1,8 @@
 package linkactivity.linkactivity;
 
-public class IOExceptionSQL extends Exception {
+import java.sql.SQLException;
+
+public class IOExceptionSQL extends SQLException {
 
     public IOExceptionSQL(){
         super();

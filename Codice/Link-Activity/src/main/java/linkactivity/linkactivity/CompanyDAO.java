@@ -23,7 +23,7 @@ public class CompanyDAO {
         }
     return company;}
 
-    private CompanyModel createCompany(ResultSet resultSet) throws IOExceptionSQL, SQLException {
+    private CompanyModel createCompany(ResultSet resultSet) throws SQLException {
         String email =resultSet.getString(COMPANY_EMAIL);
         String nomeAzienda =resultSet.getString(COMPANY_NOME);
 
