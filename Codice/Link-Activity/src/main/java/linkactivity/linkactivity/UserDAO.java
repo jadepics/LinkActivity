@@ -21,7 +21,7 @@ public class UserDAO {
 
             }
         } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
+            sqlException.getErrorCode();
         }
         return user;}
 

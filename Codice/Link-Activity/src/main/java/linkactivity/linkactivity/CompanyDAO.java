@@ -8,7 +8,7 @@ public class CompanyDAO {
     private static final String COMPANY_EMAIL="email";
     private static final String COMPANY_NOME ="nomeAzienda";
 
-    public CompanyModel loadCompany(String nomeAzienda){
+    public CompanyModel loadCompany(String nomeAzienda) throws IOExceptionSQL {
         Connection myConnection = DBConnection.getDBConnection();
     CompanyModel company= null;
         try {
@@ -19,17 +19,17 @@ public class CompanyDAO {
                 company = createCompany(resultSet);
             }
         } catch (SQLException sqlException) {
-            sqlException.printStackTrace();
+            throw new IOExceptionSQL("");
         }
     return company;}
 
-    private CompanyModel createCompany(ResultSet resultSet) throws SQLException{
+    private CompanyModel createCompany(ResultSet resultSet) throws IOExceptionSQL, SQLException {
         String email =resultSet.getString(COMPANY_EMAIL);
         String nomeAzienda =resultSet.getString(COMPANY_NOME);
 
         return new CompanyModel(email, nomeAzienda);
     }
-    public void newCompany(String userEmail, String username, String userPass) {
+    public void newCompany(String userEmail, String username, String userPass) throws IOExceptionSQL {
         Connection myConnection = DBConnection.getDBConnection();
         try(PreparedStatement statement =myConnection.prepareStatement("INSERT INTO azienda_u(NomeAzienda, Email, Password) VALUES (?,?,?);")){
             statement.setString(1, username);
@@ -37,7 +37,7 @@ public class CompanyDAO {
             statement.setString(3, userPass);
             statement.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new IOExceptionSQL("error");
         }
     }
 

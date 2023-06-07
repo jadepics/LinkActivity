@@ -38,7 +38,7 @@ public class EventDAO {
                 resultList.add(x);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         }
 
         return resultList;

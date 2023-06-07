@@ -124,13 +124,13 @@ public class EventCreateSecondViewGraphicController {
     public void currentCompany(CompanyBean x){
         y=x;
     }
-    private static int convert1(String s){
+    private static int convert1(String s) throws IOExceptionHandler {
         int val=0;
         try {
             val = Integer.parseInt(s);
         }
         catch (NumberFormatException e) {
-            e.printStackTrace();
+            throw new IOExceptionHandler();
         }
         return val;
     }

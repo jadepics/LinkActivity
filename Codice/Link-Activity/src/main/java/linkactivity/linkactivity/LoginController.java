@@ -26,7 +26,7 @@ public class LoginController {
                         userDAO.newUser(userBean.getUserEmail(),userBean.getUsername(),userBean.getUserPass());
         }
 
-                public void companyRegister(CompanyBean companyBean) {
+                public void companyRegister(CompanyBean companyBean) throws IOExceptionSQL {
                         CompanyDAO companyDAO = new CompanyDAO();
                         companyDAO.newCompany(companyBean.getEmail(),companyBean.getNomeAzienda(),companyBean.getPassword());
         }
