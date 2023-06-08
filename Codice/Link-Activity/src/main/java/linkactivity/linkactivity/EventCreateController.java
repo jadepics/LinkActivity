@@ -11,7 +11,7 @@ public class EventCreateController {
             UserDAO userDAO = new UserDAO();
             EventDAO eventDAO = new EventDAO();
             EventModel addEvent;
-            CompanyModel company =companyDAO.loadCompany(createEBean.nomeAzienda);
+            CompanyModel company =companyDAO.loadCompany(createEBean.getNomeAzienda());
             String companyMail = company.getCompanyEmail();
 
 
@@ -19,7 +19,7 @@ public class EventCreateController {
 
              List <UserBean> userBeans = new ArrayList<>();
             List <UserModel> userModels;
-            userModels=userDAO.loadUserFromFavoriteTag(createEBean.tag); //sempre per observer da DAO
+            userModels=userDAO.loadUserFromFavoriteTag(createEBean.getTag());
              for(UserModel userModel : userModels){
              userBeans.add(new UserBean(userModel.getEmail()));}
             addEvent = new EventModel(createEBean.getEventName(),createEBean.getDescription(), createEBean.getDataEvento(), createEBean.getExpirationDate(), createEBean.getPartecipantNumber(), createEBean.getNomeAzienda(), createEBean.getTag());
