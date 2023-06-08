@@ -3,12 +3,9 @@ package test;
 import linkactivity.linkactivity.CompanyBean;
 import linkactivity.linkactivity.EventCreateController;
 import linkactivity.linkactivity.IOExceptionHandler;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class TestRedeemCouponController {
 

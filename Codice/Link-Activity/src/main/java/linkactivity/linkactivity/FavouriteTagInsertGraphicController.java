@@ -50,7 +50,7 @@ public class FavouriteTagInsertGraphicController {
         LoginController loginController= new LoginController();
 
             loginController.userAddTag(userBean0, favouriteTagInsert.getValue());
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("CareerBona.fxml")));
+                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Dashboard.fxml")));
                 Scene scene = new Scene(root,690, 518);
                 Stage stage = (Stage) gotodashboardButton.getScene().getWindow();
                 stage.setScene(scene);

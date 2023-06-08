@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class CareerBonaGraphicController implements Initializable {
+public class DashboardGraphicController implements Initializable {
 
     @FXML
     private Button backButton6;

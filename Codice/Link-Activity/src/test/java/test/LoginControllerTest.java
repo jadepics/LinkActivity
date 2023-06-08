@@ -1,6 +1,7 @@
 package test;
 
 import linkactivity.linkactivity.*;
+import linkactivity.linkactivity.LoginController;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
