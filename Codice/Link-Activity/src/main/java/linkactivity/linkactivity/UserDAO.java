@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-    private static final String USER_EMAIL="email";
+    private static final String USER_EMAIL="Email";
 
 
 
@@ -38,7 +38,7 @@ public class UserDAO {
             statement.setString(3, userPass);
             statement.execute();
         } catch (SQLException ex) {
-            throw new IOExceptionSQL();
+            throw new IOExceptionSQL("user existing yet");
         }
 
     }

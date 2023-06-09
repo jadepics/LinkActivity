@@ -9,7 +9,7 @@ public class UserBean {
     private String userPass;
 
 public UserBean(String email){
-    //UserBean email method
+    this.setUserEmail(email);
 }
 
 

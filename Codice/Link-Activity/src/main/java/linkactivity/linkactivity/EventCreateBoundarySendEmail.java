@@ -14,7 +14,7 @@ public class EventCreateBoundarySendEmail implements Observer {
    private String aziendaMail;
    private List<UserBean> userBeanList;
 
-    public EventCreateBoundarySendEmail(EventBean eventBean, String aziendaMail){
+    public EventCreateBoundarySendEmail(EventBean eventBean, String aziendaMail /*,List <UserBean> userBeanList*/){
         this.eventBean = eventBean;
         this.eventBean.attach(this);    //perchè
         this.aziendaMail = aziendaMail;
