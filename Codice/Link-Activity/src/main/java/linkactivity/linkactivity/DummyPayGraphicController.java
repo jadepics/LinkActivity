@@ -112,6 +112,10 @@ public class DummyPayGraphicController {
         eventCreateController.addPoints(y,"add");
         paymentButton.setDisable(true);
         applyCouponButton.setDisable(true);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Event creation successfully completed");
+        alert.showAndWait();
+        backToEventCreate();
     }
 
     @FXML
