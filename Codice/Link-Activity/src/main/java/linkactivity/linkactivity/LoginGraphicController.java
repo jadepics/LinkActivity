@@ -83,7 +83,6 @@ public class LoginGraphicController {
         } else {
             if (userRB.isSelected()) {
                 UserBean userBean = new UserBean(emailUsernameLogin.getText(), passLogin.getText());
-                System.out.println("dummy test");
                 i = new LoginController().loginUser(userBean);
             } else if (companyRB.isSelected()) {
                 CompanyBean companyBean = new CompanyBean(emailUsernameLogin.getText(), passLogin.getText());
